@@ -1,0 +1,178 @@
+"Version 3"
+
+@startuml
+
+class Policia{
+- cantidadArrestos
+- cantidadIngresos
+- grado
+
+/'+ dormir()'/
++ entrarAEdificio(indiceEdificio, delincuente)
++ viajar(desde, hasta)
++ recibirHerida()
++ emitirOrdenArresto()
+}
+
+/'note left of Policia::viajar
+
+end note'/
+
+/'class policiaNovato{
+
+}
+
+class policiaDetective{
+
+}
+
+class policiaInvestigador{
+
+}
+
+class policiaSargento{
+
+}
+
+class Mapa{
+
+}
+
+class ObjetoRobado{
+
+}
+
+'/
+
+/'note right of Policia
+ciudadActual.EntrarAEdificio(indiceEdificio,delincuente)
+end note'/
+
+interface pista{
+/'-textosHardcodeadosParaTipoDeEdificio: String[]'/
+
++crearPista(delincuente, ciudad, tipoEdificio)
+}
+
+class NPC{
+
+}
+
+class Viaje{
+
+}
+
+class Ciudad{
+-poblacion:string
+-bandera:string
+-moneda:string
+-idioma:string
+-contadorVisitaEdificio: int
+
++entrarAEdificio(indiceEdificio, delincuente)
+}
+
+class Horario{
+-dia
+-hora
+
++actualizarHora(cantidad)
+}
+
+interface Edificio{
++ MostrarPista()
+}
+
+class Banco{
+
+MostrarPista()
+}
+class AlgoThief{
++ iniciarJuego()
++ cambiarGradoPolicia()
+/'+ actualizarHorario()'/
+}
+
+note left of AlgoThief
+horarioActual.ActualizarHora()
+end note
+
+note right of AlgoThief::cambiarGradoPolicia
+Rookie (1 case, 5 cities)
+Sleuth (3 cases, 5 cities)
+Private Eye (4 cases, 6 cities)
+Investigator (5 cases, 6 cities)
+Ace Detective (10 cases, 7/8 cities)
+end note
+
+/'note right of Delincuente
+La creacion de un delincuente depende
+del valor de un objeto, y el valor de
+un objeto depende del grado del policia.
+end note'/
+
+note right of Horario
+Si son de 22hs hasta las 7am,
+dormir 8hs.
+end note
+
+note left of Horario::actualizarHora
+
+-Depende de la velocidad del policia
+-Depende si cae en horario de dormir
+-Depende de la distancia del viaje
+
+end note
+
+note right of pista::crearPista
+Crea la pistas dentro del contexto
+de iniciarJuego() en AlgoThief
+end note
+
+class Museo{
++ MostrarPista()
+}
+
+class Puerto{
++ MostrarPista()
+}
+
+/'interface Arma{
++herirJugador()
+}
+
+class ArmaBlanca{
++herirJugador()
+}
+
+class ArmaDeFuego{
++herirJugador()
+}'/
+
+class Delincuente{
++atacar()
+}
+
+Museo ..|> Edificio
+Banco ..|> Edificio
+Puerto ..|> Edificio
+AlgoThief --> Policia
+/'Policia --|> Horario'/
+AlgoThief --> Horario
+
+Policia --> Ciudad
+
+AlgoThief --> pista
+
+Ciudad "1" --> "3" Edificio
+/'Policia --|> Delincuente'/
+/'Delincuente --|> Ciudad'/
+AlgoThief --> Delincuente
+
+Delincuente --> Ciudad
+
+/'Delincuente --> Arma
+ArmaBlanca ..|> Arma
+ArmaDeFuego ..|> Arma'/
+
+@enduml
