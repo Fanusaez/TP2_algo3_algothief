@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title: inicializacionDeAlgoThief
+
+
+autonumber
+
+Actor --> AlgoThief: iniciarJuego(String pathFile)
+
+
+create Mapa
+AlgoThief -> Mapa : create(String pathFile)
+Mapa --> Mapa : abrirArchivo
+
+note over Mapa: se parsea el archivo y se hace un listado * es un loop *
+create Ciudad
+Mapa -> Ciudad : create
+
+/'
+AlgoThief --> AcademiaPolicia : crearPolicia(mapa)
+AcademiaPolicia --> AlgoThief : unPoliciaNovato
+'/
+
+create PoliciaNovato
+AlgoThief -> PoliciaNovato : create (mapa)
+
+create Delincuente
+AlgoThief -> Delincuente: create (Novato, mapa)
+AlgoThief -> Delincuente : obtenerReccorrido()
+Delincuente -> Mapa : dameUnRecorridoRandom(cantidad)
+
+
+/'Delincuente --> PoliciaNovato : crearDelincuente'/
+
+/'create ObjetoRobado
+Delincuente -> ObjetoRobado: create (ObjetoComun)'/
+
+Delincuente --> AlgoThief
+
+
+
+@enduml
+
+

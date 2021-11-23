@@ -2,48 +2,42 @@
 
 @startuml
 
-class Policia{
-- cantidadArrestos
+class AlgoThief{
+
++ iniciarJuego()
+/'+ actualizarHorario()'/
+}
+
+abstract class Policia{
 - cantidadIngresos
-- grado
+- cantidadArrestos
+
 
 /'+ dormir()'/
 + entrarAEdificio(indiceEdificio, delincuente)
 + viajar(desde, hasta)
 + recibirHerida()
 + emitirOrdenArresto()
-}
-
-
-class policiaNovato{
+{abstract} +ascender()
 
 }
 
-class policiaDetective{
-
+class PoliciaNovato{
++ascender()
 }
 
-class policiaInvestigador{
+note right of PoliciaNovato::ascender
+ return PoliciaDetective new;
+end note
 
+class PoliciaDetective{
 }
 
-class policiaSargento{
-
+class PoliciaInvestigador{
 }
 
-class Mapa{
-
+class PoliciaSargento{
 }
-
-class ObjetoRobado{
-
-}
-
-
-
-/'note right of Policia
-ciudadActual.EntrarAEdificio(indiceEdificio,delincuente)
-end note'/
 
 interface pista{
 /'-textosHardcodeadosParaTipoDeEdificio: String[]'/
@@ -84,22 +78,16 @@ class Banco{
 
 MostrarPista()
 }
-class AlgoThief{
-+ iniciarJuego()
-+ cambiarGradoPolicia()
-/'+ actualizarHorario()'/
-}
 
 note left of AlgoThief
 horarioActual.ActualizarHora()
 end note
 
-note right of AlgoThief::cambiarGradoPolicia
-Rookie (1 case, 5 cities)
-Sleuth (3 cases, 5 cities)
-Private Eye (4 cases, 6 cities)
-Investigator (5 cases, 6 cities)
-Ace Detective (10 cases, 7/8 cities)
+note right of AcademiaPolicias::crearDenunciaRobo
+cantiradArrestos = 0-3 -> Comunes: 4 paises.
+cantiradArrestos = 3-5 ->Valiosos: 5 paises.
+cantiradArrestos = 5-inf -> Muy Valiosos: 7 paises.
+
 end note
 
 /'note right of Delincuente
@@ -108,30 +96,19 @@ del valor de un objeto, y el valor de
 un objeto depende del grado del policia.
 end note'/
 
-note right of Horario
-Si son de 22hs hasta las 7am,
-dormir 8hs.
-end note
-
-note left of Horario::actualizarHora
-
--Depende de la velocidad del policia
--Depende si cae en horario de dormir
--Depende de la distancia del viaje
-
-end note
-
 note right of pista::crearPista
 Crea la pistas dentro del contexto
 de iniciarJuego() en AlgoThief
 end note
 
-class Museo{
-+ MostrarPista()
-}
 
 class Puerto{
 + MostrarPista()
+}
+
+class Computadora{
++buscarSospechosos()
++emitirOrdenArresto()
 }
 
 /'interface Arma{
@@ -157,7 +134,12 @@ AlgoThief --> Policia
 /'Policia --|> Horario'/
 AlgoThief --> Horario
 
+
 Policia --> Ciudad
+Policia --> PoliciaNovato
+Policia --> PoliciaDetective
+Policia --> PoliciaSargento
+Policia --> PoliciaInvestigador
 
 AlgoThief --> pista
 
@@ -173,3 +155,5 @@ ArmaBlanca ..|> Arma
 ArmaDeFuego ..|> Arma'/
 
 @enduml
+
+

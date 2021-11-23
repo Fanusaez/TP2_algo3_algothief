@@ -12,7 +12,7 @@ create Mapa
 AlgoThief -> Mapa : create(String pathFile)
 Mapa --> Mapa : abrirArchivo
 
-note over Mapa: se parsea el archivo y se hace un listado
+note over Mapa: se parsea el archivo y se hace un listado * es un loop *
 create Ciudad
 Mapa -> Ciudad : create
 
@@ -20,12 +20,11 @@ Mapa -> Ciudad : create
 AlgoThief --> Mapa: getCiudadAleatoria()
 Mapa --> AlgoThief : unaCiudad
 
+AlgoThief --> AcademiaPolicia : crearPolicia(1)
+AcademiaPolicia --> AlgoThief : unPoliciaNovato
+
 create PoliciaNovato
 AlgoThief -> PoliciaNovato : create (unaCiudad)
-
-AlgoThief -> PoliciaNovato : getGrado()
-note over PoliciaNovato: Esto viola encapsulamiento
-PoliciaNovato -> AlgoThief : Novato
 
 create Delincuente
 AlgoThief -> Delincuente: create (Novato)

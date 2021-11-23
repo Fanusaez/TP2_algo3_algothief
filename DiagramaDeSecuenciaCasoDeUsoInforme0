@@ -6,21 +6,13 @@ title: testEntrarAEdificioYAvanzarHoras
 autonumber
 
 AlgoThief -> Policia:entrarAEdificio(indice)
-Policia --> Ciudad: entrarAEdificio(indice)
-Ciudad --> Edificio: pista()
+Policia -> Ciudad: entrarAEdificio(indice)
+Ciudad -> Edificio: pista()
+note right : Se muestra el texto de la pista por pantalla
 Ciudad --> Policia: cantidadDeHoras
-/'Edificio --> Delincuente: ciudadPista()'/
-/'Delincuente -->Edificio: pista'/
-
-
-
-
 AlgoThief <-- Policia: cantidadHoras
 
-
-
-
-AlgoThief --> Reloj : avanzarHoras(cantidadDeHoras)
-Reloj --> Reloj : avanzarDias()
+AlgoThief -> Reloj : avanzarHoras(cantidadDeHoras)
+Reloj -> Reloj : avanzarDias()
 
 @enduml
