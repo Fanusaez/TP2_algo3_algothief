@@ -17,8 +17,8 @@ create Ciudad
 Mapa -> Ciudad : create
 
 /'
-AlgoThief --> AcademiaPolicia : crearPolicia(mapa)
-AcademiaPolicia --> AlgoThief : unPoliciaNovato
+clases.AlgoThief --> AcademiaPolicia : crearPolicia(mapa)
+AcademiaPolicia --> clases.AlgoThief : unPoliciaNovato
 '/
 
 create PoliciaNovato

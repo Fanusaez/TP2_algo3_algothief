@@ -2,56 +2,81 @@
 
 @startuml
 
+/' ********** CLASES ********** '/
+
 class AlgoThief{
+-cantidadArrestos
 
 + iniciarJuego()
-/'+ actualizarHorario()'/
++ actualizarHora(int horas)
++ mostrarOpcionesViaje()
++ entrarAEdificio()
++ capturaDelicuente()
++ viajarA(destino)
+}
+
+class Mapa{
+-ciudadesRecorridasPorDelicuente
+-ciudadesNoRecorridasPorDelincuente
+
++ mostrarOpcionesViaje()
++crearCiudades(string nombreArchivo)
+
 }
 
 abstract class Policia{
-- cantidadIngresos
-- cantidadArrestos
+- ciudadActual
 
 
-/'+ dormir()'/
-+ entrarAEdificio(indiceEdificio, delincuente)
-+ viajar(desde, hasta)
-+ recibirHerida()
-+ emitirOrdenArresto()
-{abstract} +ascender()
++ entrarAEdificio(indiceEdificio)
++ viajarA(destino) : int
+{abstract} +ascender(cantidadArrestos)
 
 }
 
 class PoliciaNovato{
-+ascender()
+-velocidad
++ascender(cantidadArrestos)
 }
 
-note right of PoliciaNovato::ascender
- return PoliciaDetective new;
-end note
-
 class PoliciaDetective{
+-velocidad
++ascender(cantidadArrestos)
 }
 
 class PoliciaInvestigador{
+-velocidad
++ascender(cantidadArrestos)
 }
 
 class PoliciaSargento{
+-velocidad
++ascender(cantidadArrestos)
 }
 
-interface pista{
-/'-textosHardcodeadosParaTipoDeEdificio: String[]'/
+class Delincuente{
+-sexo
+-hobby
+-colorPelo
+-vehiculo
+-senia
 
-+crearPista(delincuente, ciudad, tipoEdificio)
++generarPista()
++realizarRecorrido(mapa, cantidadCiudadesARecorrer)
++atacar()
 }
 
+/'
 class NPC{
 
 }
+'/
 
 class Viaje{
 
+{static} +calcularTiempo(desde, hasta, velocidad) : (int horas)
 }
+
 
 class Ciudad{
 -poblacion:string
@@ -60,7 +85,7 @@ class Ciudad{
 -idioma:string
 -contadorVisitaEdificio: int
 
-+entrarAEdificio(indiceEdificio, delincuente)
++entrarAEdificio(indiceEdificio)
 }
 
 class Horario{
@@ -71,47 +96,40 @@ class Horario{
 }
 
 interface Edificio{
+
 + MostrarPista()
++ setPista(caracteristicaCiudadSiguiente, caracteristicaDelincuente)
 }
 
 class Banco{
-
-MostrarPista()
+-pista
++ MostrarPista()
 }
 
-note left of AlgoThief
-horarioActual.ActualizarHora()
-end note
-
-note right of AcademiaPolicias::crearDenunciaRobo
-cantiradArrestos = 0-3 -> Comunes: 4 paises.
-cantiradArrestos = 3-5 ->Valiosos: 5 paises.
-cantiradArrestos = 5-inf -> Muy Valiosos: 7 paises.
-
-end note
-
-/'note right of Delincuente
-La creacion de un delincuente depende
-del valor de un objeto, y el valor de
-un objeto depende del grado del policia.
-end note'/
-
-note right of pista::crearPista
-Crea la pistas dentro del contexto
-de iniciarJuego() en AlgoThief
-end note
-
-
 class Puerto{
+-pista
++ MostrarPista()
+}
+
+class Museo{
+-pista
 + MostrarPista()
 }
 
 class Computadora{
+-sexosPosibles : list
+-hobbysPosibles : list
+-vehiculosPosibles : list
+-colorPeloPosibles : list
+-seniasPosibles : list
+-listaDelincuentes : list
+
++seleccionarOpcion()
 +buscarSospechosos()
-+emitirOrdenArresto()
+-emitirOrdenArresto()
 }
 
-/'interface Arma{
+interface Arma{
 +herirJugador()
 }
 
@@ -121,39 +139,81 @@ class ArmaBlanca{
 
 class ArmaDeFuego{
 +herirJugador()
-}'/
-
-class Delincuente{
-+atacar()
 }
+
+/' ********** DEPENDENCIAS ********** '/
+
+AlgoThief --> Policia
+AlgoThief --> Horario
+AlgoThief --> Delincuente
+AlgoThief --> Mapa
+AlgoThief --> Computadora
+
+Mapa "1" --> "*" Ciudad
 
 Museo ..|> Edificio
 Banco ..|> Edificio
 Puerto ..|> Edificio
-AlgoThief --> Policia
-/'Policia --|> Horario'/
-AlgoThief --> Horario
-
 
 Policia --> Ciudad
-Policia --> PoliciaNovato
-Policia --> PoliciaDetective
-Policia --> PoliciaSargento
-Policia --> PoliciaInvestigador
+Policia --> Mapa
+Policia --> Viaje
+PoliciaNovato ..|> Policia
+PoliciaDetective ..|> Policia
+PoliciaSargento ..|> Policia
+PoliciaInvestigador ..|> Policia
 
-AlgoThief --> pista
+Delincuente ..> Mapa
+Delincuente --> Arma
+
+ArmaBlanca ..|> Arma
+ArmaDeFuego ..|> Arma
+
 
 Ciudad "1" --> "3" Edificio
-/'Policia --|> Delincuente'/
-/'Delincuente --|> Ciudad'/
-AlgoThief --> Delincuente
 
-Delincuente --> Ciudad
+/' ********** NOTAS ********** '/
 
-/'Delincuente --> Arma
-ArmaBlanca ..|> Arma
-ArmaDeFuego ..|> Arma'/
+/'
+note right of PoliciaNovato::ascender
+if cantidadArrestos = cantidadNecesariaParaAscender:
+   return PoliciaDetective new
+return self
+end note
+'/
+
+
+/'note right of Delincuente
+La creacion de un delincuente depende
+del valor de un objeto, y el valor de
+un objeto depende del grado del policia.
+end note'/
+
+/'
+public enum casosDeAscenso
+{
+    0, 5, 10, 20
+}
+
+if cantidadArrestos in casosDeAscenso:
+    POLICIA = POLICIA.ASCENDER()
+
+'/
+/'
+note right of clases.AlgoThief::entrarAEdificio
+entrarAEdificio():
+    if delincuente.ciudad == policia.ciudad:
+        horario.actualizarHora(delincuente.atacar())
+end note
+'/
 
 @enduml
+
+polcia.estaEnCiudadDelincuente(delincuente)
+
+en estaEnCiudadDelincuente:
+    if delincuente.estaAca(ciudadActual)
+
+
 
 
