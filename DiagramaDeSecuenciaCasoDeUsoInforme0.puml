@@ -4,15 +4,21 @@ title: testEntrarAEdificioYAvanzarHoras
 
 
 autonumber
+actor ->AlgoThief
+AlgoThief -> Policia:cantidadDeEntradas(indice)
+Policia -> Ciudad: cantidadDeEntradas(indice)
 
-AlgoThief -> Policia:entrarAEdificio(indice)
-Policia -> Ciudad: entrarAEdificio(indice)
-Ciudad -> Edificio: pista()
 note right : Se muestra el texto de la pista por pantalla
 Ciudad --> Policia: cantidadDeHoras
 AlgoThief <-- Policia: cantidadHoras
 
 AlgoThief -> Reloj : avanzarHoras(cantidadDeHoras)
-Reloj -> Reloj : avanzarDias()
 
+AlgoThief->Policia :consultarPista()
+Policia -> Ciudad : consultarPista()
+Ciudad -> Edificio: pista()
+Ciudad <-- Edificio: pista
+Policia <-- Ciudad: pista
+AlgoThief <--Policia : pista
+actor <--AlgoThief :pista
 @enduml
