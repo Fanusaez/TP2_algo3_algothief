@@ -7,7 +7,18 @@ import javafx.stage.Stage;
 
 public class StartGameScene extends Scene {
 
-    public StartGameScene(Stage window) {
-        super(new StartGameLayout(window),640,480);
+    StartGameLayout startGameLayout;
+
+    public StartGameScene(Stage window, StartGameLayout startGameLayout) {
+        super(startGameLayout,640,480);
+        this.startGameLayout = startGameLayout;
+    }
+
+    public StartGameLayout getStartGameLayout() {
+        return startGameLayout;
+    }
+
+    public void setStartGameLayout(StartGameLayout startGameLayout) {
+        this.startGameLayout = startGameLayout;
     }
 }

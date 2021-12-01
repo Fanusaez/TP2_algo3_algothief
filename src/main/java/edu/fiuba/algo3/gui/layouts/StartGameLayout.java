@@ -10,25 +10,22 @@ import javafx.stage.Stage;
 
 public class StartGameLayout extends VBox {
 
-    private String pista;
+    private Label labelVariable;
+
     public StartGameLayout(Stage window) {
 
-        Label label = new Label("Juego!!!");
-
-        Text t = new Text(pista);
+        Label label = new Label("Juego");
+        labelVariable = new Label("");
 
         Button button = new Button("Se cierra!");
         button.setOnAction(e->{window.close();});
 
-        getChildren().addAll(label,t,button);
+        getChildren().addAll(label,labelVariable,button);
 
     }
 
-    public String getPista() {
-        return pista;
-    }
+    public void setTextoVariable(String textoVariable) {
 
-    public void setPista(String pista) {
-        this.pista = pista;
+        this.labelVariable.setText(textoVariable);
     }
 }
