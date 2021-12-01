@@ -20,12 +20,12 @@ class Mapa{
 -ciudadesNoRecorridasPorDelincuente
 
 + mostrarOpcionesViaje()
-+crearCiudades(string nombreArchivo)
-
++ crearCiudades(string nombreArchivo)
++ distribuirCiudadesRecorridasNoRecorridas(cantidadCiudades: int)
++ crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
 }
 
 abstract class Policia{
-- ciudadActual
 
 
 + entrarAEdificio(indiceEdificio)
@@ -36,21 +36,25 @@ abstract class Policia{
 
 class PoliciaNovato{
 -velocidad
+-cantidadNecesariaParaAscender
 +ascender(cantidadArrestos)
 }
 
 class PoliciaDetective{
 -velocidad
+-cantidadNecesariaParaAscender
 +ascender(cantidadArrestos)
 }
 
 class PoliciaInvestigador{
 -velocidad
+-cantidadNecesariaParaAscender
 +ascender(cantidadArrestos)
 }
 
 class PoliciaSargento{
 -velocidad
+-cantidadNecesariaParaAscender
 +ascender(cantidadArrestos)
 }
 
@@ -61,8 +65,7 @@ class Delincuente{
 -vehiculo
 -senia
 
-+generarPista()
-+realizarRecorrido(mapa, cantidadCiudadesARecorrer)
++generarPista(cantidadArrestos):List<List<String>>
 +atacar()
 }
 
@@ -86,6 +89,7 @@ class Ciudad{
 -contadorVisitaEdificio: int
 
 +entrarAEdificio(indiceEdificio)
++ generarPistaCiudad(ciudadSiguiente: Ciudad, listaDePistasDelincuenteCiudad: List<String>)
 }
 
 class Horario{
@@ -98,22 +102,22 @@ class Horario{
 interface Edificio{
 
 + MostrarPista()
-+ setPista(caracteristicaCiudadSiguiente, caracteristicaDelincuente)
++ {abstract} generarPistaEdificio(ciudadSiguiente,string)
 }
 
 class Banco{
 -pista
-+ MostrarPista()
++ generarPistaEdificio(ciudadSiguiente,string)
 }
 
 class Puerto{
 -pista
-+ MostrarPista()
++ generarPistaEdificio(ciudadSiguiente,string)
 }
 
 class Museo{
 -pista
-+ MostrarPista()
++ generarPistaEdificio(ciudadSiguiente,string)
 }
 
 class Computadora{
@@ -163,7 +167,6 @@ PoliciaDetective ..|> Policia
 PoliciaSargento ..|> Policia
 PoliciaInvestigador ..|> Policia
 
-Delincuente ..> Mapa
 Delincuente --> Arma
 
 ArmaBlanca ..|> Arma
@@ -174,13 +177,13 @@ Ciudad "1" --> "3" Edificio
 
 /' ********** NOTAS ********** '/
 
-/'
-note right of PoliciaNovato::ascender
+
+note left of PoliciaNovato::ascender
 if cantidadArrestos = cantidadNecesariaParaAscender:
    return PoliciaDetective new
 return self
 end note
-'/
+
 
 
 /'note right of Delincuente
