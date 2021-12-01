@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         window = stage;
-        MainMenuScene mainMenu = new MainMenuScene(window,new StartGameScene());
+        MainMenuScene mainMenu = new MainMenuScene(window,new StartGameScene(window));
         window.setScene(mainMenu);
         window.show();
     }
