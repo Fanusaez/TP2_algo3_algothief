@@ -14,7 +14,7 @@ public class Reloj {
     }
 
     public String obtenerHorario() {
-        DateTimeFormatter df = DateTimeFormatter.ofPattern("EEEE HH:mm"); //.withLocale( Locale.ENGLISH );
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("EEEE HH:mm").withLocale( Locale.ENGLISH );
         return this.dateTime.format(df);
     }
 

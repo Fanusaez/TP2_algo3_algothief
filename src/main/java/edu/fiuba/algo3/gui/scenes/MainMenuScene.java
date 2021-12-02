@@ -11,8 +11,6 @@ import javafx.stage.Stage;
 
 public class MainMenuScene extends Scene {
 
-    VBox layout;
-
     public MainMenuScene(Stage window,StartGameScene startGameScene) {
         super(new MainMenuLayout(window,startGameScene), 640,480);
     }
