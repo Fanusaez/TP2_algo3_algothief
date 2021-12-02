@@ -5,23 +5,30 @@ import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class AlgoThief{
     private Policia policia;
     private Reloj reloj;
+    private ArrayList<Ciudad> ciudades;
+    private Mapa mapa;
 
     public AlgoThief()
     {
         this.policia = new Policia();
         this.reloj = new Reloj();
+        this.mapa = new Mapa(rutaArchivoCiudades);
     }
 
     public String obtenerHorario(){
+
         return this.reloj.obtenerHorario();
     }
 
-    public String entrarAEdificio() {
+    public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.cantidadDeEntradas());
-        return consultarPista();
+        return policia.entrarAEdificio(indice);
     }
 
     private String consultarPista() {

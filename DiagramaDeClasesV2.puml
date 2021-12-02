@@ -92,11 +92,10 @@ class Ciudad{
 + generarPistaCiudad(ciudadSiguiente: Ciudad, listaDePistasDelincuenteCiudad: List<String>)
 }
 
-class Horario{
--dia
--hora
+class Reloj{
 
-+actualizarHora(cantidad)
++aumentarHoras(int:aumento)
++obtenerHorario()
 }
 
 interface Edificio{
@@ -148,7 +147,7 @@ class ArmaDeFuego{
 /' ********** DEPENDENCIAS ********** '/
 
 AlgoThief --> Policia
-AlgoThief --> Horario
+AlgoThief --> Reloj
 AlgoThief --> Delincuente
 AlgoThief --> Mapa
 AlgoThief --> Computadora

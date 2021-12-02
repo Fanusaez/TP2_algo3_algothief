@@ -22,7 +22,7 @@ public class App extends Application {
     public void start(Stage stage) {
         System.out.println("Inicializacion");
         window = stage;
-        algoThief = new AlgoThief();
+        algoThief = new AlgoThief("fdsfsd");
 
         // Comienza el juego
         startGameLayout = new StartGameLayout(window);

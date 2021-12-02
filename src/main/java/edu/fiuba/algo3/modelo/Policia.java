@@ -9,10 +9,8 @@ public class Policia {
         this.pista = "No estuvo aquí";
     }
 
-    public int entrarAEdificio() {
-        //System.out.println(this.pista);
-
-        return this.ciudadActual.entrarAEdificio();
+    public String entrarAEdificio(int indice) {
+        return this.ciudadActual.entrarAEdificio(indice);
     }
 
     public int cantidadDeEntradas() {

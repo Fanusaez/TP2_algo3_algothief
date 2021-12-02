@@ -27,11 +27,14 @@ public class TestReloj {
 
         Reloj reloj = new Reloj();
 
-        for(int i = 0; i < 18; i++){
-            reloj.aumentarHoras(1);
-        }
+        reloj.aumentarHoras(18);
 
         assertEquals("Tuesday 09:00",reloj.obtenerHorario() );
+    }
+
+    @Test
+    public void TestAumentarHorarioDespuesDomingo17HorasLanzaError(){
+
     }
 
 }
