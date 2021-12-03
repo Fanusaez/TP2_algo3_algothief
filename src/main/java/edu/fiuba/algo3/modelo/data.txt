@@ -198,8 +198,7 @@ City:        Montreal
 Flag:        Maple Leaf Flag
 Currency:    ???
 Geography:   ???
-Landmarks:   Gaspe Peninsula, Lake Mistassini, Montgomery Falls, Prince Edward
-             Island, Yukon
+Landmarks:   Gaspe Peninsula, Lake Mistassini, Montgomery Falls, Prince Edward Island, Yukon
 Industries:  ???
 Animals:     Moose
 People:      ???

@@ -15,10 +15,12 @@ public class AlgoThief{
     private Mapa mapa;
 
     public AlgoThief(String rutaArchivoCiudades) {
-        Ciudad ciudadInicial = new Ciudad("Buenos Aires","Gauchos","Sun Flag","Australs","???","President","???","Cattle","???","???","Former Spanish Colony","???","Parana River, Tierra del Fuego");
+
+        this.mapa = new Mapa(rutaArchivoCiudades);
+        Ciudad ciudadInicial = mapa.obtenerCiudad("Buenos Aires");//new Ciudad("city","Buenos Aires");
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
-        this.mapa = new Mapa(rutaArchivoCiudades);
+
     }
 
     public String obtenerHorario(){
