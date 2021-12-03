@@ -16,35 +16,27 @@ public class BorderPaneLayout extends BorderPane {
 
     public BorderPaneLayout(Stage window) {
         super();
-
-
         ToolBar toolbar = new ToolBar();
         Button button1 = new Button("Button 1");
         toolbar.getItems().add(button1);
         Button button2 = new Button("Button 2");
         toolbar.getItems().add(button2);
-
         HBox statusbar = new HBox();
         statusbar.getChildren().add(new Label("Hola soy un statusbar!"));
-
         VBox appContent = new VBox();
         appContent.getChildren().add(new Label("Hola soy un borderPane!"));
-
-
         ListView list = new ListView();
         list.getItems().add("Item 1");
         list.getItems().add("Item 2");
         list.getItems().add("Item 3");
         this.setAlignment(list, Pos.TOP_LEFT);
         this.setMargin(list, new Insets(12,12,12,12));
-
         ListView list2 = new ListView();
         list2.getItems().add("Item 1");
         list2.getItems().add("Item 2");
         list2.getItems().add("Item 3");
         this.setAlignment(list2, Pos.CENTER);
         this.setMargin(list2, new Insets(20,20,20,20));
-
 
         this.setRight(list2);
         this.setLeft(list);
