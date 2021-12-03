@@ -1,9 +1,12 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
 import org.junit.Test;
+import java.io.File;
 
 import static org.junit.Assert.*;
 
 public class TestAlgoThief01 {
+
+    private final String directorio = "src\\main\\java\\edu\\fiuba\\algo3\\modelo\\data.txt";
 
     @Test
     public void PruebaEntrarAEdificioPrimeraVezAumentaEnUnoHorario(){
@@ -52,7 +55,7 @@ public class TestAlgoThief01 {
     @Test
     public void PruebaEntrarAEdificioEnHorarioDeDormirAumentaOchoHoras(){
 
-        AlgoThief algoThief = new AlgoThief();
+        AlgoThief algoThief = new AlgoThief(directorio);
 
         for(int i = 0; i < 6; i++){
             algoThief.entrarAEdificio(0);

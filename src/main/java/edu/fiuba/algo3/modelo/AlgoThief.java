@@ -14,9 +14,9 @@ public class AlgoThief{
     private ArrayList<Ciudad> ciudades;
     private Mapa mapa;
 
-    public AlgoThief()
-    {
-        this.policia = new Policia();
+    public AlgoThief(String rutaArchivoCiudades) {
+        Ciudad ciudadInicial = new Ciudad("Buenos Aires","Gauchos","Sun Flag","Australs","???","President","???","Cattle","???","???","Former Spanish Colony","???","Parana River, Tierra del Fuego");
+        this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
         this.mapa = new Mapa(rutaArchivoCiudades);
     }
@@ -34,6 +34,7 @@ public class AlgoThief{
     private String consultarPista() {
         return "Una pista";
     }
+
 
 
 }
