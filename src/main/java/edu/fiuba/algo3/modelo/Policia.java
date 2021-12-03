@@ -4,9 +4,10 @@ public class Policia {
     private String pista;
     private Ciudad ciudadActual;
 
-    public Policia(){
-        this.ciudadActual = new Ciudad();
+    public Policia(Ciudad unaCiudad){
+        this.ciudadActual = unaCiudad;
         this.pista = "No estuvo aquí";
+        //ciudadActual.CANTIDAD_DE_EDIFICIOS
     }
 
     public String entrarAEdificio(int indice) {

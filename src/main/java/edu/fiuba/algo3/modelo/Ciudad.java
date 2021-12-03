@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import java.util.ArrayList;
 
 public class Ciudad {
     private Integer cantidadEntradas;

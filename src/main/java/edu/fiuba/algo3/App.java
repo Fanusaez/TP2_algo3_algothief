@@ -28,7 +28,7 @@ public class App extends Application {
         startGameLayout = new StartGameLayout(window);
         // Logica del juego
         System.out.println("Entramos a un edificio");
-        startGameLayout.setTextoVariable(this.algoThief.entrarAEdificio());
+        startGameLayout.setTextoVariable(this.algoThief.entrarAEdificio(0));
 
 
         StartGameScene startGameScene = new StartGameScene(window,startGameLayout);
