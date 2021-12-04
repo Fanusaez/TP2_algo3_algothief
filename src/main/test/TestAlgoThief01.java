@@ -1,6 +1,8 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.Delincuente;
 import org.junit.Test;
 import java.io.File;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -67,7 +69,7 @@ public class TestAlgoThief01 {
     public void PruebaEntrarAEdificioSinDelincuenteDespliegaUnaPistaDefault(){
 
         AlgoThief algoThief = new AlgoThief(directorio);
-        assertEquals("El delincuente no visito este edificio", algoThief.entrarAEdificio(0));
+        assertEquals("El delincuente no visito este edificio", algoThief.entrarAEdificio(1));
 
     }
 
@@ -90,4 +92,18 @@ public class TestAlgoThief01 {
         String pista = algoThief.entrarAEdificio(0);
     }
 
+
+
+    @Test
+    public void CreoUnAlgoThiefYMiroAlDelincuente(){
+        AlgoThief algoThief = new AlgoThief(directorio);
+        Delincuente delincuente=algoThief.obtenerDelincuente();
+        ArrayList<String> pelos = new ArrayList<String>();
+        pelos.add("Red");
+        pelos.add("Blond");
+        pelos.add("Brown");
+        pelos.add("Black");
+
+        assertTrue(pelos.contains(delincuente.obtenerDato("hair")) );
+    }
 }

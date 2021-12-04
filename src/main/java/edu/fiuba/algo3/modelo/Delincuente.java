@@ -1,13 +1,13 @@
 package edu.fiuba.algo3.modelo;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 
-public class Ciudad {
+public class Delincuente {
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
-    private HashMap <String,String> hash;
+    private HashMap<String,String> hash;
 
     /*
 
@@ -16,12 +16,7 @@ public class Ciudad {
 
     */
 
-    public Ciudad() {
-        this.cantidadEntradas = 0;
-        this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
-        this.edificios.add(new Banco());
-        this.edificios.add(new Aeropuerto());
-        this.edificios.add(new Banco());
+    public Delincuente() {
         this.hash= new HashMap<String,String>();
     }
 
@@ -48,15 +43,7 @@ public class Ciudad {
 
 
 
-    public String entrarAEdificio(int indice) {
-        return edificios.get(indice).mostrarPista();
-        //return "El delincuente no visito este edificio";
-    }
 
-    public Integer getCantidadEntradas() {
-        if (cantidadEntradas < 3){
-            this.cantidadEntradas += 1;
-        }
-        return this.cantidadEntradas;
+    public void generarPista() {
     }
 }

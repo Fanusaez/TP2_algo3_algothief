@@ -13,6 +13,8 @@ public class AlgoThief{
     private Reloj reloj;
     private ArrayList<Ciudad> ciudades;
     private Mapa mapa;
+    private Delincuente delincuente;
+    private CreadorDelincuentes creadorDeDelincuentes;
 
     public AlgoThief(String rutaArchivoCiudades) {
 
@@ -20,7 +22,7 @@ public class AlgoThief{
         Ciudad ciudadInicial = mapa.obtenerCiudad("Buenos Aires");//new Ciudad("city","Buenos Aires");
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
-
+        this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
     }
 
     public String obtenerHorario(){
@@ -34,9 +36,11 @@ public class AlgoThief{
     }
 
     private String consultarPista() {
-        return "Una pista";
+        return policia.entrarAEdificio(1);
     }
 
 
-
+    public Delincuente obtenerDelincuente() {
+        return creadorDeDelincuentes.ObtenerDelincuente();
+    }
 }
