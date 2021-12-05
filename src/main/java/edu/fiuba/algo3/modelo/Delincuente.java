@@ -7,7 +7,7 @@ public class Delincuente {
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
-    private HashMap<String,String> hash;
+    private HashMap<String,String> hashDeAtributos;
 
     /*
 
@@ -17,12 +17,13 @@ public class Delincuente {
     */
 
     public Delincuente() {
-        this.hash= new HashMap<String,String>();
+        this.hashDeAtributos= new HashMap<String,String>();
     }
 
 
+    //{Clave:valor} ---> {Pelo: Rubio}
     public void agregarDato(String clave,String valor) {
-        this.hash.put(clave,valor);
+        this.hashDeAtributos.put(clave,valor);
     }
 
     public String obtenerDato(String clave){
@@ -40,10 +41,14 @@ public class Delincuente {
         return ciudad;
     }
 
+    public String generarPista() {
 
 
+        String pista = "Tenia un auto convertible";
+        return pista;
+    }
 
-
-    public void generarPista() {
+    public int cantidadDeCiudadesRecorridas(){
+        return 4;
     }
 }

@@ -18,11 +18,30 @@ public class AlgoThief{
 
     public AlgoThief(String rutaArchivoCiudades) {
 
+        this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
+        this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
         this.mapa = new Mapa(rutaArchivoCiudades);
-        Ciudad ciudadInicial = mapa.obtenerCiudad("Buenos Aires");//new Ciudad("city","Buenos Aires");
+        this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
+        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();//new Ciudad("city","Buenos Aires");
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
-        this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
+
+
+    }
+
+    public String desplegarTextoInicial(){
+        String texto = "***FLASH***\n" +
+                "National treasure stolen from Port Moresby.\n" +
+                "The treasure has been identified as an ancient\n" +
+                "tribal totem." +
+                "Female suspect reported at the scene of the crime.\n" +
+                "Your assignment:\n" +
+                "Track the thief from Port Moresby to her\n" +
+                "hideout and arrest her!\n" +
+                "You must apprehend the thief by Sunday, 5pm.\n" +
+                "Good luck, Rookie <nombreUsuario>.\n" +
+                "\n";
+        return texto;
     }
 
     public String obtenerHorario(){
@@ -40,7 +59,7 @@ public class AlgoThief{
     }
 
 
-    public Delincuente obtenerDelincuente() {
+    /*public Delincuente obtenerDelincuente() {
         return creadorDeDelincuentes.ObtenerDelincuente();
-    }
+    }*/
 }

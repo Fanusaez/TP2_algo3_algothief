@@ -45,9 +45,6 @@ public class Ciudad {
         return ciudad;
     }
 
-
-
-
     public String entrarAEdificio(int indice) {
         return edificios.get(indice).mostrarPista();
         //return "El delincuente no visito este edificio";

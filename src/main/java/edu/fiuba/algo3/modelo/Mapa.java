@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class Mapa {
     private ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
@@ -11,9 +13,15 @@ public class Mapa {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
+        //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
 
-    public Ciudad obtenerCiudad(String nombre) {
+    public Ciudad obtenerCiudadInicial()
+    {
+        return ciudadesRecorridasPorDelincuente.get(0);
+    }
+/*
+    public Ciudad obtenerCiudadEspecifica(String nombre) {
         for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
             if (ciudad.obtenerDato("City").equals(nombre)) {
                 return ciudad;
@@ -29,7 +37,6 @@ public class Mapa {
     }
 
     public void parsearArchivo(String rutaArchivoCiudades) {
-
         // The name of the file to open.
         String fileName = rutaArchivoCiudades;
 
@@ -77,19 +84,20 @@ public class Mapa {
 
     }
 
-        public void mostrarOpcionesViaje () {
+    public void mostrarOpcionesViaje () {
 
-        }
+    }
 
     /*public ArrayList<Ciudad> crearCiudades(String nombreArchivo){
 
     }*/
 
-        public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
+    public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
 
-        }
-
-        public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
-
-        }
     }
+
+    public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
+
+
+    }
+}

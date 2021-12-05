@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class TestAlgoThief01 {
 
-    private final String directorio = "src\\main\\java\\edu\\fiuba\\algo3\\modelo\\data.txt";
+    private final String directorio = "src/main/java/edu/fiuba/algo3/modelo/data.txt";
 
     @Test
     public void PruebaEntrarAEdificioPrimeraVezAumentaEnUnoHorario(){
@@ -65,25 +65,101 @@ public class TestAlgoThief01 {
         assertEquals( "Tuesday 06:00", algoThief.obtenerHorario());
     }
 
-    @Test
+   /* @Test
     public void PruebaEntrarAEdificioSinDelincuenteDespliegaUnaPistaDefault(){
-
         AlgoThief algoThief = new AlgoThief(directorio);
         assertEquals("El delincuente no visito este edificio", algoThief.entrarAEdificio(1));
+    }*/
+//############################################################################################################
+//############################################################################################################
+//#########################|| CASOS DE USO PARA LA ENTREGA 1 ||###############################################
+//############################################################################################################
+//############################################################################################################
+
+    /*Caso de uso 1
+        Robaron el tesoro Nacional de Montreal.
+        Sospechoso femenino.
+        Detective novato comienza en Montreal.
+        Vista un Banco:
+        Se despliega una pista.
+    */
+    @Test
+    public void DesplegarTextoInicialConNombreObjetoAtributoSospechosoYAdemasVisitarUnBancoYDesplegarPista(){
+        AlgoThief algothief = new AlgoThief(directorio);
+        String texto = algothief.desplegarTextoInicial();
+        System.out.println(texto);
+
+
+        //algothief.mapa.ciudadesRecorridasPorDelincuente[1].obteneMoneda();
+        //assertSame("Cambio la moneda a" + ciudadInicial.Moneda, pista);
+
+
+        String pista = algothief.entrarAEdificio(0);
+        //assertSame("Cambio la moneda a ... ", pista);
+
 
     }
 
-    //@Test
-    //public void PruebaEntrarAEdificioQueVisitoDelincuenteDespliegaPistaEspecifica(){
-//
-    //    AlgoThief algoThief = new AlgoThief();
-    //    String pista = algoThief.entrarAEdificio(0);
-//
-//
-    //    assertNotSame("El delincuente no visito este edificio", pista);
-    //    System.out.println(pista);
-//
-    //}
+    /*
+    Caso de uso 2
+        Detective novato comienza en Montreal.
+        Vista un Banco (nuevamente):
+        Se despliega una pista
+        Vista una Biblioteca:
+        Se despliega una pista.
+    */
+    @Test
+    public void PoliciaVisitaBancoYBibliotecaYDesplieganPistas(){
+     /*   AlgoThief algothief = new AlgoThief(directorio);
+        algothief.entrarAEdificio(0);*/
+    }
+
+    /*
+    Caso de uso 3
+        Detective viaja de Montreal a México
+    */
+    @Test
+    public void PoliciaViajaDeMontrealAMexico(){
+
+    }
+
+    /*
+    Caso de uso 4
+        Vista un Aeropuerto (3 veces):
+        Se despliega una pista.
+        Vista un Puerto (55 veces):
+        Se despliega una pista.
+    */
+    @Test
+    public void PoliciaVisita3VecesAeropuertoYVisita55VecesUnPuertoYDesplieganPistas(){
+
+    }
+
+    /*
+    Caso de uso 5
+        Detective sufre una herida de cuchillo.
+        Detective duerme.
+    */
+    @Test
+    public void delincuenteAtacaAPoliciaYDespuesElPoliciaDuerme8hs(){
+
+    }
+//############################################################################################################
+//############################################################################################################
+//############################################################################################################
+//############################################################################################################
+//############################################################################################################
+
+
+    @Test
+    public void PruebaEntrarAEdificioQueVisitoDelincuenteDespliegaPistaEspecifica(){
+        AlgoThief algoThief = new AlgoThief(directorio);
+        String pista = algoThief.entrarAEdificio(0);
+
+        //Está fallando porque la ciudad actual del policia, no coincide con una ciudad donde estuvo el delincuente
+        System.out.println(pista);
+        assertNotSame("El delincuente no visito este edificio", pista);
+    }
 
     @Test
     public void PruebaEntrarAEdificioConDelincuenteAtacarPoliciaAumentaHorario(){
@@ -94,7 +170,7 @@ public class TestAlgoThief01 {
 
 
 
-    @Test
+ /*   @Test
     public void CreoUnAlgoThiefYMiroAlDelincuente(){
         AlgoThief algoThief = new AlgoThief(directorio);
         Delincuente delincuente=algoThief.obtenerDelincuente();
@@ -105,5 +181,5 @@ public class TestAlgoThief01 {
         pelos.add("Black");
 
         assertTrue(pelos.contains(delincuente.obtenerDato("hair")) );
-    }
+    }*/
 }

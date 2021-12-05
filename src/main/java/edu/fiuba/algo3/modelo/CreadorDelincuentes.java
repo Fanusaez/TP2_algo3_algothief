@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CreadorDelincuentes {
-    private Delincuente delincuenteSeleccionado;
     private ArrayList<Delincuente> sospechosos;
 
     public CreadorDelincuentes (String rutaArchivoDelincuentes) {
         sospechosos = new ArrayList<Delincuente>();
         parsearArchivo(rutaArchivoDelincuentes);
-        seleccionarDelincuenteAleatorio();
     }
 
     public void parsearArchivo(String rutaArchivoCiudadesDelincuentes){
@@ -65,17 +63,12 @@ public class CreadorDelincuentes {
 
     }
 
-    public Delincuente ObtenerDelincuente(){
-        return delincuenteSeleccionado;
-    }
-
-
-    public void seleccionarDelincuenteAleatorio(){
+    public Delincuente seleccionarDelincuenteAleatorio(){
         Random rand = new Random();
         int randomIndex = rand.nextInt(sospechosos.size());
         Delincuente delincuenteRandom = sospechosos.get(randomIndex);
-        delincuenteSeleccionado=delincuenteRandom;
-        sospechosos.remove(delincuenteRandom);
+        //sospechosos.remove(delincuenteRandom);
+        return delincuenteRandom;
 
     }
 
