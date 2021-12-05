@@ -10,10 +10,8 @@ public class Delincuente {
     private HashMap<String,String> hashDeAtributos;
 
     /*
-
     Map<String, String> map = new HashMap<String, String>();
     map.put("dog", "type of animal");
-
     */
 
     public Delincuente() {
@@ -42,7 +40,18 @@ public class Delincuente {
     }
 
     public String generarPista() {
+        //se obtiene un atributo random
+        //tenes que hacer 5 if's para ver que tipo de texto mostrar
+        /*
+            if tipoDeAtributoRandom.equals("hair"){
+                return "Tiene pelo de color" + hashMap.get(tipoDeAtributoRandom);
 
+           String atributoRandom = hashDeAtributos.Random();
+           if(atributoRandom == " "){
+
+           }elseif(atributoRandom =={
+           }
+        */
 
         String pista = "Tenia un auto convertible";
         return pista;

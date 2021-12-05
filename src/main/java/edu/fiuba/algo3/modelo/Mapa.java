@@ -47,9 +47,10 @@ public class Mapa {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            Ciudad ciudad = new Ciudad();
-            while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
 
+            Ciudad ciudad = new Ciudad();
+            while ((line = bufferedReader.readLine()) != null && !line.equals(""))
+            {
                 if (line.equals("...............................................................................")) {
                     this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
                     ciudad = new Ciudad(); //?
