@@ -31,12 +31,12 @@ public class Delincuente {
         }
         else{claveCorregida=clave.toUpperCase();}
 
-        String ciudad = this.hash.get(claveCorregida);
-        if (ciudad == null){
+        String dato = this.hashDeAtributos.get(claveCorregida);
+        if (dato == null){
             throw new ExceptionDatoNoExistente();
         }
 
-        return ciudad;
+        return dato;
     }
 
     public String generarPista() {

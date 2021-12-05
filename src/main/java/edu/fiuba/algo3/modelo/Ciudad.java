@@ -19,9 +19,9 @@ public class Ciudad {
     public Ciudad() {
         this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
-        this.edificios.add(new Banco());
         this.edificios.add(new Aeropuerto());
-        this.edificios.add(new Banco());
+        this.edificios.add(new Aeropuerto());
+        this.edificios.add(new Aeropuerto());
         this.hash= new HashMap<String,String>();
     }
 
@@ -55,5 +55,11 @@ public class Ciudad {
             this.cantidadEntradas += 1;
         }
         return this.cantidadEntradas;
+    }
+
+    public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
+        edificios.get(0).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+        edificios.get(1).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+        edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
     }
 }

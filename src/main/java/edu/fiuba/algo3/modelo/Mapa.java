@@ -35,7 +35,7 @@ public class Mapa {
         }
         throw new ExceptionCiudadNoExistente();
     }
-
+*/
     public void parsearArchivo(String rutaArchivoCiudades) {
         // The name of the file to open.
         String fileName = rutaArchivoCiudades;
@@ -84,6 +84,23 @@ public class Mapa {
 
 
     }
+    public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
+        int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(largoRecorrido);
+        for (int i = 0; i < largoRecorrido; i++){
+            ciudadesRecorridasPorDelincuente.add(ciudadesNoRecorridasPorDelincuente.get(randomIndex));
+        }
+
+        //por cada ciudad[i], acceder a edificio[j]
+
+        for (int i = 0; i < largoRecorrido-1; i++){
+            Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
+            Ciudad ciudadsiguiente = ciudadesRecorridasPorDelincuente.get(i+1);
+            ciudadanterior.generarPista(ciudadsiguiente,delincuente.generarPista()); //esto le delega a edificio
+        }
+    }
+
 
     public void mostrarOpcionesViaje () {
 

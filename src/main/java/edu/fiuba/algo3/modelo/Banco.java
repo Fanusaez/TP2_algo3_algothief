@@ -11,6 +11,6 @@ public class Banco implements Edificio{
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
-        pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency");
+        pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency")+ ". "+ laPista;
     }
 }
