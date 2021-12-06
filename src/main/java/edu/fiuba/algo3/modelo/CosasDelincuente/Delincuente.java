@@ -2,13 +2,14 @@ package edu.fiuba.algo3.modelo.CosasDelincuente;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
+import edu.fiuba.algo3.modelo.Parseable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Set;
 
-public class Delincuente {
+public class Delincuente{
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
