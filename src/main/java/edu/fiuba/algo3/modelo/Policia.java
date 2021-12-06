@@ -21,4 +21,7 @@ public class Policia {
     public void actualizarCiudadActual(Ciudad nuevaCiudadActual){
         this.ciudadActual = nuevaCiudadActual;
     }
+
+
+
 }

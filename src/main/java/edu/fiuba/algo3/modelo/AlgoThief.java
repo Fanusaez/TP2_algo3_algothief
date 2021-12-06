@@ -69,7 +69,6 @@ public class AlgoThief{
     }
 
 
-
     /*public Delincuente obtenerDelincuente() {
         return creadorDeDelincuentes.ObtenerDelincuente();
     }*/

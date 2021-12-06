@@ -23,6 +23,7 @@ public class Delincuente{
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
+
     }
 
 
@@ -48,8 +49,6 @@ public class Delincuente{
         return dato;
     }
 
-
-
     public String generarPista() {
 
         ArrayList<String> atributosLista = new ArrayList<String>();
@@ -68,4 +67,9 @@ public class Delincuente{
     public int cantidadDeCiudadesRecorridas(){
         return 4;
     }
+
+    public int atacar(){
+        return this.arma.atacar();
+    }
+
 }

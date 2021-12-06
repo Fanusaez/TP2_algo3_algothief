@@ -189,6 +189,7 @@ public class TestAlgoThief01 {
     @Test
     public void PoliciaVisita3VecesAeropuertoYVisita55VecesUnPuertoYDesplieganPistas(){
 
+
     }
 
     /*
@@ -199,6 +200,7 @@ public class TestAlgoThief01 {
     @Test
     public void delincuenteAtacaAPoliciaYDespuesElPoliciaDuerme8hs(){
         AlgoThief algoThief = new AlgoThief(directorio);
+        algoThief.policia.entrarAEdificio(0);
 
 
     }
