@@ -1,6 +1,8 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.Ciudad;
 import org.junit.Test;
 import java.io.File;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -108,7 +110,7 @@ public class TestAlgoThief01 {
     */
     @Test
     public void PoliciaVisitaBancoYBibliotecaYDesplieganPistas(){
-     /*   AlgoThief algothief = new AlgoThief(directorio);
+     /*         AlgoThief algothief = new AlgoThief(directorio);
         algothief.entrarAEdificio(0);*/
     }
 
@@ -117,8 +119,19 @@ public class TestAlgoThief01 {
         Detective viaja de Montreal a México
     */
     @Test
-    public void PoliciaViajaDeMontrealAMexico(){
+    public void PoliciaViajaTiempoAvanza(){
+        AlgoThief algothief = new AlgoThief(directorio);
+        String horaSalida = algothief.obtenerHorario();
 
+        ArrayList<Ciudad> lista = algothief.verOpcionesDeViaje();
+        //algothief.viajarA(lista.get(0));
+        System.out.println(lista.size());
+        //System.out.println(lista.get(0).obtenerDato("City"));
+        //System.out.println(lista.get(1).obtenerDato("City"));
+        //System.out.println(lista.get(2).obtenerDato("City"));
+
+        //String horaLlegada = algothief.obtenerHorario();
+        //assertNotSame(horaSalida, horaLlegada);
     }
 
     /*

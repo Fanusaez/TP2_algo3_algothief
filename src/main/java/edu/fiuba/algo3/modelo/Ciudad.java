@@ -11,6 +11,7 @@ public class Ciudad {
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap <String,String> hash;
+    private ArrayList<Ciudad> opcionesDeViaje;
     private double latitud;
     private double longitud;
 
@@ -77,5 +78,18 @@ public class Ciudad {
 
     public double getLongitud() {
         return longitud;
+    }
+
+    public void agregarComoOpcion( Ciudad destino) {
+       //if (opcionesDeViaje.contains(destino) || opcionesDeViaje.contains(this) || this == destino){
+       //    return;
+       //}
+        this.opcionesDeViaje.add(destino);
+        destino.agregarComoOpcion(this); //aca seteas en destino
+    }
+
+
+    public ArrayList<Ciudad> mostrarOpcionesViaje() {
+        return this.opcionesDeViaje;
     }
 }

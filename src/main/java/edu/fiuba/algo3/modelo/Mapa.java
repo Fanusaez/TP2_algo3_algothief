@@ -8,11 +8,13 @@ import java.util.Random;
 public class Mapa {
     private ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
     private ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
+    private int contador;
 
     public Mapa(String rutaArchivoCiudades) {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
+        EstablecerOpcionesDeViaje();
         //inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
         //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
@@ -63,9 +65,9 @@ public class Mapa {
 
                 }
 
-                //System.out.println(line.split(":")[1].trim());
-                String clave = line.split(":")[0];
-                String dato = line.split(":")[1].trim();
+                String[] lineaSpliteada = line.split(":");
+                String clave= lineaSpliteada[0];
+                String dato = lineaSpliteada[1].trim();
                 ciudad.agregarDato(clave, dato);
             }
             bufferedReader.close();
@@ -103,13 +105,19 @@ public class Mapa {
     }
 
 
-    public void mostrarOpcionesViaje () {
-
+    public ArrayList<Ciudad> mostrarOpcionesViaje (Ciudad ciudad) {
+        return ciudad.mostrarOpcionesViaje();
     }
 
-    /*public ArrayList<Ciudad> crearCiudades(String nombreArchivo){
-
-    }*/
+    public void EstablecerOpcionesDeViaje(){
+        for (int i=0;i<ciudadesNoRecorridasPorDelincuente.size()-1;i++){
+            int random = new Random().nextInt(ciudadesNoRecorridasPorDelincuente.size()-1);
+            int otroRandom = new Random().nextInt(ciudadesNoRecorridasPorDelincuente.size()-1);
+            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(i+1));
+            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));
+        }
+    }
 
     public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
 

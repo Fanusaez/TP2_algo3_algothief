@@ -46,9 +46,7 @@ public class Delincuente {
         return dato;
     }
 
-    private String crearPista() {
 
-    }
 
     public String generarPista() {
 
@@ -57,7 +55,7 @@ public class Delincuente {
 
         atributosLista.add("Tiene pelo de color " + hashDeAtributos.get("Hair"));
         atributosLista.add("El delincuente era " + hashDeAtributos.get("Sex"));
-        atributosLista.add("Y vi a ese delincuente irse con un auto " + hashDeAtributos.get("Car"));
+        atributosLista.add("Y vi a ese delincuente irse con un auto " + hashDeAtributos.get("Auto"));
         atributosLista.add("Tenia un " + hashDeAtributos.get("Feature"));
         atributosLista.add("");
 

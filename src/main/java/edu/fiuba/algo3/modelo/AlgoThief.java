@@ -55,6 +55,10 @@ public class AlgoThief{
         return policia.entrarAEdificio(1);
     }
 
+    public ArrayList<Ciudad> verOpcionesDeViaje() {
+        return mapa.mostrarOpcionesViaje(policia.ciudadActual);
+    }
+
 
     /*public Delincuente obtenerDelincuente() {
         return creadorDeDelincuentes.ObtenerDelincuente();

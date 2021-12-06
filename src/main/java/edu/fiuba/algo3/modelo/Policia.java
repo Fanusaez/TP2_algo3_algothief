@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 public class Policia {
     private String pista;
-    private Ciudad ciudadActual;
+    public Ciudad ciudadActual;
 
     public Policia(Ciudad unaCiudad){
         this.ciudadActual = unaCiudad;

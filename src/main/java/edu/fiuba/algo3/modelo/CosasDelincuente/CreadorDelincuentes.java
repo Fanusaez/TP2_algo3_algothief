@@ -40,9 +40,9 @@ public class CreadorDelincuentes {
                     break;
                 }
 
-                //System.out.println(line.split(":")[1].trim());
-                String clave = line.split(":")[0];
-                String dato = line.split(":")[1].trim();
+                String[] lineaSpliteada = line.split(":");
+                String clave= lineaSpliteada[0];
+                String dato = lineaSpliteada[1].trim();
                 delincuente.agregarDato(clave, dato);
             }
             bufferedReader.close();
