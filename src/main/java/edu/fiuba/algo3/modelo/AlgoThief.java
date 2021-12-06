@@ -19,6 +19,7 @@ public class AlgoThief{
         this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
+        mapa.establecerOpcionesDeViaje();
         Ciudad ciudadInicial = mapa.obtenerCiudadInicial();//new Ciudad("city","Buenos Aires");
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
