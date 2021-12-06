@@ -17,4 +17,8 @@ public class Policia {
     public int cantidadDeEntradas() {
         return this.ciudadActual.getCantidadEntradas();
     }
+
+    public void actualizarCiudadActual(Ciudad nuevaCiudadActual){
+        this.ciudadActual = nuevaCiudadActual;
+    }
 }

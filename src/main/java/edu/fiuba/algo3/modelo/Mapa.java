@@ -110,9 +110,23 @@ public class Mapa {
     }
 
     public void EstablecerOpcionesDeViaje(){
-        for (int i=0;i<ciudadesNoRecorridasPorDelincuente.size()-1;i++){
-            int random = new Random().nextInt(ciudadesNoRecorridasPorDelincuente.size()-1);
-            int otroRandom = new Random().nextInt(ciudadesNoRecorridasPorDelincuente.size()-1);
+        int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
+        int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
+
+        //System.out.println(cantCiudadesNoRecorridas);
+        //System.out.println(cantCiudadesRecorridas);
+
+        for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
+
+            int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
+            int otroRandom = new Random().nextInt(cantCiudadesNoRecorridas-1);
+           // System.out.println("hola");
+           // System.out.println(" 1° num random es: " + random);
+           // System.out.println(" 2° num random es: " + otroRandom);
+
+            //ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+
+            //Obtengo ciudad no recorrida y le agrego como opcion de viaje a la ciudad que le sigue en el array
             ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(i+1));
             ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));

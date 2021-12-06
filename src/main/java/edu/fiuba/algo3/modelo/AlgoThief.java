@@ -59,6 +59,12 @@ public class AlgoThief{
         return mapa.mostrarOpcionesViaje(policia.ciudadActual);
     }
 
+    public void Viajar(Ciudad destinoSeleccionado){
+        policia.actualizarCiudadActual(destinoSeleccionado);
+        reloj.aumentarHoras(8);
+    }
+
+
 
     /*public Delincuente obtenerDelincuente() {
         return creadorDeDelincuentes.ObtenerDelincuente();

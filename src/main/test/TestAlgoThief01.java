@@ -89,15 +89,8 @@ public class TestAlgoThief01 {
         String texto = algothief.desplegarTextoInicial();
         System.out.println(texto);
 
-
-        //algothief.mapa.ciudadesRecorridasPorDelincuente[1].obteneMoneda();
-        //assertSame("Cambio la moneda a" + ciudadInicial.Moneda, pista);
-
-
         String pista = algothief.entrarAEdificio(0);
-        //assertSame("Cambio la moneda a ... ", pista);
-
-
+        System.out.println(pista);
     }
 
     /*
@@ -110,8 +103,18 @@ public class TestAlgoThief01 {
     */
     @Test
     public void PoliciaVisitaBancoYBibliotecaYDesplieganPistas(){
-     /*         AlgoThief algothief = new AlgoThief(directorio);
-        algothief.entrarAEdificio(0);*/
+        AlgoThief algothief = new AlgoThief(directorio);
+        String hora = algothief.obtenerHorario();
+        System.out.println("La hora actual es:" + hora);
+        System.out.println(algothief.entrarAEdificio(0));
+        hora = algothief.obtenerHorario();
+        System.out.println("La hora actual es:" + hora);
+        System.out.println(algothief.entrarAEdificio(1));
+        hora = algothief.obtenerHorario();
+        System.out.println("La hora actual es:" + hora);
+        System.out.println(algothief.entrarAEdificio(0));
+        hora = algothief.obtenerHorario();
+        System.out.println("La hora actual es:" + hora);
     }
 
     /*
@@ -121,17 +124,13 @@ public class TestAlgoThief01 {
     @Test
     public void PoliciaViajaTiempoAvanza(){
         AlgoThief algothief = new AlgoThief(directorio);
-        String horaSalida = algothief.obtenerHorario();
+        //String hora = algothief.obtenerHorario();
 
-        ArrayList<Ciudad> lista = algothief.verOpcionesDeViaje();
-        //algothief.viajarA(lista.get(0));
-        System.out.println(lista.size());
-        //System.out.println(lista.get(0).obtenerDato("City"));
-        //System.out.println(lista.get(1).obtenerDato("City"));
-        //System.out.println(lista.get(2).obtenerDato("City"));
-
-        //String horaLlegada = algothief.obtenerHorario();
-        //assertNotSame(horaSalida, horaLlegada);
+        System.out.println("El horario actual es: " + algothief.obtenerHorario());
+        ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
+        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
+        algothief.Viajar(ciudadSeleccionada);
+        System.out.println("El horario actual es: " + algothief.obtenerHorario());
     }
 
     /*
@@ -153,8 +152,11 @@ public class TestAlgoThief01 {
     */
     @Test
     public void delincuenteAtacaAPoliciaYDespuesElPoliciaDuerme8hs(){
+        AlgoThief algoThief = new AlgoThief(directorio);
+
 
     }
+
 //############################################################################################################
 //############################################################################################################
 //############################################################################################################

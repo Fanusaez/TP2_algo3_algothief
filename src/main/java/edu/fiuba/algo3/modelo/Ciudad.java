@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Ciudad {
+    public String nombre; // <--- borrar después
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
@@ -14,7 +16,7 @@ public class Ciudad {
     private ArrayList<Ciudad> opcionesDeViaje;
     private double latitud;
     private double longitud;
-
+    //private ArrayList<Ciudad> opcionesDeViaje;
     /*
 
     Map<String, String> map = new HashMap<String, String>();
@@ -26,11 +28,12 @@ public class Ciudad {
         this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
         this.edificios.add(new Aeropuerto());
-        this.edificios.add(new Aeropuerto());
+        this.edificios.add(new Banco());
         this.edificios.add(new Aeropuerto());
         this.hash = new HashMap<String,String>();
         this.latitud = 0;
         this.longitud = 0;
+        this.opcionesDeViaje = new ArrayList<>();
 
     }
 
@@ -59,6 +62,7 @@ public class Ciudad {
         //return "El delincuente no visito este edificio";
     }
 
+    //Getter de atributo
     public Integer getCantidadEntradas() {
         if (cantidadEntradas < 3){
             this.cantidadEntradas += 1;
@@ -72,23 +76,21 @@ public class Ciudad {
         edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
     }
 
+    //Getter de atributo
     public double getLatitud() {
         return latitud;
     }
 
+    //Getter de atributo
     public double getLongitud() {
         return longitud;
     }
 
-    public void agregarComoOpcion( Ciudad destino) {
-       //if (opcionesDeViaje.contains(destino) || opcionesDeViaje.contains(this) || this == destino){
-       //    return;
-       //}
+    public void agregarComoOpcion(Ciudad destino) {
         this.opcionesDeViaje.add(destino);
-        destino.agregarComoOpcion(this); //aca seteas en destino
     }
 
-
+    //Este es un getter de un atributo
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
         return this.opcionesDeViaje;
     }
