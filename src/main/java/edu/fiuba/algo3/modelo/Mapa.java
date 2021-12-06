@@ -13,7 +13,7 @@ public class Mapa {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
-        inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
+        //inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
         //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
 

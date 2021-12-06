@@ -46,27 +46,22 @@ public class Delincuente {
         return dato;
     }
 
+    private String crearPista() {
+
+    }
+
     public String generarPista() {
 
-        Set<String> atributos = hashDeAtributos.keySet();
-        ArrayList<String> atributosLista = new ArrayList<String>(atributos);
+        ArrayList<String> atributosLista = new ArrayList<String>();
+        int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
 
-        int randIdx = new Random().nextInt(atributos.size());
-        String atributoRandom = atributosLista.get(randIdx);
+        atributosLista.add("Tiene pelo de color " + hashDeAtributos.get("Hair"));
+        atributosLista.add("El delincuente era " + hashDeAtributos.get("Sex"));
+        atributosLista.add("Y vi a ese delincuente irse con un auto " + hashDeAtributos.get("Car"));
+        atributosLista.add("Tenia un " + hashDeAtributos.get("Feature"));
+        atributosLista.add("");
 
-        if (atributoRandom.equals("Hair")){
-            return "Tiene pelo de color" + hashDeAtributos.get(atributoRandom);
-        }
-        if (atributoRandom.equals("Sex")){
-            return "El delincuente era " + hashDeAtributos.get(atributoRandom);
-        }
-        if (atributoRandom.equals("Car")){
-            return "Y vi a ese delincuente irse con un auto" + hashDeAtributos.get(atributoRandom);
-        }
-        if (atributoRandom.equals("Feature")){
-            return "Tenia un " + hashDeAtributos.get(atributoRandom);
-        }
-        return "";
+        return atributosLista.get(randIdx);
 
     }
 
