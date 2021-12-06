@@ -1,13 +1,18 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 
 public class Ciudad {
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap <String,String> hash;
+    private double latitud;
+    private double longitud;
 
     /*
 
@@ -22,7 +27,10 @@ public class Ciudad {
         this.edificios.add(new Aeropuerto());
         this.edificios.add(new Aeropuerto());
         this.edificios.add(new Aeropuerto());
-        this.hash= new HashMap<String,String>();
+        this.hash = new HashMap<String,String>();
+        this.latitud = 0;
+        this.longitud = 0;
+
     }
 
 
@@ -61,5 +69,13 @@ public class Ciudad {
         edificios.get(0).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
         edificios.get(1).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
         edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
     }
 }

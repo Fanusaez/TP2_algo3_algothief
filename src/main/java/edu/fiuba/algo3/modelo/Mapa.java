@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+
 import java.io.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 import java.util.Random;
 
 public class Mapa {
@@ -13,6 +13,7 @@ public class Mapa {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
+        inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
         //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
 
@@ -116,6 +117,10 @@ public class Mapa {
 
     public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
 
+
+    }
+
+    public void inicializarCoordenadasDesdeArchivo(String pathfile){
 
     }
 }

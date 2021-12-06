@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.gui.scenes.MainMenuScene;
-import edu.fiuba.algo3.gui.scenes.StartGameScene;
-import javafx.application.Application;
-import javafx.stage.Stage;
+import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class AlgoThief{
     private Policia policia;

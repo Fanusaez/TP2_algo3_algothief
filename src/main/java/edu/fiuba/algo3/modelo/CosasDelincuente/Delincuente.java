@@ -1,7 +1,12 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.CosasDelincuente;
+
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
+import java.util.Set;
 
 public class Delincuente {
     private Integer cantidadEntradas;
@@ -29,32 +34,40 @@ public class Delincuente {
         if (clave.length() >= 2 ) {
             claveCorregida = clave.substring(0, 1).toUpperCase() + clave.substring(1);
         }
-        else{claveCorregida=clave.toUpperCase();}
+        else{
+            claveCorregida=clave.toUpperCase();
+        }
 
         String dato = this.hashDeAtributos.get(claveCorregida);
+
         if (dato == null){
             throw new ExceptionDatoNoExistente();
         }
-
         return dato;
     }
 
     public String generarPista() {
-        //se obtiene un atributo random
-        //tenes que hacer 5 if's para ver que tipo de texto mostrar
-        /*
-            if tipoDeAtributoRandom.equals("hair"){
-                return "Tiene pelo de color" + hashMap.get(tipoDeAtributoRandom);
 
-           String atributoRandom = hashDeAtributos.Random();
-           if(atributoRandom == " "){
+        Set<String> atributos = hashDeAtributos.keySet();
+        ArrayList<String> atributosLista = new ArrayList<String>(atributos);
 
-           }elseif(atributoRandom =={
-           }
-        */
+        int randIdx = new Random().nextInt(atributos.size());
+        String atributoRandom = atributosLista.get(randIdx);
 
-        String pista = "Tenia un auto convertible";
-        return pista;
+        if (atributoRandom.equals("Hair")){
+            return "Tiene pelo de color" + hashDeAtributos.get(atributoRandom);
+        }
+        if (atributoRandom.equals("Sex")){
+            return "El delincuente era " + hashDeAtributos.get(atributoRandom);
+        }
+        if (atributoRandom.equals("Car")){
+            return "Y vi a ese delincuente irse con un auto" + hashDeAtributos.get(atributoRandom);
+        }
+        if (atributoRandom.equals("Feature")){
+            return "Tenia un " + hashDeAtributos.get(atributoRandom);
+        }
+        return "";
+
     }
 
     public int cantidadDeCiudadesRecorridas(){
