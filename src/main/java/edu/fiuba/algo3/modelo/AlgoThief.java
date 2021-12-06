@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import java.util.ArrayList;
 
 public class AlgoThief{
-    private Policia policia;
+    public Policia policia;
     private Reloj reloj;
     private ArrayList<Ciudad> ciudades;
     private Mapa mapa;
@@ -48,6 +48,10 @@ public class AlgoThief{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.cantidadDeEntradas());
+        if(policia.ciudadActual == mapa.ObtenerUltimaCiudadDelincuente())
+        {
+            reloj.aumentarHoras(delincuente.atacar());
+        }
         return policia.entrarAEdificio(indice);
     }
 

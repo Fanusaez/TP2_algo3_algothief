@@ -14,7 +14,7 @@ public class Mapa {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
-        EstablecerOpcionesDeViaje();
+
         //inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
         //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
@@ -87,14 +87,30 @@ public class Mapa {
 
 
     }
+
+
+
+    public Ciudad ObtenerUltimaCiudadDelincuente(){
+
+        int n = ciudadesRecorridasPorDelincuente.size();
+        return ciudadesRecorridasPorDelincuente.get(n    -1);
+    }
+
     public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
         Random rand = new Random();
-        int randomIndex = rand.nextInt(largoRecorrido);
-        for (int i = 0; i < largoRecorrido; i++){
-            ciudadesRecorridasPorDelincuente.add(ciudadesNoRecorridasPorDelincuente.get(randomIndex));
-        }
+        int contador=0;
 
+        while ( ciudadesRecorridasPorDelincuente.size() < largoRecorrido){
+            int randomIndex = rand.nextInt(ciudadesNoRecorridasPorDelincuente.size() - 1);
+            Ciudad ciudad = ciudadesNoRecorridasPorDelincuente.get(randomIndex);
+            if(!ciudadesRecorridasPorDelincuente.contains(ciudad)) {
+                ciudadesRecorridasPorDelincuente.add(ciudad);
+                ciudadesNoRecorridasPorDelincuente.remove(ciudad);
+                System.out.println("Recorrido del delincuente: "+ciudad.obtenerDato("City"));
+            }
+
+        }
         //por cada ciudad[i], acceder a edificio[j]
 
         for (int i = 0; i < largoRecorrido-1; i++){
@@ -109,28 +125,28 @@ public class Mapa {
         return ciudad.mostrarOpcionesViaje();
     }
 
-    public void EstablecerOpcionesDeViaje(){
+    public void establecerOpcionesDeViaje(){
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
-        //System.out.println(cantCiudadesNoRecorridas);
-        //System.out.println(cantCiudadesRecorridas);
-
-        for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
+        for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
 
             int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
             int otroRandom = new Random().nextInt(cantCiudadesNoRecorridas-1);
-           // System.out.println("hola");
-           // System.out.println(" 1° num random es: " + random);
-           // System.out.println(" 2° num random es: " + otroRandom);
 
-            //ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
-
-            //Obtengo ciudad no recorrida y le agrego como opcion de viaje a la ciudad que le sigue en el array
-            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(i+1));
-            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
-            ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));
+            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
+            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));
         }
+
+        for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
+
+            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3){
+                int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
+                ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+            }
+        }
+
     }
 
     public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){

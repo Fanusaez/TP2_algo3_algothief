@@ -13,6 +13,7 @@ public class Delincuente {
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap<String,String> hashDeAtributos;
+    private Arma arma;
 
     /*
     Map<String, String> map = new HashMap<String, String>();

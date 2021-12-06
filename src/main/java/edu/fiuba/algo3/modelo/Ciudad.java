@@ -7,7 +7,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Ciudad {
+public class Ciudad{
     public String nombre; // <--- borrar después
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
@@ -87,7 +87,13 @@ public class Ciudad {
     }
 
     public void agregarComoOpcion(Ciudad destino) {
+        if (this.opcionesDeViaje.contains(destino) || this == destino){
+            return;
+        }
         this.opcionesDeViaje.add(destino);
+        //System.out.println(this.obtenerDato("City"));
+        destino.agregarComoOpcion(this);
+        //System.out.println(destino.obtenerDato("City"));
     }
 
     //Este es un getter de un atributo

@@ -130,9 +130,55 @@ public class TestAlgoThief01 {
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
         Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
         algothief.Viajar(ciudadSeleccionada);
+        System.out.println("opcion de viaje: " + listaOpcionesViaje.get(0).obtenerDato("City"));
+        System.out.println("opcion de viaje: " +listaOpcionesViaje.get(1).obtenerDato("City"));
+        System.out.println("opcion de viaje: " +listaOpcionesViaje.get(2).obtenerDato("City"));
+
         System.out.println("El horario actual es: " + algothief.obtenerHorario());
     }
 
+    @Test
+    public void MostrarOpcionesViajeEnCiudadDestinoContieneACiudadOrigen(){
+        AlgoThief algothief = new AlgoThief(directorio);
+        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(0);
+        algothief.Viajar(ciudadDestino);
+
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " + listaOpcionesViajeOrigen.get(0).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(1).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(2).obtenerDato("City"));
+
+        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(0).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(1).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(2).obtenerDato("City"));
+        //System.out.println("opcion de viaje del destino: " +listaOpcionesViajeDestino.get(3).obtenerDato("City"));
+
+        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
+    }
+
+
+    @Test
+    public void MostrarOpcionesViajeEnCiudadNoRecorridaYContieneACiudadOrigen(){
+        AlgoThief algothief = new AlgoThief(directorio);
+        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(1);
+        algothief.Viajar(ciudadDestino);
+
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " + listaOpcionesViajeOrigen.get(0).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(1).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(2).obtenerDato("City"));
+
+        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(0).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(1).obtenerDato("City"));
+        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(2).obtenerDato("City"));
+        //System.out.println("opcion de viaje del destino: " +listaOpcionesViajeDestino.get(3).obtenerDato("City"));
+
+        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
+    }
     /*
     Caso de uso 4
         Vista un Aeropuerto (3 veces):
