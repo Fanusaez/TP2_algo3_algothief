@@ -1,5 +1,6 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import org.junit.Test;
 import java.io.File;
 import java.util.ArrayList;
@@ -38,9 +39,9 @@ public class TestEntregaUno {
 
     @Test
     public void TestCasoUsoCincodelincuenteAtacaAPolicia(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
         Ciudad ciudadUltima = algoThief.obtenerUltimaCiudad();
-        algoThief.policia.setearCiudad(ciudadUltima);
+        algoThief.setearCiudad(ciudadUltima);
         algoThief.entrarAEdificio(0);
         assertEquals("Monday 09:00", algoThief.obtenerHorario());
 

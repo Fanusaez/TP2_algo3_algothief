@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Mapa {
-    private ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
-    private ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
+    protected ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
+    protected ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
 
     public Mapa(String rutaArchivoCiudades) {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
@@ -144,10 +144,7 @@ public class Mapa {
     }
 
     //solo lo usamos para test
-    public Ciudad ObtenerUltimaCiudadDelincuente(){
-        int n = ciudadesRecorridasPorDelincuente.size();
-        return ciudadesRecorridasPorDelincuente.get(n-1);
-    }
+
 
     /*
     public Ciudad obtenerCiudadEspecifica(String nombre) {

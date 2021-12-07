@@ -22,16 +22,12 @@ public class Policia {
 
     // Metodos de testeos ********************************************************************************
 
-    public void setearCiudad(Ciudad ciudad){
-        this.ciudadActual = ciudad;
-    }
-
     public Ciudad getCiudadActual(){
         return ciudadActual;
     }
 
     public int viajar(Ciudad destinoSeleccionado) {
-        this.ciudadActual = destinoSeleccionado;
+        ciudadActual=destinoSeleccionado;
         return viaje.calcularDistanciaDeViaje(ciudadActual,destinoSeleccionado)/velocidad;
     }
 }
