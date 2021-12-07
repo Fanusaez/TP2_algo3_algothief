@@ -89,11 +89,10 @@ public class Mapa {
     }
 
 
-
+    //solo lo usamos para test
     public Ciudad ObtenerUltimaCiudadDelincuente(){
-
         int n = ciudadesRecorridasPorDelincuente.size();
-        return ciudadesRecorridasPorDelincuente.get(n    -1);
+        return ciudadesRecorridasPorDelincuente.get(n-1);
     }
 
     public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
@@ -107,7 +106,6 @@ public class Mapa {
             if(!ciudadesRecorridasPorDelincuente.contains(ciudad)) {
                 ciudadesRecorridasPorDelincuente.add(ciudad);
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
-                System.out.println("Recorrido del delincuente: "+ciudad.obtenerDato("City"));
             }
 
         }
@@ -160,5 +158,11 @@ public class Mapa {
 
     public void inicializarCoordenadasDesdeArchivo(String pathfile){
 
+    }
+    //Metodos para tests **************************************************************************
+
+    public boolean estaEnUltimaCiudad(Ciudad ciudadActual) {
+        int n = ciudadesRecorridasPorDelincuente.size();
+        return ciudadActual == ciudadesRecorridasPorDelincuente.get(n-1);
     }
 }

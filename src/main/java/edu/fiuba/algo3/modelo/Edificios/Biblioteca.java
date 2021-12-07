@@ -13,7 +13,6 @@ public class Biblioteca implements Edificio {
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
 
-
-        //pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency");
+        pista = "Vi al delicuente llevarse fotos de  " + unaCiudad.obtenerDato("Landmarks");
     }
 }

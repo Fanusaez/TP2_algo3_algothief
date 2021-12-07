@@ -65,7 +65,6 @@ public class CreadorDelincuentes {
 
     public Delincuente seleccionarDelincuenteAleatorio(){
         Random rand = new Random();
-        System.out.println(sospechosos.size());
         int randomIndex = rand.nextInt(sospechosos.size());
         Delincuente delincuenteRandom = sospechosos.get(randomIndex );
         //sospechosos.remove(delincuenteRandom);

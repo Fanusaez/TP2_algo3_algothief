@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
+import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 
@@ -27,8 +28,8 @@ public class Ciudad{
     public Ciudad() {
         this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
-        this.edificios.add(new Aeropuerto());
         this.edificios.add(new Banco());
+        this.edificios.add(new Biblioteca());
         this.edificios.add(new Aeropuerto());
         this.hash = new HashMap<String,String>();
         this.latitud = 0;
@@ -59,6 +60,7 @@ public class Ciudad{
 
     public String entrarAEdificio(int indice) {
         return edificios.get(indice).mostrarPista();
+
         //return "El delincuente no visito este edificio";
     }
 
@@ -100,4 +102,8 @@ public class Ciudad{
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
         return this.opcionesDeViaje;
     }
+    public int ataques(){
+        return 0;
+    }
 }
+

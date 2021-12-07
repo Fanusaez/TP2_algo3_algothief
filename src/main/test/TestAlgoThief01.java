@@ -11,18 +11,16 @@ public class TestAlgoThief01 {
     private final String directorio = "src/main/java/edu/fiuba/algo3/modelo/data.txt";
 
     @Test
-    public void PruebaEntrarAEdificioPrimeraVezAumentaEnUnoHorario(){
-        System.out.println("El directorio es:  " + directorio);
-        System.out.println(new File("data.txt").getAbsolutePath());
+    public void Test01EntrarAEdificioPrimeraVezAumentaEnUnoHorario(){
 
         AlgoThief algoThief = new AlgoThief(directorio);
-        algoThief .entrarAEdificio(0);
+        algoThief.entrarAEdificio(0);
 
         assertEquals("Monday 08:00", algoThief.obtenerHorario());
     }
 
     @Test
-    public void PruebaEntrarAEdificioDosVecesAumentaHorarioTresHoras(){
+    public void Test02EntrarAEdificioDosVecesAumentaHorarioTresHoras(){
         AlgoThief algoThief = new AlgoThief(directorio);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
@@ -32,17 +30,16 @@ public class TestAlgoThief01 {
     }
 
     @Test
-    public void PruebaEntrarAEdificioDosVecesAumentaHorarioSeisHoras(){
+    public void Test03EntrarAEdificioDosVecesAumentaHorarioSeisHoras(){
         AlgoThief algoThief = new AlgoThief(directorio);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
-
         assertEquals( "Monday 13:00", algoThief.obtenerHorario());
     }
 
     @Test
-    public void PruebaEntrarAEdificioDespuesDeEntrarTresVecesAumentaTresHoras(){
+    public void Test04EntrarAEdificioDespuesDeEntrarTresVecesAumentaTresHoras(){
 
         AlgoThief algoThief = new AlgoThief(directorio);
         algoThief.entrarAEdificio(0);
@@ -55,7 +52,7 @@ public class TestAlgoThief01 {
     }
 
     @Test
-    public void PruebaEntrarAEdificioEnHorarioDeDormirAumentaOchoHoras(){
+    public void Test05EntrarAEdificioEnHorarioDeDormirAumentaOchoHoras(){
 
         AlgoThief algoThief = new AlgoThief(directorio);
 
@@ -65,11 +62,47 @@ public class TestAlgoThief01 {
         assertEquals( "Tuesday 06:00", algoThief.obtenerHorario());
     }
 
-   /* @Test
-    public void PruebaEntrarAEdificioSinDelincuenteDespliegaUnaPistaDefault(){
-        AlgoThief algoThief = new AlgoThief(directorio);
-        assertEquals("El delincuente no visito este edificio", algoThief.entrarAEdificio(1));
-    }*/
+
+
+    @Test
+    public void Test07PoliciaViajaTiempoAvanza(){
+
+        AlgoThief algothief = new AlgoThief(directorio);
+
+        String horaSalida =  algothief.obtenerHorario();
+        ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
+        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
+        algothief.viajar(ciudadSeleccionada);
+        String horaLlegada =  algothief.obtenerHorario();
+
+        assertNotSame(horaSalida, horaLlegada);
+    }
+
+    @Test
+    public void Test08MostrarOpcionesViajeEnCiudadDestinoContieneACiudadOrigen(){
+
+        AlgoThief algothief = new AlgoThief(directorio);
+        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(0);
+        algothief.viajar(ciudadDestino);
+        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+
+        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
+    }
+
+    @Test
+    public void Test09MostrarOpcionesViajeEnCiudadNoRecorridaYContieneACiudadOrigen(){
+        AlgoThief algothief = new AlgoThief(directorio);
+        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(1);
+        algothief.viajar(ciudadDestino);
+        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+
+        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
+    }
+
 //############################################################################################################
 //############################################################################################################
 //#########################|| CASOS DE USO PARA LA ENTREGA 1 ||###############################################
@@ -83,15 +116,6 @@ public class TestAlgoThief01 {
         Vista un Banco:
         Se despliega una pista.
     */
-    @Test
-    public void DesplegarTextoInicialConNombreObjetoAtributoSospechosoYAdemasVisitarUnBancoYDesplegarPista(){
-        AlgoThief algothief = new AlgoThief(directorio);
-        String texto = algothief.desplegarTextoInicial();
-        System.out.println(texto);
-
-        String pista = algothief.entrarAEdificio(0);
-        System.out.println(pista);
-    }
 
     /*
     Caso de uso 2
@@ -101,84 +125,12 @@ public class TestAlgoThief01 {
         Vista una Biblioteca:
         Se despliega una pista.
     */
-    @Test
-    public void PoliciaVisitaBancoYBibliotecaYDesplieganPistas(){
-        AlgoThief algothief = new AlgoThief(directorio);
-        String hora = algothief.obtenerHorario();
-        System.out.println("La hora actual es:" + hora);
-        System.out.println(algothief.entrarAEdificio(0));
-        hora = algothief.obtenerHorario();
-        System.out.println("La hora actual es:" + hora);
-        System.out.println(algothief.entrarAEdificio(1));
-        hora = algothief.obtenerHorario();
-        System.out.println("La hora actual es:" + hora);
-        System.out.println(algothief.entrarAEdificio(0));
-        hora = algothief.obtenerHorario();
-        System.out.println("La hora actual es:" + hora);
-    }
 
     /*
     Caso de uso 3
         Detective viaja de Montreal a México
     */
-    @Test
-    public void PoliciaViajaTiempoAvanza(){
-        AlgoThief algothief = new AlgoThief(directorio);
-        //String hora = algothief.obtenerHorario();
 
-        System.out.println("El horario actual es: " + algothief.obtenerHorario());
-        ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
-        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
-        algothief.Viajar(ciudadSeleccionada);
-        System.out.println("opcion de viaje: " + listaOpcionesViaje.get(0).obtenerDato("City"));
-        System.out.println("opcion de viaje: " +listaOpcionesViaje.get(1).obtenerDato("City"));
-        System.out.println("opcion de viaje: " +listaOpcionesViaje.get(2).obtenerDato("City"));
-
-        System.out.println("El horario actual es: " + algothief.obtenerHorario());
-    }
-
-    @Test
-    public void MostrarOpcionesViajeEnCiudadDestinoContieneACiudadOrigen(){
-        AlgoThief algothief = new AlgoThief(directorio);
-        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
-        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
-        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(0);
-        algothief.Viajar(ciudadDestino);
-
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " + listaOpcionesViajeOrigen.get(0).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(1).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(2).obtenerDato("City"));
-
-        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(0).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(1).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(2).obtenerDato("City"));
-        //System.out.println("opcion de viaje del destino: " +listaOpcionesViajeDestino.get(3).obtenerDato("City"));
-
-        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
-    }
-
-
-    @Test
-    public void MostrarOpcionesViajeEnCiudadNoRecorridaYContieneACiudadOrigen(){
-        AlgoThief algothief = new AlgoThief(directorio);
-        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
-        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
-        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(1);
-        algothief.Viajar(ciudadDestino);
-
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " + listaOpcionesViajeOrigen.get(0).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(1).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadOrigen.obtenerDato("City")+": " +listaOpcionesViajeOrigen.get(2).obtenerDato("City"));
-
-        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(0).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(1).obtenerDato("City"));
-        System.out.println("opcion de viaje de " +ciudadDestino.obtenerDato("City")+": " + listaOpcionesViajeDestino.get(2).obtenerDato("City"));
-        //System.out.println("opcion de viaje del destino: " +listaOpcionesViajeDestino.get(3).obtenerDato("City"));
-
-        assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
-    }
     /*
     Caso de uso 4
         Vista un Aeropuerto (3 veces):
@@ -197,13 +149,7 @@ public class TestAlgoThief01 {
         Detective sufre una herida de cuchillo.
         Detective duerme.
     */
-    @Test
-    public void delincuenteAtacaAPoliciaYDespuesElPoliciaDuerme8hs(){
-        AlgoThief algoThief = new AlgoThief(directorio);
-        algoThief.policia.entrarAEdificio(0);
 
-
-    }
 
 //############################################################################################################
 //############################################################################################################
@@ -216,8 +162,6 @@ public class TestAlgoThief01 {
     public void PruebaEntrarAEdificioQueVisitoDelincuenteDespliegaPistaEspecifica(){
         AlgoThief algoThief = new AlgoThief(directorio);
         String pista = algoThief.entrarAEdificio(0);
-
-        //Está fallando porque la ciudad actual del policia, no coincide con una ciudad donde estuvo el delincuente
         System.out.println(pista);
         assertNotSame("El delincuente no visito este edificio", pista);
     }

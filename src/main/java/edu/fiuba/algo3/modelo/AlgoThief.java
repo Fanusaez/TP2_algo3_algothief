@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class AlgoThief{
     public Policia policia;
     private Reloj reloj;
-    private ArrayList<Ciudad> ciudades;
-    private Mapa mapa;
+
+    public Mapa mapa;
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
 
@@ -20,11 +20,13 @@ public class AlgoThief{
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
-        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();//new Ciudad("city","Buenos Aires");
+        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
+    }
 
-
+    public Ciudad obtenerUltimaCiudad(){
+        return this.mapa.ObtenerUltimaCiudadDelincuente();
     }
 
     public String desplegarTextoInicial(){
@@ -49,10 +51,11 @@ public class AlgoThief{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.cantidadDeEntradas());
-        if(policia.ciudadActual == mapa.ObtenerUltimaCiudadDelincuente())
-        {
+        if (mapa.estaEnUltimaCiudad(policia.ciudadActual)) {
             reloj.aumentarHoras(delincuente.atacar());
         }
+
+
         return policia.entrarAEdificio(indice);
     }
 
@@ -64,13 +67,18 @@ public class AlgoThief{
         return mapa.mostrarOpcionesViaje(policia.ciudadActual);
     }
 
-    public void Viajar(Ciudad destinoSeleccionado){
+    public void viajar(Ciudad destinoSeleccionado) {
         policia.actualizarCiudadActual(destinoSeleccionado);
-        reloj.aumentarHoras(8);
+        reloj.aumentarHoras(4);
+    }
+
+ // Metodos para Tests ***********************************************************************************
+
+    public Ciudad getCiudadPolicia(){
+        return policia.getCiudadActual();
     }
 
 
-    /*public Delincuente obtenerDelincuente() {
-        return creadorDeDelincuentes.ObtenerDelincuente();
-    }*/
+
+
 }

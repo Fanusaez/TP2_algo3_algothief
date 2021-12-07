@@ -23,7 +23,7 @@ public class Delincuente{
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
-
+        this.arma = new Arma();
     }
 
 
