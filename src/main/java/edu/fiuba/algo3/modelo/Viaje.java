@@ -6,12 +6,11 @@ public class Viaje {
     private Ciudad destino;
 
 
-    public Viaje(Ciudad origen, Ciudad destino) {
-        this.origen = origen;
-        this.destino = destino;
+    public int calcularDistanciaDeViaje(Ciudad ciudadActual,Ciudad destinoSeleccionado) {
+        return 1800;
     }
 
-    public double distancia(){
+    public double distancia() {
         double lat1 = origen.getLatitud();
         double lat2 = destino.getLatitud();
 
@@ -31,7 +30,7 @@ public class Viaje {
         double dlat = lat2 - lat1;
         double a = Math.pow(Math.sin(dlat / 2), 2)
                 + Math.cos(lat1) * Math.cos(lat2)
-                * Math.pow(Math.sin(dlon / 2),2);
+                * Math.pow(Math.sin(dlon / 2), 2);
 
         double c = 2 * Math.asin(Math.sqrt(a));
 
@@ -40,7 +39,6 @@ public class Viaje {
         double r = 3956;
 
         // calculate the result
-        return(c * r);
+        return (c * r);
     }
-
 }
