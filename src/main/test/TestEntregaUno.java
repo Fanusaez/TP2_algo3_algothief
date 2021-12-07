@@ -11,7 +11,7 @@ public class TestEntregaUno {
 
     @Test
     public void TestCasoUsoUnoRobaronElTesoroNacionaldeMontreal() {
-        //assertEquals(1==1);
+        AlgoThief algoThief = new AlgoThief(directorio);
     }
 
     @Test
@@ -32,6 +32,9 @@ public class TestEntregaUno {
 
     public void TestCasoUsoCuatro(){}
 
+    // Caso de uso 5
+    // Detective sufre una herida de cuchillo.
+    // Detective duerme.
 
     @Test
     public void TestCasoUsoCincodelincuenteAtacaAPolicia(){

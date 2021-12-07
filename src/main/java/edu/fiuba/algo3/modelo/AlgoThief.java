@@ -49,13 +49,15 @@ public class AlgoThief{
         return reloj.obtenerHorario();
     }
 
-    public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.cantidadDeEntradas());
+    public void chequearAtaque(){
         if (mapa.estaEnUltimaCiudad(policia.ciudadActual)) {
             reloj.aumentarHoras(delincuente.atacar());
         }
+    }
 
-
+    public String entrarAEdificio(int indice) {
+        reloj.aumentarHoras(policia.cantidadDeEntradas());
+        this.chequearAtaque();
         return policia.entrarAEdificio(indice);
     }
 
@@ -68,8 +70,8 @@ public class AlgoThief{
     }
 
     public void viajar(Ciudad destinoSeleccionado) {
-        policia.actualizarCiudadActual(destinoSeleccionado);
-        reloj.aumentarHoras(4);
+        reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
+
     }
 
     // Metodos para Tests ***********************************************************************************

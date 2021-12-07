@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title : casoUso2
+autonumber
+
+AlgoThief -> Policia : entrarAEdificio(banco)
+Policia -> Ciudad : entrarAEdificio(banco)
+Ciudad -> Banco : mostrarPista()
+Banco --> Ciudad : pista
+Ciudad --> Policia : pista
+Policia --> AlgoThief : pista
+
+AlgoThief -> Policia : entrarAEdificio(biblioteca)
+Policia -> Ciudad : entrarAEdificio(biblioteca))
+Ciudad -> Biblioteca : mostrarPista()
+Biblioteca --> Ciudad : pista
+Ciudad --> Policia : pista
+Policia --> AlgoThief : pista
+
+@enduml
+
+Caso de uso 2
+Detective novato comienza en Montreal.
+Vista un Banco (nuevamente):
+Se despliega una pista
+Vista una Biblioteca:
+Se despliega una pista.
