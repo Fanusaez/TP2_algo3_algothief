@@ -8,37 +8,19 @@ import java.util.Random;
 public class Mapa {
     private ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
     private ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
-    private int contador;
 
     public Mapa(String rutaArchivoCiudades) {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
         parsearArchivo(rutaArchivoCiudades);
-
-        //inicializarCoordenadasDesdeArchivo(rutaArchivoCoordenadas);
-        //EstablecerPistasEnElRecorrido(Delincuente delincuente);
     }
 
     public Ciudad obtenerCiudadInicial()
     {
         return ciudadesRecorridasPorDelincuente.get(0);
     }
-/*
-    public Ciudad obtenerCiudadEspecifica(String nombre) {
-        for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
-            if (ciudad.obtenerDato("City").equals(nombre)) {
-                return ciudad;
-            }
-        }
 
-        for (Ciudad ciudadNoRecorrida : ciudadesNoRecorridasPorDelincuente) {
-            if (ciudadNoRecorrida.obtenerDato("city").equals(nombre)) {
-                return ciudadNoRecorrida;
-            }
-        }
-        throw new ExceptionCiudadNoExistente();
-    }
-*/
+
     public void parsearArchivo(String rutaArchivoCiudades) {
         // The name of the file to open.
         String fileName = rutaArchivoCiudades;
@@ -88,12 +70,6 @@ public class Mapa {
 
     }
 
-
-    //solo lo usamos para test
-    public Ciudad ObtenerUltimaCiudadDelincuente(){
-        int n = ciudadesRecorridasPorDelincuente.size();
-        return ciudadesRecorridasPorDelincuente.get(n-1);
-    }
 
     public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
@@ -159,10 +135,34 @@ public class Mapa {
     public void inicializarCoordenadasDesdeArchivo(String pathfile){
 
     }
+
     //Metodos para tests **************************************************************************
 
     public boolean estaEnUltimaCiudad(Ciudad ciudadActual) {
         int n = ciudadesRecorridasPorDelincuente.size();
         return ciudadActual == ciudadesRecorridasPorDelincuente.get(n-1);
     }
+
+    //solo lo usamos para test
+    public Ciudad ObtenerUltimaCiudadDelincuente(){
+        int n = ciudadesRecorridasPorDelincuente.size();
+        return ciudadesRecorridasPorDelincuente.get(n-1);
+    }
+
+    /*
+    public Ciudad obtenerCiudadEspecifica(String nombre) {
+        for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
+            if (ciudad.obtenerDato("City").equals(nombre)) {
+                return ciudad;
+            }
+        }
+
+        for (Ciudad ciudadNoRecorrida : ciudadesNoRecorridasPorDelincuente) {
+            if (ciudadNoRecorrida.obtenerDato("city").equals(nombre)) {
+                return ciudadNoRecorrida;
+            }
+        }
+        throw new ExceptionCiudadNoExistente();
+    }
+*/
 }

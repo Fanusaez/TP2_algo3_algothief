@@ -2,12 +2,10 @@ package edu.fiuba.algo3.modelo.CosasDelincuente;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
-import edu.fiuba.algo3.modelo.Parseable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
-import java.util.Set;
 
 public class Delincuente{
     private Integer cantidadEntradas;

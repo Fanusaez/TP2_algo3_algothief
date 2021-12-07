@@ -46,7 +46,7 @@ public class AlgoThief{
 
     public String obtenerHorario(){
 
-        return this.reloj.obtenerHorario();
+        return reloj.obtenerHorario();
     }
 
     public String entrarAEdificio(int indice) {
@@ -72,7 +72,7 @@ public class AlgoThief{
         reloj.aumentarHoras(4);
     }
 
- // Metodos para Tests ***********************************************************************************
+    // Metodos para Tests ***********************************************************************************
 
     public Ciudad getCiudadPolicia(){
         return policia.getCiudadActual();
