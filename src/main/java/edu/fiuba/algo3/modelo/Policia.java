@@ -1,13 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 public class Policia {
-    private String pista;
-    private Ciudad ciudadActual;
 
+    public int velocidad;
+    public Ciudad ciudadActual;
+    public Viaje viaje;
     public Policia(Ciudad unaCiudad){
+
         this.ciudadActual = unaCiudad;
-        this.pista = "No estuvo aquí";
-        //ciudadActual.CANTIDAD_DE_EDIFICIOS
+        this.viaje = new Viaje();
+        this.velocidad=900;
     }
 
     public String entrarAEdificio(int indice) {
@@ -16,5 +18,16 @@ public class Policia {
 
     public int cantidadDeEntradas() {
         return this.ciudadActual.getCantidadEntradas();
+    }
+
+    // Metodos de testeos ********************************************************************************
+
+    public Ciudad getCiudadActual(){
+        return ciudadActual;
+    }
+
+    public int viajar(Ciudad destinoSeleccionado) {
+        ciudadActual=destinoSeleccionado;
+        return viaje.calcularDistanciaDeViaje(ciudadActual,destinoSeleccionado)/velocidad;
     }
 }

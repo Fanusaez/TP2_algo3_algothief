@@ -24,8 +24,11 @@ public class Reloj {
 
         if (this.dateTime.getHour() >= 22 || this.dateTime.getHour() < 6 ){
             this.dateTime = this.dateTime.plusHours(8);
-            System.out.println("Voy a dormir");
-            System.out.println("zzz");
         }
     }
+
+
+
+
+
 }

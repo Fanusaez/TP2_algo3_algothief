@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.CosasDelincuente;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,13 +8,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CreadorDelincuentes {
-    private Delincuente delincuenteSeleccionado;
     private ArrayList<Delincuente> sospechosos;
 
     public CreadorDelincuentes (String rutaArchivoDelincuentes) {
         sospechosos = new ArrayList<Delincuente>();
         parsearArchivo(rutaArchivoDelincuentes);
-        seleccionarDelincuenteAleatorio();
     }
 
     public void parsearArchivo(String rutaArchivoCiudadesDelincuentes){
@@ -38,13 +36,13 @@ public class CreadorDelincuentes {
                     continue;
                 }
 
-                if (line.equals("*******************************************************************************")) {
+                 if (line.equals("*******************************************************************************")) {
                     break;
                 }
 
-                //System.out.println(line.split(":")[1].trim());
-                String clave = line.split(":")[0];
-                String dato = line.split(":")[1].trim();
+                String[] lineaSpliteada = line.split(":");
+                String clave= lineaSpliteada[0];
+                String dato = lineaSpliteada[1].trim();
                 delincuente.agregarDato(clave, dato);
             }
             bufferedReader.close();
@@ -65,17 +63,12 @@ public class CreadorDelincuentes {
 
     }
 
-    public Delincuente ObtenerDelincuente(){
-        return delincuenteSeleccionado;
-    }
-
-
-    public void seleccionarDelincuenteAleatorio(){
+    public Delincuente seleccionarDelincuenteAleatorio(){
         Random rand = new Random();
         int randomIndex = rand.nextInt(sospechosos.size());
-        Delincuente delincuenteRandom = sospechosos.get(randomIndex);
-        delincuenteSeleccionado=delincuenteRandom;
-        sospechosos.remove(delincuenteRandom);
+        Delincuente delincuenteRandom = sospechosos.get(randomIndex );
+        //sospechosos.remove(delincuenteRandom);
+        return delincuenteRandom;
 
     }
 

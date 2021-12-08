@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title : casoUso5
+autonumber
+
+TestCase -> AlgoThief : entrarAEdificio(indice)
+AlgoThief -> PoliciaNovato : entrarAEdificio(indice)
+AlgoThief -> PoliciaNovato : cantidadEntradas()
+PoliciaNovato -> CiudadActual : getCantidadDeEntradas()
+CiudadActual --> PoliciaNovato : cantDeHoras
+PoliciaNovato --> AlgoThief : cantDeHoras
+AlgoThief -> Reloj : aumentarHoras(cantidadHoras)
+AlgoThief -> AlgoThief : chequearAtaque()
+
+AlgoThief -> Delincuente : atacar()
+Delincuente -> Arma : atacar()
+Arma --> Delincuente : unasHoras
+Delincuente --> AlgoThief : unasHoras
+AlgoThief -> Reloj : aumentarHoras(unasHoras)
+
+
+@enduml
+
+Caso de uso 5
+Detective sufre una herida de cuchillo.
+Detective duerme.

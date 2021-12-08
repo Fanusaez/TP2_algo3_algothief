@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.Edificios;
 
-public class Aeropuerto implements Edificio{
+import edu.fiuba.algo3.modelo.Ciudad;
+
+public class Banco implements Edificio {
 
     String pista = "El delincuente no visito este edificio";
 
@@ -11,6 +13,6 @@ public class Aeropuerto implements Edificio{
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
-        pista = "Vi que tenia una bandera del estilo " + unaCiudad.obtenerDato("Flag");
+        pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency")+ ". "+ laPista;
     }
 }
