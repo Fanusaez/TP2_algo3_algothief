@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+loop 3 times
+    AlgoThief -> PoliciaNovato : entrarAEdificio(1)
+    PoliciaNovato -> Ciudad : entrarAEdificio(1)
+    Ciudad -> Aeropuerto : mostrarPista
+    Aeropuerto --> Ciudad : pista
+    Ciudad --> PoliciaNovato : pista
+    PoliciaNovato --> AlgoThief : pista
+
+end
+
+loop 55 times
+    AlgoThief -> PoliciaNovato : entrarAEdificio(1)
+    PoliciaNovato -> Ciudad : entrarAEdificio(1)
+    Ciudad -> Banco : mostrarPista
+    Banco --> Ciudad : pista
+    Ciudad --> PoliciaNovato : pista
+    PoliciaNovato --> AlgoThief : pista
+
+end
+
+@enduml
+
+Vista un Aeropuerto (3 veces):
+Se despliega una pista.
+Vista un Puerto (55 veces):
+Se despliega una pista.

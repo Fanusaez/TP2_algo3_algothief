@@ -198,8 +198,7 @@ City:        Montreal
 Flag:        Maple Leaf Flag
 Currency:    ???
 Geography:   ???
-Landmarks:   Gaspe Peninsula, Lake Mistassini, Montgomery Falls, Prince Edward
-             Island, Yukon
+Landmarks:   Gaspe Peninsula, Lake Mistassini, Montgomery Falls, Prince Edward Island, Yukon
 Industries:  ???
 Animals:     Moose
 People:      ???
@@ -420,9 +419,6 @@ Leader:      ???
 Misc:        ???
 
 *******************************************************************************
-VI.    Dossiers
-
-...............................................................................
 Name:     Nick Brunch
 Sex:      Male
 Hobby:    Mountain Climbing
@@ -492,37 +488,3 @@ Hobby:    Tennis
 Hair:     Brown
 Feature:  Jewelry
 Auto:     Convertible
-
-*******************************************************************************
-VII.   Loot
-
-Here is a partial list of the items that Carmen and her gang steal:
-
--  1,000 Year Old Egg (Peking)
--  Babylonian Tablet (Baghdad)
--  Boar's Tusk (Port Moresby)
--  Chandelier from the Opera House (Sydney)
--  Constantine's Jeweled Cross (Istanbul)
--  Crown Jewels (London)
--  Flying Carpet (Baghdad)
--  Golden Buddha (Bangkok)
--  Incan Gold Mask (Lima)
--  Islamic Manuscript (Bamako)
--  Ivan the Terrible's Crown (Moscow)
--  King Tut's Mask (Cairo)
--  Mask of Montezuma (Mexico City)
--  Mask of Priam (Athens)
--  Merlion the Golden Lion (Singapore)
--  Painting from the Kremlin (Moscow)
--  Pope's Ring (Rome)
--  Rare Mali Empire Pottery (Bamako)
--  Rare Tea Plant (Colombo)
--  Royal Quartz Collection (Kathmandu)
--  Sernedip Ruby (Colombo)
--  Silver LLama (Lima)
--  Solid Gold Bola (Buenos Aires)
--  Stanley Cup (Montreal)
--  Stuffed Parrot (Rio de Janeiro)
--  The Rockettes (New York)
--  Viking Helmet (Oslo)
--  Watusi King's Headdress (Kigali)

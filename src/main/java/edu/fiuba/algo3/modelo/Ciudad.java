@@ -1,56 +1,109 @@
 package edu.fiuba.algo3.modelo;
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Banco;
+import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 
-public class Ciudad {
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Ciudad{
+    public String nombre; // <--- borrar después
     private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
-    String nombre;
-    String poblacion; //biblioteca
-    String bandera; //aeropuerto/puerto
-    String moneda; //banco
-    String idioma; //¿?
-    String presidente; //biblioteca
-    String religion; //iglesia
-    String industrias; //biblioteca
-    String animales; //biblitoeca/zoologico
-    String arte; // biblioteca/museo
-    String misc; //¿?
-    String geografia; //biblioteca
-    String lugaresEmblematicos;
+    private HashMap <String,String> hash;
+    private ArrayList<Ciudad> opcionesDeViaje;
+    private double latitud;
+    private double longitud;
+    //private ArrayList<Ciudad> opcionesDeViaje;
+    /*
 
+    Map<String, String> map = new HashMap<String, String>();
+    map.put("dog", "type of animal");
 
-    public Ciudad(String nombre, String poblacion, String bandera, String moneda, String idioma, String presidente, String religion, String industrias, String animales, String arte, String misc, String geografia, String lugaresEmblematicos) {
+    */
+
+    public Ciudad() {
         this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
-        this.nombre = nombre;
-        this.poblacion = poblacion;
-        this.bandera = bandera;
-        this.moneda = moneda;
-        this.idioma = idioma;
-        this.presidente = presidente;
-        this.religion = religion;
-        this.industrias = industrias;
-        this.animales = animales;
-        this.arte = arte;
-        this.misc = misc;
-        this.geografia = geografia;
-        this.lugaresEmblematicos = lugaresEmblematicos;
         this.edificios.add(new Banco());
-        this.edificios.add(new Banco());
-        this.edificios.add(new Banco());
+        this.edificios.add(new Biblioteca());
+        this.edificios.add(new Aeropuerto());
+        this.hash = new HashMap<String,String>();
+        this.latitud = 0;
+        this.longitud = 0;
+        this.opcionesDeViaje = new ArrayList<>();
+
     }
 
+
+    public void agregarDato(String clave,String valor) {
+        this.hash.put(clave,valor);
+    }
+
+    public String obtenerDato(String clave){
+        String claveCorregida;
+        if (clave.length() >= 2 ) {
+            claveCorregida = clave.substring(0, 1).toUpperCase() + clave.substring(1);
+        }
+        else{claveCorregida=clave.toUpperCase();}
+
+        String ciudad = this.hash.get(claveCorregida);
+        if (ciudad == null){
+            throw new ExceptionDatoNoExistente();
+        }
+
+        return ciudad;
+    }
 
     public String entrarAEdificio(int indice) {
         return edificios.get(indice).mostrarPista();
+
         //return "El delincuente no visito este edificio";
     }
 
+    //Getter de atributo
     public Integer getCantidadEntradas() {
         if (cantidadEntradas < 3){
             this.cantidadEntradas += 1;
         }
         return this.cantidadEntradas;
     }
+
+    public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
+        edificios.get(0).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+        edificios.get(1).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+        edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+    }
+
+    //Getter de atributo
+    public double getLatitud() {
+        return latitud;
+    }
+
+    //Getter de atributo
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void agregarComoOpcion(Ciudad destino) {
+        if (this.opcionesDeViaje.contains(destino) || this == destino){
+            return;
+        }
+        this.opcionesDeViaje.add(destino);
+        //System.out.println(this.obtenerDato("City"));
+        destino.agregarComoOpcion(this);
+        //System.out.println(destino.obtenerDato("City"));
+    }
+
+    //Este es un getter de un atributo
+    public ArrayList<Ciudad> mostrarOpcionesViaje() {
+        return this.opcionesDeViaje;
+    }
+    public int ataques(){
+        return 0;
+    }
 }
+
