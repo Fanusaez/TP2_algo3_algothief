@@ -1,0 +1,26 @@
+@startuml
+title : casoDeUso1
+autonumber
+TestCase -> AlgoThief : iniciaJuego()
+AlgoThief -> CreadorDelincuente : obtenerDelincuenteAleat()
+CreadorDelincuente -> AlgoThief : unDelincuenteFemenino
+AlgoThief -> PoliciaNovato : comenzarEn(Montreal)
+TestCase -> AlgoThief : entrarAEdificio(0)
+AlgoThief -> Reloj : aumentarHoras(1)
+AlgoThief -> AlgoThief : chequearAtaque()
+AlgoThief -> PoliciaNovato : entrarAEdificio(0)
+PoliciaNovato -> Ciudad : entrarAEdificio(0)
+Ciudad --> Banco : mostrarPista()
+Banco --> Ciudad : pista
+Ciudad --> PoliciaNovato : pista
+PoliciaNovato --> AlgoThief : pista
+
+
+@enduml
+
+Caso de uso 1
+Robaron el tesoro Nacional de Montreal.
+Sospechoso femenino.
+Detective novato comienza en Montreal.
+Vista un Banco:
+Se despliega una pista.

@@ -1,30 +1,29 @@
-package edu.fiuba.algo3.modelo;
-
+package edu.fiuba.algo3.modelo.fakes;
+import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 
 import java.util.ArrayList;
 
-public class AlgoThief implements AlgoThiefInterfaz{
-    public Policia policia;
+public class AlgoThiefFake  implements AlgoThiefInterfaz {
+    public PoliciaFake policia;
     private Reloj reloj;
 
-    public Mapa mapa;
+    public MapaFake mapa;
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
 
-    public AlgoThief(String rutaArchivoCiudades) {
+    public AlgoThiefFake(String rutaArchivoCiudades) {
 
         this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
         this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
-        this.mapa = new Mapa(rutaArchivoCiudades);
+        this.mapa = new MapaFake(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
         Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
-        this.policia = new Policia(ciudadInicial);
+        this.policia = new PoliciaFake(ciudadInicial);
         this.reloj = new Reloj();
     }
-
     public String desplegarTextoInicial(){
         String texto = "***FLASH***\n" +
                 "National treasure stolen from Port Moresby.\n" +
@@ -67,5 +66,16 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     }
 
+
+
+    public Ciudad getCiudadPolicia(){
+        return policia.getCiudadActual();
+    }
+
+    public void setearCiudad(Ciudad ciudadSeleccionada){policia.setearCiudad(ciudadSeleccionada);}
+
+    public Ciudad obtenerUltimaCiudad(){
+        return this.mapa.obtenerUltimaCiudadDelincuente();
+    }
 
 }

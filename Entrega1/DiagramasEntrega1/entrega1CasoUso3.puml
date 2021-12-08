@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title : casoUso3
+
+autonumber
+
+TestCase -> AlgoThief : viajarA(Mexico)
+AlgoThief -> Policia : viajarA(Mexico)
+Policia -> Viaje : distanciaEntre(ciudadActual, Mexico)
+Viaje --> Policia : unaDistancia
+Policia --> AlgoThief : unaDemoraTiempo
+
+AlgoThief -> Reloj : aumentarHoras(2)
+
+@enduml
+
+Caso de uso 3
+Detective viaja de Montreal a México
