@@ -1,8 +1,8 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.CiudadProductiva;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import org.junit.Test;
-import java.io.File;
+
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -24,8 +24,8 @@ public class TestEntregaUno {
     @Test
     public void casoUsoTresDetectiveViajaDeUnaCiudadAOtraYPoliciaCambiaDeCiudad(){
         AlgoThief algoThief = new AlgoThief(directorio);
-        Ciudad ciudadPoliciaInicial = algoThief.policia.ciudadActual;
-        ArrayList<Ciudad> destinosPosibles = algoThief.mapa.mostrarOpcionesViaje(algoThief.policia.ciudadActual);
+        CiudadProductiva ciudadPoliciaInicial = algoThief.policia.ciudadActual;
+        ArrayList<CiudadProductiva> destinosPosibles = algoThief.mapa.mostrarOpcionesViaje(algoThief.policia.ciudadActual);
         algoThief.viajar(destinosPosibles.get(0));
         assertEquals(destinosPosibles.get(0),algoThief.policia.ciudadActual);
     }
@@ -40,7 +40,7 @@ public class TestEntregaUno {
     @Test
     public void TestCasoUsoCincodelincuenteAtacaAPolicia(){
         AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
-        Ciudad ciudadUltima = algoThief.obtenerUltimaCiudad();
+        CiudadProductiva ciudadUltima = algoThief.obtenerUltimaCiudad();
         algoThief.setearCiudad(ciudadUltima);
         algoThief.entrarAEdificio(0);
         assertEquals("Monday 09:00", algoThief.obtenerHorario());

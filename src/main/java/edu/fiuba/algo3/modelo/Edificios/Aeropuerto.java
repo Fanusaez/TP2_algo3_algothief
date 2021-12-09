@@ -1,18 +1,19 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.Pista;
+import edu.fiuba.algo3.modelo.fakes.CiudadFake;
 
 public class Aeropuerto implements Edificio {
 
-    String pista = "El delincuente no visito este edificio";
+    Pista pista = new Pista("El delincuente no visito este edificio");
 
     @Override
-    public String mostrarPista() {
-        return pista;
+    public void mostrarPista() {
+        pista.mostrarPista();
     }
 
     @Override
-    public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
-        pista = "Vi que tenia una bandera del estilo " + unaCiudad.obtenerDato("Flag")+ "."+ laPista;
+    public void generarPistaEdificio(CiudadFake unaCiudad, String laPista) {
+        pista = new Pista("Vi que tenia una bandera del estilo " + unaCiudad.obtenerDato("Flag")+ "."+ laPista);
     }
 }

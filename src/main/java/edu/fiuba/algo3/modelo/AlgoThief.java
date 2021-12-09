@@ -20,7 +20,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
-        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
+        CiudadProductiva ciudadInicial = mapa.obtenerCiudadInicial();
         this.policia = new Policia(ciudadInicial);
         this.reloj = new Reloj();
     }
@@ -51,18 +51,20 @@ public class AlgoThief implements AlgoThiefInterfaz{
         }
     }
 
-    public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.cantidadDeEntradas());
+    public void entrarAEdificio(int indiceEdificio) {
+        reloj.aumentarHoras(policia.obtenerHorasDemoraAlEntrarEdificio());
         this.chequearAtaque();
-        return policia.entrarAEdificio(indice);
+        policia.entrarAEdificio(indiceEdificio);
     }
 
+    public String entrarAEdificio(int indiceEdificio) {}
 
-    public ArrayList<Ciudad> verOpcionesDeViaje() {
+
+    public ArrayList<CiudadProductiva> verOpcionesDeViaje() {
         return mapa.mostrarOpcionesViaje(policia.ciudadActual);
     }
 
-    public void viajar(Ciudad destinoSeleccionado) {
+    public void viajar(CiudadProductiva destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
 
     }

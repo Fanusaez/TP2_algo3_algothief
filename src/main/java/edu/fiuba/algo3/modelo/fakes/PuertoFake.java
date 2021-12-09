@@ -1,18 +1,18 @@
-package edu.fiuba.algo3.modelo.Edificios;
+package edu.fiuba.algo3.modelo.fakes;
 
+import edu.fiuba.algo3.modelo.CiudadProductiva;
 import edu.fiuba.algo3.modelo.Pista;
-import edu.fiuba.algo3.modelo.fakes.CiudadFake;
 
-public class Puerto implements Edificio {
+public class PuertoFake implements EdificioFake {
     Pista pista = new Pista("El delincuente no visito este edificio");
 
     @Override
-    public void mostrarPista() {
+    public String mostrarPista() {
         pista.mostrarPista();
     }
 
     @Override
-    public void generarPistaEdificio(CiudadFake unaCiudad, String laPista) {
+    public void generarPistaEdificio(CiudadProductiva unaCiudad, String laPista) {
         pista = new Pista("Cambio la moneda a " + unaCiudad.obtenerDato("Currency"));
     }
 }

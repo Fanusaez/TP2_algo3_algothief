@@ -1,7 +1,7 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.CiudadProductiva;
 import org.junit.Test;
-import java.io.File;
+
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -70,8 +70,8 @@ public class TestAlgoThief01 {
         AlgoThief algothief = new AlgoThief(directorio);
 
         String horaSalida =  algothief.obtenerHorario();
-        ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
-        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
+        ArrayList<CiudadProductiva> listaOpcionesViaje = algothief.verOpcionesDeViaje();
+        CiudadProductiva ciudadSeleccionada = listaOpcionesViaje.get(0);
         algothief.viajar(ciudadSeleccionada);
         String horaLlegada =  algothief.obtenerHorario();
 
@@ -82,11 +82,11 @@ public class TestAlgoThief01 {
     public void Test08MostrarOpcionesViajeEnCiudadDestinoContieneACiudadOrigen(){
 
         AlgoThief algothief = new AlgoThief(directorio);
-        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
-        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
-        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(0);
+        CiudadProductiva ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<CiudadProductiva> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        CiudadProductiva ciudadDestino = listaOpcionesViajeOrigen.get(0);
         algothief.viajar(ciudadDestino);
-        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+        ArrayList<CiudadProductiva> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
 
         assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
     }
@@ -94,11 +94,11 @@ public class TestAlgoThief01 {
     @Test
     public void Test09MostrarOpcionesViajeEnCiudadNoRecorridaYContieneACiudadOrigen(){
         AlgoThief algothief = new AlgoThief(directorio);
-        Ciudad ciudadOrigen= algothief.policia.ciudadActual;
-        ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
-        Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(1);
+        CiudadProductiva ciudadOrigen= algothief.policia.ciudadActual;
+        ArrayList<CiudadProductiva> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
+        CiudadProductiva ciudadDestino = listaOpcionesViajeOrigen.get(1);
         algothief.viajar(ciudadDestino);
-        ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
+        ArrayList<CiudadProductiva> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
 
         assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
     }

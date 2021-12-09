@@ -3,30 +3,30 @@ package edu.fiuba.algo3.modelo;
 public class Policia {
 
     public int velocidad;
-    public Ciudad ciudadActual;
+    public CiudadProductiva ciudadActual;
     public Viaje viaje;
-    public Policia(Ciudad unaCiudad){
+    public Policia(CiudadProductiva unaCiudad){
 
         this.ciudadActual = unaCiudad;
         this.viaje = new Viaje();
         this.velocidad=900;
     }
 
-    public String entrarAEdificio(int indice) {
-        return this.ciudadActual.entrarAEdificio(indice);
+    public void entrarAEdificio(int indice) {
+        this.ciudadActual.entrarAEdificio(indice);
     }
 
-    public int cantidadDeEntradas() {
-        return this.ciudadActual.getCantidadEntradas();
+    public int obtenerHorasDemoraAlEntrarEdificio() {
+        return this.ciudadActual.obtenerHorasDemoraAlEntrarEdificio();
     }
 
     // Metodos de testeos ********************************************************************************
 
-    public Ciudad getCiudadActual(){
+    public CiudadProductiva getCiudadActual(){
         return ciudadActual;
     }
 
-    public int viajar(Ciudad destinoSeleccionado) {
+    public int viajar(CiudadProductiva destinoSeleccionado) {
         ciudadActual=destinoSeleccionado;
         return viaje.calcularDistanciaDeViaje(ciudadActual,destinoSeleccionado)/velocidad;
     }

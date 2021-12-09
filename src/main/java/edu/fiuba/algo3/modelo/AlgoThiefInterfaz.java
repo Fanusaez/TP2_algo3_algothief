@@ -1,7 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
-
 import java.util.ArrayList;
 
 public interface AlgoThiefInterfaz {
@@ -12,11 +10,11 @@ public interface AlgoThiefInterfaz {
     public void chequearAtaque();
 
     public String entrarAEdificio(int indice) ;
+    public void entrarAEdificio(int indice) ;
 
+    public ArrayList<CiudadProductiva> verOpcionesDeViaje();
 
-    public ArrayList<Ciudad> verOpcionesDeViaje();
-
-    public void viajar(Ciudad destinoSeleccionado);
+    public void viajar(CiudadProductiva destinoSeleccionado);
 
 
 }

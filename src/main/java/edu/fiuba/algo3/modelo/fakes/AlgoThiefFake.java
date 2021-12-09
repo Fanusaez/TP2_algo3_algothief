@@ -20,7 +20,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
-        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
+        CiudadProductiva ciudadInicial = mapa.obtenerCiudadInicial();
         this.policia = new PoliciaFake(ciudadInicial);
         this.reloj = new Reloj();
     }
@@ -51,30 +51,30 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
     public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.cantidadDeEntradas());
+        reloj.aumentarHoras(policia.obtenerHorasDemoraAlEntrarEdificio());
         this.chequearAtaque();
         return policia.entrarAEdificio(indice);
     }
 
 
-    public ArrayList<Ciudad> verOpcionesDeViaje() {
+    public ArrayList<CiudadProductiva> verOpcionesDeViaje() {
         return mapa.mostrarOpcionesViaje(policia.ciudadActual);
     }
 
-    public void viajar(Ciudad destinoSeleccionado) {
+    public void viajar(CiudadProductiva destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
 
     }
 
 
 
-    public Ciudad getCiudadPolicia(){
+    public CiudadProductiva getCiudadPolicia(){
         return policia.getCiudadActual();
     }
 
-    public void setearCiudad(Ciudad ciudadSeleccionada){policia.setearCiudad(ciudadSeleccionada);}
+    public void setearCiudad(CiudadProductiva ciudadSeleccionada){policia.setearCiudad(ciudadSeleccionada);}
 
-    public Ciudad obtenerUltimaCiudad(){
+    public CiudadProductiva obtenerUltimaCiudad(){
         return this.mapa.obtenerUltimaCiudadDelincuente();
     }
 

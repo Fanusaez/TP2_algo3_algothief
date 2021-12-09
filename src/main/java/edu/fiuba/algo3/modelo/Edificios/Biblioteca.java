@@ -1,18 +1,20 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.Pista;
+import edu.fiuba.algo3.modelo.fakes.CiudadFake;
 
 public class Biblioteca implements Edificio {
-    String pista = "El delincuente no visito este edificio";
+
+    Pista pista = new Pista("El delincuente no visito este edificio");
 
     @Override
-    public String mostrarPista() {
-        return pista;
+    public void mostrarPista() {
+        pista.mostrarPista();
     }
 
     @Override
-    public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
+    public void generarPistaEdificio(CiudadFake unaCiudad, String laPista) {
 
-        pista = "Vi al delicuente llevarse fotos de  " + unaCiudad.obtenerDato("Landmarks");
+        pista = new Pista("Vi al delicuente llevarse fotos de  " + unaCiudad.obtenerDato("Landmarks"));
     }
 }

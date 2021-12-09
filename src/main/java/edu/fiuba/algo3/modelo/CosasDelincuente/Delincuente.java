@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.CosasDelincuente;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
+import edu.fiuba.algo3.modelo.Pista;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ public class Delincuente{
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap<String,String> hashDeAtributos;
     private Arma arma;
+    private Pista pista;
 
     /*
     Map<String, String> map = new HashMap<String, String>();
@@ -22,6 +24,7 @@ public class Delincuente{
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
         this.arma = new Arma();
+        this.pista = new Pista("");
     }
 
 
@@ -47,19 +50,10 @@ public class Delincuente{
         return dato;
     }
 
-    public String generarPista() {
+    public Pista generarPista() {
 
-        ArrayList<String> atributosLista = new ArrayList<String>();
-        int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
-
-        atributosLista.add("Tiene pelo de color " + hashDeAtributos.get("Hair"));
-        atributosLista.add("El delincuente era " + hashDeAtributos.get("Sex"));
-        atributosLista.add("Y vi a ese delincuente irse con un auto " + hashDeAtributos.get("Auto"));
-        atributosLista.add("Tenia un " + hashDeAtributos.get("Feature"));
-        atributosLista.add("");
-
-        return atributosLista.get(randIdx);
-
+        Pista pista = new Pista(hashDeAtributos);
+        return pista;
     }
 
     public int cantidadDeCiudadesRecorridas(){

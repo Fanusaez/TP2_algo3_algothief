@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Mapa {
-    protected ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
-    protected ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
+    protected ArrayList<CiudadProductiva> ciudadesNoRecorridasPorDelincuente;
+    protected ArrayList<CiudadProductiva> ciudadesRecorridasPorDelincuente;
 
     public Mapa(String rutaArchivoCiudades) {
-        ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
-        ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
+        ciudadesNoRecorridasPorDelincuente = new ArrayList<CiudadProductiva>();
+        ciudadesRecorridasPorDelincuente = new ArrayList<CiudadProductiva>();
         parsearArchivo(rutaArchivoCiudades);
     }
 
-    public Ciudad obtenerCiudadInicial()
+    public CiudadProductiva obtenerCiudadInicial()
     {
         return ciudadesRecorridasPorDelincuente.get(0);
     }
@@ -33,12 +33,12 @@ public class Mapa {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 
-            Ciudad ciudad = new Ciudad();
+            CiudadProductiva ciudad = new CiudadProductiva();
             while ((line = bufferedReader.readLine()) != null && !line.equals(""))
             {
                 if (line.equals("...............................................................................")) {
                     this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
-                    ciudad = new Ciudad(); //?
+                    ciudad = new CiudadProductiva(); //?
                     continue;
                 }
 
@@ -78,7 +78,7 @@ public class Mapa {
 
         while ( ciudadesRecorridasPorDelincuente.size() < largoRecorrido){
             int randomIndex = rand.nextInt(ciudadesNoRecorridasPorDelincuente.size() - 1);
-            Ciudad ciudad = ciudadesNoRecorridasPorDelincuente.get(randomIndex);
+            CiudadProductiva ciudad = ciudadesNoRecorridasPorDelincuente.get(randomIndex);
             if(!ciudadesRecorridasPorDelincuente.contains(ciudad)) {
                 ciudadesRecorridasPorDelincuente.add(ciudad);
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
@@ -88,14 +88,14 @@ public class Mapa {
         //por cada ciudad[i], acceder a edificio[j]
 
         for (int i = 0; i < largoRecorrido-1; i++){
-            Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
-            Ciudad ciudadsiguiente = ciudadesRecorridasPorDelincuente.get(i+1);
-            ciudadanterior.generarPista(ciudadsiguiente,delincuente.generarPista()); //esto le delega a edificio
+            CiudadProductiva ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
+            CiudadProductiva ciudadsiguiente = ciudadesRecorridasPorDelincuente.get(i+1);
+            ciudadanterior.generarPista(ciudadsiguiente,delincuente.generarPista().getPista()); //esto le delega a edificio
         }
     }
 
 
-    public ArrayList<Ciudad> mostrarOpcionesViaje (Ciudad ciudad) {
+    public ArrayList<CiudadProductiva> mostrarOpcionesViaje (CiudadProductiva ciudad) {
         return ciudad.mostrarOpcionesViaje();
     }
 
@@ -138,7 +138,7 @@ public class Mapa {
 
     //Metodos para tests **************************************************************************
 
-    public boolean estaEnUltimaCiudad(Ciudad ciudadActual) {
+    public boolean estaEnUltimaCiudad(CiudadProductiva ciudadActual) {
         int n = ciudadesRecorridasPorDelincuente.size();
         return ciudadActual == ciudadesRecorridasPorDelincuente.get(n-1);
     }

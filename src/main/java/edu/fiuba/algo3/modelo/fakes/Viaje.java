@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.fakes;
+
+import edu.fiuba.algo3.modelo.CiudadProductiva;
 
 public class Viaje {
 
