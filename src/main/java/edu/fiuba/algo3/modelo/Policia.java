@@ -16,10 +16,6 @@ public class Policia {
         return this.ciudadActual.entrarAEdificio(indice);
     }
 
-    public int cantidadDeEntradas() {
-        return this.ciudadActual.getCantidadEntradas();
-    }
-
     // Metodos de testeos ********************************************************************************
 
     public Ciudad getCiudadActual(){
@@ -29,5 +25,9 @@ public class Policia {
     public int viajar(Ciudad destinoSeleccionado) {
         ciudadActual=destinoSeleccionado;
         return viaje.calcularDistanciaDeViaje(ciudadActual,destinoSeleccionado)/velocidad;
+    }
+
+    public int getDemoraTiempoVisitar(int indice) {
+        return ciudadActual.getDemoraTiempoVisitar(indice);
     }
 }

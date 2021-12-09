@@ -35,6 +35,7 @@ public class Mapa {
 
             Ciudad ciudad = new Ciudad();
             while ((line = bufferedReader.readLine()) != null && !line.equals(""))
+
             {
                 if (line.equals("...............................................................................")) {
                     this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
@@ -66,15 +67,12 @@ public class Mapa {
                 // Or we could just do this:
                 // ex.printStackTrace();
             }
-
-
     }
 
 
     public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
         Random rand = new Random();
-        int contador=0;
 
         while ( ciudadesRecorridasPorDelincuente.size() < largoRecorrido){
             int randomIndex = rand.nextInt(ciudadesNoRecorridasPorDelincuente.size() - 1);
@@ -83,9 +81,7 @@ public class Mapa {
                 ciudadesRecorridasPorDelincuente.add(ciudad);
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
             }
-
         }
-        //por cada ciudad[i], acceder a edificio[j]
 
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);

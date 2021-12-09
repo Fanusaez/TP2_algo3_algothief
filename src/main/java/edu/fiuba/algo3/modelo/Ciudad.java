@@ -10,23 +10,14 @@ import java.util.HashMap;
 
 public class Ciudad{
     public String nombre; // <--- borrar después
-    private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap <String,String> hash;
     private ArrayList<Ciudad> opcionesDeViaje;
     private double latitud;
     private double longitud;
-    //private ArrayList<Ciudad> opcionesDeViaje;
-    /*
-
-    Map<String, String> map = new HashMap<String, String>();
-    map.put("dog", "type of animal");
-
-    */
 
     public Ciudad() {
-        this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
         this.edificios.add(new Banco());
         this.edificios.add(new Biblioteca());
@@ -60,16 +51,6 @@ public class Ciudad{
 
     public String entrarAEdificio(int indice) {
         return edificios.get(indice).mostrarPista();
-
-        //return "El delincuente no visito este edificio";
-    }
-
-    //Getter de atributo
-    public Integer getCantidadEntradas() {
-        if (cantidadEntradas < 3){
-            this.cantidadEntradas += 1;
-        }
-        return this.cantidadEntradas;
     }
 
     public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
@@ -93,9 +74,7 @@ public class Ciudad{
             return;
         }
         this.opcionesDeViaje.add(destino);
-        //System.out.println(this.obtenerDato("City"));
         destino.agregarComoOpcion(this);
-        //System.out.println(destino.obtenerDato("City"));
     }
 
     //Este es un getter de un atributo
@@ -104,6 +83,10 @@ public class Ciudad{
     }
     public int ataques(){
         return 0;
+    }
+
+    public int getDemoraTiempoVisitar(int indice) {
+        return edificios.get(indice).getDemoraTiempoVisitar();
     }
 }
 

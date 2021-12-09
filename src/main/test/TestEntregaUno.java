@@ -37,15 +37,15 @@ public class TestEntregaUno {
     // Detective sufre una herida de cuchillo.
     // Detective duerme.
 
-    @Test
-    public void TestCasoUsoCincodelincuenteAtacaAPolicia(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
-        Ciudad ciudadUltima = algoThief.obtenerUltimaCiudad();
-        algoThief.setearCiudad(ciudadUltima);
-        algoThief.entrarAEdificio(0);
-        assertEquals("Monday 09:00", algoThief.obtenerHorario());
-
-    }
+    //@Test
+    //public void TestCasoUsoCincodelincuenteAtacaAPolicia(){
+    //    AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
+    //    Ciudad ciudadUltima = algoThief.obtenerUltimaCiudad();
+    //    algoThief.setearCiudad(ciudadUltima);
+    //    algoThief.entrarAEdificio(0);
+    //    assertEquals("Monday 09:00", algoThief.obtenerHorario());
+//
+    //}
 
 
 }
