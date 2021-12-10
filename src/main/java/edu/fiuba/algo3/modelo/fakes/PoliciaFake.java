@@ -14,5 +14,7 @@ public class PoliciaFake extends Policia {
     }
 
 
-
+    public int obtenerVelocidad(){
+        return rango.getVelocidad();
+    }
 }

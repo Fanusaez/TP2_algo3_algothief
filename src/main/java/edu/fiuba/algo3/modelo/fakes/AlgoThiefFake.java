@@ -57,7 +57,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
-        return mapa.mostrarOpcionesViaje(policia.ciudadActual);
+        return policia.mostrarOpcionesViaje();
     }
 
     public void viajar(Ciudad destinoSeleccionado) {

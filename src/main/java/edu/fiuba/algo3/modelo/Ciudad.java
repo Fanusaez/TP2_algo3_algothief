@@ -14,8 +14,7 @@ public class Ciudad{
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap <String,String> hash;
     private ArrayList<Ciudad> opcionesDeViaje;
-    private double latitud;
-    private double longitud;
+    private EstadoCiudad estado;
 
     public Ciudad() {
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
@@ -67,6 +66,7 @@ public class Ciudad{
 
     //Este es un getter de un atributo
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
+        System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
     public int ataques(){

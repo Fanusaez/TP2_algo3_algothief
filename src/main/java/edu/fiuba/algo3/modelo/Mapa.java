@@ -82,6 +82,7 @@ public class Mapa {
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
             }
         }
+        ciudadesRecorridasPorDelincuente.get(delincuente.cantidadDeCiudadesRecorridas()-1).setEstado(new Peligrosa());
 
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
@@ -91,9 +92,6 @@ public class Mapa {
     }
 
 
-    public ArrayList<Ciudad> mostrarOpcionesViaje (Ciudad ciudad) {
-        return ciudad.mostrarOpcionesViaje();
-    }
 
     public void establecerOpcionesDeViaje(){
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();

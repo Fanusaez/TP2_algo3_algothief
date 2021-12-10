@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import java.util.ArrayList;
+
 public class Policia {
 
     public Rango rango;
@@ -33,5 +35,14 @@ public class Policia {
 
     public int getDemoraTiempoVisitar(int indice) {
         return ciudadActual.getDemoraTiempoVisitar(indice);
+    }
+
+    public ArrayList<Ciudad> mostrarOpcionesViaje() {
+        return ciudadActual.mostrarOpcionesViaje();
+    }
+
+    public void realizarArresto() {
+        cantidadArrestos += 1;
+        this.rango = rango.ascender(cantidadArrestos);
     }
 }

@@ -25,7 +25,7 @@ public class TestEntregaUno {
     public void casoUsoTresDetectiveViajaDeUnaCiudadAOtraYPoliciaCambiaDeCiudad(){
         AlgoThief algoThief = new AlgoThief(directorio);
         Ciudad ciudadPoliciaInicial = algoThief.policia.ciudadActual;
-        ArrayList<Ciudad> destinosPosibles = algoThief.mapa.mostrarOpcionesViaje(algoThief.policia.ciudadActual);
+        ArrayList<Ciudad> destinosPosibles = algoThief.policia.mostrarOpcionesViaje();
         algoThief.viajar(destinosPosibles.get(0));
         assertEquals(destinosPosibles.get(0),algoThief.policia.ciudadActual);
     }
