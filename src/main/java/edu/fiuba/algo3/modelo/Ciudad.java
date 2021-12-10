@@ -23,10 +23,8 @@ public class Ciudad{
         this.edificios.add(new Biblioteca());
         this.edificios.add(new Aeropuerto());
         this.hash = new HashMap<String,String>();
-        this.latitud = 0;
-        this.longitud = 0;
         this.opcionesDeViaje = new ArrayList<>();
-
+        this.estado= new Segura();
     }
 
 
@@ -59,16 +57,6 @@ public class Ciudad{
         edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
     }
 
-    //Getter de atributo
-    public double getLatitud() {
-        return latitud;
-    }
-
-    //Getter de atributo
-    public double getLongitud() {
-        return longitud;
-    }
-
     public void agregarComoOpcion(Ciudad destino) {
         if (this.opcionesDeViaje.contains(destino) || this == destino){
             return;
@@ -87,6 +75,10 @@ public class Ciudad{
 
     public int getDemoraTiempoVisitar(int indice) {
         return edificios.get(indice).visitar();
+    }
+
+    public void setEstado(EstadoCiudad unEstado) {
+        this.estado = unEstado;
     }
 }
 

@@ -2,14 +2,18 @@ package edu.fiuba.algo3.modelo;
 
 public class Policia {
 
-    public int velocidad;
+    public Rango rango;
+    public int cantidadArrestos;
     public Ciudad ciudadActual;
-    public Viaje viaje;
+    public Brujula brujula;
+
+
     public Policia(Ciudad unaCiudad){
 
+        this.rango = new RangoNovato();
+        this.cantidadArrestos = 0;
         this.ciudadActual = unaCiudad;
-        this.viaje = new Viaje();
-        this.velocidad=900;
+        this.brujula = new Brujula();
     }
 
     public String entrarAEdificio(int indice) {
@@ -24,7 +28,7 @@ public class Policia {
 
     public int viajar(Ciudad destinoSeleccionado) {
         ciudadActual=destinoSeleccionado;
-        return viaje.calcularDistanciaDeViaje(ciudadActual,destinoSeleccionado)/velocidad;
+        return brujula.calcularDistanciaEntre(ciudadActual,destinoSeleccionado) / this.rango.getVelocidad();
     }
 
     public int getDemoraTiempoVisitar(int indice) {

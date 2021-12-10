@@ -5,8 +5,6 @@
 /' ********** CLASES ********** '/
 
 class AlgoThief{
--cantidadArrestos
-
 + iniciarJuego()
 + actualizarHora(int horas)
 + mostrarOpcionesViaje()
@@ -25,36 +23,34 @@ class Mapa{
 + crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
 }
 
-abstract class Policia{
-
+class Policia{
+-cantidadArrestos
 
 + entrarAEdificio(indiceEdificio)
 + viajarA(destino) : int
-{abstract} +ascender(cantidadArrestos)
 
 }
 
-class PoliciaNovato{
+abstract class Rango{
 -velocidad
 -cantidadNecesariaParaAscender
+
++ {abstract} ascender(cantidadArrestos))
+}
+
+class RangoNovato{
 +ascender(cantidadArrestos)
 }
 
-class PoliciaDetective{
--velocidad
--cantidadNecesariaParaAscender
+class RangoDetective{
 +ascender(cantidadArrestos)
 }
 
-class PoliciaInvestigador{
--velocidad
--cantidadNecesariaParaAscender
+class RangoInvestigador{
 +ascender(cantidadArrestos)
 }
 
-class PoliciaSargento{
--velocidad
--cantidadNecesariaParaAscender
+class RangoSargento{
 +ascender(cantidadArrestos)
 }
 
@@ -69,15 +65,9 @@ class Delincuente{
 +atacar()
 }
 
-/'
-class NPC{
+class Brujula{
 
-}
-'/
-
-class Viaje{
-
-{static} +calcularTiempo(desde, hasta, velocidad) : (int horas)
+{static} +calcularDistanciaEntre(origen, destino) : (int distancia)
 }
 
 
@@ -89,7 +79,7 @@ class Ciudad{
 -contadorVisitaEdificio: int
 
 +entrarAEdificio(indiceEdificio)
-+ generarPistaCiudad(ciudadSiguiente: Ciudad, listaDePistasDelincuenteCiudad: List<String>)
++generarPista(ciudadSiguiente, pistaDelincuente)
 }
 
 class Reloj{
@@ -98,25 +88,25 @@ class Reloj{
 +obtenerHorario()
 }
 
-interface Edificio{
+abstract class Edificio{
 
 + MostrarPista()
-+ {abstract} generarPistaEdificio(ciudadSiguiente,string)
++ {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Banco{
 -pista
-+ generarPistaEdificio(ciudadSiguiente,string)
++ generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Puerto{
 -pista
-+ generarPistaEdificio(ciudadSiguiente,string)
++ generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Museo{
 -pista
-+ generarPistaEdificio(ciudadSiguiente,string)
++ generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Computadora{
@@ -160,11 +150,12 @@ Puerto ..|> Edificio
 
 Policia --> Ciudad
 Policia --> Mapa
-Policia --> Viaje
-PoliciaNovato ..|> Policia
-PoliciaDetective ..|> Policia
-PoliciaSargento ..|> Policia
-PoliciaInvestigador ..|> Policia
+Policia --> Brujula
+Policia --> Rango
+RangoNovato ..|> Rango
+RangoDetective ..|> Rango
+RangoSargento ..|> Rango
+RangoInvestigador ..|> Rango
 
 Delincuente --> Arma
 
@@ -174,47 +165,8 @@ ArmaDeFuego ..|> Arma
 
 Ciudad "1" --> "3" Edificio
 
-/' ********** NOTAS ********** '/
-
-
-note left of PoliciaNovato::ascender
-if cantidadArrestos = cantidadNecesariaParaAscender:
-   return PoliciaDetective new
-return self
-end note
-
-
-
-/'note right of Delincuente
-La creacion de un delincuente depende
-del valor de un objeto, y el valor de
-un objeto depende del grado del policia.
-end note'/
-
-/'
-public enum casosDeAscenso
-{
-    0, 5, 10, 20
-}
-
-if cantidadArrestos in casosDeAscenso:
-    POLICIA = POLICIA.ASCENDER()
-
-'/
-/'
-note right of clases.AlgoThief::entrarAEdificio
-entrarAEdificio():
-    if delincuente.ciudad == policia.ciudad:
-        horario.actualizarHora(delincuente.atacar())
-end note
-'/
 
 @enduml
-
-polcia.estaEnCiudadDelincuente(delincuente)
-
-en estaEnCiudadDelincuente:
-    if delincuente.estaAca(ciudadActual)
 
 
 
