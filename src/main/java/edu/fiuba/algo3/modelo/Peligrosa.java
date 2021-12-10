@@ -4,7 +4,8 @@ import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 
 public class Peligrosa implements EstadoCiudad {
 
-    int atacar(Delincuente delincuente){
+    @Override
+    public int atacar(Delincuente delincuente) {
         return delincuente.atacar();
     }
 }

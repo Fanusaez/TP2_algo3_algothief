@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
@@ -46,7 +47,7 @@ public class Ciudad{
         return ciudad;
     }
 
-    public String entrarAEdificio(int indice) {
+    public String entrarAEdificio(int indice){
         return edificios.get(indice).mostrarPista();
     }
 
@@ -69,8 +70,8 @@ public class Ciudad{
         System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
-    public int ataques(){
-        return 0;
+    public int ataques(Delincuente delincuente){
+        return estado.atacar(delincuente);
     }
 
     public int getDemoraTiempoVisitar(int indice) {

@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+
 import java.util.ArrayList;
 
 public class Policia {
@@ -44,5 +46,9 @@ public class Policia {
     public void realizarArresto() {
         cantidadArrestos += 1;
         this.rango = rango.ascender(cantidadArrestos);
+    }
+
+    public int recibirAtaque(Delincuente delincuente) {
+        return ciudadActual.ataques(delincuente);
     }
 }

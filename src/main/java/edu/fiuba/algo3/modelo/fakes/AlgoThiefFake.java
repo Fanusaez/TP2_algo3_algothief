@@ -51,7 +51,8 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
     public String entrarAEdificio(int indice) {
-        this.chequearAtaque();
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
+        reloj.aumentarHoras(policia.recibirAtaque(delincuente));
         return policia.entrarAEdificio(indice);
     }
 
@@ -75,6 +76,14 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public Ciudad obtenerUltimaCiudad(){
         return this.mapa.obtenerUltimaCiudadDelincuente();
+    }
+
+    public Ciudad obtenerCiudad(String ciudad) {
+        return mapa.buscarCiudad(ciudad);
+    }
+
+    public void ascenederPolicia(Rango rangoNuevo){
+        policia.ascender(rangoNuevo);
     }
 
 }
