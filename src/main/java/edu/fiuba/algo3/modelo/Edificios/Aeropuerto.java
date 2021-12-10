@@ -7,6 +7,6 @@ public class Aeropuerto extends Edificio {
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
-        pistaPropia = "Vi que tenia una bandera del estilo " + unaCiudad.obtenerDato("Flag")+ "."+ laPista;
+        pista = "Vi que tenia una bandera del estilo " + unaCiudad.obtenerDato("Flag")+ "."+ laPista;
     }
 }

@@ -69,7 +69,44 @@ public class TestEdificio {
         assertNotEquals(pistaBanco1, pistaBanco2);
     }
 
+    @Test
+    public void visitarEdificioUnaVezDemoraUno(){
+        Edificio banco = new Banco();
 
+        int demora = banco.visitar();
+        assertTrue(demora == 1);
+    }
 
+    @Test
+    public void visitarEdificioDosVecesDemoraDos(){
+        Edificio banco = new Banco();
 
+        int demora = banco.visitar();
+        demora = banco.visitar();
+
+        assertTrue(demora == 2);
+    }
+
+    @Test
+    public void visitarEdificioTresVecesDemoraTres(){
+        Edificio banco = new Banco();
+
+        int demora = banco.visitar();
+        demora = banco.visitar();
+        demora = banco.visitar();
+
+        assertTrue(demora == 3);
+    }
+
+    @Test
+    public void visitarEdificioCuatroVecesDemoraTres(){
+        Edificio banco = new Banco();
+
+        int demora = banco.visitar();
+        demora = banco.visitar();
+        demora = banco.visitar();
+        demora = banco.visitar();
+
+        assertTrue(demora == 3);
+    }
 }

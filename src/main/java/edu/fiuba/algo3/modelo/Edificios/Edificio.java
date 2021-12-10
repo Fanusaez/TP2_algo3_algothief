@@ -5,21 +5,20 @@ import edu.fiuba.algo3.modelo.Ciudad;
 public abstract class Edificio {
 
     int cantidadEntradas;
-    String pistaDefault;
-    String pistaPropia;
+    String pista;
 
     {
-        pistaDefault = "El delincuente no visito este edificio";
+        pista = "El delincuente no visito este edificio";
         cantidadEntradas = 0;
     }
 
     public String mostrarPista() {
-        return pistaPropia;
+        return pista;
     }
 
     public abstract void generarPistaEdificio(Ciudad unaCiudad, String laPista);
 
-    public int getDemoraTiempoVisitar(){
+    public int visitar(){
         if (cantidadEntradas < 3){
             this.cantidadEntradas += 1;
         }

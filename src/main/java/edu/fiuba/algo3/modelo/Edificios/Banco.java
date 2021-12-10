@@ -6,6 +6,6 @@ public class Banco extends Edificio {
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, String laPista) {
-        pistaPropia = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency")+ ". "+ laPista;
+        pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency")+ ". "+ laPista;
     }
 }

@@ -86,7 +86,7 @@ public class Ciudad{
     }
 
     public int getDemoraTiempoVisitar(int indice) {
-        return edificios.get(indice).getDemoraTiempoVisitar();
+        return edificios.get(indice).visitar();
     }
 }
 
