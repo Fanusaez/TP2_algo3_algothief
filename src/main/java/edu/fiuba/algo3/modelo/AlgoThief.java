@@ -62,7 +62,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
-
     }
 
 }

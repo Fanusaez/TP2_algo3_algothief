@@ -62,15 +62,16 @@ public class Ciudad{
             return;
         }
         this.opcionesDeViaje.add(destino);
-        destino.agregarComoOpcion(this);
+        //destino.agregarComoOpcion(this);
     }
 
-    //Este es un getter de un atributo
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
         System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
 
+    //La cantidad de entradas al edificio es coincidente con la cant de horas de demora
+    //Si cantEntradas = 2 ---> TiempoDemora = 2
     public int getDemoraTiempoVisitar(int indice) {
         return edificios.get(indice).visitar() + estado.atacar();
     }

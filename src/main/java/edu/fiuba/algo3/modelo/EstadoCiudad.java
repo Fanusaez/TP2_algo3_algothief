@@ -5,6 +5,5 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public interface EstadoCiudad {
     public int atacar();
-
     String entrarAEdificio(Edificio edificio);
 }

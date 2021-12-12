@@ -36,9 +36,7 @@ public class TestEntregaDos {
     }
 
     @Test
-
     public void SeCarganLosDatosDelSospechosoEnLaComputadoraYSeBuscanLosSospechosos(){
-
 
     }
 

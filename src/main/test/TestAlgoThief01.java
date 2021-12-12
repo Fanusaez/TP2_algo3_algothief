@@ -118,6 +118,11 @@ public class TestAlgoThief01 {
         assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
     }
 
+    @Test
+    public void Test10(){
+        AlgoThief algothief = new AlgoThief(directorio);
+    }
+
 //############################################################################################################
 //############################################################################################################
 //#########################|| CASOS DE USO PARA LA ENTREGA 1 ||###############################################

@@ -108,13 +108,11 @@ public class Mapa {
         }
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
-
             while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
         }
-
     }
 
     public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
@@ -122,7 +120,6 @@ public class Mapa {
     }
 
     public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
-
 
     }
 

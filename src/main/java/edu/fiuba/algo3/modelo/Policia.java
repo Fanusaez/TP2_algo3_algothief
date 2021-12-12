@@ -31,6 +31,7 @@ public class Policia {
     }
 
     public int viajar(Ciudad destinoSeleccionado) {
+        destinoSeleccionado.agregarComoOpcion(ciudadActual);
         ciudadActual=destinoSeleccionado;
         return brujula.calcularDistanciaEntre(ciudadActual,destinoSeleccionado) / this.rango.getVelocidad();
     }
