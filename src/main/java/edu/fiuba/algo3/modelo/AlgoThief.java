@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class AlgoThief implements AlgoThiefInterfaz{
     public Policia policia;
     private Reloj reloj;
-
     public Mapa mapa;
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
@@ -53,7 +52,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        reloj.aumentarHoras(policia.recibirAtaque(delincuente));
         return policia.entrarAEdificio(indice);
     }
 

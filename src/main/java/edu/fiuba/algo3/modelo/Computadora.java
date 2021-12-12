@@ -17,7 +17,7 @@ public class Computadora {
 
     }
 
-    public ArrayList<Delincuente> buscarSospechoso(){ //descarta sospechosos en base a los datos que se ingresaron
-
-    }
+    //public ArrayList<Delincuente> buscarSospechoso(){ //descarta sospechosos en base a los datos que se ingresaron
+//
+    //}
 }

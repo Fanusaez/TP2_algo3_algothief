@@ -76,7 +76,6 @@ class Ciudad{
 -bandera:string
 -moneda:string
 -idioma:string
--contadorVisitaEdificio: int
 
 +entrarAEdificio(indiceEdificio)
 +generarPista(ciudadSiguiente, pistaDelincuente)
@@ -89,23 +88,22 @@ class Reloj{
 }
 
 abstract class Edificio{
-
+-pista
+-cantidadEntradas
++visitar()
 + MostrarPista()
 + {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Banco{
--pista
 + generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Puerto{
--pista
 + generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Museo{
--pista
 + generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
@@ -149,7 +147,7 @@ Banco ..|> Edificio
 Puerto ..|> Edificio
 
 Policia --> Ciudad
-Policia --> Mapa
+
 Policia --> Brujula
 Policia --> Rango
 RangoNovato ..|> Rango

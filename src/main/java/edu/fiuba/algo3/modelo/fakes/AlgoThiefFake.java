@@ -52,7 +52,6 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        reloj.aumentarHoras(policia.recibirAtaque(delincuente));
         return policia.entrarAEdificio(indice);
     }
 

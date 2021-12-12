@@ -48,7 +48,7 @@ public class Ciudad{
     }
 
     public String entrarAEdificio(int indice){
-        return edificios.get(indice).mostrarPista();
+        return this.estado.entrarAEdificio(edificios.get(indice));
     }
 
     public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
@@ -75,7 +75,7 @@ public class Ciudad{
     }
 
     public int getDemoraTiempoVisitar(int indice) {
-        return edificios.get(indice).visitar();
+        return edificios.get(indice).visitar() + estado.atacar();
     }
 
     public void setEstado(EstadoCiudad unEstado) {
