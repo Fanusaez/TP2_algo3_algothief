@@ -4,5 +4,7 @@ import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public interface EstadoCiudad {
-    public int atacar(Delincuente delincuente);
+    public int atacar();
+
+    String entrarAEdificio(Edificio edificio);
 }

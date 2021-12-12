@@ -70,9 +70,6 @@ public class Ciudad{
         System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
-    public int ataques(Delincuente delincuente){
-        return estado.atacar(delincuente);
-    }
 
     public int getDemoraTiempoVisitar(int indice) {
         return edificios.get(indice).visitar() + estado.atacar();

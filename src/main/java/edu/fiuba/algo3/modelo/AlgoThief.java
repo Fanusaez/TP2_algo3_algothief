@@ -65,5 +65,4 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     }
 
-
 }
