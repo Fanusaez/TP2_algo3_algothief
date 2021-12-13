@@ -1,6 +1,5 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.ciudad;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public class Segura implements EstadoCiudad {

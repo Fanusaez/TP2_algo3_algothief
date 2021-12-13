@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.fakes;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.policia.Rango;
 
 import java.util.ArrayList;
 

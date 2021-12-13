@@ -1,8 +1,5 @@
-import edu.fiuba.algo3.modelo.Brujula;
-import edu.fiuba.algo3.modelo.Policia;
-import edu.fiuba.algo3.modelo.RangoDetective;
+import edu.fiuba.algo3.modelo.policia.RangoDetective;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
-import edu.fiuba.algo3.modelo.fakes.PoliciaFake;
 import edu.fiuba.algo3.modelo.Ciudad;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;

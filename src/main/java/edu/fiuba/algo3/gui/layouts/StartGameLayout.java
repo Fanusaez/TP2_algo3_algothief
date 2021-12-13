@@ -2,6 +2,7 @@ package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.scenes.BorderPaneScene;
+import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -13,9 +14,10 @@ public class StartGameLayout extends VBox {
 
     private Label labelVariable;
 
-    public StartGameLayout(Stage window, App app) {
+    public StartGameLayout(Stage window, App app, AlgoThief algoThief) {
 
-        Label label = new Label("Juego");
+        Label label = new Label(algoThief.desplegarTextoInicial());
+        Label labelHorario= new Label(algoThief.obtenerHorario());
         labelVariable = new Label("");
 
         Button buttonExit = new Button("Exit");
@@ -32,7 +34,7 @@ public class StartGameLayout extends VBox {
             window.setScene(new BorderPaneScene(window));
         });
 
-        getChildren().addAll(label,labelVariable,buttonExit,actionButton,openMap);
+        getChildren().addAll(label,labelVariable,labelHorario,buttonExit,actionButton,openMap);
 
 
     }

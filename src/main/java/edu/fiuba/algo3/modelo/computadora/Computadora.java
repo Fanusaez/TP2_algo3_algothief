@@ -1,6 +1,8 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.computadora;
 
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.computadora.Filtrador;
+import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 
 import java.util.ArrayList;
 import java.util.HashMap;

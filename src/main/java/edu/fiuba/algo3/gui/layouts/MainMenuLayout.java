@@ -12,7 +12,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import javafx.scene.control.TextField;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -47,15 +47,21 @@ public class MainMenuLayout extends VBox {
             e.printStackTrace();
         }
 
+
+        TextField nombreUsuario = new TextField();
+        nombreUsuario.setPromptText("Ingrese un nombre");
+
         // buttons
         Button buttonStart = new Button("Comenzar juego");
         buttonStart.setOnAction(e->window.setScene(startGameScene));
+
         Button buttonExit = new Button("Exit");
         buttonExit.setOnAction(e->{
             if(ConfirmBox.display("Are you sure?", "Exit?") == true)  window.close();
         });
 
-        getChildren().addAll(label,t,imageView,buttonStart,buttonExit);
+
+        getChildren().addAll(nombreUsuario,label,t,imageView,buttonStart,buttonExit);
 
     }
 }

@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.policia;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.Ciudad;
 
 import java.util.ArrayList;
 

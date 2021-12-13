@@ -4,6 +4,7 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.layouts.StartGameLayout;
 import edu.fiuba.algo3.gui.scenes.MainMenuScene;
 import edu.fiuba.algo3.gui.scenes.StartGameScene;
+import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.stage.Stage;
 
 import java.lang.reflect.Method;
@@ -17,10 +18,10 @@ public class View {
         this.stage=stage;
     }
 
-    public void initView(Stage window, App app){
+    public void initView(Stage window, App app, AlgoThief algoThief){
         // Comienza el juego
-        startGameLayout = new StartGameLayout(window,app);
-        StartGameScene startGameScene = new StartGameScene(window,startGameLayout);
+        startGameLayout = new StartGameLayout(window,app, algoThief);
+        StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
         MainMenuScene mainMenu = new MainMenuScene(window,startGameScene);
         window.setScene(mainMenu);
         window.show();

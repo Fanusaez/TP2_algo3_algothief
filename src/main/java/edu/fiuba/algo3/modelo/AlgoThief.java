@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.policia.Policia;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public Mapa mapa;
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
+    private String nombre;
 
     public AlgoThief(String rutaArchivoCiudades) {
 
@@ -18,10 +20,12 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
-        mapa.establecerOpcionesDeViaje();
-        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
-        this.policia = new Policia(ciudadInicial);
+        this.mapa.establecerOpcionesDeViaje();
+        this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
+    }
+    public void nombreDeUsuario(String unNombre){
+        nombre=unNombre;
     }
 
     public String desplegarTextoInicial(){
@@ -34,7 +38,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
                 "Track the thief from Port Moresby to her\n" +
                 "hideout and arrest her!\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
-                "Good luck, Rookie <nombreUsuario>.\n" +
+                "Good luck, Rookie"+ nombre+ "\n" +
                 "\n";
         return texto;
     }

@@ -25,9 +25,10 @@ public class App extends Application {
     public void start(Stage stage){
         System.out.println("Inicializacion");
         window = stage;
+        window.setTitle("AlgoThief");
         algoThief = new AlgoThief("src\\main\\java\\edu\\fiuba\\algo3\\modelo\\data.txt");
         view = new View(window);
-        view.initView(window,this);
+        view.initView(window,this, algoThief);
     }
 
     public void gameLogic(){

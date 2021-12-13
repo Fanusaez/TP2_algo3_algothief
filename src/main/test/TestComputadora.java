@@ -1,4 +1,4 @@
-import edu.fiuba.algo3.modelo.Computadora;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import org.junit.Test;
 

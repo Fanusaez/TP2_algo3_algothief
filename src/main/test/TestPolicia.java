@@ -1,5 +1,5 @@
 import edu.fiuba.algo3.modelo.Ciudad;
-import edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.fakes.PoliciaFake;
 import org.junit.Test;
 import static org.junit.Assert.*;
