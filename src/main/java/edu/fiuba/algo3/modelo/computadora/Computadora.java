@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.modelo.computadora;
 
+import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.computadora.Filtrador;
 import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class Computadora {
     private ArrayList<Delincuente> sospechosos;
@@ -14,14 +16,19 @@ public class Computadora {
     private OrdenDeArresto ordenDeArresto;
     private Filtrador filtrador;
 
-    public Computadora(ArrayList<Delincuente> delincuentes){
-        this.sospechosos = delincuentes;
+    public Computadora(String rutaArchivoDelincuentes){
+        this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes);
         this.ordenDeArresto = new OrdenDeArresto();
         this.filtrador = new Filtrador();
 
     }
-    public void ingresarDatoDelincuente(String caracteristica, String tipo){
 
+    public Delincuente ObtenerDelincuenteRandom(){
+        Random rand = new Random();
+        int randomIndex = rand.nextInt(sospechosos.size());
+        Delincuente delincuenteRandom = sospechosos.get(randomIndex );
+        //sospechosos.remove(delincuenteRandom);
+        return delincuenteRandom;
     }
 
     public ArrayList<ArrayList<String>> mostrarOpciones(){

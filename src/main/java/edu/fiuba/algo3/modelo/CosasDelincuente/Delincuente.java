@@ -71,7 +71,7 @@ public class Delincuente{
     }
 
     public boolean comparar(Delincuente delincuente) {
-        if (this.obtenerDato("Name")== delincuente.obtenerDato("Name")){return true;}
+        if (this.obtenerDato("Name").equals(delincuente.obtenerDato("Name"))){return true;}
         return false;
     }
 

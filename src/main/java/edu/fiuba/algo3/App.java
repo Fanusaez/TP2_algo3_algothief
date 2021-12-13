@@ -23,10 +23,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage){
+        String rutaArchivoCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
+        String rutaArchivoDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
         System.out.println("Inicializacion");
         window = stage;
         window.setTitle("AlgoThief");
-        algoThief = new AlgoThief("src\\main\\java\\edu\\fiuba\\algo3\\modelo\\data.txt");
+        algoThief = new AlgoThief(rutaArchivoCiudades, rutaArchivoDelincuentes);
         view = new View(window);
         view.initView(window,this, algoThief);
     }

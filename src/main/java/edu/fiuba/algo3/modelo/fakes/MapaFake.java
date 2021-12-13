@@ -18,6 +18,8 @@ public class MapaFake extends Mapa {
 
     //Metodos para tests **************************************************************************
 
+
+
     public Ciudad obtenerUltimaCiudadDelincuente(){
         int n = this.ciudadesRecorridasPorDelincuente.size();
         return this.ciudadesRecorridasPorDelincuente.get(n-1);

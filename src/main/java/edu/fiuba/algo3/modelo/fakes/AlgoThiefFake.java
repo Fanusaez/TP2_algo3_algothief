@@ -14,10 +14,9 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
 
-    public AlgoThiefFake(String rutaArchivoCiudades) {
-
-        this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
-        this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
+    public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
+        this.computadora = new Computadora(rutaArchivoDelincuentes);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();

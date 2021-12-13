@@ -8,12 +8,13 @@ import static org.junit.Assert.*;
 
 public class TestAlgoThief01 {
 
-    private final String directorio = "src/main/java/edu/fiuba/algo3/modelo/data.txt";
+    private final String directorioCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
+    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
     public void Test01EntrarAEdificioPrimeraVezAumentaEnUnoHorario(){
 
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         algoThief.entrarAEdificio(0);
 
         assertEquals("Monday 08:00", algoThief.obtenerHorario());
@@ -21,7 +22,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test02EntrarAEdificioDosVecesAumentaHorarioTresHoras(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
 
@@ -31,7 +32,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test03EntrarAEdificioDosVecesAumentaHorarioSeisHoras(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
@@ -41,7 +42,7 @@ public class TestAlgoThief01 {
     @Test
     public void Test04EntrarAEdificioDespuesDeEntrarTresVecesAumentaTresHoras(){
 
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
@@ -54,7 +55,7 @@ public class TestAlgoThief01 {
     @Test
     public void Test05EntrarAEdificioEnHorarioDeDormirAumentaOchoHoras(){
 
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
 
         for(int i = 0; i < 6; i++){
             algoThief.entrarAEdificio(0);
@@ -67,7 +68,7 @@ public class TestAlgoThief01 {
     @Test
     public void Test07PoliciaViajaTiempoAvanza(){
 
-        AlgoThief algothief = new AlgoThief(directorio);
+        AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
 
         String horaSalida =  algothief.obtenerHorario();
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
@@ -96,7 +97,7 @@ public class TestAlgoThief01 {
     @Test
     public void Test08MostrarOpcionesViajeEnCiudadDestinoContieneACiudadOrigen(){
 
-        AlgoThief algothief = new AlgoThief(directorio);
+        AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         Ciudad ciudadOrigen= algothief.policia.ciudadActual;
         ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
         Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(0);
@@ -108,7 +109,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test09MostrarOpcionesViajeEnCiudadNoRecorridaYContieneACiudadOrigen(){
-        AlgoThief algothief = new AlgoThief(directorio);
+        AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         Ciudad ciudadOrigen= algothief.policia.ciudadActual;
         ArrayList<Ciudad> listaOpcionesViajeOrigen = algothief.verOpcionesDeViaje();
         Ciudad ciudadDestino = listaOpcionesViajeOrigen.get(1);
@@ -120,7 +121,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test10(){
-        AlgoThief algothief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
     }
 
 //############################################################################################################
@@ -180,7 +181,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void PruebaEntrarAEdificioQueVisitoDelincuenteDespliegaPistaEspecifica(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         String pista = algoThief.entrarAEdificio(0);
         System.out.println(pista);
         assertNotSame("El delincuente no visito este edificio", pista);
@@ -188,7 +189,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void PruebaEntrarAEdificioConDelincuenteAtacarPoliciaAumentaHorario(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
 
         String pista = algoThief.entrarAEdificio(0);
     }

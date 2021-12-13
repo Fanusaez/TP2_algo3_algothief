@@ -8,22 +8,23 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class TestEntregaUno {
-    private final String directorio = "src/main/java/edu/fiuba/algo3/modelo/data.txt";
+    private final String directorioCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
+    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
     public void TestCasoUsoUnoRobaronElTesoroNacionaldeMontreal() {
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
     }
 
     @Test
     public void TestCasoUsoDosEntrarAEdificioEnCiudadInicialDespliegaUnaNoPistaDefault(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         assertNotSame("El delincuente no visito este edificio", algoThief.entrarAEdificio(1));
     }
 
     @Test
     public void casoUsoTresDetectiveViajaDeUnaCiudadAOtraYPoliciaCambiaDeCiudad(){
-        AlgoThief algoThief = new AlgoThief(directorio);
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         Ciudad ciudadPoliciaInicial = algoThief.policia.ciudadActual;
         ArrayList<Ciudad> destinosPosibles = algoThief.policia.mostrarOpcionesViaje();
         algoThief.viajar(destinosPosibles.get(0));

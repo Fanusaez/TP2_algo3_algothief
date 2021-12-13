@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
+//import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
+
 import java.util.ArrayList;
+import java.util.Random;
 
 public class AlgoThief implements AlgoThiefInterfaz{
     public Policia policia;
@@ -13,17 +16,23 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
     private String nombre;
+    private Computadora computadora;
 
-    public AlgoThief(String rutaArchivoCiudades) {
+    public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
-        this.creadorDeDelincuentes = new CreadorDelincuentes(rutaArchivoCiudades);
-        this.delincuente =  this.creadorDeDelincuentes.seleccionarDelincuenteAleatorio();
+
+        this.computadora = new Computadora(rutaArchivoDelincuentes);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
+
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
         this.mapa.establecerOpcionesDeViaje();
         this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
     }
+
+
+
     public void nombreDeUsuario(String unNombre){
         nombre=unNombre;
     }
@@ -62,5 +71,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
     }
+
+
 
 }

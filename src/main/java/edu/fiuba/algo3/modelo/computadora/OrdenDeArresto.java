@@ -25,22 +25,42 @@ public class OrdenDeArresto {
 
     public ArrayList<ArrayList<String>> siguientePelo(){
         hairIndex+=1;
+        if((hair.size()) == hairIndex)
+        {
+            hairIndex = 0;
+        }
         return mostrarOpcionesSeleccionadas();
     }
     public ArrayList<ArrayList<String>>siguienteSex(){
         sexIndex+=1;
+        if((sex.size()) == sexIndex)
+        {
+            sexIndex = 0;
+        }
         return mostrarOpcionesSeleccionadas();
     }
     public ArrayList<ArrayList<String>> siguienteCar(){
         autoIndex+=1;
+        if((auto.size()) == autoIndex)
+        {
+            autoIndex = 0;
+        }
         return mostrarOpcionesSeleccionadas();
     }
     public ArrayList<ArrayList<String>> siguienteFeature(){
         featureIndex+=1;
+        if((feature.size()) == featureIndex)
+        {
+            featureIndex = 0;
+        }
         return mostrarOpcionesSeleccionadas();
     }
     public ArrayList<ArrayList<String>> siguienteHobby(){
         hobbyIndex+=1;
+        if((hobby.size()) == hobbyIndex)
+        {
+            hobbyIndex = 0;
+        }
         return mostrarOpcionesSeleccionadas();
     }
 

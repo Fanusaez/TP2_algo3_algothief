@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Peligrosa;
 
@@ -10,10 +11,11 @@ public class Mapa {
     protected ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
     protected ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
 
+
     public Mapa(String rutaArchivoCiudades) {
         ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
-        parsearArchivo(rutaArchivoCiudades);
+
     }
 
     public Ciudad obtenerCiudadInicial()

@@ -14,9 +14,9 @@ public class CreadorDelincuentes {
         sospechosos = new ArrayList<Delincuente>();
         parsearArchivo(rutaArchivoDelincuentes);
     }
-
-    public void parsearArchivo(String rutaArchivoCiudadesDelincuentes){
-        String fileName = rutaArchivoCiudadesDelincuentes;
+    /*
+    public void parsearArchivo(String rutaArchivoDelincuentes){
+        String fileName = rutaArchivoDelincuentes;
 
         // This will reference one line at a time
         String line = null;
@@ -69,7 +69,6 @@ public class CreadorDelincuentes {
         Delincuente delincuenteRandom = sospechosos.get(randomIndex );
         //sospechosos.remove(delincuenteRandom);
         return delincuenteRandom;
-
     }
 
 

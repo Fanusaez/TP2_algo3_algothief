@@ -7,12 +7,12 @@ import static org.junit.Assert.assertEquals;
 
 public class TestEntregaDos {
 
-    private final String directorio = "src/main/java/edu/fiuba/algo3/modelo/data.txt";
-
+    private final String directorioCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
+    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
     public void policiaEntraUnEdificioEnLaUltimaCiudadadEsAtacadoYDuerme() {
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad()); //domingo 7 am
         algoThief.entrarAEdificio(0); // domingo 7am + 1 hora cuchillo + 1 hora edificio
         algoThief.entrarAEdificio(0); // domingo 9am + 1 hora cuchillo + 2 hora edificio
@@ -23,7 +23,7 @@ public class TestEntregaDos {
     }
     @Test
     public void policiaInvestigadorViajeDeMontrealAMexico(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorio);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes);
         Ciudad mexico = algoThief.obtenerCiudad("Mexico");
         Ciudad montreal = algoThief.obtenerCiudad("Montreal");
         algoThief.ascenederPolicia(new RangoDetective());

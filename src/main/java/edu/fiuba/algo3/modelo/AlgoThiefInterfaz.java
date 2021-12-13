@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
+//import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 
 import java.util.ArrayList;
 
