@@ -1,7 +1,12 @@
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.policia.RangoDetective;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import edu.fiuba.algo3.modelo.Ciudad;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -35,7 +40,13 @@ public class TestEntregaDos {
 
     @Test
     public void SeCarganLosDatosDelSospechosoEnLaComputadoraYSeBuscanLosSospechosos(){
+        Computadora computadora = new Computadora(directorioDelincuentes);
+        ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        assertEquals(posiblesDelincuentes.size(), 10); // ver "actual"
 
     }
 
+    public void intentarAtraparAlDelincuenteSinOrdenDeArresto(){
+
+    }
 }

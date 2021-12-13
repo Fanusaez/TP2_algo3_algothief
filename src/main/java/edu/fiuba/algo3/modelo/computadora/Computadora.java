@@ -12,7 +12,6 @@ import java.util.Random;
 public class Computadora {
     private ArrayList<Delincuente> sospechosos;
     private Delincuente delincuente;
-    private HashMap<String, String> datosPosibleDelincuente;
     private OrdenDeArresto ordenDeArresto;
     private Filtrador filtrador;
 

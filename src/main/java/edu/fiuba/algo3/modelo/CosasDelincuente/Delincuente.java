@@ -14,10 +14,7 @@ public class Delincuente{
     private HashMap<String,String> hashDeAtributos;
     private Arma arma;
 
-    /*
-    Map<String, String> map = new HashMap<String, String>();
-    map.put("dog", "type of animal");
-    */
+
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();

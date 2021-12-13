@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.fakes;
 import edu.fiuba.algo3.modelo.*;
-import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.policia.Rango;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public MapaFake mapa;
     private Delincuente delincuente;
-    private CreadorDelincuentes creadorDeDelincuentes;
+    private Computadora computadora;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
         this.computadora = new Computadora(rutaArchivoDelincuentes);
@@ -23,6 +23,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
         this.policia = new PoliciaFake(ciudadInicial);
         this.reloj = new Reloj();
+
     }
     public String desplegarTextoInicial(){
         String texto = "***FLASH***\n" +

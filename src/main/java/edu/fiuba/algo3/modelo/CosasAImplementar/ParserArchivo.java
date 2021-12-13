@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.CosasAImplementar;
 
+import edu.fiuba.algo3.modelo.Ciudad;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 
 import java.io.BufferedReader;

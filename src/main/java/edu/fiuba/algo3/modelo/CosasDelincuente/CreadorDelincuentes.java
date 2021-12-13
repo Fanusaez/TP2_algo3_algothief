@@ -1,4 +1,7 @@
+/*
 package edu.fiuba.algo3.modelo.CosasDelincuente;
+
+import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,9 +13,10 @@ import java.util.Random;
 public class CreadorDelincuentes {
     private ArrayList<Delincuente> sospechosos;
 
+
     public CreadorDelincuentes (String rutaArchivoDelincuentes) {
-        sospechosos = new ArrayList<Delincuente>();
-        parsearArchivo(rutaArchivoDelincuentes);
+        ParserArchivo parser = new ParserArchivo();
+        sospechosos = parser.parsearDelincuentes(rutaArchivoDelincuentes);
     }
     /*
     public void parsearArchivo(String rutaArchivoDelincuentes){
@@ -73,6 +77,5 @@ public class CreadorDelincuentes {
 
 
 
-
-
 }
+*/

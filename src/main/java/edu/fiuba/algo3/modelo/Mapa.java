@@ -13,7 +13,7 @@ public class Mapa {
 
 
     public Mapa(String rutaArchivoCiudades) {
-        ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
+        ciudadesNoRecorridasPorDelincuente = ParserArchivo.parsearArchivoCiudades(rutaArchivoCiudades);
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
 
     }
@@ -21,55 +21,6 @@ public class Mapa {
     public Ciudad obtenerCiudadInicial()
     {
         return ciudadesRecorridasPorDelincuente.get(0);
-    }
-
-
-    public void parsearArchivo(String rutaArchivoCiudades) {
-        // The name of the file to open.
-        String fileName = rutaArchivoCiudades;
-
-        // This will reference one line at a time
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-
-            Ciudad ciudad = new Ciudad();
-            while ((line = bufferedReader.readLine()) != null && !line.equals(""))
-
-            {
-                if (line.equals("...............................................................................")) {
-                    this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
-                    ciudad = new Ciudad(); //?
-                    continue;
-                }
-
-                if (line.equals("*******************************************************************************")) {
-                    break;
-
-                }
-
-                String[] lineaSpliteada = line.split(":");
-                String clave= lineaSpliteada[0];
-                String dato = lineaSpliteada[1].trim();
-                ciudad.agregarDato(clave, dato);
-            }
-            bufferedReader.close();
-        }
-            catch(FileNotFoundException ex){
-                System.out.println(
-                        "Unable to open file '" +
-                                fileName + "'");
-            }
-            catch(IOException ex){
-                System.out.println(
-                        "Error reading file '"
-                                + fileName + "'");
-                // Or we could just do this:
-                // ex.printStackTrace();
-            }
     }
 
 
@@ -118,37 +69,5 @@ public class Mapa {
         }
     }
 
-    public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
 
-    }
-
-    public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
-
-    }
-
-    public void inicializarCoordenadasDesdeArchivo(String pathfile){
-
-    }
-
-    //Metodos para tests **************************************************************************
-
-    //solo lo usamos para test
-
-
-    /*
-    public Ciudad obtenerCiudadEspecifica(String nombre) {
-        for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
-            if (ciudad.obtenerDato("City").equals(nombre)) {
-                return ciudad;
-            }
-        }
-
-        for (Ciudad ciudadNoRecorrida : ciudadesNoRecorridasPorDelincuente) {
-            if (ciudadNoRecorrida.obtenerDato("city").equals(nombre)) {
-                return ciudadNoRecorrida;
-            }
-        }
-        throw new ExceptionCiudadNoExistente();
-    }
-*/
 }

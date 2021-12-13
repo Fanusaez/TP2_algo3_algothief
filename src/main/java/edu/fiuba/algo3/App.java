@@ -1,14 +1,9 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.gui.View;
-import edu.fiuba.algo3.gui.layouts.StartGameLayout;
-import edu.fiuba.algo3.gui.scenes.MainMenuScene;
-import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Application;
 import javafx.stage.Stage;
-
-import java.lang.reflect.Method;
 
 public class App extends Application {
 

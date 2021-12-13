@@ -14,7 +14,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private Reloj reloj;
     public Mapa mapa;
     private Delincuente delincuente;
-    private CreadorDelincuentes creadorDeDelincuentes;
     private String nombre;
     private Computadora computadora;
 
