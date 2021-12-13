@@ -98,13 +98,12 @@ public class Mapa {
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
         for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
-
-            int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
-            int otroRandom = new Random().nextInt(cantCiudadesNoRecorridas-1);
-
             ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
-            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
-            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));
+            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3) {
+                int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
+                ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+            }
+            System.out.println(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
         }
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
@@ -112,6 +111,7 @@ public class Mapa {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
+            System.out.println(ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
         }
     }
 
@@ -128,11 +128,6 @@ public class Mapa {
     }
 
     //Metodos para tests **************************************************************************
-
-    public boolean estaEnUltimaCiudad(Ciudad ciudadActual) {
-        int n = ciudadesRecorridasPorDelincuente.size();
-        return ciudadActual == ciudadesRecorridasPorDelincuente.get(n-1);
-    }
 
     //solo lo usamos para test
 

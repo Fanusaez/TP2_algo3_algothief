@@ -70,4 +70,22 @@ public class Delincuente{
         return this.arma.atacar();
     }
 
+    public boolean comparar(Delincuente delincuente) {
+        if (this.obtenerDato("Name")== delincuente.obtenerDato("Name")){return true;}
+        return false;
+    }
+
+    public boolean cumpleLasCaracteristicas(ArrayList<ArrayList<String>> listaCaracteristicas) {
+
+        for (ArrayList<String> claveYValorCaracteristica: listaCaracteristicas){
+            String clave=claveYValorCaracteristica.get(0);
+            String valor=claveYValorCaracteristica.get(1);
+            if(valor == "???"){continue;}
+            if(obtenerDato(clave) != valor ){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }

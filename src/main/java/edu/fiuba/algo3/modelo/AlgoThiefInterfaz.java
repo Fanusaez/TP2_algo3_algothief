@@ -9,8 +9,6 @@ public interface AlgoThiefInterfaz {
 
     public String obtenerHorario();
 
-    public void chequearAtaque();
-
     public String entrarAEdificio(int indice) ;
 
 

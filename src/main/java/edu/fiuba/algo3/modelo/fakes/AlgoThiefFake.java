@@ -44,11 +44,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return reloj.obtenerHorario();
     }
 
-    public void chequearAtaque(){
-        if (mapa.estaEnUltimaCiudad(policia.ciudadActual)) {
-            reloj.aumentarHoras(delincuente.atacar());
-        }
-    }
+
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));

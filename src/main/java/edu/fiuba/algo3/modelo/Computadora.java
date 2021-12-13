@@ -6,11 +6,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Computadora {
-    private ArrayList<Delincuente> delincuentes;
+    private ArrayList<Delincuente> sospechosos;
+    private Delincuente delincuente;
     private HashMap<String, String> datosPosibleDelincuente;
+    private OrdenDeArresto ordenDeArresto;
+    private Filtrador filtrador;
 
     public Computadora(ArrayList<Delincuente> delincuentes){
-        this.delincuentes = delincuentes;
+        this.sospechosos = delincuentes;
+        this.ordenDeArresto = new OrdenDeArresto();
+        this.filtrador = new Filtrador();
 
     }
     public void ingresarDatoDelincuente(String caracteristica, String tipo){

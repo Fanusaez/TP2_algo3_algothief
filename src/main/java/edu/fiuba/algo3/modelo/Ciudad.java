@@ -58,7 +58,7 @@ public class Ciudad{
     }
 
     public void agregarComoOpcion(Ciudad destino) {
-        if (this.opcionesDeViaje.contains(destino) || this == destino){
+       if(this.opcionesDeViaje.contains(destino) || this == destino){
             return;
         }
         this.opcionesDeViaje.add(destino);
@@ -66,7 +66,7 @@ public class Ciudad{
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-        System.out.println(opcionesDeViaje.size());
+        //System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
 
