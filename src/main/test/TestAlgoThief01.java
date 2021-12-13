@@ -73,6 +73,21 @@ public class TestAlgoThief01 {
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
         Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
         algothief.viajar(ciudadSeleccionada);
+
+        System.out.println(listaOpcionesViaje.get(0).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje.get(1).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje.get(2).obtenerDato("city"));
+        ArrayList<Ciudad> listaOpcionesViaje2 = algothief.verOpcionesDeViaje();
+        System.out.println(listaOpcionesViaje2.size());
+        System.out.println(listaOpcionesViaje2.get(0).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje2.get(1).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje2.get(2).obtenerDato("city"));
+        algothief.viajar(listaOpcionesViaje2.get(0));
+        ArrayList<Ciudad> listaOpcionesViaje3 = algothief.verOpcionesDeViaje();
+        System.out.println(listaOpcionesViaje3.get(0).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje3.get(1).obtenerDato("city"));
+        System.out.println(listaOpcionesViaje3.get(2).obtenerDato("city"));
+
         String horaLlegada =  algothief.obtenerHorario();
 
         assertNotSame(horaSalida, horaLlegada);
@@ -101,6 +116,11 @@ public class TestAlgoThief01 {
         ArrayList<Ciudad> listaOpcionesViajeDestino = algothief.verOpcionesDeViaje();
 
         assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
+    }
+
+    @Test
+    public void Test10(){
+        AlgoThief algothief = new AlgoThief(directorio);
     }
 
 //############################################################################################################

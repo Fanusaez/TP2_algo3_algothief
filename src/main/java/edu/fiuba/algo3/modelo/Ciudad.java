@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
@@ -10,32 +11,20 @@ import java.util.HashMap;
 
 public class Ciudad{
     public String nombre; // <--- borrar después
-    private Integer cantidadEntradas;
     private ArrayList<Edificio> edificios;
     public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap <String,String> hash;
     private ArrayList<Ciudad> opcionesDeViaje;
-    private double latitud;
-    private double longitud;
-    //private ArrayList<Ciudad> opcionesDeViaje;
-    /*
-
-    Map<String, String> map = new HashMap<String, String>();
-    map.put("dog", "type of animal");
-
-    */
+    private EstadoCiudad estado;
 
     public Ciudad() {
-        this.cantidadEntradas = 0;
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
         this.edificios.add(new Banco());
         this.edificios.add(new Biblioteca());
         this.edificios.add(new Aeropuerto());
         this.hash = new HashMap<String,String>();
-        this.latitud = 0;
-        this.longitud = 0;
         this.opcionesDeViaje = new ArrayList<>();
-
+        this.estado= new Segura();
     }
 
 
@@ -58,18 +47,8 @@ public class Ciudad{
         return ciudad;
     }
 
-    public String entrarAEdificio(int indice) {
-        return edificios.get(indice).mostrarPista();
-
-        //return "El delincuente no visito este edificio";
-    }
-
-    //Getter de atributo
-    public Integer getCantidadEntradas() {
-        if (cantidadEntradas < 3){
-            this.cantidadEntradas += 1;
-        }
-        return this.cantidadEntradas;
+    public String entrarAEdificio(int indice){
+        return this.estado.entrarAEdificio(edificios.get(indice));
     }
 
     public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
@@ -78,32 +57,27 @@ public class Ciudad{
         edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
     }
 
-    //Getter de atributo
-    public double getLatitud() {
-        return latitud;
-    }
-
-    //Getter de atributo
-    public double getLongitud() {
-        return longitud;
-    }
-
     public void agregarComoOpcion(Ciudad destino) {
-        if (this.opcionesDeViaje.contains(destino) || this == destino){
+       if(this.opcionesDeViaje.contains(destino) || this == destino){
             return;
         }
         this.opcionesDeViaje.add(destino);
-        //System.out.println(this.obtenerDato("City"));
-        destino.agregarComoOpcion(this);
-        //System.out.println(destino.obtenerDato("City"));
+        //destino.agregarComoOpcion(this);
     }
 
-    //Este es un getter de un atributo
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
+        //System.out.println(opcionesDeViaje.size());
         return this.opcionesDeViaje;
     }
-    public int ataques(){
-        return 0;
+
+    //La cantidad de entradas al edificio es coincidente con la cant de horas de demora
+    //Si cantEntradas = 2 ---> TiempoDemora = 2
+    public int getDemoraTiempoVisitar(int indice) {
+        return edificios.get(indice).visitar() + estado.atacar();
+    }
+
+    public void setEstado(EstadoCiudad unEstado) {
+        this.estado = unEstado;
     }
 }
 

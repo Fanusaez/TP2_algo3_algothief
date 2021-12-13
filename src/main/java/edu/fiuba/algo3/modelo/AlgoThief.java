@@ -8,7 +8,6 @@ import java.util.ArrayList;
 public class AlgoThief implements AlgoThiefInterfaz{
     public Policia policia;
     private Reloj reloj;
-
     public Mapa mapa;
     private Delincuente delincuente;
     private CreadorDelincuentes creadorDeDelincuentes;
@@ -45,27 +44,19 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return reloj.obtenerHorario();
     }
 
-    public void chequearAtaque(){
-        if (mapa.estaEnUltimaCiudad(policia.ciudadActual)) {
-            reloj.aumentarHoras(delincuente.atacar());
-        }
-    }
 
     public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.cantidadDeEntradas());
-        this.chequearAtaque();
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         return policia.entrarAEdificio(indice);
     }
 
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
-        return mapa.mostrarOpcionesViaje(policia.ciudadActual);
+        return policia.mostrarOpcionesViaje();
     }
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
-
     }
-
 
 }

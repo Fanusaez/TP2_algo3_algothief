@@ -35,6 +35,7 @@ public class Mapa {
 
             Ciudad ciudad = new Ciudad();
             while ((line = bufferedReader.readLine()) != null && !line.equals(""))
+
             {
                 if (line.equals("...............................................................................")) {
                     this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
@@ -66,15 +67,12 @@ public class Mapa {
                 // Or we could just do this:
                 // ex.printStackTrace();
             }
-
-
     }
 
 
     public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
         Random rand = new Random();
-        int contador=0;
 
         while ( ciudadesRecorridasPorDelincuente.size() < largoRecorrido){
             int randomIndex = rand.nextInt(ciudadesNoRecorridasPorDelincuente.size() - 1);
@@ -83,9 +81,8 @@ public class Mapa {
                 ciudadesRecorridasPorDelincuente.add(ciudad);
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
             }
-
         }
-        //por cada ciudad[i], acceder a edificio[j]
+        ciudadesRecorridasPorDelincuente.get(delincuente.cantidadDeCiudadesRecorridas()-1).setEstado(new Peligrosa(delincuente));
 
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
@@ -95,32 +92,27 @@ public class Mapa {
     }
 
 
-    public ArrayList<Ciudad> mostrarOpcionesViaje (Ciudad ciudad) {
-        return ciudad.mostrarOpcionesViaje();
-    }
 
     public void establecerOpcionesDeViaje(){
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
         for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
-
-            int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
-            int otroRandom = new Random().nextInt(cantCiudadesNoRecorridas-1);
-
             ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
-            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
-            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(otroRandom));
+            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3) {
+                int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
+                ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+            }
+            System.out.println(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
         }
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
-
             while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
+            System.out.println(ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
         }
-
     }
 
     public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
@@ -129,7 +121,6 @@ public class Mapa {
 
     public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
 
-
     }
 
     public void inicializarCoordenadasDesdeArchivo(String pathfile){
@@ -137,11 +128,6 @@ public class Mapa {
     }
 
     //Metodos para tests **************************************************************************
-
-    public boolean estaEnUltimaCiudad(Ciudad ciudadActual) {
-        int n = ciudadesRecorridasPorDelincuente.size();
-        return ciudadActual == ciudadesRecorridasPorDelincuente.get(n-1);
-    }
 
     //solo lo usamos para test
 

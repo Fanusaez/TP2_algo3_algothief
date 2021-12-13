@@ -22,4 +22,15 @@ public class MapaFake extends Mapa {
         int n = this.ciudadesRecorridasPorDelincuente.size();
         return this.ciudadesRecorridasPorDelincuente.get(n-1);
     }
+
+    public Ciudad buscarCiudad(String nombre) {
+        for (Ciudad ciudad : ciudadesNoRecorridasPorDelincuente){
+            if(ciudad.obtenerDato("city")==nombre){return ciudad;}
+        }
+        for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
+            if(ciudad.obtenerDato("city")==nombre){return ciudad;};
+        }
+        //return algo
+        return new Ciudad();
+    }
 }

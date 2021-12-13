@@ -44,21 +44,16 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return reloj.obtenerHorario();
     }
 
-    public void chequearAtaque(){
-        if (mapa.estaEnUltimaCiudad(policia.ciudadActual)) {
-            reloj.aumentarHoras(delincuente.atacar());
-        }
-    }
+
 
     public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.cantidadDeEntradas());
-        this.chequearAtaque();
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         return policia.entrarAEdificio(indice);
     }
 
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
-        return mapa.mostrarOpcionesViaje(policia.ciudadActual);
+        return policia.mostrarOpcionesViaje();
     }
 
     public void viajar(Ciudad destinoSeleccionado) {
@@ -76,6 +71,14 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public Ciudad obtenerUltimaCiudad(){
         return this.mapa.obtenerUltimaCiudadDelincuente();
+    }
+
+    public Ciudad obtenerCiudad(String ciudad) {
+        return mapa.buscarCiudad(ciudad);
+    }
+
+    public void ascenederPolicia(Rango rangoNuevo){
+        policia.ascender(rangoNuevo);
     }
 
 }

@@ -1,0 +1,71 @@
+@startuml
+
+class Mapa{
+-ciudadesRecorridasPorDelicuente
+-ciudadesNoRecorridasPorDelincuente
+
++ mostrarOpcionesViaje()
++ crearCiudades(string nombreArchivo)
++ distribuirCiudadesRecorridasNoRecorridas(cantidadCiudades: int)
++ crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
+}
+
+class Ciudad{
+-poblacion:string
+-bandera:string
+-moneda:string
+-idioma:string
+-contadorVisitaEdificio: int
+
++entrarAEdificio(indiceEdificio)
++generarPista(ciudadSiguiente, pistaDelincuente)
+}
+
+interface EstadoCiudad{
+
++atacar()
++entrarAEdificio(Edificio edificio)
+}
+
+class Segura{
++atacar()
++entrarAEdificio(Edificio edificio)
+}
+
+class Peligrosa{
++atacar()
++entrarAEdificio(Edificio edificio)
+}
+
+abstract class Edificio{
+-pista
+-cantidadEntradas
++visitar()
++ MostrarPista()
++ {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Banco{
++ generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Puerto{
++ generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Museo{
++ generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+Mapa "1" --> "*" Ciudad
+
+Ciudad "1" --> "3" Edificio
+
+Museo ..|> Edificio
+Banco ..|> Edificio
+Puerto ..|> Edificio
+
+Ciudad --> EstadoCiudad
+Segura ..|> EstadoCiudad
+Peligrosa ..|> EstadoCiudad
+@enduml
