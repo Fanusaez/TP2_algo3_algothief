@@ -8,9 +8,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Delincuente{
-    private Integer cantidadEntradas;
-    private ArrayList<Edificio> edificios;
-    public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap<String,String> hashDeAtributos;
     private Arma arma;
 
@@ -21,6 +18,34 @@ public class Delincuente{
         this.arma = new Arma();
     }
 
+    public static  Delincuente crearDelincuenteParaNovato(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Cuchillo());
+
+        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteNovato);
+        return delincuenteNuevo;
+    }
+
+    public static  Delincuente crearDelincuenteParaDetective(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Cuchillo());
+        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteDetective);
+        return delincuenteNuevo;
+    }
+
+    public static  Delincuente crearDelincuenteParaInvestigador(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Pistola());
+        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteInvestigador);
+        return delincuenteNuevo;
+    }
+
+    public static  Delincuente crearDelincuenteParaSargento(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Pistola());
+        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteSargento);
+        return delincuenteNuevo;
+    }
 
     //{Clave:valor} ---> {Pelo: Rubio}
     public void agregarDato(String clave,String valor) {
@@ -68,7 +93,9 @@ public class Delincuente{
     }
 
     public boolean comparar(Delincuente delincuente) {
-        if (this.obtenerDato("Name").equals(delincuente.obtenerDato("Name"))){return true;}
+        if (this.obtenerDato("Name").equals(delincuente.obtenerDato("Name")))
+            return true;
+
         return false;
     }
 
