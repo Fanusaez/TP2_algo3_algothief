@@ -30,6 +30,7 @@ public class TestEntregaDos {
         algoThief.setearCiudad(mexico);
         algoThief.viajar(montreal);
         assertEquals("Monday 08:00", algoThief.obtenerHorario());
+        System.out.println("hola");
     }
 
     @Test
