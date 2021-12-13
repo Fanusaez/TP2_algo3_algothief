@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.CosasDelincuente;
 
-public class Arma {
+public interface Arma {
 
-   public int atacar(){
-        return 1;
-   }
+    public int atacar();
+
 }
