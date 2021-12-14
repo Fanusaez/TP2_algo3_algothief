@@ -12,12 +12,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import javafx.geometry.Insets;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -68,8 +73,12 @@ public class CiudadLayout extends VBox {
             algoThief.viajar(algoThief.verOpcionesDeViaje().get(2));
         });
 
+        VBox cajaViajes=new VBox(botonViajar1,botonViajar2,botonViajar3);
+        cajaViajes.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
+        cajaViajes.setStyle("-fx-background-color: " + Color.RED.toString().replace("0x", "#") + ";");
+        cajaViajes.setPadding(new Insets(12, 12, 12, 12));
+        getChildren().addAll(labelHorario,ciudadActual,cajaViajes,botonEntrarAEdificios);
 
-        getChildren().addAll(labelHorario,ciudadActual,botonEntrarAEdificios,botonViajar1,botonViajar2,botonViajar3);
 
     }
 }

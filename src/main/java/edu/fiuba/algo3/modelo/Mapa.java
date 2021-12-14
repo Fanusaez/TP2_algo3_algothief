@@ -44,8 +44,6 @@ public class Mapa {
         }
     }
 
-
-
     public void establecerOpcionesDeViaje(){
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
@@ -56,7 +54,7 @@ public class Mapa {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
-            System.out.println(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
+
         }
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
@@ -64,7 +62,7 @@ public class Mapa {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
-            System.out.println(ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
+
         }
     }
 

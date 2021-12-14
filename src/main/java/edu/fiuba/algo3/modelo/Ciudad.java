@@ -63,11 +63,11 @@ public class Ciudad{
             return;
         }
         this.opcionesDeViaje.add(destino);
-        //destino.agregarComoOpcion(this);
+
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-        //System.out.println(opcionesDeViaje.size());
+
         return this.opcionesDeViaje;
     }
 

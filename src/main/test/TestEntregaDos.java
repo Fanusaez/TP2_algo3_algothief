@@ -25,8 +25,8 @@ public class TestEntregaDos {
         algoThief.entrarAEdificio(0); // domingo 7am + 2 hora cuchillo + 1 hora edificio
         algoThief.entrarAEdificio(0); // domingo 10am + 1 hora cuchillo + 2 hora edificio
         algoThief.entrarAEdificio(0); // domingo 13am + 1 hora cuchillo + 3 hora edificio
-        algoThief.entrarAEdificio(0); // domingo 17pm + 1 hora cuchillo + 3 hora edificio + 8 dormir
-        algoThief.entrarAEdificio(0); // domingo 21pm + 1 hora cuchillo + 3 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 17pm + 1 hora cuchillo + 3 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 21pm + 1 hora cuchillo + 3 hora edificio + 8 dormir
         assertEquals("Tuesday 09:00",algoThief.obtenerHorario());
     }
     @Test
@@ -42,11 +42,33 @@ public class TestEntregaDos {
     }
 
     @Test
-    public void SeCarganLosDatosDelSospechosoEnLaComputadoraYSeBuscanLosSospechosos(){
+    public void filtrarSinCargarDatosDevuelveTodosLosSospechosos(){
 
         Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
         ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
         assertEquals(posiblesDelincuentes.size(), 10); // ver "actual"
+
+    }
+
+    @Test
+    public void filtrarConDatosCargadosBuscoADelincuente(){
+
+        Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
+        computadora.siguienteSex();
+        computadora.siguienteSex(); //female
+        computadora.siguienteHobby();
+        computadora.siguienteHobby();
+        computadora.siguienteHobby(); //mountain climbing
+        computadora.siguientePelo(); // brown
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature(); // jewerly
+        computadora.siguienteCar();
+        computadora.siguienteCar(); //limousine
+        ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        assertEquals("Merey Laroc",posiblesDelincuentes.get(0).obtenerDato("name")); // ver "actual"
 
     }
 

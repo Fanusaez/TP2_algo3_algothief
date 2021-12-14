@@ -11,6 +11,7 @@ Art:         ???
 Religion:    ???
 Leader:      Prime Minister
 Misc:        Hellenic Republic, Neighbors Yugoslavia
+Treasure:    Mask of Priam
 ...............................................................................
 City:        Baghdad
 Flag:        Red, White, and Black
@@ -25,6 +26,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Mesopotamia
+Treasure:    Flying Carpet
 ...............................................................................
 City:        Bamako
 Flag:        Green, Yellow, and Red
@@ -39,6 +41,7 @@ Art:         ???
 Religion:    ???
 Leader:      President
 Misc:        Timbuktu
+Treasure:    Islamic Manuscript
 ...............................................................................
 City:        Bangkok
 Flag:        Red, White, and Blue
@@ -53,6 +56,7 @@ Art:         ???
 Religion:    Buddhism
 Leader:      ???
 Misc:        Ancient Siam
+Treasure:    Golden Buddha
 ...............................................................................
 City:        Budapest
 Flag:        Red, White, and Green
@@ -67,6 +71,7 @@ Art:         Magyar Art
 Religion:    ???
 Leader:      ???
 Misc:        Neighbors Austria
+Treasure:    ???
 ...............................................................................
 City:        Buenos Aires
 Flag:        Sun Flag
@@ -81,6 +86,7 @@ Art:         ???
 Religion:    ???
 Leader:      President
 Misc:        Former Spanish Colony
+Treasure:    Solid Gold Bola
 ...............................................................................
 City:        Cairo
 Flag:        ???
@@ -95,6 +101,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Ancient Alexandria
+Treasure:    King Tut's Mask
 ...............................................................................
 City:        Colombo
 Flag:        Golden Lion
@@ -109,6 +116,7 @@ Art:         Veddah Artifacts
 Religion:    ???
 Leader:      ???
 Misc:        Ancient Taprobane
+Treasure:    Sernedip Ruby
 ...............................................................................
 City:        Istanbul
 Flag:        Crescent and Star
@@ -123,6 +131,7 @@ Art:         ???
 Religion:    ???
 Leader:      President
 Misc:        Byzantine Empire, Constantinople
+Treasure:    Sernedip Ruby
 ...............................................................................
 City:        Kathmandu
 Flag:        Double Triangle
@@ -137,6 +146,7 @@ Art:         ???
 Religion:    Hindu
 Leader:      ???
 Misc:        ???
+Treasure:    Sernedip Ruby
 ...............................................................................
 City:        Kigali
 Flag:        Red, Yellow, and Green
@@ -151,6 +161,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    Watusi King's Headdress
 ...............................................................................
 City:        Lima
 Flag:        Red and White
@@ -165,6 +176,7 @@ Art:         Aymara Art
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    Silver LLama
 ...............................................................................
 City:        London
 Flag:        Red, White, and Blue
@@ -179,6 +191,7 @@ Art:         ???
 Religion:    ???
 Leader:      Prime Minister
 Misc:        ???
+Treasure:    Crown Jewels
 ...............................................................................
 City:        Mexico City
 Flag:        Green, White, and Red
@@ -193,6 +206,7 @@ Art:         Yucatecan Jewelry
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    Crown Jewels
 ...............................................................................
 City:        Montreal
 Flag:        Maple Leaf Flag
@@ -207,6 +221,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Former French Colony
+Treasure:    Watch Tower Bible
 ...............................................................................
 City:        Moroni
 Flag:        Green and White
@@ -221,6 +236,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    Tree Palm
 ...............................................................................
 City:        Moscow
 Flag:        Red
@@ -235,6 +251,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Moldavia, Largest Country in the World
+Treasure:    Ivan the Terrible's Crown
 ...............................................................................
 City:        New Delhi
 Flag:        Red, White, and Green
@@ -249,6 +266,7 @@ Art:         ???
 Religion:    Sikh
 Leader:      Prime Minister
 Misc:        ???
+Treasure:    A painting
 ...............................................................................
 City:        New York
 Flag:        Red, White, and Blue
@@ -263,6 +281,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Subways
+Treasure:    The Rockettes
 ...............................................................................
 City:        Oslo
 Flag:        Red and Blue Cross
@@ -277,6 +296,7 @@ Art:         ???
 Religion:    ???
 Leader:      King
 Misc:        Nordic Skiing
+Treasure:    Viking Helmet
 ...............................................................................
 City:        Paris
 Flag:        Red, White, and Blue
@@ -291,6 +311,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    A baguette
 ...............................................................................
 City:        Peking
 Flag:        Red Flag
@@ -305,6 +326,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Shang Dynasty, Wuchang Uprising
+Treasure:    1,000 Year Old Egg
 ...............................................................................
 City:        Port Moresby
 Flag:        Yellow, Red, and Black
@@ -319,6 +341,7 @@ Art:         ???
 Religion:    ???
 Leader:      Prime Minister
 Misc:        New Ireland
+Treasure:    A phone
 ...............................................................................
 City:        Reykjavik
 Flag:        Red and Blue
@@ -333,6 +356,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Island Nation
+Treasure:    A pinguin
 ...............................................................................
 City:        Rio de Janeiro
 Flag:        Green, Blue, and Yellow
@@ -347,6 +371,7 @@ Art:         ???
 Religion:    ???
 Leader:      President
 Misc:        ???
+Treasure:    Stuffed Parrot
 ...............................................................................
 City:        Rome
 Flag:        Green, White, and Red
@@ -361,6 +386,7 @@ Art:         Renaissance Painting
 Religion:    ???
 Leader:      President
 Misc:        ???
+Treasure:    Pope Francis
 ...............................................................................
 City:        San Marino
 Flag:        Blue and White
@@ -375,6 +401,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        Serene Republic, Oldest State in Europe, Neighbors Italy
+Treasure:    A spoon
 ...............................................................................
 City:        Singapore
 Flag:        Red and White
@@ -389,6 +416,7 @@ Art:         Malayan Art
 Religion:    ???
 Leader:      ???
 Misc:        Former British Colony
+Treasure:    Merlion the Golden Lion
 ...............................................................................
 City:        Sydney
 Flag:        Red, White, and Blue
@@ -403,6 +431,7 @@ Art:         ???
 Religion:    ???
 Leader:      ???
 Misc:        ???
+Treasure:    A car
 ...............................................................................
 City:        Tokyo
 Flag:        Red and White
@@ -417,4 +446,5 @@ Art:         ???
 Religion:    Shinto
 Leader:      ???
 Misc:        ???
+Treasure:    Anime
 ...............................................................................

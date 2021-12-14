@@ -113,7 +113,7 @@ public class Delincuente{
             String clave=claveYValorCaracteristica.get(0);
             String valor=claveYValorCaracteristica.get(1);
             if(valor == "???"){continue;}
-            if(obtenerDato(clave) != valor ){
+            if( !obtenerDato(clave).equals(valor) ){
                 return false;
             }
         }
