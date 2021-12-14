@@ -3,11 +3,12 @@ package edu.fiuba.algo3.modelo;
 //import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
+import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
+import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.Policia;
 
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class AlgoThief implements AlgoThiefInterfaz{
     public Policia policia;
@@ -16,24 +17,25 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private Delincuente delincuente;
     private String nombre;
     private Computadora computadora;
+    private DificultadJuego dificultadJuego;
 
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
-
-        this.computadora = new Computadora(rutaArchivoDelincuentes);
-        this.delincuente = computadora.ObtenerDelincuenteRandom();
-
+        dificultadJuego= new DificultadNovato();
         this.mapa = new Mapa(rutaArchivoCiudades);
-        this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
+        this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
+        this.mapa.establecerPistasEnElRecorrido(this.delincuente);
         this.mapa.establecerOpcionesDeViaje();
+
         this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
     }
 
 
 
-    public void nombreDeUsuario(String unNombre){
-        nombre=unNombre;
+    public void ingresarUsuario(String unNombre){
+        this.nombre=unNombre;
     }
 
     public String desplegarTextoInicial(){
@@ -46,7 +48,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
                 "Track the thief from Port Moresby to her\n" +
                 "hideout and arrest her!\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
-                "Good luck, Rookie"+ nombre+ "\n" +
+                "Good luck,"+ this.nombre+ "\n" +
                 "\n";
         return texto;
     }
@@ -72,5 +74,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
 
-
+    public String ciudadActual() {
+        return policia.ciudadActual();
+    }
 }

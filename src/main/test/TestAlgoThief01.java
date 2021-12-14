@@ -119,64 +119,29 @@ public class TestAlgoThief01 {
         assertTrue(listaOpcionesViajeDestino.contains(ciudadOrigen));
     }
 
+
     @Test
     public void Test10(){
         AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
     }
 
-//############################################################################################################
-//############################################################################################################
-//#########################|| CASOS DE USO PARA LA ENTREGA 1 ||###############################################
-//############################################################################################################
-//############################################################################################################
-
-    /*Caso de uso 1
-        Robaron el tesoro Nacional de Montreal.
-        Sospechoso femenino.
-        Detective novato comienza en Montreal.
-        Vista un Banco:
-        Se despliega una pista.
-    */
-
-    /*
-    Caso de uso 2
-        Detective novato comienza en Montreal.
-        Vista un Banco (nuevamente):
-        Se despliega una pista
-        Vista una Biblioteca:
-        Se despliega una pista.
-    */
-
-    /*
-    Caso de uso 3
-        Detective viaja de Montreal a México
-    */
-
-    /*
-    Caso de uso 4
-        Vista un Aeropuerto (3 veces):
-        Se despliega una pista.
-        Vista un Puerto (55 veces):
-        Se despliega una pista.
-    */
     @Test
-    public void PoliciaVisita3VecesAeropuertoYVisita55VecesUnPuertoYDesplieganPistas(){
-
-
+    public void Test11Presentacion(){
+        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
+        algoThief.ingresarUsuario("juan");
+        assertEquals(algoThief.desplegarTextoInicial(),"***FLASH***\n" +
+                "National treasure stolen from Port Moresby.\n" +
+                "The treasure has been identified as an ancient\n" +
+                "tribal totem." +
+                "Female suspect reported at the scene of the crime.\n" +
+                "Your assignment:\n" +
+                "Track the thief from Port Moresby to her\n" +
+                "hideout and arrest her!\n" +
+                "You must apprehend the thief by Sunday, 5pm.\n" +
+                "Good luck,"+ "juan"+"\n" +
+                "\n");
     }
 
-    /*
-    Caso de uso 5
-        Detective sufre una herida de cuchillo.
-        Detective duerme.
-    */
-
-
-//############################################################################################################
-//############################################################################################################
-//############################################################################################################
-//############################################################################################################
-//############################################################################################################
 
 
     @Test

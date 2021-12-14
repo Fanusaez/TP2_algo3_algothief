@@ -1,5 +1,9 @@
+import edu.fiuba.algo3.modelo.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.dificultad.DificultadInvestigador;
+import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
+import edu.fiuba.algo3.modelo.policia.Policia;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,44 +16,19 @@ public class TestComputadora {
     private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
-    public void testDevolverListadoSinFiltrosYDevuelveElUnicoDelincuenteQueEsCarmenSanDiego() {
+    public void testDevolverListadoSinFiltrosYDevuelveTodosLosDelincuentes() {
 
-        ArrayList<Delincuente> listaDelincuentes = new ArrayList<Delincuente>();
 
-        Delincuente carmenSanDiego = new Delincuente();
-        carmenSanDiego.agregarDato("Name", "Carmen Sandiego");
-        carmenSanDiego.agregarDato("Sex", "female");
-        carmenSanDiego.agregarDato("Hobby", "tennis");
-        carmenSanDiego.agregarDato("Hair", "brown");
-        carmenSanDiego.agregarDato("Feature", "jewelry");
-        carmenSanDiego.agregarDato("Auto", "convertible");
 
-        listaDelincuentes.add(carmenSanDiego);
-        Computadora computadora = new Computadora(directorioDelincuentes);
-
-/*
-       //Refiere a los clicks para cambiar de opción de atributo
-        computadora.siguienteSexo(); //Esta parado en Male
-        computadora.siguienteSexo(); //Esta parado en Female
-        computadora.siguienteHobby(); //Esta parado en Tennis
-        computadora.siguienteHair(); //Esta parado en Brown
-        computadora.siguienteFeature();
-        computadora.siguienteFeature();
-        computadora.siguienteFeature();
-        computadora.siguienteFeature();
-        computadora.siguienteFeature();*/
-
-        // computadora.siguienteAuto();
-
+        Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
         ArrayList<Delincuente> listaDelincuentesFiltrados = computadora.filtrar();
-
-        //ordenArresto = listaDelincuentes.get(0);
-        assertTrue(carmenSanDiego.comparar(listaDelincuentesFiltrados.get(9)));
+        assertEquals(10,listaDelincuentesFiltrados.size());
     }
 
     @Test
     public void TestFiltrarSospechosasMujeres() {
-        Computadora computadora = new Computadora(directorioDelincuentes);
+
+        Computadora computadora = new Computadora(directorioDelincuentes,new DificultadNovato());
         computadora.siguienteSexo(); //Selecciona opción Male
         computadora.siguienteSexo(); //Selecciona opción Female
 

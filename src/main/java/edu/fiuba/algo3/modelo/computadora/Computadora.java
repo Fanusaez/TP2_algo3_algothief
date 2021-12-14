@@ -2,11 +2,9 @@ package edu.fiuba.algo3.modelo.computadora;
 
 import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
-import edu.fiuba.algo3.modelo.computadora.Filtrador;
-import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
+import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
 
 public class Computadora {
@@ -15,8 +13,8 @@ public class Computadora {
     private OrdenDeArresto ordenDeArresto;
     private Filtrador filtrador;
 
-    public Computadora(String rutaArchivoDelincuentes){
-        this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes);
+    public Computadora(String rutaArchivoDelincuentes, DificultadJuego dificultad){
+        this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes, dificultad);
         this.ordenDeArresto = new OrdenDeArresto();
         this.filtrador = new Filtrador();
 

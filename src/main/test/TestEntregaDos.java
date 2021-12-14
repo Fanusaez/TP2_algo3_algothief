@@ -1,5 +1,8 @@
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
+import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
+import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.RangoDetective;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import edu.fiuba.algo3.modelo.Ciudad;
@@ -19,28 +22,29 @@ public class TestEntregaDos {
     public void policiaEntraUnEdificioEnLaUltimaCiudadadEsAtacadoYDuerme() {
         AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad()); //domingo 7 am
-        algoThief.entrarAEdificio(0); // domingo 7am + 1 hora cuchillo + 1 hora edificio
-        algoThief.entrarAEdificio(0); // domingo 9am + 1 hora cuchillo + 2 hora edificio
-        algoThief.entrarAEdificio(0); // domingo 12am + 1 hora cuchillo + 3 hora edificio
-        algoThief.entrarAEdificio(0); // domingo 16pm + 1 hora cuchillo + 3 hora edificio
-        algoThief.entrarAEdificio(0); // domingo 20pm + 1 hora cuchillo + 3 hora edificio
-        assertEquals("Tuesday 08:00",algoThief.obtenerHorario());
+        algoThief.entrarAEdificio(0); // domingo 7am + 2 hora cuchillo + 1 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 10am + 1 hora cuchillo + 2 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 13am + 1 hora cuchillo + 3 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 17pm + 1 hora cuchillo + 3 hora edificio + 8 dormir
+        algoThief.entrarAEdificio(0); // domingo 21pm + 1 hora cuchillo + 3 hora edificio
+        assertEquals("Tuesday 09:00",algoThief.obtenerHorario());
     }
     @Test
     public void policiaInvestigadorViajeDeMontrealAMexico(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
         Ciudad mexico = algoThief.obtenerCiudad("Mexico");
         Ciudad montreal = algoThief.obtenerCiudad("Montreal");
         algoThief.ascenederPolicia(new RangoDetective());
         algoThief.setearCiudad(mexico);
         algoThief.viajar(montreal);
         assertEquals("Monday 08:00", algoThief.obtenerHorario());
-        System.out.println("hola");
+
     }
 
     @Test
     public void SeCarganLosDatosDelSospechosoEnLaComputadoraYSeBuscanLosSospechosos(){
-        Computadora computadora = new Computadora(directorioDelincuentes);
+
+        Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
         ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
         assertEquals(posiblesDelincuentes.size(), 10); // ver "actual"
 

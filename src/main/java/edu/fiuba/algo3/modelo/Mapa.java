@@ -24,7 +24,7 @@ public class Mapa {
     }
 
 
-    public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
+    public void establecerPistasEnElRecorrido(Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
         Random rand = new Random();
 

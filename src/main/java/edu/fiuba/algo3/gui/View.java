@@ -20,9 +20,9 @@ public class View {
 
     public void initView(Stage window, App app, AlgoThief algoThief){
         // Comienza el juego
-        startGameLayout = new StartGameLayout(window,app, algoThief);
-        StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
-        MainMenuScene mainMenu = new MainMenuScene(window,startGameScene);
+        MainMenuScene mainMenu = new MainMenuScene(window,app,algoThief);
+        //startGameLayout = new StartGameLayout(window,app, algoThief);
+        //StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
         window.setScene(mainMenu);
         window.show();
     }

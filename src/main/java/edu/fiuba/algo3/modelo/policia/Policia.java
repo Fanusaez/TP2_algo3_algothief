@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.policia;
 
 import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 
 import java.util.ArrayList;
 
@@ -21,10 +22,7 @@ public class Policia {
     }
 
     public String entrarAEdificio(int indice) {
-        return this.ciudadActual.entrarAEdificio(indice);
-    }
-
-    // Metodos de testeos ********************************************************************************
+        return this.ciudadActual.entrarAEdificio(indice);}
 
     public Ciudad getCiudadActual(){
         return ciudadActual;
@@ -49,4 +47,8 @@ public class Policia {
         this.rango = rango.ascender(cantidadArrestos);
     }
 
+
+    public String ciudadActual() {
+        return ciudadActual.obtenerDato("city");
+    }
 }

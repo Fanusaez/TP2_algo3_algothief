@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.fakes;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
+import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
+import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.Rango;
 
 import java.util.ArrayList;
@@ -13,15 +15,19 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     public MapaFake mapa;
     private Delincuente delincuente;
     private Computadora computadora;
+    private DificultadJuego dificultadJuego;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
-        this.computadora = new Computadora(rutaArchivoDelincuentes);
-        this.delincuente = computadora.ObtenerDelincuenteRandom();
+
+        dificultadJuego = new DificultadNovato();
         this.mapa = new MapaFake(rutaArchivoCiudades);
-        this.mapa.EstablecerPistasEnElRecorrido(this.delincuente);
+        this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
+
+        this.mapa.establecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
-        Ciudad ciudadInicial = mapa.obtenerCiudadInicial();
-        this.policia = new PoliciaFake(ciudadInicial);
+
+        this.policia = new PoliciaFake(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
 
     }
