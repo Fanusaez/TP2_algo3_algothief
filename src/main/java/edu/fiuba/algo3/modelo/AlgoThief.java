@@ -34,8 +34,8 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
 
 
-    public void nombreDeUsuario(String unNombre){
-        nombre=unNombre;
+    public void ingresarUsuario(String unNombre){
+        this.nombre=unNombre;
     }
 
     public String desplegarTextoInicial(){
@@ -48,7 +48,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
                 "Track the thief from Port Moresby to her\n" +
                 "hideout and arrest her!\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
-                "Good luck, Rookie"+ nombre+ "\n" +
+                "Good luck,"+ this.nombre+ "\n" +
                 "\n";
         return texto;
     }
@@ -74,5 +74,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
 
-
+    public String ciudadActual() {
+        return policia.ciudadActual();
+    }
 }

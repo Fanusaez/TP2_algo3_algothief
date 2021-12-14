@@ -24,8 +24,10 @@ public class App extends Application {
         window = stage;
         window.setTitle("AlgoThief");
         algoThief = new AlgoThief(rutaArchivoCiudades, rutaArchivoDelincuentes);
+        System.out.println("antes");
         view = new View(window);
         view.initView(window,this, algoThief);
+        System.out.println("despues");
     }
 
     public void gameLogic(){
