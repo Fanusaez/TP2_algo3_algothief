@@ -50,10 +50,11 @@ public class MainMenuLayout extends VBox {
 
         TextField nombreUsuario = new TextField();
         nombreUsuario.setPromptText("Ingrese un nombre");
-
         // buttons
         Button buttonStart = new Button("Comenzar juego");
-        buttonStart.setOnAction(e->window.setScene(startGameScene));
+        buttonStart.setOnAction(e->{
+            window.setScene(startGameScene);
+        });
 
         Button buttonExit = new Button("Exit");
         buttonExit.setOnAction(e->{

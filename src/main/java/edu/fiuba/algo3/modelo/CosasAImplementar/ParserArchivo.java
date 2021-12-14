@@ -2,19 +2,17 @@ package edu.fiuba.algo3.modelo.CosasAImplementar;
 
 import edu.fiuba.algo3.modelo.Ciudad;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.lang.reflect.Method;
-import java.util.HashMap;
 
 public class ParserArchivo {
 
-    public static ArrayList<Delincuente> parsearDelincuentes(String rutaArchivoDelincuentes){
+    public static ArrayList<Delincuente> parsearDelincuentes(String rutaArchivoDelincuentes, DificultadJuego dificultad){
         ArrayList<Delincuente> sospechosos = new ArrayList<Delincuente>();
         String fileName = rutaArchivoDelincuentes;
 
@@ -30,7 +28,7 @@ public class ParserArchivo {
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
                 if (line.equals("...............................................................................")) {
                     sospechosos.add(delincuente);
-                    delincuente = new Delincuente();
+                    delincuente = dificultad.crearDelincuente();
                     continue;
                 }
 

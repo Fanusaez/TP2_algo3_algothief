@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.policia;
 
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+
 public abstract class Rango {
 
     
@@ -11,4 +13,6 @@ public abstract class Rango {
     }
 
     public abstract Rango ascender(int cantidadArrestos);
+
+
 }

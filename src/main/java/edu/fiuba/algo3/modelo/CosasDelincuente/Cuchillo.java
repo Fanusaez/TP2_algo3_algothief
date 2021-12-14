@@ -11,10 +11,9 @@ public class Cuchillo implements Arma{
 
     @Override
     public int atacar() {
-        if(cantidadDeAtaques > 1)
+        if(cantidadDeAtaques >= 1)
         {
-            dañoCuchillo = 1;
-            return dañoCuchillo;
+            return dañoCuchillo - 1;
         }
 
         cantidadDeAtaques++;

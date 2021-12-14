@@ -10,41 +10,49 @@ import java.util.Random;
 public class Delincuente{
     private HashMap<String,String> hashDeAtributos;
     private Arma arma;
+    private int largoRecorrido;
 
 
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
-        this.arma = new Arma();
+        this.arma = new Cuchillo();
+
     }
 
     public static  Delincuente crearDelincuenteParaNovato(){
         Delincuente delincuenteNuevo= new Delincuente();
-        delincuenteNuevo.setArma(new Cuchillo());
-
-        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteNovato);
+        delincuenteNuevo.setLargoRecorrido(4);
         return delincuenteNuevo;
     }
 
+    private void setLargoRecorrido(int largo) {
+        this.largoRecorrido=largo;
+    }
+
+
     public static  Delincuente crearDelincuenteParaDetective(){
         Delincuente delincuenteNuevo= new Delincuente();
-        delincuenteNuevo.setArma(new Cuchillo());
-        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteDetective);
+        delincuenteNuevo.setLargoRecorrido(5);
         return delincuenteNuevo;
     }
 
     public static  Delincuente crearDelincuenteParaInvestigador(){
         Delincuente delincuenteNuevo= new Delincuente();
         delincuenteNuevo.setArma(new Pistola());
-        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteInvestigador);
+        delincuenteNuevo.setLargoRecorrido(6);
         return delincuenteNuevo;
     }
 
     public static  Delincuente crearDelincuenteParaSargento(){
         Delincuente delincuenteNuevo= new Delincuente();
         delincuenteNuevo.setArma(new Pistola());
-        delincuenteNuevo.setLargoRecorrido(largoRecorridoDelincuenteSargento);
+        delincuenteNuevo.setLargoRecorrido(7);
         return delincuenteNuevo;
+    }
+
+    private void setArma(Arma arma) {
+        this.arma=arma;
     }
 
     //{Clave:valor} ---> {Pelo: Rubio}
