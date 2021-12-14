@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo;
-import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
+import edu.fiuba.algo3.modelo.Parser.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Peligrosa;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 

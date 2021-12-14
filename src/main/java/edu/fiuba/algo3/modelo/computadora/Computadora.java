@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.computadora;
 
-import edu.fiuba.algo3.modelo.CosasAImplementar.ParserArchivo;
+import edu.fiuba.algo3.modelo.Parser.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 
