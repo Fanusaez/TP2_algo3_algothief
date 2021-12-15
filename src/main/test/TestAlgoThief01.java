@@ -1,7 +1,7 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import org.junit.Test;
-import java.io.File;
+
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;

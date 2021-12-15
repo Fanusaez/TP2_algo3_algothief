@@ -1,11 +1,9 @@
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
-import edu.fiuba.algo3.modelo.Mapa;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
-import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.RangoDetective;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -41,14 +39,12 @@ public class TestEntregaDos {
 
     }
 
-/*    @Test
+   @Test
     public void filtrarSinCargarDatosDevuelveTodosLosSospechosos(){
-
         Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
-        ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        ArrayList<String> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
         assertEquals(posiblesDelincuentes.size(), 10); // ver "actual"
-
-    }*/
+    }
 
 /*    @Test
     public void filtrarConDatosCargadosBuscoADelincuente(){

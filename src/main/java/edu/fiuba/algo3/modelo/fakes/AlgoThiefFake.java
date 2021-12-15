@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.fakes;
 import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
@@ -51,13 +52,10 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return reloj.obtenerHorario();
     }
 
-
-
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         return policia.entrarAEdificio(indice);
     }
-
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -65,10 +63,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
-
     }
-
-
 
     public Ciudad getCiudadPolicia(){
         return policia.getCiudadActual();

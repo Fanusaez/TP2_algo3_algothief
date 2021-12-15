@@ -1,11 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
-import edu.fiuba.algo3.modelo.ciudad.EstadoCiudad;
-import edu.fiuba.algo3.modelo.ciudad.Segura;
 
 import java.util.ArrayList;
 import java.util.HashMap;

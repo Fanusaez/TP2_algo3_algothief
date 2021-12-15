@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.fakes;
 
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.Rango;
 

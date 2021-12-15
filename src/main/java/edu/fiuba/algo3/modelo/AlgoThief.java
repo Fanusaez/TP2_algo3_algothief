@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 //import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;

@@ -1,20 +1,14 @@
 package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
-import edu.fiuba.algo3.gui.ConfirmBox;
 import edu.fiuba.algo3.gui.scenes.EdificioScene;
-import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -24,10 +18,6 @@ import javafx.stage.Stage;
 
 import javafx.geometry.Insets;
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 public class CiudadLayout extends BorderPane {
