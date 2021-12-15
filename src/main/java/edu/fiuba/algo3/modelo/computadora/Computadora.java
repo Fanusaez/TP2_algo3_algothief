@@ -23,6 +23,8 @@ public class Computadora {
     int hobbyIndex;
     ArrayList<String> feature;
     int featureIndex;
+    OrdenDeArresto ordenArresto;
+    ArrayList<String> filtrados;
 
     public Computadora(String rutaArchivoDelincuentes, DificultadJuego dificultad){
         this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes, dificultad);
@@ -33,7 +35,8 @@ public class Computadora {
         this.hobby = new ArrayList<>(Arrays.asList("???","Tennis", "Music", "Mountain Climbing", "Skydiving","Swimming","Croquet"));
         this.feature = new ArrayList<>(Arrays.asList("???", "Limps","Ring","Tattoo","Scar","Jewelry"));
         this.sex = new ArrayList<>(Arrays.asList("???", "Male", "Female"));
-
+        this.ordenArresto = new OrdenDeArresto();
+        filtrados = new ArrayList<String>();
     }
     public ArrayList<ArrayList<String>> siguientePelo(){
         hairIndex+=1;
@@ -121,5 +124,11 @@ public class Computadora {
         return filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
     }
 
+    public void computar(){
+        filtrados=filtrar();
+    }
 
+    public String realizarArresto() {
+        return ordenArresto.realizarArresto(filtrados,delincuente);
+    }
 }

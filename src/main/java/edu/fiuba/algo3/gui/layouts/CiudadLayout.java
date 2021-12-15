@@ -27,32 +27,32 @@ public class CiudadLayout extends BorderPane {
         labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
         Text ciudadActual = new Text("Ubicacion actual: " + algoThief.ciudadActual());
         ciudadActual.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+        Text estadoJuego=new Text(algoThief.estadoJuego);
         VBox inicio = new VBox();
-        inicio.getChildren().addAll(labelHorario,ciudadActual);
+        inicio.getChildren().addAll(estadoJuego,labelHorario,ciudadActual);
         inicio.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 
         ToolBar toolBarMadre = new ToolBar();
 
         //Opciones de edicifico
         ToolBar toolBarEdificios = new ToolBar();
+
+
         Button botonEntrarABanco = new Button("Entrar a Banco");
         botonEntrarABanco.setOnAction(e -> {
-            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\bancofoto.jpg", algoThief.entrarAEdificio(0));
-            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
-            window.setScene(viajeScene);
+            app.abrirEscenaEdificio("rsc\\images\\bancofoto.jpg");
         });
         Button botonEntrarAAeropuerto = new Button("Entrar a Aeropuerto");
         botonEntrarAAeropuerto.setOnAction(e -> {
-            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\aeropuerto.jpg", algoThief.entrarAEdificio(1));
-            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
-            window.setScene(viajeScene);
+            app.abrirEscenaEdificio("rsc\\images\\aeropuerto.jpg");
         });
         Button botonEntrarABiblioteca = new Button("Entrar a Biblioteca");
         botonEntrarABiblioteca.setOnAction(e -> {
-            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\biblioteca.jpg", algoThief.entrarAEdificio(2));
-            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
-            window.setScene(viajeScene);
+            app.abrirEscenaEdificio("rsc\\images\\biblioteca.jpg");
         });
+
+
+
         toolBarEdificios.getItems().add(botonEntrarAAeropuerto);
         toolBarEdificios.getItems().add(new Separator());
         toolBarEdificios.getItems().add(botonEntrarABanco);

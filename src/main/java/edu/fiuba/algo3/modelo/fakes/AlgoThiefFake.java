@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
+import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.Rango;
 
 import java.util.ArrayList;
@@ -18,21 +19,27 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     private Delincuente delincuente;
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
+    private String estadoJuego;
+    private String nombre;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
-        dificultadJuego = new DificultadNovato();
+        dificultadJuego= new DificultadNovato();
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
         this.delincuente = computadora.ObtenerDelincuenteRandom();
-        this.ordenArresto = new OrdenDeArresto();
         this.mapa.establecerPistasEnElRecorrido(this.delincuente);
-        mapa.establecerOpcionesDeViaje();
-
+        this.mapa.establecerOpcionesDeViaje();
         this.policia = new PoliciaFake(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
-
+        estadoJuego= "jugando";
     }
+
+
+    public void ingresarUsuario(String unNombre){
+        this.nombre=unNombre;
+    }
+
     public String desplegarTextoInicial(){
         String texto = "***FLASH***\n" +
                 "National treasure stolen from Port Moresby.\n" +
@@ -43,7 +50,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
                 "Track the thief from Port Moresby to her\n" +
                 "hideout and arrest her!\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
-                "Good luck, Rookie <nombreUsuario>.\n" +
+                "Good luck,"+ this.nombre+ "\n" +
                 "\n";
         return texto;
     }
@@ -52,20 +59,16 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
         return reloj.obtenerHorario();
     }
+    public String obtenerInformacionCiudad(){
+        return policia.obtenerInformacionCiudad();
+    }
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        String mensajeRetornado = policia.entrarAEdificio(indice);
-        if(mensajeRetornado.equals("Atrapar")){
-            if(ordenArresto.coincideConOrden(delincuente.getNombre())){
-                return "Ganaste!";
-            }
-            else{
-                return "Perdiste!";
-            }
-        }
+        String mensajeRetornado = policia.entrarAEdificio(indice,this);
         return mensajeRetornado;
     }
+
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -74,6 +77,25 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
     }
+
+    public String ciudadActual() {
+        return policia.ciudadActual();
+    }
+
+    //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
+    public ArrayList<String> computar(){
+        ArrayList<String> listadoNombresSospechosos = computadora.filtrar();
+        if (listadoNombresSospechosos.size() == 1){
+            this.ordenArresto.setNombre(listadoNombresSospechosos.get(0));
+        }
+        return listadoNombresSospechosos;
+    }
+
+    public void realizarArresto() {
+        estadoJuego=computadora.realizarArresto();
+
+    }
+
 
     public Ciudad getCiudadPolicia(){
         return policia.getCiudadActual();

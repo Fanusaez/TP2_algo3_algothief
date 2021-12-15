@@ -1,4 +1,6 @@
 package edu.fiuba.algo3.modelo.ciudad;
+import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
@@ -46,7 +48,8 @@ public class Ciudad{
         return ciudad;
     }
 
-    public String entrarAEdificio(int indice){
+    public String entrarAEdificio(int indice, AlgoThiefInterfaz algoThief){
+        estado.atraparLadron(algoThief);
         return this.estado.entrarAEdificio(edificios.get(indice));
     }
 

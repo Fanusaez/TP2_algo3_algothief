@@ -34,7 +34,7 @@ public class StartGameLayout extends VBox {
             window.setScene(ciudadScene);
 
         });
-        
+
         getChildren().addAll(panePresentacion,buttonContinuar);
 
     }

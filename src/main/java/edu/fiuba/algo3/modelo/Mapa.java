@@ -59,6 +59,8 @@ public class Mapa {
 
         }
         ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas-1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas-1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
             while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2){

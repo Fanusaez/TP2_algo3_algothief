@@ -20,7 +20,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private String nombre;
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
-    private OrdenDeArresto ordenArresto;
+    public String estadoJuego;
 
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
@@ -32,7 +32,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.mapa.establecerOpcionesDeViaje();
         this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
-        this.ordenArresto = new OrdenDeArresto();
+        estadoJuego= "jugando";
     }
 
 
@@ -65,15 +65,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        String mensajeRetornado = policia.entrarAEdificio(indice);
-        if(mensajeRetornado.equals("Atrapar")){
-            if(ordenArresto.coincideConOrden(delincuente.getNombre())){
-                return "Ganaste!";
-            }
-            else{
-                return "Perdiste!";
-            }
-        }
+        String mensajeRetornado = policia.entrarAEdificio(indice, this);
         return mensajeRetornado;
     }
 
@@ -91,11 +83,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
     //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
-    public ArrayList<String> computar(){
-        ArrayList<String> listadoNombresSospechosos = computadora.filtrar();
-        if (listadoNombresSospechosos.size() == 1){
-            this.ordenArresto.setNombre(listadoNombresSospechosos.get(0));
-        }
-        return listadoNombresSospechosos;
+
+    public void realizarArresto() {
+        estadoJuego=computadora.realizarArresto();
+
     }
 }

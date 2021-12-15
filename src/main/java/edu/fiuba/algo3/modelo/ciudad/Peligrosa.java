@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.ciudad;
 
+import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
@@ -18,11 +20,13 @@ public class Peligrosa implements EstadoCiudad {
     }
 
     public String entrarAEdificio(Edificio edificio) {
-        if(ContadorEntradasEdificios == 2){
-            //delincuente.atrapar();
-            return "Atrapar";
-        }
-        ContadorEntradasEdificios++;
+
         return "Estas cerca de atraparlo, ten cuidado!";
+    }
+    public void atraparLadron(AlgoThiefInterfaz algoThief){
+        ContadorEntradasEdificios++;
+        if (ContadorEntradasEdificios >= 3){
+            algoThief.realizarArresto();}
+
     }
 }

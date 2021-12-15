@@ -1,6 +1,8 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.gui.View;
+import edu.fiuba.algo3.gui.layouts.EdificioLayout;
+import edu.fiuba.algo3.gui.scenes.EdificioScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -29,7 +31,20 @@ public class App extends Application {
         System.out.println("despues");
     }
 
-    public void gameLogic(){
-        System.out.println("El juego !!!");
+    public void abrirEscenaEdificio(String ubicacionArchivo){
+        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(1));
+        EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+        window.setScene(viajeScene);
     }
+
+    /*public void abrirEscenaJuegoFinalizado(JuegoGanado Juegoganado){
+        window.setScene(EscenaGanaste);
+    }
+    public void abrirEscenaJuegoFinalizado(JuegoPerdido Juegoperdido){
+        window.setScene(EscenaPerdiste);
+    }
+    public void abrirEscenaJuegoFinalizado(JuegoContinuando Juegoperdido){
+        return;
+    }*/
+
 }
