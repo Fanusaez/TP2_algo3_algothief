@@ -7,6 +7,9 @@ import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.Ciudad;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -27,57 +30,88 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class CiudadLayout extends VBox {
+public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief) {
 
-        Label labelHorario= new Label("Horario: "+ algoThief.obtenerHorario());
-        Label ciudadActual= new Label("Ubicacion actual: "+ algoThief.ciudadActual());
+        Text labelHorario = new Text("Horario: " + algoThief.obtenerHorario());
+        labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+        Text ciudadActual = new Text("Ubicacion actual: " + algoThief.ciudadActual());
+        ciudadActual.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+        VBox inicio = new VBox();
+        inicio.getChildren().addAll(labelHorario,ciudadActual);
+        inicio.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 
+        ToolBar toolBarMadre = new ToolBar();
 
         //Opciones de edicifico
-        Button botonEntrarAEdificios= new Button("Entrar a Banco");
-        botonEntrarAEdificios.setOnAction(e->{
-            EdificioLayout viajeLayout = new EdificioLayout(window,app, algoThief,"rsc\\images\\bancofoto.jpg",algoThief.entrarAEdificio(0));
-            EdificioScene viajeScene = new EdificioScene(window,viajeLayout, algoThief);
+        ToolBar toolBarEdificios = new ToolBar();
+        Button botonEntrarABanco = new Button("Entrar a Banco");
+        botonEntrarABanco.setOnAction(e -> {
+            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\bancofoto.jpg", algoThief.entrarAEdificio(0));
+            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
             window.setScene(viajeScene);
         });
-
-
-
-
+        Button botonEntrarAAeropuerto = new Button("Entrar a Aeropuerto");
+        botonEntrarAAeropuerto.setOnAction(e -> {
+            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\aeropuerto.jpg", algoThief.entrarAEdificio(1));
+            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+            window.setScene(viajeScene);
+        });
+        Button botonEntrarABiblioteca = new Button("Entrar a Biblioteca");
+        botonEntrarABiblioteca.setOnAction(e -> {
+            EdificioLayout viajeLayout = new EdificioLayout(window, app, algoThief, "rsc\\images\\biblioteca.jpg", algoThief.entrarAEdificio(2));
+            EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+            window.setScene(viajeScene);
+        });
+        toolBarEdificios.getItems().add(botonEntrarAAeropuerto);
+        toolBarEdificios.getItems().add(new Separator());
+        toolBarEdificios.getItems().add(botonEntrarABanco);
+        toolBarEdificios.getItems().add(new Separator());
+        toolBarEdificios.getItems().add(botonEntrarABiblioteca);
 
         //Opciones de viaje
-        ArrayList<Ciudad> listaOpciones =algoThief.verOpcionesDeViaje();
+        ToolBar toolBarViaje = new ToolBar();
+        ArrayList<Ciudad> listaOpciones = algoThief.verOpcionesDeViaje();
         String ciudad1 = listaOpciones.get(0).obtenerDato("city");
         String ciudad2 = listaOpciones.get(1).obtenerDato("city");
         String ciudad3 = listaOpciones.get(2).obtenerDato("city");
-        Button botonViajar1= new Button("Viajar a "+ciudad1);
-        botonViajar1.setOnAction(e->{
-            ViajeLayout viajeLayout = new ViajeLayout(window,app, algoThief);
-            ViajeScene viajeScene = new ViajeScene(window,viajeLayout, algoThief);
+        Button botonViajar1 = new Button("Viajar a " + ciudad1);
+        botonViajar1.setOnAction(e -> {
+            ViajeLayout viajeLayout = new ViajeLayout(window, app, algoThief);
+            ViajeScene viajeScene = new ViajeScene(window, viajeLayout, algoThief);
             window.setScene(viajeScene);
             algoThief.viajar(algoThief.verOpcionesDeViaje().get(0));
         });
-        Button botonViajar2= new Button("Viajar a "+ciudad2);
-        botonViajar2.setOnAction(e->{
-            ViajeLayout viajeLayout = new ViajeLayout(window,app, algoThief);
-            ViajeScene viajeScene = new ViajeScene(window,viajeLayout, algoThief);
+        Button botonViajar2 = new Button("Viajar a " + ciudad2);
+        botonViajar2.setOnAction(e -> {
+            ViajeLayout viajeLayout = new ViajeLayout(window, app, algoThief);
+            ViajeScene viajeScene = new ViajeScene(window, viajeLayout, algoThief);
             window.setScene(viajeScene);
             algoThief.viajar(algoThief.verOpcionesDeViaje().get(1));
         });
-        Button botonViajar3= new Button("Viajar a "+ciudad3);
-        botonViajar3.setOnAction(e->{
-            ViajeLayout viajeLayout = new ViajeLayout(window,app, algoThief);
-            ViajeScene viajeScene = new ViajeScene(window,viajeLayout, algoThief);
+        Button botonViajar3 = new Button("Viajar a " + ciudad3);
+        botonViajar3.setOnAction(e -> {
+            ViajeLayout viajeLayout = new ViajeLayout(window, app, algoThief);
+            ViajeScene viajeScene = new ViajeScene(window, viajeLayout, algoThief);
             window.setScene(viajeScene);
             algoThief.viajar(algoThief.verOpcionesDeViaje().get(2));
         });
+        toolBarViaje.getItems().add(botonViajar1);
+        toolBarViaje.getItems().add(new Separator());
+        toolBarViaje.getItems().add(botonViajar2);
+        toolBarViaje.getItems().add(new Separator());
+        toolBarViaje.getItems().add(botonViajar3);
 
-        VBox cajaViajes=new VBox(botonViajar1,botonViajar2,botonViajar3);
-        cajaViajes.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-        cajaViajes.setStyle("-fx-background-color: " + Color.RED.toString().replace("0x", "#") + ";");
-        cajaViajes.setPadding(new Insets(12, 12, 12, 12));
-        getChildren().addAll(labelHorario,ciudadActual,cajaViajes,botonEntrarAEdificios);
+
+        toolBarViaje.setOrientation(Orientation.VERTICAL);
+        toolBarEdificios.setOrientation(Orientation.VERTICAL);
+        toolBarMadre.getItems().add(toolBarViaje);
+        toolBarMadre.getItems().add(new Separator());
+        toolBarMadre.getItems().add(toolBarEdificios);
+
+        this.setTop(inicio);
+        this.setBottom(toolBarMadre);
+        this.setAlignment(toolBarMadre,Pos.BOTTOM_RIGHT);
 
 
     }

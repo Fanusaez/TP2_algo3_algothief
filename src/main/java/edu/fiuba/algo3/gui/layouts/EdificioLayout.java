@@ -4,16 +4,22 @@ import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.scenes.CiudadScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Button;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static java.awt.Color.BLACK;
+
 
 public class EdificioLayout extends VBox {
     public EdificioLayout(Stage window, App app, AlgoThief algoThief,String ubicacionArchivo, String pista) {
@@ -34,19 +40,21 @@ public class EdificioLayout extends VBox {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        Label pistaLabel = new Label(pista);
-        getChildren().addAll(foto);
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                Platform.runLater(() -> {
-                    CiudadLayout ciudadLayout = new CiudadLayout(window,app, algoThief);
-                    CiudadScene ciudadScene = new CiudadScene(window,ciudadLayout, algoThief);
-                    window.setScene(ciudadScene);
-                    return;
-                });
-            }
-        }, 5000, 5000);
+        Text pistaLabel = new Text(pista);
+
+
+        Button botonSalir= new Button("Volver");
+        botonSalir.setMinSize(40,40);
+        botonSalir.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonSalir.setOnAction(e-> {
+            CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
+            CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
+            window.setScene(ciudadScene);
+
+        });
+        HBox cerrar = new HBox(botonSalir);
+        //setBackground(new Background(new BackgroundImage()));
+        cerrar.setLayoutX(200);
+        getChildren().addAll(cerrar,pistaLabel,foto);
     }
 }

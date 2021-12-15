@@ -7,20 +7,24 @@ import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 public class StartGameLayout extends VBox {
 
     private Label labelVariable;
 
     public StartGameLayout(Stage window, App app, AlgoThief algoThief) {
-
-        Label label = new Label(algoThief.desplegarTextoInicial());
-
-        labelVariable = new Label("");
+        //setBackground(new BackgroundFill(Color.GRAY));
+        Text presentacion = new Text(algoThief.desplegarTextoInicial());
+        presentacion.setFont(Font.font("Verdana", FontPosture.ITALIC, 16));
+        BorderPane panePresentacion = new BorderPane();
+        panePresentacion.setCenter(presentacion);
 
 
         Button buttonContinuar = new Button("Continuar");
@@ -30,22 +34,8 @@ public class StartGameLayout extends VBox {
             window.setScene(ciudadScene);
 
         });
+        
+        getChildren().addAll(panePresentacion,buttonContinuar);
 
-        Button buttonExit = new Button("Exit");
-        buttonExit.setOnAction(e->{window.close();});
-
-
-
-
-
-
-        getChildren().addAll(label,labelVariable,buttonContinuar,buttonExit);
-
-
-    }
-
-    public void setTextoVariable(String textoVariable) {
-
-        this.labelVariable.setText(textoVariable);
     }
 }

@@ -2,6 +2,7 @@ package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.ConfirmBox;
+import edu.fiuba.algo3.gui.scenes.BorderPaneScene;
 import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.scene.Scene;
@@ -55,11 +56,22 @@ public class MainMenuLayout extends VBox {
         // buttons
         Button buttonStart = new Button("Comenzar juego");
         buttonStart.setOnAction(e->{
+            if (nombreUsuario.getText().equals("")){return;}
             algoThief.ingresarUsuario(nombreUsuario.getText());
             StartGameLayout startGameLayout = new StartGameLayout(window,app, algoThief);
             StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
             window.setScene(startGameScene);
         });
+
+        Button buttonBorderPane = new Button("abrir pane");
+        buttonBorderPane.setOnAction(e->{
+            algoThief.ingresarUsuario(nombreUsuario.getText());
+            BorderPaneLayout borderPaneLayout = new BorderPaneLayout(window);
+            BorderPaneScene borderPaneScene = new BorderPaneScene(window);
+            window.setScene(borderPaneScene);
+        });
+
+
 
         Button buttonExit = new Button("Exit");
         buttonExit.setOnAction(e->{
@@ -67,7 +79,7 @@ public class MainMenuLayout extends VBox {
         });
 
 
-        getChildren().addAll(nombreUsuario,label,t,imageView,buttonStart,buttonExit);
+        getChildren().addAll(label,t,imageView,nombreUsuario,buttonStart,buttonExit);
 
     }
 }

@@ -12,6 +12,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        Hellenic Republic, Neighbors Yugoslavia
 Treasure:    Mask of Priam
+Description:    unadescripcion
 ...............................................................................
 City:        Baghdad
 Flag:        Red, White, and Black
@@ -27,6 +28,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Mesopotamia
 Treasure:    Flying Carpet
+Description:    unadescripcion
 ...............................................................................
 City:        Bamako
 Flag:        Green, Yellow, and Red
@@ -42,6 +44,7 @@ Religion:    ???
 Leader:      President
 Misc:        Timbuktu
 Treasure:    Islamic Manuscript
+Description:    unadescripcion
 ...............................................................................
 City:        Bangkok
 Flag:        Red, White, and Blue
@@ -57,6 +60,7 @@ Religion:    Buddhism
 Leader:      ???
 Misc:        Ancient Siam
 Treasure:    Golden Buddha
+Description:    unadescripcion
 ...............................................................................
 City:        Budapest
 Flag:        Red, White, and Green
@@ -72,6 +76,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Neighbors Austria
 Treasure:    ???
+Description:    unadescripcion
 ...............................................................................
 City:        Buenos Aires
 Flag:        Sun Flag
@@ -87,6 +92,7 @@ Religion:    ???
 Leader:      President
 Misc:        Former Spanish Colony
 Treasure:    Solid Gold Bola
+Description:    unadescripcion
 ...............................................................................
 City:        Cairo
 Flag:        ???
@@ -102,6 +108,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Ancient Alexandria
 Treasure:    King Tut's Mask
+Description:    unadescripcion
 ...............................................................................
 City:        Colombo
 Flag:        Golden Lion
@@ -117,6 +124,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Ancient Taprobane
 Treasure:    Sernedip Ruby
+Description:    unadescripcion
 ...............................................................................
 City:        Istanbul
 Flag:        Crescent and Star
@@ -132,6 +140,7 @@ Religion:    ???
 Leader:      President
 Misc:        Byzantine Empire, Constantinople
 Treasure:    Sernedip Ruby
+Description:    unadescripcion
 ...............................................................................
 City:        Kathmandu
 Flag:        Double Triangle
@@ -147,6 +156,7 @@ Religion:    Hindu
 Leader:      ???
 Misc:        ???
 Treasure:    Sernedip Ruby
+Description:    unadescripcion
 ...............................................................................
 City:        Kigali
 Flag:        Red, Yellow, and Green
@@ -162,6 +172,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Watusi King's Headdress
+Description:    unadescripcion
 ...............................................................................
 City:        Lima
 Flag:        Red and White
@@ -177,6 +188,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Silver LLama
+Description:    unadescripcion
 ...............................................................................
 City:        London
 Flag:        Red, White, and Blue
@@ -192,6 +204,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        ???
 Treasure:    Crown Jewels
+Description:    unadescripcion
 ...............................................................................
 City:        Mexico City
 Flag:        Green, White, and Red
@@ -207,6 +220,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Crown Jewels
+Description:    unadescripcion
 ...............................................................................
 City:        Montreal
 Flag:        Maple Leaf Flag
@@ -222,6 +236,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Former French Colony
 Treasure:    Watch Tower Bible
+Description:    unadescripcion
 ...............................................................................
 City:        Moroni
 Flag:        Green and White
@@ -237,6 +252,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Tree Palm
+Description:    unadescripcion
 ...............................................................................
 City:        Moscow
 Flag:        Red
@@ -252,6 +268,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Moldavia, Largest Country in the World
 Treasure:    Ivan the Terrible's Crown
+Description:    unadescripcion
 ...............................................................................
 City:        New Delhi
 Flag:        Red, White, and Green
@@ -267,6 +284,7 @@ Religion:    Sikh
 Leader:      Prime Minister
 Misc:        ???
 Treasure:    A painting
+Description:    unadescripcion
 ...............................................................................
 City:        New York
 Flag:        Red, White, and Blue
@@ -282,6 +300,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Subways
 Treasure:    The Rockettes
+Description:    unadescripcion
 ...............................................................................
 City:        Oslo
 Flag:        Red and Blue Cross
@@ -297,6 +316,7 @@ Religion:    ???
 Leader:      King
 Misc:        Nordic Skiing
 Treasure:    Viking Helmet
+Description:    unadescripcion
 ...............................................................................
 City:        Paris
 Flag:        Red, White, and Blue
@@ -312,6 +332,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    A baguette
+Description:    unadescripcion
 ...............................................................................
 City:        Peking
 Flag:        Red Flag
@@ -327,6 +348,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Shang Dynasty, Wuchang Uprising
 Treasure:    1,000 Year Old Egg
+Description:    unadescripcion
 ...............................................................................
 City:        Port Moresby
 Flag:        Yellow, Red, and Black
@@ -342,6 +364,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        New Ireland
 Treasure:    A phone
+Description:    unadescripcion
 ...............................................................................
 City:        Reykjavik
 Flag:        Red and Blue
@@ -357,6 +380,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Island Nation
 Treasure:    A pinguin
+Description:    unadescripcion
 ...............................................................................
 City:        Rio de Janeiro
 Flag:        Green, Blue, and Yellow
@@ -372,6 +396,7 @@ Religion:    ???
 Leader:      President
 Misc:        ???
 Treasure:    Stuffed Parrot
+Description:    unadescripcion
 ...............................................................................
 City:        Rome
 Flag:        Green, White, and Red
@@ -387,6 +412,7 @@ Religion:    ???
 Leader:      President
 Misc:        ???
 Treasure:    Pope Francis
+Description:    unadescripcion
 ...............................................................................
 City:        San Marino
 Flag:        Blue and White
@@ -402,6 +428,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Serene Republic, Oldest State in Europe, Neighbors Italy
 Treasure:    A spoon
+Description:    unadescripcion
 ...............................................................................
 City:        Singapore
 Flag:        Red and White
@@ -417,6 +444,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Former British Colony
 Treasure:    Merlion the Golden Lion
+Description:    unadescripcion
 ...............................................................................
 City:        Sydney
 Flag:        Red, White, and Blue
@@ -432,6 +460,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    A car
+Description:    unadescripcion
 ...............................................................................
 City:        Tokyo
 Flag:        Red and White
@@ -447,4 +476,5 @@ Religion:    Shinto
 Leader:      ???
 Misc:        ???
 Treasure:    Anime
+Description:    unadescripcion
 ...............................................................................

@@ -80,5 +80,9 @@ public class Ciudad{
     public void setEstado(EstadoCiudad unEstado) {
         this.estado = unEstado;
     }
+
+    public String obtenerInformacionCiudad() {
+        return obtenerDato("Description");
+    }
 }
 

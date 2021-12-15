@@ -32,6 +32,5 @@ public class App extends Application {
 
     public void gameLogic(){
         System.out.println("El juego !!!");
-        view.getStartGameLayout().setTextoVariable(algoThief.entrarAEdificio(0));
     }
 }

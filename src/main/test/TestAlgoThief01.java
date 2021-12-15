@@ -72,13 +72,15 @@ public class TestAlgoThief01 {
 
         String horaSalida =  algothief.obtenerHorario();
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
-        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(0);
+        System.out.println(listaOpcionesViaje.size());
+        Ciudad ciudadSeleccionada = listaOpcionesViaje.get(1);
         algothief.viajar(ciudadSeleccionada);
 
         System.out.println(listaOpcionesViaje.get(0).obtenerDato("city"));
         System.out.println(listaOpcionesViaje.get(1).obtenerDato("city"));
         System.out.println(listaOpcionesViaje.get(2).obtenerDato("city"));
         ArrayList<Ciudad> listaOpcionesViaje2 = algothief.verOpcionesDeViaje();
+        System.out.println(listaOpcionesViaje2.size());
         System.out.println(listaOpcionesViaje2.size());
         System.out.println(listaOpcionesViaje2.get(0).obtenerDato("city"));
         System.out.println(listaOpcionesViaje2.get(1).obtenerDato("city"));

@@ -48,17 +48,19 @@ public class Mapa {
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
+
         for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
             ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
-            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3) {
+            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2) {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
 
         }
+        ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
 
         for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
-            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3){
+            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }

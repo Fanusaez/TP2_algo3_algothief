@@ -51,4 +51,8 @@ public class Policia {
     public String ciudadActual() {
         return ciudadActual.obtenerDato("city");
     }
+
+    public String obtenerInformacionCiudad() {
+       return ciudadActual.obtenerInformacionCiudad();
+    }
 }
