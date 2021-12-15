@@ -6,7 +6,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class App extends Application {
-
     private Stage window;
     private AlgoThief algoThief;
     private View view;

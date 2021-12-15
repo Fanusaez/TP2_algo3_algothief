@@ -46,7 +46,7 @@ public class TestEntregaDos {
         assertEquals(posiblesDelincuentes.size(), 10); // ver "actual"
     }
 
-/*    @Test
+    @Test
     public void filtrarConDatosCargadosBuscoADelincuente(){
 
         Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
@@ -63,12 +63,19 @@ public class TestEntregaDos {
         computadora.siguienteFeature(); // jewerly
         computadora.siguienteCar();
         computadora.siguienteCar(); //limousine
-        ArrayList<Delincuente> posiblesDelincuentes = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
-        assertEquals("Merey Laroc",posiblesDelincuentes.get(0).obtenerDato("name")); // ver "actual"
+        ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
 
-    }*/
+    }
 
+    @Test
     public void intentarAtraparAlDelincuenteSinOrdenDeArresto(){
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
+        algoThief.entrarAEdificio(0);
+        algoThief.entrarAEdificio(0);
 
+        //entro una vez mas y debe intentar capturar al delincuente
+        assertEquals(algoThief.entrarAEdificio(0), "Perdiste!");
     }
 }

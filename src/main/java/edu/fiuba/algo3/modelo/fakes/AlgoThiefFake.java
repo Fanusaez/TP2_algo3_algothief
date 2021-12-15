@@ -3,6 +3,7 @@ import edu.fiuba.algo3.modelo.*;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
+import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.Rango;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public class AlgoThiefFake  implements AlgoThiefInterfaz {
     public PoliciaFake policia;
     private Reloj reloj;
-
+    public OrdenDeArresto ordenArresto;
     public MapaFake mapa;
     private Delincuente delincuente;
     private Computadora computadora;
@@ -24,7 +25,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
         this.delincuente = computadora.ObtenerDelincuenteRandom();
-
+        this.ordenArresto = new OrdenDeArresto();
         this.mapa.establecerPistasEnElRecorrido(this.delincuente);
         mapa.establecerOpcionesDeViaje();
 
@@ -54,7 +55,16 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        return policia.entrarAEdificio(indice);
+        String mensajeRetornado = policia.entrarAEdificio(indice);
+        if(mensajeRetornado.equals("Atrapar")){
+            if(ordenArresto.coincideConOrden(delincuente.getNombre())){
+                return "Ganaste!";
+            }
+            else{
+                return "Perdiste!";
+            }
+        }
+        return mensajeRetornado;
     }
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {

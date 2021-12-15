@@ -120,4 +120,8 @@ public class Delincuente{
 
         return true;
     }
+
+    public String getNombre() {
+        return hashDeAtributos.get("Name");
+    }
 }

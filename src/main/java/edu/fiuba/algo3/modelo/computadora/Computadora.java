@@ -12,7 +12,6 @@ import java.util.Random;
 public class Computadora {
     private ArrayList<Delincuente> sospechosos;
     private Delincuente delincuente;
-    private OrdenDeArresto ordenDeArresto;
     private Filtrador filtrador;
     ArrayList<String> hair;
     int hairIndex;
@@ -27,7 +26,6 @@ public class Computadora {
 
     public Computadora(String rutaArchivoDelincuentes, DificultadJuego dificultad){
         this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes, dificultad);
-        this.ordenDeArresto = new OrdenDeArresto();
         this.filtrador = new Filtrador();
         this.delincuente = sospechosos.get(new Random().nextInt(sospechosos.size()));
         this.hair = new ArrayList<>(Arrays.asList("???","Brown", "Blond", "Red", "Black"));

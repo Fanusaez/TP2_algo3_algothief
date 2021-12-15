@@ -29,6 +29,14 @@ public class OrdenDeArresto {
 
     }
 
+    public void setNombre(String unNombre){
+        this.nombre = unNombre;
+    }
+
+    public boolean coincideConOrden(String unNombre){
+        return nombre.equals(unNombre);
+    }
+
 
 
 }

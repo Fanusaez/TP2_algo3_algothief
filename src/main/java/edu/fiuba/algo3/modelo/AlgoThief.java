@@ -4,6 +4,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
+import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.Policia;
@@ -19,6 +20,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private String nombre;
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
+    private OrdenDeArresto ordenArresto;
 
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
@@ -28,9 +30,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.delincuente = computadora.ObtenerDelincuenteRandom();
         this.mapa.establecerPistasEnElRecorrido(this.delincuente);
         this.mapa.establecerOpcionesDeViaje();
-
         this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
+        this.ordenArresto = new OrdenDeArresto();
     }
 
 
@@ -79,9 +81,12 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.ciudadActual();
     }
 
-//este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
-    //public ArrayList<String> buscarSospechosos(){
-    //}
-
-
+    //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
+    public ArrayList<String> computar(){
+        ArrayList<String> listadoNombresSospechosos = computadora.filtrar();
+        if (listadoNombresSospechosos.size() == 1){
+            this.ordenArresto.setNombre(listadoNombresSospechosos.get(0));
+        }
+        return listadoNombresSospechosos;
+    }
 }
