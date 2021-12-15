@@ -65,7 +65,16 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        return policia.entrarAEdificio(indice);
+        String mensajeRetornado = policia.entrarAEdificio(indice);
+        if(mensajeRetornado.equals("Atrapar")){
+            if(ordenArresto.coincideConOrden(delincuente.getNombre())){
+                return "Ganaste!";
+            }
+            else{
+                return "Perdiste!";
+            }
+        }
+        return mensajeRetornado;
     }
 
 
