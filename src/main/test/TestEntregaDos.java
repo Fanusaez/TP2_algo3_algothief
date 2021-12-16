@@ -63,7 +63,7 @@ public class TestEntregaDos {
         computadora.siguienteFeature(); // jewerly
         computadora.siguienteCar();
         computadora.siguienteCar(); //limousine
-        ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        ArrayList<String> nombresDeSospechosos = computadora.filtrar();
         assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
 
     }

@@ -24,8 +24,9 @@ Arma --> "delincuente : Delincuente" : demoraPorAtaque
 "ciudadActual : Ciudad" --> "policia : PoliciaFake" : demoraTotal
 "policia : PoliciaFake" --> "AlgoThief: AlgoThiefFake" : demoraTotal
 "AlgoThief: AlgoThiefFake" -> "reloj : Reloj" : aumentarHoras( demoraTotal )
-"AlgoThief: AlgoThiefFake" -> "policia : PoliciaFake" : entrarAEdificio( banco )
-"policia : PoliciaFake" -> "ciudadActual : Ciudad" : entrarAEdificio( banco )
+"AlgoThief: AlgoThiefFake" -> "policia : PoliciaFake" : entrarAEdificio( banco, algoThief )
+"policia : PoliciaFake" -> "ciudadActual : Ciudad" : entrarAEdificio( banco, algoThief)
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : atraparLadron(algoThief)
 "ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : entrarAEdificio(banco : Banco)
 "estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : "Estas cerca de atraparlo, ten cuidado"
 "ciudadActual : Ciudad" --> "policia : PoliciaFake" : Estas cerca de atraparlo, ten cuidado

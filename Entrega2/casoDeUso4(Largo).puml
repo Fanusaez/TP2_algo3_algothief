@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+Actor actor
+title : intentar Atrapar Al Delincuente Sin OrdenDeArresto
+create "algoThief : AlgoThiefFake"
+actor -> "algoThief : AlgoThiefFake" : create( directorioDelincuentes, dificultadJuego )
+actor -> "algoThief : AlgoThiefFake" : obtenerUltimaCIudad()
+"algoThief : AlgoThiefFake" --> actor : ultimaCiudad
+actor -> "algoThief : AlgoThiefFake" : setearCiudad( ultimaCiudad )
+loop 2 veces
+actor -> "algoThief : AlgoThiefFake" : entrarEdificio( indiceEdificio )
+"algoThief : AlgoThiefFake" -> "policia : Policia" : getDemoraTiempoVisitar( indiceEdificio )
+"policia : Policia" -> "ciudad : Ciudad" : getDemoraTiempoVisitar( indiceEdificio )
+"ciudad : Ciudad" -> "edificio : Edificio" : visitar()
+"edificio : Edificio" --> "ciudad : Ciudad" : horasDemora
+"ciudad : Ciudad" -> "estadoPeligroso : Estado" : atacar()
+"estadoPeligroso : Estado" -> "delincuente : Delincuente" :atacar()
+"delincuente : Delincuente" -> "Arma" : atacar()
+"Arma" --> "delincuente : Delincuente" : demoraAtaque
+"delincuente : Delincuente" --> "estadoPeligroso : Estado" : demoraAtaque
+"estadoPeligroso : Estado" --> "ciudad : Ciudad" : demoraAtaque
+"ciudad : Ciudad" -> "policia : Policia" : demoraTotal
+"policia : Policia" --> "algoThief : AlgoThiefFake": demoraTotal
+"algoThief : AlgoThiefFake" -> "reloj : Reloj" :  aumentarHoras(horasTotales)
+"algoThief : AlgoThiefFake" -> "policia : Policia" : entrarEdificio( indiceEdificio, algothief )
+"policia : Policia" -> "ciudad : Ciudad" :entrarEdificio( indiceEdificio, algoThief)
+"ciudad : Ciudad" -> "estadoPeligroso : Estado" : atraparLadron(algoThief)
+"ciudad : Ciudad" -> "estadoPeligroso : Estado" : entrarEdificio( edificio )
+"estadoPeligroso : Estado" --> "ciudad : Ciudad" : "Estas cerca de atraparlo"
+"ciudad : Ciudad" --> "policia : Policia" : "Estas cerca de atraparlo"
+"policia : Policia" --> "algoThief : AlgoThiefFake" : "Estas cerca de atraparlo"
+"algoThief : AlgoThiefFake" --> actor : "Estas cerca de atraparlo"
+end
+
+"algoThief : AlgoThiefFake" -> "policia : Policia" : entrarEdificio( indiceEdificio, algothief )
+"policia : Policia" -> "ciudad : Ciudad" :entrarEdificio( indiceEdificio, algoThief)
+"ciudad : Ciudad" -> "estadoPeligroso : Estado" : atraparLadron(algoThief)
+"estadoPeligroso : Estado" -> "algoThief : AlgoThiefFake" : relizarArresto()
+"algoThief : AlgoThiefFake" -> "computadora : Compuadora" : relizarArresto()
+"computadora : Compuadora" -> "orden : OrdenDeArresto" :
+
+
+
+
+
+@enduml

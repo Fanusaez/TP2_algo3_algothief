@@ -14,8 +14,6 @@ public class TestComputadora {
     @Test
     public void testDevolverListadoSinFiltrosYDevuelveTodosLosDelincuentes() {
 
-
-
         Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
         ArrayList<String> listaDelincuentesFiltrados = computadora.filtrar();
         assertEquals(10,listaDelincuentesFiltrados.size());

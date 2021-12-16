@@ -2,7 +2,7 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
-
+title: policia Investigador Viaje De Montreal A Mexico
 Actor actor
 
 actor -> "algoThief : Algothief"  : inicializarJuego()
