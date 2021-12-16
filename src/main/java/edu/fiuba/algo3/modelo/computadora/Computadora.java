@@ -125,11 +125,13 @@ public class Computadora {
 
     //descarta sospechosos en base a los datos que se ingresaron
     public ArrayList<String> filtrar(){
-        return filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
-    }
+        ArrayList<String> listadoSospechososFiltrados = filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
+        if(listadoSospechososFiltrados.size() == 1)
+        {
+            crearOrdenDeArrestoPara(listadoSospechososFiltrados.get(0));
+        }
 
-    public void computar(){
-        filtrados=filtrar();
+        return listadoSospechososFiltrados;
     }
 
     public String realizarArresto() {
