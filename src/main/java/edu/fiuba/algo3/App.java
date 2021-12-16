@@ -1,11 +1,19 @@
 package edu.fiuba.algo3;
 
+import com.sun.jdi.event.ExceptionEvent;
 import edu.fiuba.algo3.gui.View;
 import edu.fiuba.algo3.gui.layouts.EdificioLayout;
+import edu.fiuba.algo3.gui.layouts.ViajeLayout;
 import edu.fiuba.algo3.gui.scenes.EdificioScene;
+import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Application;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class App extends Application {
     private Stage window;
@@ -37,6 +45,18 @@ public class App extends Application {
         window.setScene(viajeScene);
     }
 
+    public void viajarACiudad(int indice) {
+        ViajeLayout viajeLayout = new ViajeLayout(window, this, algoThief);
+        ViajeScene viajeScene = new ViajeScene(window, viajeLayout, algoThief);
+        window.setScene(viajeScene);
+        algoThief.viajar(algoThief.verOpcionesDeViaje().get(indice));
+    }
+
+
+}
+
+
+
     /*public void abrirEscenaJuegoFinalizado(JuegoGanado Juegoganado){
         window.setScene(EscenaGanaste);
     }
@@ -47,4 +67,3 @@ public class App extends Application {
         return;
     }*/
 
-}
