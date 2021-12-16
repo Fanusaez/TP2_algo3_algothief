@@ -1,0 +1,35 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+title : CasoDeUso1
+Actor -> "AlgoThief: AlgoThiefFake": IniciaJuego()
+Actor -> "AlgoThief: AlgoThiefFake": obtenerUltimaCiudad()
+"AlgoThief: AlgoThiefFake" --> Actor: ultimaCiudadDelincuente
+Actor -> "AlgoThief: AlgoThiefFake": setearCiudad( ultimaCiudadDelincuente )
+"AlgoThief: AlgoThiefFake" -> "policia : PoliciaFake" : setearCiudad( ultimaCiudadDelincuente )
+
+loop 5 veces
+Actor -> "AlgoThief: AlgoThiefFake" : entrarAEdificio( banco )
+"AlgoThief: AlgoThiefFake" -> "policia : PoliciaFake" : getDemoraTiempoVisitar( banco )
+"policia : PoliciaFake" -> "ciudadActual : Ciudad" : getDemoraTiempoVisitar( banco )
+"ciudadActual : Ciudad" -> "banco : Edificio" : visitar()
+"banco : Edificio" --> "ciudadActual : Ciudad" : horasDeDemora
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : atacar()
+"estadoPeligroso : EstadoCiudad" -> "delincuente : Delincuente" : atacar()
+"delincuente : Delincuente" -> Arma : atacar()
+Arma --> "delincuente : Delincuente" : demoraPorAtaque
+"delincuente : Delincuente" --> "estadoPeligroso : EstadoCiudad" : demoraPorAtaque
+"estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : demoraPorAtaque
+"ciudadActual : Ciudad" --> "policia : PoliciaFake" : demoraTotal
+"policia : PoliciaFake" --> "AlgoThief: AlgoThiefFake" : demoraTotal
+"AlgoThief: AlgoThiefFake" -> "reloj : Reloj" : aumentarHoras( demoraTotal )
+"AlgoThief: AlgoThiefFake" -> "policia : PoliciaFake" : entrarAEdificio( banco, algoThief )
+"policia : PoliciaFake" -> "ciudadActual : Ciudad" : entrarAEdificio( banco, algoThief)
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : atraparLadron(algoThief)
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : entrarAEdificio(banco : Banco)
+"estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : "Estas cerca de atraparlo, ten cuidado"
+"ciudadActual : Ciudad" --> "policia : PoliciaFake" : Estas cerca de atraparlo, ten cuidado
+"policia : PoliciaFake" --> "AlgoThief: AlgoThiefFake" : Estas cerca de atraparlo, ten cuidado
+end
+@enduml

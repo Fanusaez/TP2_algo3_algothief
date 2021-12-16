@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
+//import edu.fiuba.algo3.modelo.CosasDelincuente.CreadorDelincuentes;
+
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 
 import java.util.ArrayList;
 
@@ -17,4 +19,5 @@ public interface AlgoThiefInterfaz {
     public void viajar(Ciudad destinoSeleccionado);
 
 
+    void realizarArresto();
 }

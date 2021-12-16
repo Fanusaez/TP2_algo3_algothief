@@ -1,8 +1,9 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.Parser.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.ciudad.Peligrosa;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,10 +11,11 @@ public class Mapa {
     protected ArrayList<Ciudad> ciudadesNoRecorridasPorDelincuente;
     protected ArrayList<Ciudad> ciudadesRecorridasPorDelincuente;
 
+
     public Mapa(String rutaArchivoCiudades) {
-        ciudadesNoRecorridasPorDelincuente = new ArrayList<Ciudad>();
+        ciudadesNoRecorridasPorDelincuente = ParserArchivo.parsearArchivoCiudades(rutaArchivoCiudades);
         ciudadesRecorridasPorDelincuente = new ArrayList<Ciudad>();
-        parsearArchivo(rutaArchivoCiudades);
+
     }
 
     public Ciudad obtenerCiudadInicial()
@@ -22,56 +24,7 @@ public class Mapa {
     }
 
 
-    public void parsearArchivo(String rutaArchivoCiudades) {
-        // The name of the file to open.
-        String fileName = rutaArchivoCiudades;
-
-        // This will reference one line at a time
-        String line = null;
-
-        try {
-            FileReader fileReader = new FileReader(fileName);
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-
-            Ciudad ciudad = new Ciudad();
-            while ((line = bufferedReader.readLine()) != null && !line.equals(""))
-
-            {
-                if (line.equals("...............................................................................")) {
-                    this.ciudadesNoRecorridasPorDelincuente.add(ciudad);
-                    ciudad = new Ciudad(); //?
-                    continue;
-                }
-
-                if (line.equals("*******************************************************************************")) {
-                    break;
-
-                }
-
-                String[] lineaSpliteada = line.split(":");
-                String clave= lineaSpliteada[0];
-                String dato = lineaSpliteada[1].trim();
-                ciudad.agregarDato(clave, dato);
-            }
-            bufferedReader.close();
-        }
-            catch(FileNotFoundException ex){
-                System.out.println(
-                        "Unable to open file '" +
-                                fileName + "'");
-            }
-            catch(IOException ex){
-                System.out.println(
-                        "Error reading file '"
-                                + fileName + "'");
-                // Or we could just do this:
-                // ex.printStackTrace();
-            }
-    }
-
-
-    public void EstablecerPistasEnElRecorrido (Delincuente delincuente) {
+    public void establecerPistasEnElRecorrido(Delincuente delincuente) {
         int largoRecorrido = delincuente.cantidadDeCiudadesRecorridas();
         Random rand = new Random();
 
@@ -83,7 +36,14 @@ public class Mapa {
                 ciudadesNoRecorridasPorDelincuente.remove(ciudad);
             }
         }
-        ciudadesRecorridasPorDelincuente.get(delincuente.cantidadDeCiudadesRecorridas()-1).setEstado(new Peligrosa(delincuente));
+
+        Ciudad ultimaCiudadDelincuente = ciudadesRecorridasPorDelincuente.get(delincuente.cantidadDeCiudadesRecorridas()-1);
+        ultimaCiudadDelincuente.setEstado(new Peligrosa(delincuente));
+        /*
+        ultimaCiudadDelincuente.setearEstadoEdificio(new Segura());
+        ultimaCiudadDelincuente.setearEstadoEdificio(new Segura());
+        ultimaCiudadDelincuente.setearEstadoEdificio(new Peligrosa());
+        */
 
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
@@ -92,61 +52,50 @@ public class Mapa {
         }
     }
 
-
-
     public void establecerOpcionesDeViaje(){
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
+
         for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
+            //Agrego como opcion a la próxima ciudad
             ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
-            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3) {
+            //Agrego como c
+            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2) {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
-            System.out.println(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
+
+        }
+        while (ciudadesRecorridasPorDelincuente.get(0).mostrarOpcionesViaje().size() <3) {
+            ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
         }
 
-        for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
-            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 3){
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+
+        for (int i = 0; i < cantCiudadesNoRecorridas ; i++){
+            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
-            System.out.println(ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size());
+
+        }
+
+        for(Ciudad ciudad : ciudadesRecorridasPorDelincuente){
+            System.out.println(ciudad.mostrarOpcionesViaje().size());
+        }
+
+        System.out.println("#########################################");
+
+        for(Ciudad ciudad : ciudadesNoRecorridasPorDelincuente){
+            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().size());
+            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().get(0).obtenerDato("city")+ " y "+ciudad.mostrarOpcionesViaje().get(1).obtenerDato("city"));
+
+        }
+        System.out.println("#########################################");
         }
     }
 
-    public void distribuirCiudadesRecorridasNoRecorridas ( int cantidadCiudades){
-
-    }
-
-    public void crearPistasCiudades (ArrayList < ArrayList < String >> listaDePistasDelincuente) {
-
-    }
-
-    public void inicializarCoordenadasDesdeArchivo(String pathfile){
-
-    }
-
-    //Metodos para tests **************************************************************************
-
-    //solo lo usamos para test
 
 
-    /*
-    public Ciudad obtenerCiudadEspecifica(String nombre) {
-        for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
-            if (ciudad.obtenerDato("City").equals(nombre)) {
-                return ciudad;
-            }
-        }
-
-        for (Ciudad ciudadNoRecorrida : ciudadesNoRecorridasPorDelincuente) {
-            if (ciudadNoRecorrida.obtenerDato("city").equals(nombre)) {
-                return ciudadNoRecorrida;
-            }
-        }
-        throw new ExceptionCiudadNoExistente();
-    }
-*/
-}

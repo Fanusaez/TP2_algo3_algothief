@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 
 public class Banco extends Edificio {
 

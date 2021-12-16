@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+title: policia Investigador Viaje De Montreal A Mexico
+Actor actor
+
+actor -> "algoThief : Algothief"  : inicializarJuego()
+actor -> "algoThief : Algothief" : obtenerCiudad( "Mexico" )
+"algoThief : Algothief" -> "mapa : MapaFake" : buscarCiudad( "Mexico" )
+"mapa : MapaFake" --> "algoThief : Algothief" : ciudad de mexico
+"algoThief : Algothief" --> actor : ciudad de mexico
+actor -> "algoThief : Algothief" : obtenerCiudad( "Montreal" )
+"algoThief : Algothief" -> "mapa : MapaFake" : buscarCiudad( "Montral" )
+"mapa : MapaFake" --> "algoThief : Algothief" : ciudad de Montreal
+"algoThief : Algothief" --> actor : ciudad de Montreal
+actor -> "algoThief : Algothief" : ascenderPolicia(rango detective)
+"algoThief : Algothief" -> "policia : PoliciaFake" : ascender( rango detective )
+actor -> "algoThief : Algothief" : setearCiudad(Mexico)
+"algoThief : Algothief" -> "policia : PoliciaFake" : setearCiudad( Mexico )
+actor -> "algoThief : Algothief" : viajar(Montreal)
+"algoThief : Algothief"  -> "policia : PoliciaFake" : viajar( Montreal )
+"policia : PoliciaFake" -> "brujula : Brujula" : calcularDistanciaEntre( Mexico, Montreal )
+"brujula : Brujula" --> "policia : PoliciaFake" : unaDistancia
+"policia : PoliciaFake" --> "algoThief : Algothief" : unaDistancia / velocidadRangoPolicia == horas????
+"algoThief : Algothief" -> "reloj : Reloj" : aumentarHoras( horasDeViaje )
+
+@enduml

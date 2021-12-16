@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.policia;
 
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+
 public class RangoNovato extends Rango {
 
     public RangoNovato(){
@@ -14,4 +16,5 @@ public class RangoNovato extends Rango {
         }
         return this;
     }
+
 }

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.policia;
 
-import edu.fiuba.algo3.modelo.Ciudad;
+import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 
 public class Brujula {
 

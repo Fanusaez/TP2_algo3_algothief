@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title : filtrar Sin Cargar Datos Devuelve Todos Los Sospechosos
+autonumber
+Actor actor
+create "computadora : Computadora"
+actor -> "computadora : Computadora" : create( directorioDelincuentes, dificultadJuego )
+"computadora : Computadora" -> "computadora : Computadora" : initialize()
+"computadora : Computadora" -> "filtrador : Filtrador" : filtrar(OpcionesSeleccionadas, delincuentes)
+"filtrador : Filtrador" --> "computadora : Computadora" : listaDeSospechosos
+"computadora : Computadora" --> actor : listaDeSospechosos
+
+
+@enduml

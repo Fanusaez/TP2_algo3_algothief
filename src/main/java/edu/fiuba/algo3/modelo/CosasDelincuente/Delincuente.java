@@ -8,22 +8,52 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Delincuente{
-    private Integer cantidadEntradas;
-    private ArrayList<Edificio> edificios;
-    public static final int CANTIDAD_DE_EDIFICIOS = 3;
     private HashMap<String,String> hashDeAtributos;
     private Arma arma;
+    private int largoRecorrido;
 
-    /*
-    Map<String, String> map = new HashMap<String, String>();
-    map.put("dog", "type of animal");
-    */
+
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
-        this.arma = new Arma();
+        this.arma = new Cuchillo();
+
     }
 
+    public static  Delincuente crearDelincuenteParaNovato(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setLargoRecorrido(4);
+        return delincuenteNuevo;
+    }
+
+    private void setLargoRecorrido(int largo) {
+        this.largoRecorrido=largo;
+    }
+
+
+    public static  Delincuente crearDelincuenteParaDetective(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setLargoRecorrido(5);
+        return delincuenteNuevo;
+    }
+
+    public static  Delincuente crearDelincuenteParaInvestigador(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Pistola());
+        delincuenteNuevo.setLargoRecorrido(6);
+        return delincuenteNuevo;
+    }
+
+    public static  Delincuente crearDelincuenteParaSargento(){
+        Delincuente delincuenteNuevo= new Delincuente();
+        delincuenteNuevo.setArma(new Pistola());
+        delincuenteNuevo.setLargoRecorrido(7);
+        return delincuenteNuevo;
+    }
+
+    private void setArma(Arma arma) {
+        this.arma=arma;
+    }
 
     //{Clave:valor} ---> {Pelo: Rubio}
     public void agregarDato(String clave,String valor) {
@@ -71,7 +101,9 @@ public class Delincuente{
     }
 
     public boolean comparar(Delincuente delincuente) {
-        if (this.obtenerDato("Name")== delincuente.obtenerDato("Name")){return true;}
+        if (this.obtenerDato("Name").equals(delincuente.obtenerDato("Name")))
+            return true;
+
         return false;
     }
 
@@ -81,11 +113,15 @@ public class Delincuente{
             String clave=claveYValorCaracteristica.get(0);
             String valor=claveYValorCaracteristica.get(1);
             if(valor == "???"){continue;}
-            if(obtenerDato(clave) != valor ){
+            if( !obtenerDato(clave).equals(valor) ){
                 return false;
             }
         }
 
         return true;
+    }
+
+    public String getNombre() {
+        return hashDeAtributos.get("Name");
     }
 }

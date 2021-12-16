@@ -2,45 +2,40 @@ package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.scenes.BorderPaneScene;
+import edu.fiuba.algo3.gui.scenes.CiudadScene;
+import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.awt.*;
 
 public class StartGameLayout extends VBox {
 
     private Label labelVariable;
 
     public StartGameLayout(Stage window, App app, AlgoThief algoThief) {
+        //setBackground(new BackgroundFill(Color.GRAY));
+        Text presentacion = new Text(algoThief.desplegarTextoInicial());
+        presentacion.setFont(Font.font("Verdana", FontPosture.ITALIC, 16));
+        BorderPane panePresentacion = new BorderPane();
+        panePresentacion.setCenter(presentacion);
 
-        Label label = new Label(algoThief.desplegarTextoInicial());
-        Label labelHorario= new Label(algoThief.obtenerHorario());
-        labelVariable = new Label("");
 
-        Button buttonExit = new Button("Exit");
-        buttonExit.setOnAction(e->{window.close();});
+        Button buttonContinuar = new Button("Continuar");
+        buttonContinuar.setOnAction(e->{
+            CiudadLayout ciudadLayout = new CiudadLayout(window,app, algoThief);
+            CiudadScene ciudadScene = new CiudadScene(window,ciudadLayout, algoThief);
+            window.setScene(ciudadScene);
 
-        Button actionButton = new Button("Action");
-        actionButton.setOnAction(e->{
-            app.gameLogic();
         });
 
-        Button openMap = new Button("Abrir borderPane");
-        openMap.setOnAction(e->{
-            System.out.println("Abrite borderPane");
-            window.setScene(new BorderPaneScene(window));
-        });
+        getChildren().addAll(panePresentacion,buttonContinuar);
 
-        getChildren().addAll(label,labelVariable,labelHorario,buttonExit,actionButton,openMap);
-
-
-    }
-
-    public void setTextoVariable(String textoVariable) {
-
-        this.labelVariable.setText(textoVariable);
     }
 }

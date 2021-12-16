@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+/'title: Problema de entrar a edificio por 3era vez en la última ciudad'/
+title: Caso de uso 5
+autonumber
+
+/'AlgoThief -> Computadora: crearOrdenDeArrestoPara(unNombreDelincuente: String)
+Computadora -> OrdenDeArresto: setNombre(unNombreDelincuente: String)'/
+AlgoThief -> Policia: entrarAEdificio(0,instanciaAlgoThief)
+Policia -> Ciudad: entrarAEdificio(0,instanciaAlgoThief)
+Ciudad -> Estado: atraparLadron(instanciaAlgoThief)
+Estado -> AlgoThief: realizarArresto()
+AlgoThief -> Computadora: realizarArresto()
+Computadora -> OrdenDeArresto: realizarArresto()
+OrdenDeArresto -> Computadora: return "ganado"
+AlgoThief -> AlgoThief: estadoJuego = "ganado"
+/'Ciudad -> Estado: entrarAEdificio
+Estado -> Ciudad:  return "Estas cerca de atraparlo, ten cuidado!"
+Ciudad -> Policia: return "Estas cerca de atraparlo, ten cuidado!"
+Policia -> AlgoThief: return "Estas cerca de atraparlo, ten cuidado!"
+AlgoThief -> TestCase: return "Estas cerca de atraparlo, ten cuidado!"'/
+
+
+
+@enduml

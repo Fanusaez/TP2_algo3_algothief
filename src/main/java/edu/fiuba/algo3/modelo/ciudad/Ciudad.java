@@ -1,11 +1,11 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.ciudad;
+import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
-import edu.fiuba.algo3.modelo.ciudad.EstadoCiudad;
-import edu.fiuba.algo3.modelo.ciudad.Segura;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,7 +48,8 @@ public class Ciudad{
         return ciudad;
     }
 
-    public String entrarAEdificio(int indice){
+    public String entrarAEdificio(int indice, AlgoThiefInterfaz algoThief){
+        estado.atraparLadron(algoThief);
         return this.estado.entrarAEdificio(edificios.get(indice));
     }
 
@@ -63,11 +64,11 @@ public class Ciudad{
             return;
         }
         this.opcionesDeViaje.add(destino);
-        //destino.agregarComoOpcion(this);
+
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-        //System.out.println(opcionesDeViaje.size());
+
         return this.opcionesDeViaje;
     }
 
@@ -79,6 +80,10 @@ public class Ciudad{
 
     public void setEstado(EstadoCiudad unEstado) {
         this.estado = unEstado;
+    }
+
+    public String obtenerInformacionCiudad() {
+        return obtenerDato("Description");
     }
 }
 

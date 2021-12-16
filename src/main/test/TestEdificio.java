@@ -1,4 +1,4 @@
-import edu.fiuba.algo3.modelo.Ciudad; // este import no esta bueno, no deberiamos depender de otra clase para probarla
+import edu.fiuba.algo3.modelo.ciudad.Ciudad; // este import no esta bueno, no deberiamos depender de otra clase para probarla
 import edu.fiuba.algo3.modelo.Edificios.*;
 import org.junit.Test;
 
