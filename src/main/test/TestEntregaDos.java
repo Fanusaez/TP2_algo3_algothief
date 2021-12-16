@@ -74,8 +74,25 @@ public class TestEntregaDos {
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
-
+        algoThief.entrarAEdificio(0);
         //entro una vez mas y debe intentar capturar al delincuente
-        //assertEquals(new Perdido(),algoThief.obtenerDelJuego);
+        assertEquals("perdido", algoThief.getEstadoJuego());
     }
+
+    @Test
+    public void arrestarDelincuenteConOrdenDeArrestoGanaPartida(){
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes);
+        algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
+        algoThief.entrarAEdificio(0);
+        algoThief.entrarAEdificio(0);
+
+        String nombreDelincuente = algoThief.getDelincuenteNombre();
+
+        algoThief.crearOrdenDeArrestoPara(nombreDelincuente);
+
+        algoThief.entrarAEdificio(0);
+
+        assertEquals("ganado",algoThief.getEstadoJuego());
+    }
+
 }

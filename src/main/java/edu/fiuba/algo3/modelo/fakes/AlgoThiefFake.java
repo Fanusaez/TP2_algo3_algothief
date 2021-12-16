@@ -35,7 +35,6 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         estadoJuego= "jugando";
     }
 
-
     public void ingresarUsuario(String unNombre){
         this.nombre=unNombre;
     }
@@ -55,6 +54,14 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return texto;
     }
 
+    public String getDelincuenteNombre(){
+        return delincuente.getNombre();
+    }
+
+    public String getEstadoJuego(){
+        return estadoJuego;
+    }
+
     public String obtenerHorario(){
 
         return reloj.obtenerHorario();
@@ -64,11 +71,14 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
     public String entrarAEdificio(int indice) {
+      /* if(estadoJuego.equals("Ganado") || estadoJuego.equals("Perdido")){
+
+        }*/
+
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         String mensajeRetornado = policia.entrarAEdificio(indice,this);
         return mensajeRetornado;
     }
-
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -82,18 +92,26 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return policia.ciudadActual();
     }
 
+    public void crearOrdenDeArrestoPara(String unDelincuente){
+        computadora.crearOrdenDeArrestoPara(unDelincuente);
+    }
+
+
     //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
     public ArrayList<String> computar(){
         ArrayList<String> listadoNombresSospechosos = computadora.filtrar();
-        if (listadoNombresSospechosos.size() == 1){
-            this.ordenArresto.setNombre(listadoNombresSospechosos.get(0));
-        }
         return listadoNombresSospechosos;
     }
 
     public void realizarArresto() {
-        estadoJuego=computadora.realizarArresto();
+        estadoJuego = computadora.realizarArresto();
+     /*   if(estadoJuego.equals("Ganado")){
+            //...
+        }
 
+        if(estadoJuego.equals("Perdido")){
+            //...
+        }*/
     }
 
 

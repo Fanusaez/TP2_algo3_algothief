@@ -21,13 +21,13 @@ public class OrdenDeArresto {
         return nombre.equals(unNombre);
     }
 
-    public String realizarArresto(ArrayList<String> listadoNombresSospechosos,Delincuente delincuente){
-        if (listadoNombresSospechosos.size() == 1){
-            if (listadoNombresSospechosos.get(0).equals(delincuente.getNombre())){
-                return "ganado";
-            }
-        }
+    public String realizarArresto(String nombreSospechoso){
+        if(nombre.equals(nombreSospechoso))
+            return "ganado";
+
         return "perdido";
     }
+
+
 
 }

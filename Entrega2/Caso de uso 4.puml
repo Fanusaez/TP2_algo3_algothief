@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+AlgoThief -> Policia: entrarAEdificio(0,instanciaAlgoThief)
+Policia -> Ciudad: entrarAEdificio(0,instanciaAlgoThief)
+Ciudad -> Estado: atraparLadron(instanciaAlgoThief)
+Estado -> AlgoThief: realizarArresto()
+AlgoThief -> Computadora: realizarArresto()
+Computadora -> OrdenDeArresto: realizarArresto()
+OrdenDeArresto -> Computadora: return "Perdido"
+AlgoThief -> AlgoThief: estadoJuego = "Perdido"
+/'Ciudad -> Estado: entrarAEdificio
+Estado -> Ciudad:  return "Estas cerca de atraparlo, ten cuidado!"
+Ciudad -> Policia: return "Estas cerca de atraparlo, ten cuidado!"
+Policia -> AlgoThief: return "Estas cerca de atraparlo, ten cuidado!"
+AlgoThief -> TestCase: return "Estas cerca de atraparlo, ten cuidado!"'/
+@enduml

@@ -65,10 +65,12 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        String mensajeRetornado = policia.entrarAEdificio(indice, this);
+        //if(estadoJuego.equals("jugando")){
+            String mensajeRetornado = policia.entrarAEdificio(indice, this);
+       // }
+
         return mensajeRetornado;
     }
-
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -85,7 +87,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
     //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
 
     public void realizarArresto() {
-        estadoJuego=computadora.realizarArresto();
-
+        estadoJuego = computadora.realizarArresto();
     }
 }

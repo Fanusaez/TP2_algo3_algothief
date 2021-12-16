@@ -119,6 +119,10 @@ public class Computadora {
         return delincuente;
     }
 
+    public void crearOrdenDeArrestoPara(String unNombreDelincuente){
+        ordenArresto.setNombre(unNombreDelincuente);
+    }
+
     //descarta sospechosos en base a los datos que se ingresaron
     public ArrayList<String> filtrar(){
         return filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
@@ -129,6 +133,6 @@ public class Computadora {
     }
 
     public String realizarArresto() {
-        return ordenArresto.realizarArresto(filtrados,delincuente);
+        return ordenArresto.realizarArresto(delincuente.getNombre());
     }
 }

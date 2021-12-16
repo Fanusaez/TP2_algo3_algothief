@@ -20,13 +20,14 @@ public class Peligrosa implements EstadoCiudad {
     }
 
     public String entrarAEdificio(Edificio edificio) {
-
         return "Estas cerca de atraparlo, ten cuidado!";
     }
+
     public void atraparLadron(AlgoThiefInterfaz algoThief){
         ContadorEntradasEdificios++;
         if (ContadorEntradasEdificios >= 3){
-            algoThief.realizarArresto();}
+            algoThief.realizarArresto();
+        }
 
     }
 }
