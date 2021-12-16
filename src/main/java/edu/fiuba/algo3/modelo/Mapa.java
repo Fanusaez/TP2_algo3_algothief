@@ -58,25 +58,44 @@ public class Mapa {
 
 
         for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
+            //Agrego como opcion a la próxima ciudad
             ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
+            //Agrego como c
             while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2) {
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
 
         }
-        ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
-        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas-1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
-        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas-1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas-1)));
+        while (ciudadesRecorridasPorDelincuente.get(0).mostrarOpcionesViaje().size() <3) {
+            ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+        }
 
-        for (int i = 0; i < cantCiudadesNoRecorridas - 1; i++){
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+
+        for (int i = 0; i < cantCiudadesNoRecorridas ; i++){
             while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
                 ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
             }
 
         }
+
+        for(Ciudad ciudad : ciudadesRecorridasPorDelincuente){
+            System.out.println(ciudad.mostrarOpcionesViaje().size());
+        }
+
+        System.out.println("#########################################");
+
+        for(Ciudad ciudad : ciudadesNoRecorridasPorDelincuente){
+            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().size());
+            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().get(0).obtenerDato("city")+ " y "+ciudad.mostrarOpcionesViaje().get(1).obtenerDato("city"));
+
+        }
+        System.out.println("#########################################");
+        }
     }
 
 
-}
+

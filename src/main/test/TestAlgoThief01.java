@@ -67,8 +67,12 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test07PoliciaViajaTiempoAvanza(){
-
         AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
         String horaSalida =  algothief.obtenerHorario();
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();

@@ -133,4 +133,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         policia.ascender(rangoNuevo);
     }
 
+    public void aumentarHorario(int i) {
+        reloj.aumentarHoras(i);
+    }
 }

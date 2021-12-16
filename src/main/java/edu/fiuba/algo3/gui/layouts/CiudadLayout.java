@@ -42,7 +42,7 @@ public class CiudadLayout extends BorderPane {
         borderhorario.setCenter(labelHorario);
         borderciudadActual.setCenter(ciudadActual);
         VBox inicio= new VBox();
-        inicio.getChildren().addAll(borderhorario,borderciudadActual);
+        inicio.getChildren().addAll(borderhorario,borderciudadActual,estadoJuego);
         inicio.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 
         ToolBar toolBarMadre = new ToolBar();
@@ -66,11 +66,7 @@ public class CiudadLayout extends BorderPane {
 
 
 
-        toolBarEdificios.getItems().add(botonEntrarAAeropuerto);
-        toolBarEdificios.getItems().add(new Separator());
-        toolBarEdificios.getItems().add(botonEntrarABanco);
-        toolBarEdificios.getItems().add(new Separator());
-        toolBarEdificios.getItems().add(botonEntrarABiblioteca);
+        toolBarEdificios.getItems().addAll(botonEntrarAAeropuerto,new Separator(),botonEntrarABanco,new Separator(),botonEntrarABiblioteca);
 
         //Opciones de viaje
         ToolBar toolBarViaje = new ToolBar();
@@ -92,7 +88,7 @@ public class CiudadLayout extends BorderPane {
             app.viajarACiudad(2);
         });
 
-        toolBarViaje.getItems().add(botonViajar1);
+        toolBarViaje.getItems().addAll(botonViajar1);
         toolBarViaje.getItems().add(new Separator());
         toolBarViaje.getItems().add(botonViajar2);
         toolBarViaje.getItems().add(new Separator());
