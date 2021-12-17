@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
-import edu.fiuba.algo3.modelo.policia.Policia;
 import edu.fiuba.algo3.modelo.policia.Rango;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     private Delincuente delincuente;
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
-    private String estadoJuego;
+    private EstadoJuegoInterfaz estadoJuego;
     private String nombre;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
@@ -32,7 +31,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         this.mapa.establecerOpcionesDeViaje();
         this.policia = new PoliciaFake(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
-        estadoJuego= "jugando";
+        estadoJuego = new EstadoJugando();
     }
 
     public void ingresarUsuario(String unNombre){
@@ -54,11 +53,17 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return texto;
     }
 
+
+
+
+
+
+
     public String getDelincuenteNombre(){
         return delincuente.getNombre();
     }
 
-    public String getEstadoJuego(){
+    public EstadoJuegoInterfaz getEstadoJuego(){
         return estadoJuego;
     }
 
@@ -66,19 +71,37 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
         return reloj.obtenerHorario();
     }
+
+    public String estadoJuegoComoString(){
+        return estadoJuego.devolverComoString();
+    }
+
+    public void realizarArresto(){
+        estadoJuego =computadora.realizarArresto();
+    }
     public String obtenerInformacionCiudad(){
         return policia.obtenerInformacionCiudad();
     }
 
     public String entrarAEdificio(int indice) {
-      /* if(estadoJuego.equals("Ganado") || estadoJuego.equals("Perdido")){
-
-        }*/
-
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        String mensajeRetornado = policia.entrarAEdificio(indice,this);
+        String mensajeRetornado = policia.entrarAEdificio(indice);
+        actualizarEstadoDeJuego();
         return mensajeRetornado;
     }
+
+
+    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora) {
+        return policia.modificarEstadoDeJuego(computadora);
+    }
+
+    public void actualizarEstadoDeJuego(){
+        estadoJuego= reloj.tiempoAgotado();
+        estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));
+    }
+
+
+
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -97,21 +120,17 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
 
+
+
+
+
+
+
+
     //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
     public ArrayList<String> computar(){
         ArrayList<String> listadoNombresSospechosos = computadora.filtrar();
         return listadoNombresSospechosos;
-    }
-
-    public void realizarArresto() {
-        estadoJuego = computadora.realizarArresto();
-     /*   if(estadoJuego.equals("Ganado")){
-            //...
-        }
-
-        if(estadoJuego.equals("Perdido")){
-            //...
-        }*/
     }
 
 

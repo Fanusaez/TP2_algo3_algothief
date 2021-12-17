@@ -3,8 +3,10 @@ package edu.fiuba.algo3;
 import com.sun.jdi.event.ExceptionEvent;
 import edu.fiuba.algo3.gui.View;
 import edu.fiuba.algo3.gui.layouts.EdificioLayout;
+import edu.fiuba.algo3.gui.layouts.PerdisteLayout;
 import edu.fiuba.algo3.gui.layouts.ViajeLayout;
 import edu.fiuba.algo3.gui.scenes.EdificioScene;
+import edu.fiuba.algo3.gui.scenes.PerdisteScene;
 import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Application;
@@ -43,6 +45,16 @@ public class App extends Application {
         EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(1));
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
+
+        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
+            abrirEscenaPerdiste();
+        }
+    }
+
+    public void abrirEscenaPerdiste(){
+        PerdisteLayout perdisteLayout = new PerdisteLayout(window, this, algoThief);
+        PerdisteScene perdisteScene = new PerdisteScene(window, perdisteLayout, algoThief);
+        window.setScene(perdisteScene);
     }
 
     public void viajarACiudad(int indice) {

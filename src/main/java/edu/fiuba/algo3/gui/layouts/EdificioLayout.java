@@ -50,8 +50,8 @@ public class EdificioLayout extends VBox {
             CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
             CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
             window.setScene(ciudadScene);
-
         });
+
         HBox cerrar = new HBox(botonSalir);
         //setBackground(new Background(new BackgroundImage()));
         cerrar.setLayoutX(200);

@@ -1,10 +1,8 @@
 package edu.fiuba.algo3.modelo.computadora;
 
-import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
+import edu.fiuba.algo3.modelo.EstadoGanado;
+import edu.fiuba.algo3.modelo.EstadoJuegoInterfaz;
+import edu.fiuba.algo3.modelo.EstadoPerdido;
 
 public class OrdenDeArresto {
     String nombre;
@@ -21,11 +19,11 @@ public class OrdenDeArresto {
         return nombre.equals(unNombre);
     }
 
-    public String realizarArresto(String nombreSospechoso){
+    public EstadoJuegoInterfaz realizarArresto(String nombreSospechoso){
         if(nombre.equals(nombreSospechoso))
-            return "ganado";
+            return new EstadoGanado();
 
-        return "perdido";
+        return new EstadoPerdido();
     }
 
 

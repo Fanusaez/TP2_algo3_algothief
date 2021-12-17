@@ -4,7 +4,6 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
-import edu.fiuba.algo3.modelo.computadora.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.Policia;
@@ -20,7 +19,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private String nombre;
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
-    public String estadoJuego;
+    public EstadoJuegoInterfaz estadoJuego;
 
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
@@ -32,7 +31,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.mapa.establecerOpcionesDeViaje();
         this.policia = new Policia(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
-        estadoJuego= "jugando";
+        estadoJuego = new EstadoJugando();
     }
 
 
@@ -65,12 +64,14 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        //if(estadoJuego.equals("jugando")){
-            String mensajeRetornado = policia.entrarAEdificio(indice, this);
-       // }
+        String mensajeRetornado = policia.entrarAEdificio(indice);
+
+        actualizarEstadoDeJuego();
 
         return mensajeRetornado;
     }
+
+
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();
@@ -78,15 +79,28 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
+        actualizarEstadoDeJuego();
     }
 
     public String ciudadActual() {
         return policia.ciudadActual();
     }
 
-    //este boton computar lo unico que hace es mostrarte los nombres, no te hace ganar ni perder
-
-    public void realizarArresto() {
-        estadoJuego = computadora.realizarArresto();
+    public void realizarArresto(){
+        computadora.realizarArresto();
     }
+
+    public void actualizarEstadoDeJuego(){
+        estadoJuego= reloj.tiempoAgotado();
+        estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));
+    }
+
+    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora) {
+        return policia.modificarEstadoDeJuego(computadora);
+    }
+
+    public String estadoJuegoComoString(){
+        return estadoJuego.devolverComoString();
+    }
+
 }

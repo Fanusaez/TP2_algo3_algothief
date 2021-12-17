@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.policia;
 
-import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
+import edu.fiuba.algo3.modelo.EstadoJuegoInterfaz;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 
 import java.util.ArrayList;
 
@@ -22,8 +22,8 @@ public class Policia {
         this.brujula = new Brujula();
     }
 
-    public String entrarAEdificio(int indice, AlgoThiefInterfaz algoThief) {
-        return this.ciudadActual.entrarAEdificio(indice, algoThief);}
+    public String entrarAEdificio(int indice) {
+        return this.ciudadActual.entrarAEdificio(indice);}
 
     public Ciudad getCiudadActual(){
         return ciudadActual;
@@ -55,5 +55,9 @@ public class Policia {
 
     public String obtenerInformacionCiudad() {
        return ciudadActual.obtenerInformacionCiudad();
+    }
+
+    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora) {
+        return ciudadActual.modificarEstadoDeJuego(computadora);
     }
 }

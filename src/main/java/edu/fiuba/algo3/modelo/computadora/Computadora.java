@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.computadora;
 
+import edu.fiuba.algo3.modelo.EstadoJuegoInterfaz;
 import edu.fiuba.algo3.modelo.Parser.ParserArchivo;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.dificultad.DificultadJuego;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Computadora {
@@ -134,7 +134,7 @@ public class Computadora {
         return listadoSospechososFiltrados;
     }
 
-    public String realizarArresto() {
+    public EstadoJuegoInterfaz realizarArresto() {
         return ordenArresto.realizarArresto(delincuente.getNombre());
     }
 }

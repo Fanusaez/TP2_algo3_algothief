@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.ciudad;
 
-import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.EstadoJuegoInterfaz;
+import edu.fiuba.algo3.modelo.EstadoJugando;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 
 public class Segura implements EstadoCiudad {
 
@@ -14,7 +16,8 @@ public class Segura implements EstadoCiudad {
         return edificio.mostrarPista();
     }
 
-    public void atraparLadron(AlgoThiefInterfaz algoThief){
-        System.out.println("hola");
-    }
+
+    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){return new EstadoJugando();}
+
+
 }

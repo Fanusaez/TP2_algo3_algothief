@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.ciudad;
-import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.AlgoThiefInterfaz;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.EstadoJuegoInterfaz;
 import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
+import edu.fiuba.algo3.modelo.computadora.Computadora;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -48,8 +48,12 @@ public class Ciudad{
         return ciudad;
     }
 
-    public String entrarAEdificio(int indice, AlgoThiefInterfaz algoThief){
-        estado.atraparLadron(algoThief);
+    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){
+        return estado.modificarEstadoDeJuego(computadora);
+    }
+
+
+    public String entrarAEdificio(int indice){
         return this.estado.entrarAEdificio(edificios.get(indice));
     }
 

@@ -38,7 +38,7 @@ public class ViajeLayout extends VBox {
 
         getChildren().addAll(fotoavion);
         Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater(() -> {
@@ -48,6 +48,6 @@ public class ViajeLayout extends VBox {
                     return;
                 });
             }
-        }, 2000, 2000);
+        }, 1200);
     }
 }

@@ -28,7 +28,10 @@ public class Reloj {
     }
 
 
-
-
-
+    public EstadoJuegoInterfaz tiempoAgotado() {
+        if (dateTime.isAfter(LocalDateTime.of(1989, Month.JANUARY, 8, 15, 0, 0)) ){
+            return new EstadoPerdido();
+        }
+        return new EstadoJugando();
+    }
 }

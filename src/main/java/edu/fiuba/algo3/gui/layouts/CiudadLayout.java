@@ -36,7 +36,7 @@ public class CiudadLayout extends BorderPane {
         Text ciudadActual = new Text("Ubicacion actual: " + algoThief.ciudadActual());
         ciudadActual.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
 
-        Text estadoJuego=new Text(algoThief.estadoJuego);
+        Text estadoJuego=new Text(algoThief.estadoJuegoComoString());
         BorderPane borderhorario = new BorderPane();
         BorderPane borderciudadActual = new BorderPane();
         borderhorario.setCenter(labelHorario);
