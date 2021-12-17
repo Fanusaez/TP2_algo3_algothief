@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 /'title: Problema de entrar a edificio por 3era vez en la última ciudad'/
-title: Caso de uso 5
+title: arrestar Delincuente Con Orden De Arresto Gana Partida
 autonumber
 
 /'AlgoThief -> Computadora: crearOrdenDeArrestoPara(unNombreDelincuente: String)

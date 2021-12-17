@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Computadora{
+    +siguientePelo()
+    +siguienteAuto()
+    +obtenerDelincuenteRandom()
+    +crearOrdenDeArresto(String Nombredelincuente)
+    +filtrar()
+
+
+}
+
+class OrdenDeArresto{
+    -sospechoso
+
+    +realizarArresto(String nombreSospechoso)
+    +setNombre()
+}
+
+class Filtrador{
+     +filtrar()
+}
+
+Computadora -> OrdenDeArresto
+Computadora -> Filtrador
+
+@enduml

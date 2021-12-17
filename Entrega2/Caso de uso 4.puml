@@ -2,6 +2,7 @@
 'https://plantuml.com/sequence-diagram
 
 autonumber
+title : arrestar Delincuente ConOrden De Arresto Pierde Partida
 AlgoThief -> Policia: entrarAEdificio(0,instanciaAlgoThief)
 Policia -> Ciudad: entrarAEdificio(0,instanciaAlgoThief)
 Ciudad -> Estado: atraparLadron(instanciaAlgoThief)

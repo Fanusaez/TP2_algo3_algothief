@@ -7,7 +7,7 @@ class Mapa{
 + mostrarOpcionesViaje()
 + crearCiudades(string nombreArchivo)
 + distribuirCiudadesRecorridasNoRecorridas(cantidadCiudades: int)
-+ crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
++ establecerPistasEnElRecorrido(Delincuente delincuente)
 }
 
 class Ciudad{

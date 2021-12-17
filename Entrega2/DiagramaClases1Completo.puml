@@ -1,0 +1,242 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class AlgoThief{
+
+    + ingresarUsuario(nombre : String) : void
+    + desplegarTextoInicial() : String
+    + entrarAEdificio(indice : int) : String
+    + verOpcionesDeViaje() : ArrayList<Ciudad>
+    + relizarArresto() : void
+    + actualizarEstadoDeJuego() : void
+
+
+}
+
+class Policia{
+    -cantidadArrestos
+
+    + entrarAEdificio(indiceEdificio : int)
+    + viajarA(Ciudad : destino) : int
+    + realizarArresto() : void
+    + getDemoraTiempoVisitar(indiceEdificio : int) : int
+
+}
+
+class Computadora{
+   - listasDeAtributosSeleccionados : ArrayList<ArrayList <String>>
+
+   + cambiarAtributoDelincuente(tipo : String) : void
+   + crearOrdenDeArrestoPara(sospechoso : String) : void
+   + relizarArresto() : EstadoDeJuego
+}
+
+class Filtrador{
+    + filtrar() : ArrayList<String>
+
+}
+
+class OrdenDeArresto{
+
+    - nombreSospechoso : String
+
+    + relizarArresto() : EstadoDeJuego
+}
+
+class Reloj{
+    - tiempo : LocalDataTime
+
+    + aumentarHoras(horas : int) : void
+    + tiempoAgotado() : EstadoDeJuego estado
+
+}
+
+class Mapa{
+    - ciudadesRecorridasPorDelicuente
+    - ciudadesNoRecorridasPorDelincuente
+
+    +  establecerOpcionesDeViaje()
+    + crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
+}
+
+abstract class Rango{
+    -velocidad
+    -cantidadNecesariaParaAscender
+
+    + {abstract} ascender(cantidadArrestos))
+}
+
+class RangoNovato{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoDetective{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoInvestigador{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoSargento{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class Brujula{
+
+{static} +calcularDistanciaEntre(origen, destino) : (int distancia)
+}
+
+class Ciudad{
+    - datosCiudad : hashMap<String,String>
+
+    + entrarAEdificio(indiceEdificio) : String
+    + generarPista(ciudadSiguiente, pistaDelincuente)
+    + mostrarOpcionesDeViaje() : ArrayList<Ciudades>
+}
+
+interface EstadoCiudad{
+
+    + atacar() : int
+    + entrarAEdificio(Edificio edificio) : string
+    + modificarEstadoDeJuego(compu : Computadora) : EstadoDeJuego
+}
+
+class Segura{
+    + atacar() : int
+    + entrarAEdificio(Edificio edificio) : string
+    + modificarEstadoDeJuego(compu : Computadora) : EstadoDeJuego
+
+}
+
+class Peligrosa{
+    + atacar() : int
+    + entrarAEdificio(Edificio edificio) : string
+    + modificarEstadoDeJuego(compu : Computadora) : EstadoDeJuego
+}
+
+abstract class Edificio{
+    - pista : string
+    - cantidadEntradas : int
+    + visitar() : int
+    + MostrarPista() : String
+    + {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Banco{
+    + generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Puerto{
+    + generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Museo{
+    + generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Delincuente{
+    - largoRecorrido : int
+    + generarPista() : String
+    + atacar() : int
+}
+
+interface Arma{
+
+    + atacar : int
+}
+
+class Cuchillo{
+    - dano : int
+    + atacar() : int
+}
+
+class Pistola{
+   - dano : int
+   +atacar() : int
+}
+
+interface EstadoDeJuego{
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+    + devolverComoString() : string
+
+}
+
+class EstadoJugando {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+class EstadoPerdido {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+interface DificultadJuego{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadNovato{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadInvestigador{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadDetective{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadSargento{
+    + creadDelincuente() : Delincuente
+}
+
+
+
+
+AlgoThief --> Policia
+AlgoThief --> Computadora
+AlgoThief --> Mapa
+AlgoThief --> Reloj
+AlgoThief --> Delincuente
+AlgoThief --> EstadoDeJuego
+Delincuente --> Arma
+Mapa --> Ciudad
+Ciudad --> EstadoCiudad
+Ciudad --> Edificio
+Computadora --> Filtrador
+Computadora --> OrdenDeArresto
+Computadora --> Delincuente
+Policia --> Ciudad
+Policia --> Brujula
+Policia --> Rango
+RangoNovato ..|> Rango
+RangoDetective ..|> Rango
+RangoSargento ..|> Rango
+RangoInvestigador ..|> Rango
+Peligrosa ..|> EstadoCiudad
+Segura ..|> EstadoCiudad
+Banco ..|> Edificio
+Puerto ..|> Edificio
+Museo ..|> Edificio
+Cuchillo ..|> Arma
+Pistola ..|> Arma
+EstadoJugando ..|> EstadoDeJuego
+EstadoPerdido ..|> EstadoDeJuego
+EstadoCiudad ...> Computadora
+
+
+@enduml
