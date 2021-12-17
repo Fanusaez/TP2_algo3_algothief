@@ -53,15 +53,15 @@ public class CiudadLayout extends BorderPane {
 
         Button botonEntrarABanco = new Button("Entrar a Banco");
         botonEntrarABanco.setOnAction(e -> {
-            app.abrirEscenaEdificio("rsc\\images\\bancofoto.jpg");
+            app.abrirEscenaEdificio("rsc\\images\\bancofoto.jpg",0);
         });
         Button botonEntrarAAeropuerto = new Button("Entrar a Aeropuerto");
         botonEntrarAAeropuerto.setOnAction(e -> {
-            app.abrirEscenaEdificio("rsc\\images\\aeropuerto.jpg");
+            app.abrirEscenaEdificio("rsc\\images\\aeropuerto.jpg",1);
         });
         Button botonEntrarABiblioteca = new Button("Entrar a Biblioteca");
         botonEntrarABiblioteca.setOnAction(e -> {
-            app.abrirEscenaEdificio("rsc\\images\\biblioteca.jpg");
+            app.abrirEscenaEdificio("rsc\\images\\biblioteca.jpg",2);
         });
 
 

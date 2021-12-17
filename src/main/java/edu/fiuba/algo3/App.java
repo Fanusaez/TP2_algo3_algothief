@@ -41,8 +41,8 @@ public class App extends Application {
         System.out.println("despues");
     }
 
-    public void abrirEscenaEdificio(String ubicacionArchivo){
-        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(1));
+    public void abrirEscenaEdificio(String ubicacionArchivo,int indice){
+        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(indice));
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
 
