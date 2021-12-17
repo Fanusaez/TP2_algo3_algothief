@@ -86,12 +86,16 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.ciudadActual();
     }
 
+    public ArrayList<ArrayList<String>> siguientePelo(){
+        return computadora.siguientePelo();
+    }
+
     public void realizarArresto(){
         computadora.realizarArresto();
     }
 
     public void actualizarEstadoDeJuego(){
-        estadoJuego= reloj.tiempoAgotado();
+        estadoJuego= estadoJuego.cambiarA(reloj.tiempoAgotado());
         estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));
     }
 
@@ -103,4 +107,11 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return estadoJuego.devolverComoString();
     }
 
+    public ArrayList<ArrayList<String>> mostrarAtriutosDelincuenteSeleccionados(){
+        return computadora.mostrarOpcionesSeleccionadas();
+    }
+
+    public ArrayList<String> filtrarSospechosos(){
+        return computadora.filtrar();
+    }
 }

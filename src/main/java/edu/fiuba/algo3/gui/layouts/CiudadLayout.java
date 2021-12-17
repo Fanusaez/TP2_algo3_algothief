@@ -96,8 +96,12 @@ public class CiudadLayout extends BorderPane {
 
         //Computar
         Button botonComputadora = new Button("Computadora");
+        botonComputadora.setFont(Font.font("Verdana", FontWeight.BOLD, 12));
         botonComputadora.setMinSize(110,110);
-        botonComputadora.setStyle("  -fx-border-style: none; -fx-border-width: 2px; -fx-border-insets: 0; -fx-font-size:4px; -fx-background-image: url('/rsc/images/bancofoto.jpg')");
+        botonComputadora.setOnAction(e -> {
+            app.abrirLaComputadora();
+        });
+
 
         toolBarViaje.setOrientation(Orientation.VERTICAL);
         toolBarEdificios.setOrientation(Orientation.VERTICAL);

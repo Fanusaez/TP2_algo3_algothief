@@ -56,7 +56,7 @@ public class MainMenuLayout extends VBox {
         // buttons
         Button buttonStart = new Button("Comenzar juego");
         buttonStart.setOnAction(e->{
-            if (nombreUsuario.getText().equals("")){return;}
+            //if (nombreUsuario.getText().equals("")){return;}
             algoThief.ingresarUsuario(nombreUsuario.getText());
             StartGameLayout startGameLayout = new StartGameLayout(window,app, algoThief);
             StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
