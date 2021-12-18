@@ -1,5 +1,6 @@
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class TestComputadora {
         assertEquals(10,listaDelincuentesFiltrados.size());
     }
 
- /*   @Test
+    @Test
     public void TestFiltrarSospechosasMujeres() {
 
         Computadora computadora = new Computadora(directorioDelincuentes,new DificultadNovato());
@@ -28,8 +29,51 @@ public class TestComputadora {
 
         //Va a filtrar por el atributo Female
         ArrayList<String> listaDelincuentesFiltrados = computadora.filtrar();
-        for (String unDelincuente : listaDelincuentesFiltrados) {
-            assertEquals(unDelincuente.obtenerDato("Sex"), "Female");
-        }
-    }*/
+        assertEquals(5, listaDelincuentesFiltrados.size());
+    }
+
+    @Test
+    public void TestFiltrarSospechososHombres() {
+
+        Computadora computadora = new Computadora(directorioDelincuentes,new DificultadNovato());
+        computadora.siguienteSex(); //Selecciona opción Male
+
+        //Va a filtrar por el atributo Female
+        ArrayList<String> listaDelincuentesFiltrados = computadora.filtrar();
+        assertEquals(5, listaDelincuentesFiltrados.size());
+    }
+
+    @Test
+    public void filtrarConDatosCargadosBuscoADelincuente(){
+
+        Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
+        computadora.siguienteSex();
+        computadora.siguienteSex(); //female
+        computadora.siguienteHobby();
+        computadora.siguienteHobby();
+        computadora.siguienteHobby(); //mountain climbing
+        computadora.siguientePelo(); // brown
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature();
+        computadora.siguienteFeature(); // jewerly
+        computadora.siguienteCar();
+        computadora.siguienteCar(); //limousine
+        System.out.println(computadora.mostrarOpcionesSeleccionadas());
+        ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        Assert.assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
+
+    }
+
+    @Test
+    public void mostrarOpcionesSeleccionadas() {
+
+        Computadora computadora = new Computadora(directorioDelincuentes,new DificultadNovato());
+        computadora.siguienteSex(); //Selecciona opción Male
+
+        //Va a filtrar por el atributo Female
+        ArrayList<String> listaDelincuentesFiltrados = computadora.filtrar();
+        assertEquals(5, listaDelincuentesFiltrados.size());
+    }
 }

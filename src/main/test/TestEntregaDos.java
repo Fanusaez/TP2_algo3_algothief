@@ -20,9 +20,12 @@ public class TestEntregaDos {
     public void policiaEntraUnEdificioEnLaUltimaCiudadadEsAtacadoYDuerme() {
         AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad()); //domingo 7 am
-        algoThief.aumentarHorario(12);
+        algoThief.entrarAEdificio(0); // domingo 7am + 2 hora cuchillo + 1 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 10am + 1 hora cuchillo + 2 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 13am + 1 hora cuchillo + 3 hora edificio
+        algoThief.entrarAEdificio(0); // domingo 17pm + 1 hora cuchillo + 3 hora edificio
         algoThief.entrarAEdificio(0); // domingo 21pm + 1 hora cuchillo + 3 hora edificio + 8 dormir
-        assertEquals("Tuesday 06:00",algoThief.obtenerHorario());
+        assertEquals("Tuesday 09:00",algoThief.obtenerHorario());
     }
     @Test
     public void policiaInvestigadorViajeDeMontrealAMexico(){
@@ -60,7 +63,7 @@ public class TestEntregaDos {
         computadora.siguienteFeature(); // jewerly
         computadora.siguienteCar();
         computadora.siguienteCar(); //limousine
-        ArrayList<String> nombresDeSospechosos = computadora.filtrar();
+        ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
         assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
 
     }

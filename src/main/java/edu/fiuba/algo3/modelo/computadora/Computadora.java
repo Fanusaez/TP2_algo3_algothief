@@ -13,16 +13,11 @@ public class Computadora {
     private ArrayList<Delincuente> sospechosos;
     private Delincuente delincuente;
     private Filtrador filtrador;
-    ArrayList<String> hair;
-    int hairIndex;
-    ArrayList<String> auto;
-    int autoIndex;
-    ArrayList<String> sex;
-    int sexIndex;
-    ArrayList<String> hobby;
-    int hobbyIndex;
-    ArrayList<String> feature;
-    int featureIndex;
+    ArrayList<String> posiblesColoresPelo;
+    ArrayList<String> posiblesAutomoviles;
+    ArrayList<String> posiblesSexos;
+    ArrayList<String> posiblesHobbys;
+    ArrayList<String> posiblesSenias;
     OrdenDeArresto ordenArresto;
     ArrayList<String> filtrados;
 
@@ -30,56 +25,36 @@ public class Computadora {
         this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes, dificultad);
         this.filtrador = new Filtrador();
         this.delincuente = sospechosos.get(new Random().nextInt(sospechosos.size()));
-        this.hair = new ArrayList<>(Arrays.asList("???","Brown", "Blond", "Red", "Black"));
-        this.auto = new ArrayList<>(Arrays.asList("???","Convertible", "Limousine", "Race car", "Motorcycle"));
-        this.hobby = new ArrayList<>(Arrays.asList("???","Tennis", "Music", "Mountain Climbing", "Skydiving","Swimming","Croquet"));
-        this.feature = new ArrayList<>(Arrays.asList("???", "Limps","Ring","Tattoo","Scar","Jewelry"));
-        this.sex = new ArrayList<>(Arrays.asList("???", "Male", "Female"));
+        this.posiblesColoresPelo = new ArrayList<>(Arrays.asList("???","Brown", "Blond", "Red", "Black"));
+        this.posiblesAutomoviles = new ArrayList<>(Arrays.asList("???","Convertible", "Limousine", "Race car", "Motorcycle"));
+        this.posiblesHobbys = new ArrayList<>(Arrays.asList("???","Tennis", "Music", "Mountain Climbing", "Skydiving","Swimming","Croquet"));
+        this.posiblesSenias = new ArrayList<>(Arrays.asList("???", "Limps","Ring","Tattoo","Scar","Jewelry"));
+        this.posiblesSexos = new ArrayList<>(Arrays.asList("???", "Male", "Female"));
         this.ordenArresto = new OrdenDeArresto();
         filtrados = new ArrayList<String>();
     }
     public ArrayList<ArrayList<String>> siguientePelo(){
-        hairIndex+=1;
-        if((hair.size()) == hairIndex)
-        {
-            hairIndex = 0;
-        }
+        posiblesColoresPelo.add(posiblesColoresPelo.remove(0));
         return mostrarOpcionesSeleccionadas();
     }
-    public ArrayList<ArrayList<String>>siguienteSex(){
-        sexIndex+=1;
-        if((sex.size()) == sexIndex)
-        {
-            sexIndex = 0;
-        }
+
+    public ArrayList<ArrayList<String>> siguienteSex(){
+        posiblesSexos.add(posiblesSexos.remove(0));
         return mostrarOpcionesSeleccionadas();
     }
-    public ArrayList<ArrayList<String>>siguienteSex2(){
-        sexIndex+=1;
-        return mostrarOpcionesSeleccionadas();
-    }
+
     public ArrayList<ArrayList<String>> siguienteCar(){
-        autoIndex+=1;
-        if((auto.size()) == autoIndex)
-        {
-            autoIndex = 0;
-        }
+        posiblesAutomoviles.add(posiblesAutomoviles.remove(0));
         return mostrarOpcionesSeleccionadas();
     }
+
     public ArrayList<ArrayList<String>> siguienteFeature(){
-        featureIndex+=1;
-        if((feature.size()) == featureIndex)
-        {
-            featureIndex = 0;
-        }
+        posiblesSenias.add(posiblesSenias.remove(0));
         return mostrarOpcionesSeleccionadas();
     }
+
     public ArrayList<ArrayList<String>> siguienteHobby(){
-        hobbyIndex+=1;
-        if((hobby.size()) == hobbyIndex)
-        {
-            hobbyIndex = 0;
-        }
+        posiblesHobbys.add(posiblesHobbys.remove(0));
         return mostrarOpcionesSeleccionadas();
     }
 
@@ -89,27 +64,27 @@ public class Computadora {
         ArrayList<ArrayList<String>> listaDeSeleccionados= new ArrayList<ArrayList<String>>();
         ArrayList<String> listaSex= new ArrayList<String>();
         listaSex.add("sex"); //1era posicion es la clave de la lista
-        listaSex.add(sex.get(sexIndex)); //Obtenes el valor del atributo que elegiste
+        listaSex.add(posiblesSexos.get(0)); //Obtenes el valor del atributo que elegiste
         listaDeSeleccionados.add(listaSex);
 
         ArrayList<String> listaHobby= new ArrayList<String>();
         listaHobby.add("hobby");
-        listaHobby.add(hobby.get(hobbyIndex));
+        listaHobby.add(posiblesHobbys.get(0));
         listaDeSeleccionados.add(listaHobby);
 
         ArrayList<String> listaHair= new ArrayList<String>();
         listaHair.add("hair");
-        listaHair.add(hair.get(hairIndex));
+        listaHair.add(posiblesColoresPelo.get(0));
         listaDeSeleccionados.add(listaHair);
 
         ArrayList<String> listaFeature = new ArrayList<String>();
         listaFeature.add("feature");
-        listaFeature.add(feature.get(featureIndex));
+        listaFeature.add(posiblesSenias.get(0));
         listaDeSeleccionados.add(listaFeature);
 
         ArrayList<String> listaAuto= new ArrayList<String>();
         listaAuto.add("auto");
-        listaAuto.add(auto.get(autoIndex));
+        listaAuto.add(posiblesAutomoviles.get(0));
         listaDeSeleccionados.add(listaAuto);
 
         return listaDeSeleccionados;
