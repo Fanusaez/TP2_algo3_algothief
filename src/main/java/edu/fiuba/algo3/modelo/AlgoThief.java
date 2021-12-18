@@ -89,7 +89,18 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public ArrayList<ArrayList<String>> siguientePelo(){
         return computadora.siguientePelo();
     }
-
+    public ArrayList<ArrayList<String>> siguienteSex(){
+        return computadora.siguienteSex();
+    }
+    public ArrayList<ArrayList<String>> siguienteCar(){
+        return computadora.siguienteCar();
+    }
+    public ArrayList<ArrayList<String>> siguienteFeature(){
+        return computadora.siguienteFeature();
+    }
+    public ArrayList<ArrayList<String>> siguienteHobby(){
+        return computadora.siguienteHobby();
+    }
     public void realizarArresto(){
         computadora.realizarArresto();
     }

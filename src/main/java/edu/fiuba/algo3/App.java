@@ -88,47 +88,65 @@ public class App extends Application {
     public ListView CrearListadoDeLaComputadora() {
 
         ArrayList<ArrayList<String>>listaDeCaracteristicas = algoThief.mostrarAtriutosDelincuenteSeleccionados();
-
+        //Sex
         ArrayList<String> sex = listaDeCaracteristicas.get(0);
         Button botonSiguienteSex = new Button("Siguiente");
+        botonSiguienteSex.setOnAction(e->{
+            algoThief.siguienteSex();
+            abrirLaComputadora();
+        });
         Text textosex = new Text(sex.get(0)+": " + sex.get(1));
         BorderPane cajaHorizontalsex= new BorderPane();
         cajaHorizontalsex.setLeft(textosex);
         cajaHorizontalsex.setRight(botonSiguienteSex);
 
+        //Hobby
         ArrayList<String> hobby = listaDeCaracteristicas.get(1);
         Button botonSiguienteHobby = new Button("Siguiente");
+        botonSiguienteHobby.setOnAction(e->{
+            algoThief.siguienteHobby();
+            abrirLaComputadora();
+        });
         Text textohobby = new Text(hobby.get(0)+": " + hobby.get(1));
-
         BorderPane cajaHorizontalHobby= new BorderPane();
         cajaHorizontalHobby.setLeft(textohobby);
         cajaHorizontalHobby.setRight(botonSiguienteHobby);
 
+        //Pelo
         ArrayList<String> pelo = listaDeCaracteristicas.get(2);
-        Button botonSiguientePelo = new Button("SiguientePelo");
+        Button botonSiguientePelo = new Button("Siguiente");
         botonSiguientePelo.setOnAction(e->{
             algoThief.siguientePelo();
             abrirLaComputadora();
         });
-        Text textpelo = new Text(pelo.get(0)+": " + hobby.get(1));
+        Text textpelo = new Text(pelo.get(0)+": " + pelo.get(1));
         BorderPane cajaHorizontalPelo= new BorderPane();
         cajaHorizontalPelo.setLeft(textpelo);
         cajaHorizontalPelo.setRight(botonSiguientePelo);
 
+        //feature
         ArrayList<String> feature = listaDeCaracteristicas.get(3);
         Button botonSiguienteFeature = new Button("Siguiente");
-        Text textfeature = new Text(feature.get(0)+": " + hobby.get(1));
+        botonSiguienteFeature.setOnAction(e->{
+            algoThief.siguienteFeature();
+            abrirLaComputadora();
+        });
+        Text textfeature = new Text(feature.get(0)+": " + feature.get(1));
         BorderPane cajaHorizontalFeature= new BorderPane();
         cajaHorizontalFeature.setLeft(textfeature);
         cajaHorizontalFeature.setRight(botonSiguienteFeature);
 
+        //auto
         ArrayList<String> auto = listaDeCaracteristicas.get(4);
         Button botonSiguienteAuto= new Button("Siguiente");
-        Text textauto = new Text(auto.get(0)+": " + hobby.get(1));
+        Text textauto = new Text(auto.get(0)+": " + auto.get(1));
+        botonSiguienteAuto.setOnAction(e->{
+            algoThief.siguienteCar();
+            abrirLaComputadora();
+        });
         BorderPane cajaHorizontalAuto= new BorderPane();
         cajaHorizontalAuto.setLeft(textauto);
         cajaHorizontalAuto.setRight(botonSiguienteAuto);
-
 
 
         ListView listadoView = new ListView();
@@ -137,6 +155,7 @@ public class App extends Application {
         return listadoView;
     }
 }
+
 
 
 
