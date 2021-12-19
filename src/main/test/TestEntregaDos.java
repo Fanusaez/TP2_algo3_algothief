@@ -76,7 +76,7 @@ public class TestEntregaDos {
         algoThief.entrarAEdificio(0);
         algoThief.entrarAEdificio(0);
         //entro una vez mas y debe intentar capturar al delincuente
-        assertEquals("perdido", algoThief.getEstadoJuego());
+        assertEquals("perdido", algoThief.getEstadoJuego().devolverComoString());
     }
 
     @Test
@@ -92,7 +92,7 @@ public class TestEntregaDos {
 
         algoThief.entrarAEdificio(0);
 
-        assertEquals("ganado",algoThief.getEstadoJuego());
+        assertEquals("ganado",algoThief.getEstadoJuego().devolverComoString());
     }
 
 }

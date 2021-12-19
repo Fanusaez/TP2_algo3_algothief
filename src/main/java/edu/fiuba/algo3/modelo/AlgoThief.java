@@ -34,7 +34,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
         estadoJuego = new EstadoJugando();
     }
 
-
     public void ingresarUsuario(String unNombre){
         this.nombre=unNombre;
     }
@@ -66,7 +65,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         String mensajeRetornado = policia.entrarAEdificio(indice);
 
-        actualizarEstadoDeJuego();
+        actualizarEstadoDeJuego(); // <------- Problema
 
         return mensajeRetornado;
     }
@@ -79,7 +78,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
-        actualizarEstadoDeJuego();
+        actualizarEstadoDeJuego();  // <--------- Problema
     }
 
     public String ciudadActual() {
@@ -105,6 +104,13 @@ public class AlgoThief implements AlgoThiefInterfaz{
         computadora.realizarArresto();
     }
 
+    /*
+       Este método lo que hace es chequear si te quedaste sin tiempo, y además chequea
+       si hay que modificar el estado del juego en el caso de que hayas entrado a un
+       edificio y hayas perdido o ganado.
+
+
+    */
     public void actualizarEstadoDeJuego(){
         estadoJuego= estadoJuego.cambiarA(reloj.tiempoAgotado());
         estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));

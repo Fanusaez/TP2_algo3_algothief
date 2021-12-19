@@ -20,7 +20,7 @@ public class ViajeLayout extends VBox {
     public ViajeLayout(Stage window, App app, AlgoThief algoThief) {
         ImageView fotoavion = new ImageView();
         try {
-        FileInputStream fileInputStream = new FileInputStream("rsc\\images\\fotoavion.jpg");
+        FileInputStream fileInputStream = new FileInputStream("algo3_tp2_algoThief/rsc/images/fotoavion.jpg");
         Image image = new Image(fileInputStream);
         //Setting the image view
         fotoavion = new ImageView(image);

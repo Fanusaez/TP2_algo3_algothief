@@ -22,12 +22,13 @@ public class Peligrosa implements EstadoCiudad {
     }
 
     public String entrarAEdificio(Edificio edificio) {
+        ContadorEntradasEdificios++;
         return "Estas cerca de atraparlo, ten cuidado!";
     }
 
     public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){
-        ContadorEntradasEdificios++;
-        if (ContadorEntradasEdificios > 3){
+        System.out.println("Contador de entradas a edificio es --> " + ContadorEntradasEdificios);
+        if (ContadorEntradasEdificios == 3){
             return computadora.realizarArresto();
         }
         return new EstadoJugando();

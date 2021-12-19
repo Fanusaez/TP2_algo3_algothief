@@ -54,7 +54,7 @@ public class CiudadLayout extends BorderPane {
         //Opciones de edicifico
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream("rsc\\images\\lupa.png");
+            fileInputStream = new FileInputStream("algo3_tp2_algoThief/rsc/images/lupa.png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -69,17 +69,17 @@ public class CiudadLayout extends BorderPane {
 
             Button botonEntrarABanco = new Button("Entrar a Banco");
             botonEntrarABanco.setOnAction(e -> {
-                app.abrirEscenaEdificio("rsc\\images\\bancofoto.jpg",0);
+                app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/bancofoto.jpg",0);
                 windowSeleccion.close();
             });
-            Button botonEntrarAAeropuerto = new Button("Entrar a Aeropuerto");
+            Button botonEntrarAAeropuerto = new Button("Entrar a Biblioteca");
             botonEntrarAAeropuerto.setOnAction(e -> {
-                app.abrirEscenaEdificio("rsc\\images\\aeropuerto.jpg",1);
+                app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/aeropuerto.jpg",1);
                 windowSeleccion.close();
             });
-            Button botonEntrarABiblioteca = new Button("Entrar a Biblioteca");
+            Button botonEntrarABiblioteca = new Button("Entrar a Aeropuerto");
             botonEntrarABiblioteca.setOnAction(e -> {
-                app.abrirEscenaEdificio("rsc\\images\\biblioteca.jpg",2);
+                app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/biblioteca.jpg",2);
                 windowSeleccion.close();
             });
 
@@ -95,7 +95,7 @@ public class CiudadLayout extends BorderPane {
         //Opciones de viaje
         FileInputStream fileInputStream1 = null;
         try {
-            fileInputStream1 = new FileInputStream("rsc\\images\\avion.png");
+            fileInputStream1 = new FileInputStream("algo3_tp2_algoThief/rsc/images/avion.png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -141,7 +141,7 @@ public class CiudadLayout extends BorderPane {
         //Computar
         FileInputStream fileInputStream2 = null;
         try {
-            fileInputStream2 = new FileInputStream("rsc\\images\\computadora.png");
+            fileInputStream2 = new FileInputStream("algo3_tp2_algoThief/rsc/images/computadora.png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
