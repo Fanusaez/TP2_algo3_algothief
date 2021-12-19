@@ -1,11 +1,13 @@
 package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.gui.ConfirmBox;
 import edu.fiuba.algo3.gui.scenes.BorderPaneScene;
 import edu.fiuba.algo3.gui.scenes.CiudadScene;
 import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -25,7 +27,6 @@ public class StartGameLayout extends VBox {
         presentacion.setFont(Font.font("Verdana", FontPosture.ITALIC, 16));
         BorderPane panePresentacion = new BorderPane();
         panePresentacion.setCenter(presentacion);
-
 
         Button buttonContinuar = new Button("Continuar");
         buttonContinuar.setOnAction(e->{

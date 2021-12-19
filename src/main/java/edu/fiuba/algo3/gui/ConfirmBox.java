@@ -12,7 +12,7 @@ public class ConfirmBox {
 
     static boolean answer;
 
-    public static boolean display(String title, String msg){
+    public static boolean  display(String title, String msg){
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL); // block UI with other windows
