@@ -39,14 +39,18 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
     public String desplegarTextoInicial(){
+        Ciudad ciudadDelRobo = mapa.obtenerCiudadInicial();
+        String nombreCiudadDelRobo = ciudadDelRobo.obtenerDato("City");
+        String tesoroRobado = ciudadDelRobo.obtenerDato("Treasure");
+        String sexoDelincuente = delincuente.obtenerDato("Sex");
+        //String  aca va para saber si es her o him
         String texto = "***FLASH***\n" +
-                "National treasure stolen from Port Moresby.\n" +
-                "The treasure has been identified as an ancient\n" +
-                "tribal totem." +
-                "Female suspect reported at the scene of the crime.\n" +
+                "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
+                "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
+                ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
-                "Track the thief from Port Moresby to her\n" +
-                "hideout and arrest her!\n" +
+                "Track the thief from " +nombreCiudadDelRobo+" to her" +
+                "hideout and arrest ger!\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
                 "Good luck,"+ this.nombre+ "\n" +
                 "\n";

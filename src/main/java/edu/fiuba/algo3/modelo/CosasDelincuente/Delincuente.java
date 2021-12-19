@@ -26,11 +26,6 @@ public class Delincuente{
         return delincuenteNuevo;
     }
 
-    private void setLargoRecorrido(int largo) {
-        this.largoRecorrido=largo;
-    }
-
-
     public static  Delincuente crearDelincuenteParaDetective(){
         Delincuente delincuenteNuevo= new Delincuente();
         delincuenteNuevo.setLargoRecorrido(5);
@@ -49,6 +44,10 @@ public class Delincuente{
         delincuenteNuevo.setArma(new Pistola());
         delincuenteNuevo.setLargoRecorrido(7);
         return delincuenteNuevo;
+    }
+
+    private void setLargoRecorrido(int largo) {
+        this.largoRecorrido=largo;
     }
 
     private void setArma(Arma arma) {

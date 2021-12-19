@@ -39,11 +39,6 @@ public class Mapa {
 
         Ciudad ultimaCiudadDelincuente = ciudadesRecorridasPorDelincuente.get(delincuente.cantidadDeCiudadesRecorridas()-1);
         ultimaCiudadDelincuente.setEstado(new Peligrosa(delincuente));
-        /*
-        ultimaCiudadDelincuente.setearEstadoEdificio(new Segura());
-        ultimaCiudadDelincuente.setearEstadoEdificio(new Segura());
-        ultimaCiudadDelincuente.setearEstadoEdificio(new Peligrosa());
-        */
 
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);

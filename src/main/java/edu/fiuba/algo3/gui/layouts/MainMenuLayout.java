@@ -22,7 +22,7 @@ import java.io.FileNotFoundException;
 public class MainMenuLayout extends VBox {
 
     String gameVersion = "V1.0";
-    String imagePath = "algo3_tp2_algoThief/rsc/images/detective.jpg";
+    String imagePath = "rsc/images/detective.jpg";
 
     public MainMenuLayout(Stage window, App app, AlgoThief algoThief) {
 
