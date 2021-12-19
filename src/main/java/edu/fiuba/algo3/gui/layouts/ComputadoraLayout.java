@@ -34,8 +34,13 @@ public class ComputadoraLayout extends BorderPane {
         HBox cerrar = new HBox(botonSalir);
         cerrar.setLayoutX(200);
         setTop(cerrar);
-
-
+        Button botonComputar= new Button("Computar");
+        botonComputar.setOnAction(e->{
+            for(String delincuente :algoThief.filtrarSospechosos()){
+                System.out.println(delincuente);
+            }
+        });
+        setBottom(botonComputar);
 
     }
 

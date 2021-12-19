@@ -63,6 +63,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
 
         return reloj.obtenerHorario();
     }
+
     public String obtenerInformacionCiudad(){
         return policia.obtenerInformacionCiudad();
     }
@@ -71,12 +72,10 @@ public class AlgoThief implements AlgoThiefInterfaz{
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         String mensajeRetornado = policia.entrarAEdificio(indice);
 
-        actualizarEstadoDeJuego(); // <------- Problema
+        actualizarEstadoDeJuego();
 
         return mensajeRetornado;
     }
-
-
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();

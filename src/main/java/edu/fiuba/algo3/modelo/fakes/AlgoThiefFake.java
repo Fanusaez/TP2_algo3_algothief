@@ -20,6 +20,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     private DificultadJuego dificultadJuego;
     private EstadoJuegoInterfaz estadoJuego;
     private String nombre;
+    private Ciudad ciudadIncial;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
@@ -38,15 +39,29 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         this.nombre=unNombre;
     }
 
-    public String desplegarTextoInicial(){
+
+    public String desplegarTextoInicial(){ // deberia ser una clase?
+
+        String nombreCiudadDelRobo = ciudadIncial.obtenerDato("City");
+        String tesoroRobado = ciudadIncial.obtenerDato("Treasure");
+        String sexoDelincuente = delincuente.obtenerDato("Sex");
+        String pronombre;
+        String adjetivo;
+        if (sexoDelincuente.equals("Male")){
+            pronombre = "him";
+            adjetivo = "his";
+        }
+        else{
+            pronombre = "her";
+            adjetivo = "her";
+        }
         String texto = "***FLASH***\n" +
-                "National treasure stolen from Port Moresby.\n" +
-                "The treasure has been identified as an ancient\n" +
-                "tribal totem." +
-                "Female suspect reported at the scene of the crime.\n" +
+                "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
+                "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
+                ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
-                "Track the thief from Port Moresby to her\n" +
-                "hideout and arrest her!\n" +
+                "Track the thief from " +nombreCiudadDelRobo+" to "+ adjetivo+" " +
+                "hideout and arrest " + pronombre+" !\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
                 "Good luck,"+ this.nombre+ "\n" +
                 "\n";
@@ -54,9 +69,13 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
 
+    public void setearDelincuente(Delincuente delincuente){
+        this.delincuente = delincuente;
+    }
 
-
-
+    public void setearCiudadInicial(Ciudad ciudad){
+        this.ciudadIncial = ciudad;
+    }
 
 
     public String getDelincuenteNombre(){

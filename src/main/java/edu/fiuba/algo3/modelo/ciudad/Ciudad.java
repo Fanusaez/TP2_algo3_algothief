@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo.ciudad;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
@@ -8,6 +9,7 @@ import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class Ciudad{
@@ -57,20 +59,18 @@ public class Ciudad{
         return this.estado.entrarAEdificio(edificios.get(indice));
     }
 
-    public void generarPista(Ciudad ciudadsiguiente, String pistaDelincuente) {
-        edificios.get(0).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
-        edificios.get(1).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
-        edificios.get(2).generarPistaEdificio(ciudadsiguiente,pistaDelincuente);
+    public void generarPista(Ciudad ciudadsiguiente, Delincuente delincuente) {
+        edificios.get(0).generarPistaEdificio(ciudadsiguiente,delincuente);
+        edificios.get(1).generarPistaEdificio(ciudadsiguiente,delincuente);
+        edificios.get(2).generarPistaEdificio(ciudadsiguiente,delincuente);
     }
 
     public void agregarComoOpcion(Ciudad destino) {
-
         this.opcionesDeViaje.add(destino);
-
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-
+        Collections.shuffle(opcionesDeViaje);
         return this.opcionesDeViaje;
     }
 

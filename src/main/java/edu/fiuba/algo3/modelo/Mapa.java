@@ -43,7 +43,7 @@ public class Mapa {
         for (int i = 0; i < largoRecorrido-1; i++){
             Ciudad ciudadanterior = ciudadesRecorridasPorDelincuente.get(i);
             Ciudad ciudadsiguiente = ciudadesRecorridasPorDelincuente.get(i+1);
-            ciudadanterior.generarPista(ciudadsiguiente,delincuente.generarPista()); //esto le delega a edificio
+            ciudadanterior.generarPista(ciudadsiguiente,delincuente); //esto le delega a edificio
         }
     }
 

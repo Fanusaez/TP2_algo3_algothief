@@ -1,5 +1,7 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -133,8 +135,14 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test11Presentacion(){
-        AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes);
         algoThief.ingresarUsuario("juan");
+        Ciudad ciudad = algoThief.obtenerCiudad("Port Moresby");
+        algoThief.setearCiudadInicial(ciudad);
+        Delincuente delincuente = new Delincuente();
+        delincuente.agregarDato("Sex", "Female");
+        algoThief.setearDelincuente(delincuente);
+
         assertEquals(algoThief.desplegarTextoInicial(),"***FLASH***\n" +
                 "National treasure stolen from Port Moresby.\n" +
                 "The treasure has been identified as an ancient\n" +

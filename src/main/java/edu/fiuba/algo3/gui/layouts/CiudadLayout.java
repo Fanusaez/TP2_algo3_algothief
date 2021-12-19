@@ -6,6 +6,7 @@ import edu.fiuba.algo3.gui.scenes.SeleccionEdificiosBox;
 import edu.fiuba.algo3.gui.scenes.SeleccionViajeBox;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
@@ -40,7 +41,14 @@ public class CiudadLayout extends BorderPane {
         borderhorario.setCenter(labelHorario);
         borderciudadActual.setCenter(ciudadActual);
         VBox inicio= new VBox();
-        inicio.getChildren().addAll(borderhorario,borderciudadActual,estadoJuego);
+
+
+        Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
+        VBox borderPaneDescripcionCiudad= new VBox(textoInfoCiudad);
+        textoInfoCiudad.setWrappingWidth(300);
+        this.setRight(borderPaneDescripcionCiudad);
+
+        inicio.getChildren().addAll(borderhorario,borderciudadActual,estadoJuego,borderPaneDescripcionCiudad);
         inicio.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
 
         ToolBar toolBarMadre = new ToolBar();

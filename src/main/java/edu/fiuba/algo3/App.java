@@ -44,6 +44,8 @@ public class App extends Application {
         String rutaArchivoCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
         String rutaArchivoDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
         window = stage;
+        window.setMinWidth(640);
+        window.setMinHeight(480);
         window.setTitle("AlgoThief");
         algoThief = new AlgoThief(rutaArchivoCiudades, rutaArchivoDelincuentes);
         view = new View(window);

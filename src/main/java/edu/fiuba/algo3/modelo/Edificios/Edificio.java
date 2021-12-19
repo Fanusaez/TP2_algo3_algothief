@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
+import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 
 public abstract class Edificio {
@@ -16,7 +17,7 @@ public abstract class Edificio {
         return pista;
     }
 
-    public abstract void generarPistaEdificio(Ciudad unaCiudad, String laPista);
+    public abstract void generarPistaEdificio(Ciudad unaCiudad, Delincuente delincuente);
 
     public int visitar(){
         if (cantidadEntradas < 3){
