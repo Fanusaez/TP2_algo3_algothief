@@ -38,19 +38,21 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.nombre=unNombre;
     }
 
-    public String desplegarTextoInicial(){
+    public String desplegarTextoInicial(){ // deberia ser una clase?
         Ciudad ciudadDelRobo = mapa.obtenerCiudadInicial();
         String nombreCiudadDelRobo = ciudadDelRobo.obtenerDato("City");
         String tesoroRobado = ciudadDelRobo.obtenerDato("Treasure");
         String sexoDelincuente = delincuente.obtenerDato("Sex");
-        //String  aca va para saber si es her o him
+        String pronombre;
+        if (sexoDelincuente.equals("Male")){pronombre = "him";}
+        else{pronombre = "her";}
         String texto = "***FLASH***\n" +
                 "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
                 "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
                 ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
-                "Track the thief from " +nombreCiudadDelRobo+" to her" +
-                "hideout and arrest ger!\n" +
+                "Track the thief from " +nombreCiudadDelRobo+" to "+ pronombre+" " +
+                "hideout and arrest " + pronombre+" !\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
                 "Good luck,"+ this.nombre+ "\n" +
                 "\n";
