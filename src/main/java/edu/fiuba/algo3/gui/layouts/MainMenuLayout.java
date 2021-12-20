@@ -34,6 +34,7 @@ public class MainMenuLayout extends VBox {
         this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
 
         TextField nombreUsuario = new TextField();
+        nombreUsuario.setMaxWidth(100);
         nombreUsuario.setPromptText("Ingrese un nombre");
         // buttons
         Button buttonStart = new Button("Comenzar juego");
