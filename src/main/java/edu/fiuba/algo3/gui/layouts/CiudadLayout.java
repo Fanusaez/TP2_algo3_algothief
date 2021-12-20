@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.gui.DescripcionCiudad;
 import edu.fiuba.algo3.gui.ImagenParaBoton;
 import edu.fiuba.algo3.gui.scenes.SeleccionEdificiosBox;
 import edu.fiuba.algo3.gui.scenes.SeleccionViajeBox;
@@ -28,33 +29,24 @@ import java.util.ArrayList;
 public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
 
-        this.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+        BorderPane ladoIzquierdo= new BorderPane();
+        BorderPane ladoDerecho= new BorderPane();
 
-        Text labelHorario = new Text("Horario: " + algoThief.obtenerHorario());
-        labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
-        Text ciudadActual = new Text("Ubicacion actual: " + algoThief.ciudadActual());
-        ciudadActual.setFont(Font.font("Verdana", FontWeight.BOLD, 30));
+        Text labelHorario = new Text(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
+        labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
 
-        Text estadoJuego=new Text(algoThief.estadoJuegoComoString());
-        BorderPane borderhorario = new BorderPane();
-        BorderPane borderciudadActual = new BorderPane();
-        borderhorario.setCenter(labelHorario);
-        borderciudadActual.setCenter(ciudadActual);
-        VBox inicio= new VBox();
+        //Text estadoJuego=new Text(algoThief.estadoJuegoComoString());
 
+        HBox boxHorario = new HBox();
+        boxHorario.getChildren().addAll(labelHorario);
 
         Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
-        VBox borderPaneDescripcionCiudad= new VBox(textoInfoCiudad);
-        textoInfoCiudad.setWrappingWidth(300);
-        this.setRight(borderPaneDescripcionCiudad);
-
-        inicio.getChildren().addAll(borderhorario,borderciudadActual,estadoJuego,borderPaneDescripcionCiudad);
-        inicio.setBackground(new Background(new BackgroundFill(Color.DARKOLIVEGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-
-        ToolBar toolBarMadre = new ToolBar();
+        textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        textoInfoCiudad.setFill(Color.WHITE);
+        VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
+        descripcionCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         //Opciones de edicifico
-
         ImageView viewLupa = new ImagenParaBoton("rsc/images/lupa.png");
         Button botonVisitar = new Button();
         botonVisitar.setGraphic(viewLupa);
@@ -63,7 +55,6 @@ public class CiudadLayout extends BorderPane {
         });
 
         //Opciones de viaje
-
         ImageView viewAvion = new ImagenParaBoton("rsc/images/avion.png");
         Button botonViajar = new Button();
         botonViajar.setGraphic(viewAvion);
@@ -79,12 +70,34 @@ public class CiudadLayout extends BorderPane {
             app.abrirLaComputadora();
         });
 
-        toolBarMadre.getItems().addAll(botonViajar, botonVisitar, botonComputadora);
-        //botonComputadora.setTranslateX(160);
+        //Ver Opciones de Viaje
+        ImageView viewOpciones = new ImagenParaBoton("rsc/images/opciones.png");
+        Button botonOpciones = new Button();
+        botonOpciones.setGraphic(viewOpciones);
 
-        this.setTop(inicio);
-        this.setBottom(toolBarMadre);
 
+        //Ordenar Layout
+        HBox barraAcciones = new HBox(5, botonOpciones, botonViajar, botonVisitar, botonComputadora);
+        ladoDerecho.setBottom(barraAcciones);
+        ladoDerecho.setCenter(descripcionCiudad);
 
+        ladoIzquierdo.setTop(boxHorario);
+
+        //FileInputStream fileInputStream = null;
+        //try {
+        //    fileInputStream = new FileInputStream("rsc/images/opciones.png");
+        //} catch (FileNotFoundException e) {
+        //    e.printStackTrace();
+        //}
+        //Image img = new Image(fileInputStream);
+        //ImageView view = new ImageView(img);
+        //view.setImage(img);
+        VBox imagenCiudad = new VBox();
+        imagenCiudad.setMinSize(320, 400);
+        imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+        ladoIzquierdo.setCenter(imagenCiudad);
+
+        this.setLeft(ladoIzquierdo);
+        this.setRight(ladoDerecho);
     }
 }

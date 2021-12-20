@@ -3,13 +3,19 @@ package edu.fiuba.algo3.gui.scenes;
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.StrokeLineCap;
+import javafx.scene.shape.StrokeLineJoin;
+import javafx.scene.shape.StrokeType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SeleccionViajeBox {
 
@@ -39,6 +45,7 @@ public class SeleccionViajeBox {
         });
 
         VBox layout = new VBox(10);
+
         layout.getChildren().addAll(botonViajar1, botonViajar2, botonViajar3);
 
         Scene scene = new Scene(layout);
