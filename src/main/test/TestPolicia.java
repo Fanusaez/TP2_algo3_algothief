@@ -33,16 +33,6 @@ public class TestPolicia {
 
     }
 
-    @Test
-    public void policiaViajaAumentaReloj(){
-        Policia policia = new Policia(new Ciudad()); // Dependencia con Ciudad
-
-        int demora = policia.viajar(new Ciudad());
-
-        assertTrue(demora != 0);
-
-    }
-
 
 
 }

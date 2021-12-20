@@ -8,6 +8,15 @@ public class Brujula {
     private Ciudad destino;
 
     public int calcularDistanciaEntre(Ciudad ciudadActual,Ciudad destinoSeleccionado  ) {
-        return 1800;
+
+        if (ciudadActual.obtenerDato("Continent").equals(destinoSeleccionado.obtenerDato("Continent"))){
+            return 1800;
+        }
+        HashMap hashPrimerContinente = (HashMap) hashDistancias.get(ciudadActual.obtenerDato("Continent"));
+        int variable= (int) hashPrimerContinente.get(destinoSeleccionado.obtenerDato("Continent"));
+        return variable;
+
     }
+
+
 }

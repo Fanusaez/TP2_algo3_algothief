@@ -60,7 +60,6 @@ public class TestComputadora {
         computadora.siguienteFeature(); // jewerly
         computadora.siguienteCar();
         computadora.siguienteCar(); //limousine
-        System.out.println(computadora.mostrarOpcionesSeleccionadas());
         ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
         Assert.assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
 

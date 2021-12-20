@@ -44,14 +44,21 @@ public class AlgoThief implements AlgoThiefInterfaz{
         String tesoroRobado = ciudadDelRobo.obtenerDato("Treasure");
         String sexoDelincuente = delincuente.obtenerDato("Sex");
         String pronombre;
-        if (sexoDelincuente.equals("Male")){pronombre = "him";}
-        else{pronombre = "her";}
+        String adjetivo;
+        if (sexoDelincuente.equals("Male")){
+            pronombre = "him";
+            adjetivo = "his";
+        }
+        else{
+            pronombre = "her";
+            adjetivo = "her";
+        }
         String texto = "***FLASH***\n" +
                 "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
                 "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
                 ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
-                "Track the thief from " +nombreCiudadDelRobo+" to "+ pronombre+" " +
+                "Track the thief from " +nombreCiudadDelRobo+" to "+ adjetivo+" " +
                 "hideout and arrest " + pronombre+" !\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
                 "Good luck,"+ this.nombre+ "\n" +

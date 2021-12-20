@@ -57,7 +57,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         }
         String texto = "***FLASH***\n" +
                 "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
-                "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
+                "The treasure has been identified as an "+ tesoroRobado+ ".\n" +
                 ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
                 "Track the thief from " +nombreCiudadDelRobo+" to "+ adjetivo+" " +

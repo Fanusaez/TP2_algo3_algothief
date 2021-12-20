@@ -30,7 +30,8 @@ public class TestEntregaDos {
     @Test
     public void policiaInvestigadorViajeDeMontrealAMexico(){
         AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
-        Ciudad mexico = algoThief.obtenerCiudad("Mexico");
+        Ciudad mexico = algoThief.obtenerCiudad("Mexico City");
+        mexico.obtenerDato("Currency");
         Ciudad montreal = algoThief.obtenerCiudad("Montreal");
         algoThief.ascenederPolicia(new RangoDetective());
         algoThief.setearCiudad(mexico);

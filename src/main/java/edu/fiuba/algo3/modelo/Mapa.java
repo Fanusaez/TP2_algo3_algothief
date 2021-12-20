@@ -77,20 +77,8 @@ public class Mapa {
 
         }
 
-        for(Ciudad ciudad : ciudadesRecorridasPorDelincuente){
-            System.out.println(ciudad.mostrarOpcionesViaje().size());
-        }
-
-        System.out.println("#########################################");
-
-        for(Ciudad ciudad : ciudadesNoRecorridasPorDelincuente){
-            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().size());
-            System.out.println(ciudad.obtenerDato("city")+ ": "+ciudad.mostrarOpcionesViaje().get(0).obtenerDato("city")+ " y "+ciudad.mostrarOpcionesViaje().get(1).obtenerDato("city"));
-
-        }
-        System.out.println("#########################################");
-        }
     }
+}
 
 
 
