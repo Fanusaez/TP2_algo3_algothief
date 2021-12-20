@@ -70,7 +70,7 @@ public class Ciudad{
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-        Collections.shuffle(opcionesDeViaje);
+        //Collections.shuffle(opcionesDeViaje);
         return this.opcionesDeViaje;
     }
 

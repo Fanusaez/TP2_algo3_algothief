@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SeleccionViajeBox {
@@ -24,6 +25,7 @@ public class SeleccionViajeBox {
         windowSeleccion.initModality(Modality.APPLICATION_MODAL); // block UI with other windows
 
         ArrayList<Ciudad> listaOpciones = algoThief.verOpcionesDeViaje();
+        Collections.shuffle(listaOpciones);
         String ciudad1 = listaOpciones.get(0).obtenerDato("city");
         String ciudad2 = listaOpciones.get(1).obtenerDato("city");
         String ciudad3 = listaOpciones.get(2).obtenerDato("city");
