@@ -27,7 +27,6 @@ public class Peligrosa implements EstadoCiudad {
     }
 
     public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){
-        System.out.println("Contador de entradas a edificio es --> " + ContadorEntradasEdificios);
         if (ContadorEntradasEdificios == 3){
             return computadora.realizarArresto();
         }

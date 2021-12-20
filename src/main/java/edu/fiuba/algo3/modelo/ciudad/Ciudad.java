@@ -30,7 +30,6 @@ public class Ciudad{
         this.estado= new Segura();
     }
 
-
     public void agregarDato(String clave,String valor) {
         this.hash.put(clave,valor);
     }
@@ -54,7 +53,6 @@ public class Ciudad{
         return estado.modificarEstadoDeJuego(computadora);
     }
 
-
     public String entrarAEdificio(int indice){
         return this.estado.entrarAEdificio(edificios.get(indice));
     }
@@ -66,16 +64,13 @@ public class Ciudad{
     }
 
     public void agregarComoOpcion(Ciudad destino) {
-        this.opcionesDeViaje.add(destino);
+        if(!opcionesDeViaje.contains(destino)){this.opcionesDeViaje.add(destino);}
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
-        //Collections.shuffle(opcionesDeViaje);
         return this.opcionesDeViaje;
     }
 
-    //La cantidad de entradas al edificio es coincidente con la cant de horas de demora
-    //Si cantEntradas = 2 ---> TiempoDemora = 2
     public int getDemoraTiempoVisitar(int indice) {
         return edificios.get(indice).visitar() + estado.atacar();
     }

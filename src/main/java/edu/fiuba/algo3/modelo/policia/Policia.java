@@ -48,7 +48,6 @@ public class Policia {
         this.rango = rango.ascender(cantidadArrestos);
     }
 
-
     public String ciudadActual() {
         return ciudadActual.obtenerDato("city");
     }

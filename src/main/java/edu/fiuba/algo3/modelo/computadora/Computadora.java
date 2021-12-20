@@ -59,7 +59,6 @@ public class Computadora {
     }
 
 
-
     public ArrayList<ArrayList<String>> mostrarOpcionesSeleccionadas(){
         ArrayList<ArrayList<String>> listaDeSeleccionados= new ArrayList<ArrayList<String>>();
         ArrayList<String> listaSex= new ArrayList<String>();
@@ -100,11 +99,9 @@ public class Computadora {
 
     public ArrayList<String> filtrar(){
         ArrayList<String> listadoSospechososFiltrados = filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
-        if(listadoSospechososFiltrados.size() == 1)
-        {
+        if(listadoSospechososFiltrados.size() == 1){
             crearOrdenDeArrestoPara(listadoSospechososFiltrados.get(0));
         }
-
         return listadoSospechososFiltrados;
     }
 

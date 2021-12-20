@@ -12,8 +12,6 @@ public class Delincuente{
     private Arma arma;
     private int largoRecorrido;
 
-
-
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
         this.arma = new Cuchillo();
@@ -55,7 +53,6 @@ public class Delincuente{
         this.arma=arma;
     }
 
-    //{Clave:valor} ---> {Pelo: Rubio}
     public void agregarDato(String clave,String valor) {
         this.hashDeAtributos.put(clave,valor);
     }
@@ -93,31 +90,23 @@ public class Delincuente{
     }
 
     public int cantidadDeCiudadesRecorridas(){
-        return 4;
+        return largoRecorrido;
     }
 
     public int atacar(){
         return this.arma.atacar();
     }
 
-    public boolean comparar(Delincuente delincuente) {
-        if (this.obtenerDato("Name").equals(delincuente.obtenerDato("Name")))
-            return true;
-
-        return false;
-    }
-
     public boolean cumpleLasCaracteristicas(ArrayList<ArrayList<String>> listaCaracteristicas) {
 
         for (ArrayList<String> claveYValorCaracteristica: listaCaracteristicas){
-            String clave=claveYValorCaracteristica.get(0);
-            String valor=claveYValorCaracteristica.get(1);
+            String clave = claveYValorCaracteristica.get(0);
+            String valor = claveYValorCaracteristica.get(1);
             if(valor == "???"){continue;}
-            if( !obtenerDato(clave).equals(valor) ){
+            if(!obtenerDato(clave).equals(valor)){
                 return false;
             }
         }
-
         return true;
     }
 

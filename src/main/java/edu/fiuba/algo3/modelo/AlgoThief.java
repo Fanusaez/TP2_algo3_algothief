@@ -55,7 +55,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         }
         String texto = "***FLASH***\n" +
                 "National treasure stolen from " +nombreCiudadDelRobo+ ".\n" +
-                "The treasure has been identified as an ancient "+ tesoroRobado+ ".\n" +
+                "The treasure has been identified as an "+ tesoroRobado+ ".\n" +
                 ""+sexoDelincuente+ " suspect reported at the scene of the crime.\n"+
                 "Your assignment:\n" +
                 "Track the thief from " +nombreCiudadDelRobo+" to "+ adjetivo+" " +
@@ -66,10 +66,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return texto;
     }
 
-    public String obtenerHorario(){
-
-        return reloj.obtenerHorario();
-    }
+    public String obtenerHorario(){ return reloj.obtenerHorario();}
 
     public String obtenerInformacionCiudad(){
         return policia.obtenerInformacionCiudad();
@@ -78,19 +75,15 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         String mensajeRetornado = policia.entrarAEdificio(indice);
-
         actualizarEstadoDeJuego();
-
         return mensajeRetornado;
     }
 
-    public ArrayList<Ciudad> verOpcionesDeViaje() {
-        return policia.mostrarOpcionesViaje();
-    }
+    public ArrayList<Ciudad> verOpcionesDeViaje() {return policia.mostrarOpcionesViaje();}
 
     public void viajar(Ciudad destinoSeleccionado) {
         reloj.aumentarHoras(policia.viajar(destinoSeleccionado));
-        actualizarEstadoDeJuego();  // <--------- Problema
+        actualizarEstadoDeJuego();
     }
 
     public String ciudadActual() {
@@ -112,19 +105,13 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public ArrayList<ArrayList<String>> siguienteHobby(){
         return computadora.siguienteHobby();
     }
+
     public void realizarArresto(){
         computadora.realizarArresto();
     }
 
-    /*
-       Este método lo que hace es chequear si te quedaste sin tiempo, y además chequea
-       si hay que modificar el estado del juego en el caso de que hayas entrado a un
-       edificio y hayas perdido o ganado.
-
-
-    */
     public void actualizarEstadoDeJuego(){
-        estadoJuego= estadoJuego.cambiarA(reloj.tiempoAgotado());
+        estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
         estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));
     }
 
