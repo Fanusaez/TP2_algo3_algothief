@@ -70,35 +70,14 @@ public class TestAlgoThief01 {
     @Test
     public void Test07PoliciaViajaTiempoAvanza(){
         AlgoThief algothief = new AlgoThief(directorioCiudades,directorioDelincuentes);
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-
         String horaSalida =  algothief.obtenerHorario();
         ArrayList<Ciudad> listaOpcionesViaje = algothief.verOpcionesDeViaje();
-        System.out.println(listaOpcionesViaje.size());
         Ciudad ciudadSeleccionada = listaOpcionesViaje.get(1);
         algothief.viajar(ciudadSeleccionada);
-
-        System.out.println(listaOpcionesViaje.get(0).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje.get(1).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje.get(2).obtenerDato("city"));
         ArrayList<Ciudad> listaOpcionesViaje2 = algothief.verOpcionesDeViaje();
-        System.out.println(listaOpcionesViaje2.size());
-        System.out.println(listaOpcionesViaje2.size());
-        System.out.println(listaOpcionesViaje2.get(0).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje2.get(1).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje2.get(2).obtenerDato("city"));
         algothief.viajar(listaOpcionesViaje2.get(0));
         ArrayList<Ciudad> listaOpcionesViaje3 = algothief.verOpcionesDeViaje();
-        System.out.println(listaOpcionesViaje3.get(0).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje3.get(1).obtenerDato("city"));
-        System.out.println(listaOpcionesViaje3.get(2).obtenerDato("city"));
-
         String horaLlegada =  algothief.obtenerHorario();
-
         assertNotSame(horaSalida, horaLlegada);
     }
 
@@ -141,28 +120,26 @@ public class TestAlgoThief01 {
         algoThief.setearCiudadInicial(ciudad);
         Delincuente delincuente = new Delincuente();
         delincuente.agregarDato("Sex", "Female");
+        ciudad.agregarDato("Treasure", "ancient tribal totem");
         algoThief.setearDelincuente(delincuente);
 
         assertEquals(algoThief.desplegarTextoInicial(),"***FLASH***\n" +
                 "National treasure stolen from Port Moresby.\n" +
-                "The treasure has been identified as an ancient\n" +
-                "tribal totem." +
+                "The treasure has been identified as an ancient" +
+                " tribal totem.\n" +
                 "Female suspect reported at the scene of the crime.\n" +
                 "Your assignment:\n" +
-                "Track the thief from Port Moresby to her\n" +
-                "hideout and arrest her!\n" +
+                "Track the thief from Port Moresby to her" +
+                " hideout and arrest her !\n" +
                 "You must apprehend the thief by Sunday, 5pm.\n" +
                 "Good luck,"+ "juan"+"\n" +
                 "\n");
     }
 
-
-
     @Test
     public void PruebaEntrarAEdificioQueVisitoDelincuenteDespliegaPistaEspecifica(){
         AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
         String pista = algoThief.entrarAEdificio(0);
-        System.out.println(pista);
         assertNotSame("El delincuente no visito este edificio", pista);
     }
 

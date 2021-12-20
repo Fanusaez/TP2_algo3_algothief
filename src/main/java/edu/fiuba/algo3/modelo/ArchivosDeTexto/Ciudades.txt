@@ -12,6 +12,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        Hellenic Republic, Neighbors Yugoslavia
 Treasure:    Mask of Priam
+Continent:   Europe
 Description:    Athens is the capital of Greece. It was also at the center of Ancient Greece, a powerful empire and civilization. In the city, the geographical sites of the 5th century BC still predominate. C., including the Acropolis, a citadel on a mountain with ancient buildings, such as the Parthenon temple with its columns.
 ...............................................................................
 City:        Baghdad
@@ -28,6 +29,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Mesopotamia
 Treasure:    Flying Carpet
+Continent:   Asia
 Description:    Baghdad is the capital and the most populous city in Iraq. Its number of inhabitants is 8,765,000, which makes it the largest city in the country and the third in the Arab world, only behind Cairo and Riyadh.
 ...............................................................................
 City:        Bamako
@@ -44,6 +46,7 @@ Religion:    ???
 Leader:      President
 Misc:        Timbuktu
 Treasure:    Islamic Manuscript
+Continent:   Africa
 Description:    Bamako or Bámako is the capital of Mali, it is located on the banks of the Niger River in the southwest of the country.
 ...............................................................................
 City:        Bangkok
@@ -60,6 +63,7 @@ Religion:    Buddhism
 Leader:      ???
 Misc:        Ancient Siam
 Treasure:    Golden Buddha
+Continent:   Asia
 Description:    Bangkok, the capital of Thailand, is a sprawling city known for ornate shrines and lively street life. The boat-filled Chao Phraya River feeds its network of canals and passes through the royal Rattanakosin district, where the Grand Palace and its sacred temple Wat Phra Kaew are located. Nearby is the Wat Pho temple, with a huge leaning Buddha and, on the opposite bank, the Wat Arun temple, with its steep steps and Khmer-style spire.
 ...............................................................................
 City:        Budapest
@@ -76,6 +80,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Neighbors Austria
 Treasure:    ???
+Continent:   Europe
 Description:    Budapest is the capital of Hungary, through which the Danube river crosses. Its 19th century Chain Bridge connects the mountainous district of Buda with flat Pest. A funicular ascends the Castle Hill in the Old City of Buda, where the Budapest History Museum traces the life of the city since the times of the Roman Empire. Plaza de la Trinidad features the 13th-century Matías Church and the Turrets of the Fisherman's Bastion, offering panoramic views.
 ...............................................................................
 City:        Buenos Aires
@@ -92,6 +97,7 @@ Religion:    ???
 Leader:      President
 Misc:        Former Spanish Colony
 Treasure:    Solid Gold Bola
+Continent:   America
 Description:    Buenos Aires is the great cosmopolitan capital of Argentina. Its center is the Plaza de Mayo, surrounded by imposing 19th-century buildings, including the Casa Rosada, the iconic presidential palace that has several balconies. Other top attractions include the Teatro Colón, a luxurious 1908 opera house with about 2,500 seats, and the modern MALBA museum, which showcases Latin American.
 ...............................................................................
 City:        Cairo
@@ -108,6 +114,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Ancient Alexandria
 Treasure:    King Tut's Mask
+Continent:   Africa
 Description:    Cairo, the sprawling capital of Egypt, sits on the River Nile. At its center is Tahrir Square and the vast Egyptian Museum, a treasure trove of antiquities that includes royal mummies and gold-plated artifacts of Pharaoh Tutankhamun. Nearby is Giza, site of the iconic pyramids and the Great Sphinx, dating from the 26th century BC. C. In the leafy Zamalek district of Gezira Island, the 187 m high Cairo Tower has panoramic views of the city.
 ...............................................................................
 City:        Colombo
@@ -124,6 +131,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Ancient Taprobane
 Treasure:    Sernedip Ruby
+Continent:   Europe
 Description:    Colombo is the most populous city in Sri Lanka and its commercial capital. It is situated on the western coast of the island in the vicinity of Sri Jayawardenepura Kotte, the administrative capital of Sri Lanka.
 ...............................................................................
 City:        Istanbul
@@ -140,6 +148,7 @@ Religion:    ???
 Leader:      President
 Misc:        Byzantine Empire, Constantinople
 Treasure:    Sernedip Ruby
+Continent:   Europe
 Description:    unadescripcion
 ...............................................................................
 City:        Kathmandu
@@ -156,6 +165,7 @@ Religion:    Hindu
 Leader:      ???
 Misc:        ???
 Treasure:    Sernedip Ruby
+Continent:   Asia
 Description:    Istanbul is a major city in Turkey, located in Europe and Asia along the Bosphorus Strait. The Old City reflects the cultural influences of the various empires that ruled the region. In the Sultanahmet district, the Roman-era open-air Hippodrome was for centuries a chariot racing site, and Egyptian obelisks also remain. The iconic Byzantine Basilica Hagia Sophia has a soaring 6th-century dome and rare Christian mosaics.
 ...............................................................................
 City:        Kigali
@@ -172,6 +182,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Watusi King's Headdress
+Continent:   Africa
 Description:    Kigali es la capital de Ruanda, también su ciudad más poblada. Se encuentra situada en el centro geográfico del país, perteneciente a la provincia homónima.
 ...............................................................................
 City:        Lima
@@ -188,6 +199,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Silver LLama
+Continent:   America
 Description:    Lima is the capital of Peru located on the arid Pacific coast of the country. Although its colonial center is preserved, it is an overflowing metropolis and one of the largest cities in South America. The Larco Museum houses a collection of pre-Columbian art and the Museo de la Nación traces the history of Peru's ancient civilizations. The Plaza de Armas and the 16th century cathedral are the nucleus of the old center of Lima.
 ...............................................................................
 City:        London
@@ -204,6 +216,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        ???
 Treasure:    Crown Jewels
+Continent:   Europe
 Description:    London, the capital of England and the United Kingdom, is a 21st century city with a history dating back to Roman times. At its center stand the imposing Palace of Parliament, the iconic Big Ben clock tower and Westminster Abbey, the site of British royal coronations. Across the River Thames, the London Eye offers panoramic views of the South Bank cultural complex and the entire city.
 ...............................................................................
 City:        Mexico City
@@ -220,6 +233,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Crown Jewels
+Continent:   America
 Description:    Mexico City is the densely populated capital of Mexico that sits high up. It is famous for its Templo Mayor (a 13th-century Aztec temple), the Baroque-style Metropolitan Cathedral of Mexico of the Spanish conquerors, and the National Palace, which houses historic murals by Diego Rivera. All of these landmarks are located around the Plaza de la Constitución, the huge main square also known as the Zócalo.
 ...............................................................................
 City:        Montreal
@@ -236,6 +250,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Former French Colony
 Treasure:    Watch Tower Bible
+Continent:   America
 Description:    Montreal is the largest city in the province of Quebec in Canada. It is located on an island in the San Lorenzo River and its name comes from Mont-Royal, the hill with three peaks that is located in its center. Its districts, several of which were once independent cities, include neighborhoods ranging from Vieux-Montréal with a French flair, cobblestones, and the Neo-Gothic Basilica of Notre-Dame at its core, to the bohemian Plateau.
 ...............................................................................
 City:        Moroni
@@ -252,6 +267,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    Tree Palm
+Continent:   Africa
 Description:    Moroni is the largest city in Comoros and since 1962 its capital. In 2003 there were an estimated 60,200 inhabitants. The city is located on the west coast of the island of Great Comoros.
 ...............................................................................
 City:        Moscow
@@ -268,6 +284,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Moldavia, Largest Country in the World
 Treasure:    Ivan the Terrible's Crown
+Continent:   Europe
 Description:    Moscow is located on the Moskva River in western Russia and is the cosmopolitan capital of the nation. In its historic center, there is the Kremlin, a complex that houses the president and treasures of the tsars in the Armory. Outside its walls, is the Red Square, the symbolic center of Russia. Here you will find Lenin's Mausoleum, the complete collection of the State Historical Museum, and Saint Basil's Cathedral, known for its colorful onion-shaped domes.
 ...............................................................................
 City:        New Delhi
@@ -284,6 +301,7 @@ Religion:    Sikh
 Leader:      Prime Minister
 Misc:        ???
 Treasure:    A painting
+Continent:   Asia
 Description:    Nueva Delhi es la capital de la República de la India y sede del poder ejecutivo, legislativo y judicial de su Gobierno. Está situada en la metrópolis de Delhi y es uno de sus nueve distritos.
 ...............................................................................
 City:        New York
@@ -300,6 +318,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Subways
 Treasure:    The Rockettes
+Continent:   America
 Description:    Nueva York incluye 5 distritos que se ubican donde el río Hudson desemboca en el océano Atlántico. En su centro se encuentra Manhattan, un distrito densamente poblado que se encuentra entre los principales centros comerciales, financieros y culturales del mundo. Sus sitios icónicos incluyen rascacielos, como el Empire State Building, y el amplio Central Park. El teatro Broadway se ubica en la zona del Times Square iluminada con neones.
 ...............................................................................
 City:        Oslo
@@ -316,6 +335,7 @@ Religion:    ???
 Leader:      King
 Misc:        Nordic Skiing
 Treasure:    Viking Helmet
+Continent:   Europe
 Description:    Oslo, la capital de Noruega, se ubica en la costa sur del país en la cabecera del Fiordo de Oslo. Es famosa por sus áreas verdes y museos. Muchos de estos se encuentran en la Península de Bygdøy, incluido el Museo Marítimo Noruego junto al mar y el Museo de barcos vikingos de Oslo, con embarcaciones vikingas del siglo IX. Holmenkollbakken es un cerro para el salto en esquí con vista panorámica del fiordo. También tiene un museo de esquí.
 ...............................................................................
 City:        Paris
@@ -332,6 +352,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    A baguette
+Continent:   Europe
 Description:    París, la capital de Francia, es una importante ciudad europea y un centro mundial del arte, la moda, la gastronomía y la cultura. Su paisaje urbano del siglo XIX está entrecruzado por amplios bulevares y el río Sena. Aparte de estos hitos, como la Torre Eiffel y la catedral gótica de Notre Dame del siglo XII, la ciudad es famosa por su cultura del café y las tiendas de moda de diseñador a lo largo de la calle Rue du Faubourg Saint-Honoré.
 ...............................................................................
 City:        Peking
@@ -348,6 +369,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Shang Dynasty, Wuchang Uprising
 Treasure:    1,000 Year Old Egg
+Continent:   Asia
 Description:    Pekín, la enorme capital de China, tiene una historia que se remonta a 3 milenios. Aun así, es conocida tanto por su arquitectura moderna como por sus sitios antiguos, como el complejo de la Ciudad Prohibida, el palacio imperial durante las dinastías Ming y Qing. Cerca, en la enorme plaza peatonal de Tiananmén, se encuentra el mausoleo de Mao Zedong y el Museo Nacional de China, que exhibe una amplia colección de reliquias culturales.
 ...............................................................................
 City:        Port Moresby
@@ -364,6 +386,7 @@ Religion:    ???
 Leader:      Prime Minister
 Misc:        New Ireland
 Treasure:    A phone
+Continent:   Oceania
 Description:    Puerto Moresby es la capital de Papúa Nueva Guinea, y su mayor aglomeración de población contando su área metropolitana que se extiende por todo el Distrito Capital Nacional. La ciudad está situada en las costas del golfo de Papúa, en la costa sureste de la isla de Nueva Guinea
 ...............................................................................
 City:        Reykjavik
@@ -380,6 +403,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Island Nation
 Treasure:    A pinguin
+Continent:   Europe
 Description:    Reikiavik, en la costa de Islandia, es la capital del país y su ciudad más grande. Cuenta con el Museo Nacional y el Museo de Saga, que recorren la historia vikinga de Islandia. La impresionante iglesia de concreto Hallgrimskirkja y el domo de vidrio giratorio Perlan ofrecen vistas panorámicas del mar y las colinas circundantes. Un ejemplo de la actividad volcánica de la isla es el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik.
 ...............................................................................
 City:        Rio de Janeiro
@@ -396,6 +420,7 @@ Religion:    ???
 Leader:      President
 Misc:        ???
 Treasure:    Stuffed Parrot
+Continent:   America
 Description:    Río de Janeiro es una enorme ciudad costera de Brasil, famosa por sus playas de Copacabana e Ipanema, la estatua del Cristo Redentor de 38 m de alto sobre el cerro del Corcovado y el morro Pan de Azúcar, una cima de granito con teleféricos que ascienden a su cima. La ciudad también es conocida por sus extensas favelas. El estridente festival del Carnaval, con desfiles de carros alegóricos, extravagantes disfraces y bailarines de samba, es considerado el más grande del mundo.
 ...............................................................................
 City:        Rome
@@ -412,6 +437,7 @@ Religion:    ???
 Leader:      President
 Misc:        ???
 Treasure:    Pope Francis
+Continent:   Europe
 Description:    Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.
 ...............................................................................
 City:        San Marino
@@ -428,6 +454,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Serene Republic, Oldest State in Europe, Neighbors Italy
 Treasure:    A spoon
+Continent:   Europe
 Description:    San Marino es un microestado montañoso rodeado de la zona norte central de Italia. Se encuentra entre las repúblicas más antiguas del mundo y conserva gran parte de su arquitectura histórica. En las laderas del monte Titano, se ubica la capital, también llamada San Marino, conocida por su antigua ciudad amurallada medieval y las estrechas calles de adoquines. Las Tres Torres, ciudadelas similares a castillos que datan del siglo XI, se ubican sobre las cimas circundantes del monte Titano.
 ...............................................................................
 City:        Singapore
@@ -444,6 +471,7 @@ Religion:    ???
 Leader:      ???
 Misc:        Former British Colony
 Treasure:    Merlion the Golden Lion
+Continent:   Asia
 Description:    Singapur, oficialmente República de Singapur, es un país soberano insular de Asia, formado por sesenta y tres islas, cuya forma de gobierno es la república parlamentaria. Su territorio se divide en cinco consejos de desarrollo comunitario
 ...............................................................................
 City:        Sydney
@@ -460,6 +488,7 @@ Religion:    ???
 Leader:      ???
 Misc:        ???
 Treasure:    A car
+Continent:   Oceania
 Description:    Sídney, capital de Nueva Gales del Sur y una de las ciudades más grandes de Australia, es famosa por su Casa de la Ópera de Sídney junto al puerto, con un característico diseño con forma de velas. El enorme Puerto Darling y el puerto Circular Quay más pequeño son núcleos de la vida ribereña, con el arqueado puente de la bahía de Sídney y el reconocido Real Jardín Botánico que se encuentra cerca. La plataforma exterior de la Sydney Tower, el Skywalk, ofrece vistas en 360 grados de la ciudad y los suburbios.
 ...............................................................................
 City:        Tokyo
@@ -476,5 +505,6 @@ Religion:    Shinto
 Leader:      ???
 Misc:        ???
 Treasure:    Anime
+Continent:   Asia
 Description:    Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos. El opulento santuario Shinto Meiji es conocido por su puerta altísima y los bosques circundantes. El Palacio Imperial se ubica en medio de grandes jardines públicos. Los distintos museos de la ciudad ofrecen exhibiciones que van desde el arte clásico (en el Museo Nacional de Tokio) hasta un teatro kabuki reconstruido (en el Museo Edo-Tokyo).
 ...............................................................................

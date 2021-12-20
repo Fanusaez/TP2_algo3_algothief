@@ -26,6 +26,7 @@ public class Delincuente{
         return delincuenteNuevo;
     }
 
+
     public static  Delincuente crearDelincuenteParaDetective(){
         Delincuente delincuenteNuevo= new Delincuente();
         delincuenteNuevo.setLargoRecorrido(5);

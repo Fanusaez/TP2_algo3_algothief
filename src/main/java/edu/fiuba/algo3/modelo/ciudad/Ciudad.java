@@ -42,12 +42,12 @@ public class Ciudad{
         }
         else{claveCorregida=clave.toUpperCase();}
 
-        String ciudad = this.hash.get(claveCorregida);
-        if (ciudad == null){
+        String dato = this.hash.get(claveCorregida);
+        if (dato == null){
             throw new ExceptionDatoNoExistente();
         }
 
-        return ciudad;
+        return dato;
     }
 
     public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){

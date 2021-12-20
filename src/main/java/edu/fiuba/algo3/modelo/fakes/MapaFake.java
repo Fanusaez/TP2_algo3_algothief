@@ -17,10 +17,10 @@ public class MapaFake extends Mapa {
 
     public Ciudad buscarCiudad(String nombre) {
         for (Ciudad ciudad : ciudadesNoRecorridasPorDelincuente){
-            if(ciudad.obtenerDato("city")==nombre){return ciudad;}
+            if(ciudad.obtenerDato("City").equals(nombre)){return ciudad;}
         }
         for (Ciudad ciudad : ciudadesRecorridasPorDelincuente) {
-            if(ciudad.obtenerDato("city")==nombre){return ciudad;};
+            if(ciudad.obtenerDato("City").equals(nombre)){return ciudad;};
         }
         //return algo
         return new Ciudad();
