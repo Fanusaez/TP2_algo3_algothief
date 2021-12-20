@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 
 public class ImagenParaBoton extends ImageView {
 
-    public ImagenParaBoton(String rutaImagen){
+    public ImagenParaBoton(String rutaImagen, int alto, int ancho){
         FileInputStream fileInputStream = null;
         try {
             fileInputStream = new FileInputStream(rutaImagen);
@@ -18,8 +18,8 @@ public class ImagenParaBoton extends ImageView {
         }
         Image img = new Image(fileInputStream);
         this.setImage(img);
-        this.setFitHeight(60);
-        this.setFitWidth(60);
+        this.setFitHeight(alto);
+        this.setFitWidth(ancho);
     }
 }
 

@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.gui.BarraAcciones;
 import edu.fiuba.algo3.gui.DescripcionCiudad;
 import edu.fiuba.algo3.gui.ImagenParaBoton;
 import edu.fiuba.algo3.gui.scenes.SeleccionEdificiosBox;
@@ -11,6 +12,7 @@ import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -29,6 +31,8 @@ import java.util.ArrayList;
 public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
 
+        DropShadow dropShadow1 = new DropShadow(1, 3, 3, Color.web("#333333"));
+
         BorderPane ladoIzquierdo= new BorderPane();
         BorderPane ladoDerecho= new BorderPane();
 
@@ -40,44 +44,39 @@ public class CiudadLayout extends BorderPane {
         HBox boxHorario = new HBox();
         boxHorario.getChildren().addAll(labelHorario);
 
+        //boxHorario.setEffect(dropShadow1);
+
         Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
         textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 18));
-        textoInfoCiudad.setFill(Color.WHITE);
+            textoInfoCiudad.setFill(Color.BLACK);
         VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
-        descripcionCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         //Opciones de edicifico
-        ImageView viewLupa = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/lupa.png");
         Button botonVisitar = new Button();
-        botonVisitar.setGraphic(viewLupa);
         botonVisitar.setOnAction(i -> {
             SeleccionEdificiosBox.display("Choce building", app);
         });
 
         //Opciones de viaje
-        ImageView viewAvion = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/avion.png");
         Button botonViajar = new Button();
-        botonViajar.setGraphic(viewAvion);
         botonViajar.setOnAction(i -> {
             SeleccionViajeBox.display("unTitulo", app, algoThief);
         });
 
         //Computar
-        ImageView viewComputadora = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/computadora.png");
         Button botonComputadora = new Button();
-        botonComputadora.setGraphic(viewComputadora);
         botonComputadora.setOnAction(e -> {
             app.abrirLaComputadora();
         });
 
         //Ver Opciones de Viaje
-        ImageView viewOpciones = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/opciones.png");
         Button botonOpciones = new Button();
-        botonOpciones.setGraphic(viewOpciones);
-
+        botonComputadora.setOnAction(e -> {
+            // ???
+        });
 
         //Ordenar Layout
-        HBox barraAcciones = new HBox(5, botonOpciones, botonViajar, botonVisitar, botonComputadora);
+        BarraAcciones barraAcciones = new BarraAcciones(botonOpciones, botonViajar, botonVisitar, botonComputadora);
         ladoDerecho.setBottom(barraAcciones);
         ladoDerecho.setCenter(descripcionCiudad);
 
@@ -93,8 +92,8 @@ public class CiudadLayout extends BorderPane {
         //ImageView view = new ImageView(img);
         //view.setImage(img);
         VBox imagenCiudad = new VBox();
-        imagenCiudad.setMinSize(320, 400);
-        imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
+        imagenCiudad.setMinSize(300, 400);
+        imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
         ladoIzquierdo.setCenter(imagenCiudad);
 
         this.setLeft(ladoIzquierdo);

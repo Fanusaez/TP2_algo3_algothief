@@ -2,10 +2,12 @@ package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.ConfirmBox;
+import edu.fiuba.algo3.gui.ImagenParaBoton;
 import edu.fiuba.algo3.gui.scenes.ImagenPortada;
 import edu.fiuba.algo3.gui.scenes.StartGameScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.fakes.PoliciaFake;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -31,13 +33,13 @@ public class MainMenuLayout extends VBox {
         //Text t = new Text("AlgoThief " + gameVersion);
 
         // Image
-        this.setBackground(ImagenPortada.crearFondo("algo3_tp2_algoThief/rsc/images/carmenSanDiego.png"));
+        this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
 
         TextField nombreUsuario = new TextField();
         nombreUsuario.setMaxWidth(100);
         nombreUsuario.setPromptText("Ingrese un nombre");
         // buttons
-        Button buttonStart = new Button("Comenzar juego");
+        Button buttonStart = new Button("JUGAR");
         buttonStart.setOnAction(e->{
             algoThief.ingresarUsuario(nombreUsuario.getText());
             StartGameLayout startGameLayout = new StartGameLayout(window,app, algoThief);
@@ -45,12 +47,12 @@ public class MainMenuLayout extends VBox {
             window.setScene(startGameScene);
         });
 
-        Button buttonExit = new Button("Exit");
-        buttonExit.setOnAction(e->{
-            if(ConfirmBox.display("Are you sure?", "Exit?") == true)  window.close();
-        });
+        //Button buttonExit = new Button("Exit");
+        //buttonExit.setOnAction(e->{
+        //    if(ConfirmBox.display("Are you sure?", "Exit?") == true)  window.close();
+        //});
 
-        HBox barraInicio = new HBox(5, nombreUsuario,buttonStart,buttonExit);
+        HBox barraInicio = new HBox(5, nombreUsuario,buttonStart);
         barraInicio.setAlignment(Pos.CENTER);
         barraInicio.setTranslateY(400);
         getChildren().addAll(barraInicio);

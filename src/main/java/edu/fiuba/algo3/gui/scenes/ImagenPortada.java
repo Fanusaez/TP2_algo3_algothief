@@ -31,7 +31,7 @@ public class ImagenPortada {
                                 true,  // width is percentage
                                 true,  // height is percentage
                                 true,  // contain image within bounds
-                                true   // cover all of Region content area
+                                false   // cover all of Region content area
                         )
                 );
         return new Background(backgroundImage);

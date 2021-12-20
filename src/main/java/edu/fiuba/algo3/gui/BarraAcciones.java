@@ -1,24 +1,46 @@
 package edu.fiuba.algo3.gui;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeLineCap;
 import javafx.scene.shape.StrokeLineJoin;
 import javafx.scene.shape.StrokeType;
-import javafx.scene.text.Text;
 
 import java.util.List;
 
-public class DescripcionCiudad extends VBox{
+public class BarraAcciones extends HBox {
 
-    public DescripcionCiudad(Text descripcion){
+    public BarraAcciones(Button b1, Button b2, Button b3, Button b4){
         DropShadow dropShadow = new DropShadow(1, 4, 4, Color.BLACK);
 
-        StrokeType strokeType     = StrokeType.INSIDE;
+        b1.setEffect(dropShadow);
+        b2.setEffect(dropShadow);
+        b3.setEffect(dropShadow);
+        b4.setEffect(dropShadow);
+
+        ImageView viewOpciones = new ImagenParaBoton("rsc/images/opciones.png", 50, 50);
+        b1.setGraphic(viewOpciones);
+
+        ImageView viewAvion = new ImagenParaBoton("rsc/images/avion.png", 50, 50);
+        b2.setGraphic(viewAvion);
+
+        ImageView viewLupa = new ImagenParaBoton("rsc/images/lupa.png", 50, 50);
+        b3.setGraphic(viewLupa);
+
+        ImageView viewComputadora = new ImagenParaBoton("rsc/images/computadora.png", 50, 50);
+        b4.setGraphic(viewComputadora);
+
+        this.getChildren().addAll(b1, b2, b3, b4);
+        this.setSpacing(5);
+        this.setPadding(new Insets(5));
+
+        StrokeType strokeType     = StrokeType.CENTERED;
         StrokeLineJoin strokeLineJoin = StrokeLineJoin.MITER;
-        StrokeLineCap strokeLineCap  = StrokeLineCap.BUTT;
+        StrokeLineCap strokeLineCap  = StrokeLineCap.ROUND;
         double         miterLimit     = 10;
         double         dashOffset     = 0;
         List<Double> dashArray      = null;
@@ -32,7 +54,6 @@ public class DescripcionCiudad extends VBox{
                         dashOffset,
                         dashArray
                 );
-        VBox layout = new VBox(10);
         BorderStroke borderStroke =
                 new BorderStroke(
                         Color.BLACK,
@@ -41,10 +62,10 @@ public class DescripcionCiudad extends VBox{
                         new BorderWidths(3)
                 );
         Border border = new Border(borderStroke);
-        descripcion.setWrappingWidth(300);
-        this.getChildren().add(descripcion);
-        this.setBorder(border);
-        this.setPadding(new Insets(10));
-        //this.setEffect(dropShadow);
+        b1.setBorder(border);
+        b2.setBorder(border);
+        b3.setBorder(border);
+        b4.setBorder(border);
     }
+
 }
