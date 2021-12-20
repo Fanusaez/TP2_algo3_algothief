@@ -47,7 +47,7 @@ public class CiudadLayout extends BorderPane {
         descripcionCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         //Opciones de edicifico
-        ImageView viewLupa = new ImagenParaBoton("rsc/images/lupa.png");
+        ImageView viewLupa = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/lupa.png");
         Button botonVisitar = new Button();
         botonVisitar.setGraphic(viewLupa);
         botonVisitar.setOnAction(i -> {
@@ -55,7 +55,7 @@ public class CiudadLayout extends BorderPane {
         });
 
         //Opciones de viaje
-        ImageView viewAvion = new ImagenParaBoton("rsc/images/avion.png");
+        ImageView viewAvion = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/avion.png");
         Button botonViajar = new Button();
         botonViajar.setGraphic(viewAvion);
         botonViajar.setOnAction(i -> {
@@ -63,7 +63,7 @@ public class CiudadLayout extends BorderPane {
         });
 
         //Computar
-        ImageView viewComputadora = new ImagenParaBoton("rsc/images/computadora.png");
+        ImageView viewComputadora = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/computadora.png");
         Button botonComputadora = new Button();
         botonComputadora.setGraphic(viewComputadora);
         botonComputadora.setOnAction(e -> {
@@ -71,7 +71,7 @@ public class CiudadLayout extends BorderPane {
         });
 
         //Ver Opciones de Viaje
-        ImageView viewOpciones = new ImagenParaBoton("rsc/images/opciones.png");
+        ImageView viewOpciones = new ImagenParaBoton("algo3_tp2_algoThief/rsc/images/opciones.png");
         Button botonOpciones = new Button();
         botonOpciones.setGraphic(viewOpciones);
 

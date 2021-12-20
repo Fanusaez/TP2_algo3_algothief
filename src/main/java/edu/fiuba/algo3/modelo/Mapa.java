@@ -48,33 +48,22 @@ public class Mapa {
     }
 
     public void establecerOpcionesDeViaje(){
+
         int cantCiudadesNoRecorridas = ciudadesNoRecorridasPorDelincuente.size();
         int cantCiudadesRecorridas = ciudadesRecorridasPorDelincuente.size();
 
-
-        for (int i = 0; i < cantCiudadesRecorridas - 1; i++){
-            //Agrego como opcion a la próxima ciudad
-            ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesRecorridasPorDelincuente.get(i+1));
-            //Agrego como c
-            while(ciudadesRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2) {
-                int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
-                ciudadesRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
-            }
-
-        }
-        while (ciudadesRecorridasPorDelincuente.get(0).mostrarOpcionesViaje().size() <3) {
-            ciudadesRecorridasPorDelincuente.get(0).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
-        }
-
-        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
-        ciudadesRecorridasPorDelincuente.get(cantCiudadesRecorridas - 1).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(new Random().nextInt(cantCiudadesNoRecorridas - 1)));
+        establecerCaminoDelincuente(cantCiudadesNoRecorridas, cantCiudadesRecorridas);
+        rellenarPrimeraYUltimaCiudadConOpciones(cantCiudadesNoRecorridas, cantCiudadesRecorridas);
 
         for (int i = 0; i < cantCiudadesNoRecorridas ; i++){
-            while (ciudadesNoRecorridasPorDelincuente.get(i).mostrarOpcionesViaje().size() < 2){
+            Ciudad ciudadIteradaNoRecorrida = ciudadesNoRecorridasPorDelincuente.get(i);
+            int cantidadOpcionesViaje = ciudadIteradaNoRecorrida.mostrarOpcionesViaje().size();
+            while(cantidadOpcionesViaje < 2){
                 int random = new Random().nextInt(cantCiudadesNoRecorridas-1);
-                ciudadesNoRecorridasPorDelincuente.get(i).agregarComoOpcion(ciudadesNoRecorridasPorDelincuente.get(random));
+                Ciudad ciudadRandom = ciudadesNoRecorridasPorDelincuente.get(random);
+                ciudadIteradaNoRecorrida.agregarComoOpcion(ciudadRandom);
+                cantidadOpcionesViaje = ciudadIteradaNoRecorrida.mostrarOpcionesViaje().size();
             }
-
         }
 
     }

@@ -31,7 +31,7 @@ public class MainMenuLayout extends VBox {
         //Text t = new Text("AlgoThief " + gameVersion);
 
         // Image
-        this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
+        this.setBackground(ImagenPortada.crearFondo("algo3_tp2_algoThief/rsc/images/carmenSanDiego.png"));
 
         TextField nombreUsuario = new TextField();
         nombreUsuario.setMaxWidth(100);

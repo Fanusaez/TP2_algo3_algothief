@@ -98,7 +98,6 @@ public class Computadora {
         ordenArresto.setNombre(unNombreDelincuente);
     }
 
-    //descarta sospechosos en base a los datos que se ingresaron
     public ArrayList<String> filtrar(){
         ArrayList<String> listadoSospechososFiltrados = filtrador.filtrar(mostrarOpcionesSeleccionadas(),sospechosos);
         if(listadoSospechososFiltrados.size() == 1)

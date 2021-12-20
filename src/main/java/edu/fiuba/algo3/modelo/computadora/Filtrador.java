@@ -10,7 +10,7 @@ public class Filtrador {
         ArrayList<String> listaDeCoincidintes = new ArrayList<String>();
         for(Delincuente sospechoso: listaSospechosos){
             if (sospechoso.cumpleLasCaracteristicas(listaCaracteristicas)){
-                listaDeCoincidintes.add(sospechoso.obtenerDato("Name")); //asi?
+                listaDeCoincidintes.add(sospechoso.obtenerDato("Name"));
             }
         }
         return listaDeCoincidintes;

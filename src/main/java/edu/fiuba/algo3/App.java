@@ -41,8 +41,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage){
-        String rutaArchivoCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
-        String rutaArchivoDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
+        String rutaArchivoCiudades = "algo3_tp2_algoThief/src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
+        String rutaArchivoDelincuentes = "algo3_tp2_algoThief/src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
         window = stage;
         window.setMinWidth(640);
         window.setMinHeight(480);

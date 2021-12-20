@@ -40,6 +40,19 @@ public class ComputadoraLayout extends BorderPane {
                 System.out.println(delincuente);
             }
         });
+      /*  VBox textBox = new VBox();
+        Text listadoDelincuentes = new Text();
+        //String output = "";
+        botonComputar.setOnAction(e->{
+            String output = "";
+            for(String delincuente :algoThief.filtrarSospechosos()){
+                output += delincuente + "\n";
+            }
+
+        });
+        textBox.getChildren().add(listadoDelincuentes);
+        setRight(textBox);*/
+
         setBottom(botonComputar);
 
     }
