@@ -13,12 +13,12 @@ import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -149,7 +149,7 @@ public class App extends Application {
         BorderPane cajaHorizontalAuto= new BorderPane();
         cajaHorizontalAuto.setLeft(textauto);
         cajaHorizontalAuto.setRight(botonSiguienteAuto);
-
+        cajaHorizontalAuto.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
 
         ListView listadoView = new ListView();
         listadoView.setMaxSize(300,300);
