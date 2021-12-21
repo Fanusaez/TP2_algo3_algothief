@@ -91,6 +91,7 @@ public class Computadora {
 
     public Delincuente ObtenerDelincuenteRandom(){
         return delincuente;
+       // return sospechosos.get(new Random().nextInt(sospechosos.size()));
     }
 
     public void crearOrdenDeArrestoPara(String unNombreDelincuente){
@@ -104,6 +105,10 @@ public class Computadora {
         }
         return listadoSospechososFiltrados;
     }
+
+    /*public EstadoJuegoInterfaz realizarArresto(String nombreDelincuente){
+        return ordenArresto.realizarArresto(nombreDelincuente);
+    }*/
 
     public EstadoJuegoInterfaz realizarArresto() {
         return ordenArresto.realizarArresto(delincuente.getNombre());
