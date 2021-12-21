@@ -23,12 +23,13 @@ public class ParserArchivo {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            Delincuente delincuente = new Delincuente();
+            Delincuente delincuente = dificultad.crearDelincuente();
 
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
                 if (line.equals("...............................................................................")) {
                     sospechosos.add(delincuente);
                     delincuente = dificultad.crearDelincuente();
+                    //sospechosos.add(delincuente);
                     continue;
                 }
 

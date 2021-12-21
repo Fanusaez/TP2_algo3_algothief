@@ -35,25 +35,10 @@ public class BarraAcciones extends HBox {
         b4.setGraphic(viewComputadora);
 
         this.getChildren().addAll(b1, b2, b3, b4);
-        this.setSpacing(5);
-        this.setPadding(new Insets(5));
+        this.setSpacing(8);
+        this.setPadding(new Insets(3));
 
-        StrokeType strokeType     = StrokeType.CENTERED;
-        StrokeLineJoin strokeLineJoin = StrokeLineJoin.MITER;
-        StrokeLineCap strokeLineCap  = StrokeLineCap.ROUND;
-        double         miterLimit     = 10;
-        double         dashOffset     = 0;
-        List<Double> dashArray      = null;
 
-        BorderStrokeStyle borderStrokeStyle =
-                new BorderStrokeStyle(
-                        strokeType,
-                        strokeLineJoin,
-                        strokeLineCap,
-                        miterLimit,
-                        dashOffset,
-                        dashArray
-                );
         BorderStroke borderStroke =
                 new BorderStroke(
                         Color.BLACK,

@@ -41,8 +41,8 @@ public class CiudadLayout extends BorderPane {
 
         //Text estadoJuego=new Text(algoThief.estadoJuegoComoString());
 
-        HBox boxHorario = new HBox();
-        boxHorario.getChildren().addAll(labelHorario);
+        BorderPane boxHorario = new BorderPane();
+        boxHorario.setCenter(labelHorario);
 
         //boxHorario.setEffect(dropShadow1);
 
@@ -78,7 +78,6 @@ public class CiudadLayout extends BorderPane {
         ladoDerecho.setBottom(barraAcciones);
         ladoDerecho.setCenter(descripcionCiudad);
 
-        ladoIzquierdo.setTop(boxHorario);
 
         //FileInputStream fileInputStream = null;
         //try {
@@ -92,7 +91,9 @@ public class CiudadLayout extends BorderPane {
         VBox imagenCiudad = new VBox();
         imagenCiudad.setMinSize(300, 400);
         imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
-        ladoIzquierdo.setCenter(imagenCiudad);
+
+        ladoIzquierdo.setTop(boxHorario);
+        ladoIzquierdo.setBottom(imagenCiudad);
 
         this.setLeft(ladoIzquierdo);
         this.setRight(ladoDerecho);
