@@ -1,0 +1,65 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Policia{
+    -cantidadArrestos
+
+    + entrarAEdificio(indiceEdificio : int)
+    + viajarA(Ciudad : destino) : int
+    + realizarArresto() : void
+    + getDemoraTiempoVisitar(indiceEdificio : int) : int
+
+}
+
+class Computadora{
+   - listasDeAtributosSeleccionados : ArrayList<ArrayList <String>>
+
+   + cambiarAtributoDelincuente(tipo : String) : void
+   + crearOrdenDeArrestoPara(sospechoso : String) : void
+   + relizarArresto() : EstadoDeJuego
+}
+
+class Ciudad{
+    - datosCiudad : hashMap<String,String>
+
+    + entrarAEdificio(indiceEdificio) : String
+    + generarPista(ciudadSiguiente, pistaDelincuente)
+    + mostrarOpcionesDeViaje() : ArrayList<Ciudades>
+}
+
+interface EstadoDeJuego{
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+    + devolverComoString() : string
+
+}
+
+class EstadoJugando {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+class EstadoPerdido {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+class EstadoGanado {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+
+Policia ..> Computadora
+Policia --> Ciudad
+Policia ..> EstadoDeJuego
+EstadoJugando ..|> EstadoDeJuego
+EstadoPerdido ..|> EstadoDeJuego
+EstadoGanado ..|> EstadoDeJuego
+
+@enduml

@@ -19,22 +19,27 @@ class Ciudad{
 
 +entrarAEdificio(indiceEdificio)
 +generarPista(ciudadSiguiente, pistaDelincuente)
++mostrarOpcionesViaje() : ArrayList<Ciudad>
+
 }
 
 interface EstadoCiudad{
 
 +atacar()
 +entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
 }
 
 class Segura{
 +atacar()
 +entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
 }
 
 class Peligrosa{
 +atacar()
 +entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
 }
 
 abstract class Edificio{
@@ -42,19 +47,23 @@ abstract class Edificio{
 -cantidadEntradas
 +visitar()
 + MostrarPista()
++visitar() : int
 + {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
 }
 
 class Banco{
 + generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
 }
 
 class Puerto{
 + generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
 }
 
 class Museo{
 + generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
 }
 
 Mapa "1" --> "*" Ciudad
