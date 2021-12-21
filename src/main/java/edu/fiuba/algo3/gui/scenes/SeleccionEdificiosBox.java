@@ -22,17 +22,17 @@ public class SeleccionEdificiosBox {
 
         Button botonEntrarABanco = new Button("Entrar a Banco");
         botonEntrarABanco.setOnAction(e -> {
-            app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/bancofoto.jpg",0);
+            app.abrirEscenaEdificio("rsc/images/bancofoto.jpg",0);
             windowSeleccion.close();
         });
         Button botonEntrarAAeropuerto = new Button("Entrar a Aeropuerto");
         botonEntrarAAeropuerto.setOnAction(e -> {
-            app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/aeropuerto.jpg",2);
+            app.abrirEscenaEdificio("rsc/images/aeropuerto.jpg",2);
             windowSeleccion.close();
         });
         Button botonEntrarABiblioteca = new Button("Entrar a Biblioteca");
         botonEntrarABiblioteca.setOnAction(e -> {
-            app.abrirEscenaEdificio("algo3_tp2_algoThief/rsc/images/biblioteca.jpg",1);
+            app.abrirEscenaEdificio("rsc/images/biblioteca.jpg",1);
             windowSeleccion.close();
         });
 
