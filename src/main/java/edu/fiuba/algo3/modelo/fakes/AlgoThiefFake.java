@@ -110,13 +110,13 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     }
 
 
-    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora) {
+    public EstadoJuegoInterfaz realizarArresto(Computadora computadora) {
         return policia.modificarEstadoDeJuego(computadora);
     }
 
     public void actualizarEstadoDeJuego(){
         estadoJuego= reloj.tiempoAgotado();
-        estadoJuego = estadoJuego.cambiarA(modificarEstadoDeJuego(computadora));
+        estadoJuego = estadoJuego.cambiarA(realizarArresto(computadora));
     }
 
 

@@ -14,7 +14,7 @@ public interface AlgoThiefInterfaz {
 
     public String entrarAEdificio(int indice) ;
 
-    public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora);
+    public EstadoJuegoInterfaz realizarArresto(Computadora computadora);
 
     public ArrayList<Ciudad> verOpcionesDeViaje();
 

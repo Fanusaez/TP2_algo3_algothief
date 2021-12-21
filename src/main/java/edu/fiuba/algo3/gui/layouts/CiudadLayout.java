@@ -71,9 +71,7 @@ public class CiudadLayout extends BorderPane {
 
         //Ver Opciones de Viaje
         Button botonOpciones = new Button();
-        botonComputadora.setOnAction(e -> {
-            // ???
-        });
+
 
         //Ordenar Layout
         BarraAcciones barraAcciones = new BarraAcciones(botonOpciones, botonViajar, botonVisitar, botonComputadora);
