@@ -20,9 +20,7 @@ import java.util.List;
 
 public class SeleccionViajeBox {
 
-    public static void display(String titulo, App app, AlgoThief algoThief){
-        Stage windowSeleccion = new Stage();
-        windowSeleccion.initModality(Modality.APPLICATION_MODAL); // block UI with other windows
+    public static void agregarOpcionesViaje( App app, AlgoThief algoThief,VBox caja){
 
         ArrayList<Ciudad> listaOpciones = algoThief.verOpcionesDeViaje();
         Collections.shuffle(listaOpciones);
@@ -33,26 +31,21 @@ public class SeleccionViajeBox {
         Button botonViajar1 = new Button("Viajar a " + ciudad1);
         botonViajar1.setOnAction(e -> {
             app.viajarACiudad(0);
-            windowSeleccion.close();
+
         });
         Button botonViajar2 = new Button("Viajar a " + ciudad2);
         botonViajar2.setOnAction(e -> {
             app.viajarACiudad(1);
-            windowSeleccion.close();
+
         });
         Button botonViajar3 = new Button("Viajar a " + ciudad3);
         botonViajar3.setOnAction(e -> {
             app.viajarACiudad(2);
-            windowSeleccion.close();
+
         });
 
-        VBox layout = new VBox(10);
+        caja.getChildren().addAll(botonViajar1, botonViajar2, botonViajar3);
 
-        layout.getChildren().addAll(botonViajar1, botonViajar2, botonViajar3);
 
-        Scene scene = new Scene(layout);
-
-        windowSeleccion.setScene(scene);
-        windowSeleccion.showAndWait();
     }
 }

@@ -25,7 +25,7 @@ public class Computadora {
         this.sospechosos = ParserArchivo.parsearDelincuentes(rutaArchivoDelincuentes, dificultad);
         this.filtrador = new Filtrador();
         this.delincuente = sospechosos.get(new Random().nextInt(sospechosos.size()));
-        this.posiblesColoresPelo = new ArrayList<>(Arrays.asList("???","Brown", "Blond", "Red", "Black"));
+        this.posiblesColoresPelo = new ArrayList<>(Arrays.asList("???","Brown", "Blond", "Red", "Black"));      //refactorizar
         this.posiblesAutomoviles = new ArrayList<>(Arrays.asList("???","Convertible", "Limousine", "Race car", "Motorcycle"));
         this.posiblesHobbys = new ArrayList<>(Arrays.asList("???","Tennis", "Music", "Mountain Climbing", "Skydiving","Swimming","Croquet"));
         this.posiblesSenias = new ArrayList<>(Arrays.asList("???", "Limps","Ring","Tattoo","Scar","Jewelry"));

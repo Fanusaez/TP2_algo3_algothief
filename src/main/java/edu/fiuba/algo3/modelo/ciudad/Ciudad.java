@@ -20,6 +20,8 @@ public class Ciudad{
     private ArrayList<Ciudad> opcionesDeViaje;
     private EstadoCiudad estado;
 
+
+
     public Ciudad() {
         this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
         this.edificios.add(new Banco());
@@ -54,7 +56,7 @@ public class Ciudad{
     }
 
     public String entrarAEdificio(int indice){
-        return this.estado.entrarAEdificio(edificios.get(indice));
+        return this.estado.entrarAEdificio(edificios.get(indice)); //?
     }
 
     public void generarPista(Ciudad ciudadsiguiente, Delincuente delincuente) {

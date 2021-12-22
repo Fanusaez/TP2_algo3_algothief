@@ -31,10 +31,12 @@ import java.util.ArrayList;
 public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
 
+        VBox cajaGenerica = new VBox();
         DropShadow dropShadow1 = new DropShadow(1, 3, 3, Color.web("#333333"));
 
         BorderPane ladoIzquierdo= new BorderPane();
         BorderPane ladoDerecho= new BorderPane();
+        ladoDerecho.setCenter(cajaGenerica);
 
         Text labelHorario = new Text(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
         labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
@@ -47,20 +49,24 @@ public class CiudadLayout extends BorderPane {
         //boxHorario.setEffect(dropShadow1);
 
         Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
-        textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 18));
+        textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 14));
             textoInfoCiudad.setFill(Color.BLACK);
         VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
 
         //Opciones de edicifico
         Button botonVisitar = new Button();
         botonVisitar.setOnAction(i -> {
-            SeleccionEdificiosBox.display("Choce building", app);
+            cajaGenerica.getChildren().clear();
+            SeleccionEdificiosBox.agregarOpcionesEdificio(cajaGenerica,app);
+            cajaGenerica.setVisible(!cajaGenerica.isVisible());
         });
 
         //Opciones de viaje
         Button botonViajar = new Button();
         botonViajar.setOnAction(i -> {
-            SeleccionViajeBox.display("unTitulo", app, algoThief);
+            cajaGenerica.getChildren().clear();
+            SeleccionViajeBox.agregarOpcionesViaje(app,algoThief,cajaGenerica);
+            cajaGenerica.setVisible(!cajaGenerica.isVisible());
         });
 
         //Computar
@@ -76,7 +82,7 @@ public class CiudadLayout extends BorderPane {
         //Ordenar Layout
         BarraAcciones barraAcciones = new BarraAcciones(botonOpciones, botonViajar, botonVisitar, botonComputadora);
         ladoDerecho.setBottom(barraAcciones);
-        ladoDerecho.setCenter(descripcionCiudad);
+        ladoDerecho.setTop(descripcionCiudad);
 
 
         //FileInputStream fileInputStream = null;
