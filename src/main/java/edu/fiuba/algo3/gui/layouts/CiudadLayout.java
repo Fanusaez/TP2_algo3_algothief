@@ -32,6 +32,11 @@ public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
 
         VBox cajaGenerica = new VBox();
+        cajaGenerica.setStyle("-fx-background-radius: 6;" +
+                "-fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);" +
+                "-fx-background-insets: 0, 0 1 1 0;");
+        cajaGenerica.setMaxSize(200,130);
+        cajaGenerica.setVisible(false);
         DropShadow dropShadow1 = new DropShadow(1, 3, 3, Color.web("#333333"));
 
         BorderPane ladoIzquierdo= new BorderPane();
@@ -49,10 +54,11 @@ public class CiudadLayout extends BorderPane {
         //boxHorario.setEffect(dropShadow1);
 
         Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
+
         textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 14));
             textoInfoCiudad.setFill(Color.BLACK);
         VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
-
+        descripcionCiudad.setMinSize(0,250);
         //Opciones de edicifico
         Button botonVisitar = new Button();
         botonVisitar.setOnAction(i -> {
@@ -85,15 +91,7 @@ public class CiudadLayout extends BorderPane {
         ladoDerecho.setTop(descripcionCiudad);
 
 
-        //FileInputStream fileInputStream = null;
-        //try {
-        //    fileInputStream = new FileInputStream("rsc/images/opciones.png");
-        //} catch (FileNotFoundException e) {
-        //    e.printStackTrace();
-        //}
-        //Image img = new Image(fileInputStream);
-        //ImageView view = new ImageView(img);
-        //view.setImage(img);
+
         VBox imagenCiudad = new VBox();
         imagenCiudad.setMinSize(300, 400);
         imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));

@@ -29,6 +29,7 @@ public class SeleccionViajeBox {
         String ciudad3 = listaOpciones.get(2).obtenerDato("city");
 
         Button botonViajar1 = new Button("Viajar a " + ciudad1);
+        botonViajar1.snapSpaceY(20);
         botonViajar1.setOnAction(e -> {
             app.viajarACiudad(0);
 

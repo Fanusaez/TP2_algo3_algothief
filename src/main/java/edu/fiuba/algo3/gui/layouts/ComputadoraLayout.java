@@ -65,34 +65,14 @@ public class ComputadoraLayout extends VBox {
         botonComputar.setOnAction(e->{
             sospechosos="Los sospechosos son: ";
             sospechosos+=algoThief.filtrarSospechosos().stream().collect(Collectors.joining(", "));
-
-
-
-
-            /*for(String delincuente :algoThief.filtrarSospechosos()){
-                System.out.println(delincuente);
-                sospechosos+=delincuente;
-                if (!sospechosos.endsWith(delincuente)){
-                    sospechosos+=",";
-                }*/
-            //}
-
             sospechosos+=".";
             textoSospechosos.setText(sospechosos);
             textoSospechosos.setWrappingWidth(490);
-        });
-      /*  VBox textBox = new VBox();
-        Text listadoDelincuentes = new Text();
-        //String output = "";
-        botonComputar.setOnAction(e->{
-            String output = "";
-            for(String delincuente :algoThief.filtrarSospechosos()){
-                output += delincuente + "\n";
-            }
+            if(algoThief.filtrarSospechosos().isEmpty()){
+                textoSospechosos.setText("No hay sospechosos con esas caracteristicas.");}
+            });
 
-        });
-        textBox.getChildren().add(listadoDelincuentes);
-        setRight(textBox);*/
+
         ToolBar botonera= new ToolBar();
         botonera.getItems().addAll(botonComputar,botonSalir);
         botonera.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
