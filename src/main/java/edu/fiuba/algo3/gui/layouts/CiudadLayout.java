@@ -30,28 +30,36 @@ import java.util.ArrayList;
 
 public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
-
-        VBox cajaGenerica = new VBox();
-        cajaGenerica.setStyle("-fx-background-radius: 6;" +
-                "-fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);" +
-                "-fx-background-insets: 0, 0 1 1 0;");
-        cajaGenerica.setMaxSize(200,130);
-        cajaGenerica.setVisible(false);
+        //Detalles
         DropShadow dropShadow1 = new DropShadow(1, 3, 3, Color.web("#333333"));
+        BorderStroke borderStroke =
+                new BorderStroke(
+                        Color.BLACK,
+                        BorderStrokeStyle.SOLID,
+                        new CornerRadii(1),
+                        new BorderWidths(3)
+                );
+        Border border = new Border(borderStroke);
 
         BorderPane ladoIzquierdo= new BorderPane();
         BorderPane ladoDerecho= new BorderPane();
+
+        BorderPane cajaGenerica = new BorderPane();
+        cajaGenerica.setEffect(dropShadow1);
+        cajaGenerica.setBorder(border);
+        cajaGenerica.setStyle("-fx-background-radius: 6;" +
+                "-fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);" +
+                "-fx-background-insets: 0, 0 1 1 0;");
+        cajaGenerica.setMaxSize(300,140);
+        cajaGenerica.setVisible(false);
         ladoDerecho.setCenter(cajaGenerica);
 
         Text labelHorario = new Text(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
-        labelHorario.setFont(Font.font("Verdana", FontWeight.BOLD, 14));
-
-        //Text estadoJuego=new Text(algoThief.estadoJuegoComoString());
+        labelHorario.setFont(Font.font("Monospaced Bold", FontWeight.EXTRA_BOLD, 20));
 
         BorderPane boxHorario = new BorderPane();
+        boxHorario.setBorder(border);
         boxHorario.setCenter(labelHorario);
-
-        //boxHorario.setEffect(dropShadow1);
 
         Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
 
@@ -59,6 +67,7 @@ public class CiudadLayout extends BorderPane {
             textoInfoCiudad.setFill(Color.BLACK);
         VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
         descripcionCiudad.setMinSize(0,250);
+
         //Opciones de edicifico
         Button botonVisitar = new Button();
         botonVisitar.setOnAction(i -> {

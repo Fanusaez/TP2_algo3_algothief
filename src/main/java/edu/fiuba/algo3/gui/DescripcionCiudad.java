@@ -14,25 +14,7 @@ import java.util.List;
 public class DescripcionCiudad extends VBox{
 
     public DescripcionCiudad(Text descripcion){
-        DropShadow dropShadow = new DropShadow(1, 4, 4, Color.BLACK);
 
-        StrokeType strokeType     = StrokeType.INSIDE;
-        StrokeLineJoin strokeLineJoin = StrokeLineJoin.MITER;
-        StrokeLineCap strokeLineCap  = StrokeLineCap.BUTT;
-        double         miterLimit     = 10;
-        double         dashOffset     = 0;
-        List<Double> dashArray      = null;
-
-        BorderStrokeStyle borderStrokeStyle =
-                new BorderStrokeStyle(
-                        strokeType,
-                        strokeLineJoin,
-                        strokeLineCap,
-                        miterLimit,
-                        dashOffset,
-                        dashArray
-                );
-        VBox layout = new VBox(10);
         BorderStroke borderStroke =
                 new BorderStroke(
                         Color.BLACK,
@@ -45,6 +27,5 @@ public class DescripcionCiudad extends VBox{
         this.getChildren().add(descripcion);
         this.setBorder(border);
         this.setPadding(new Insets(10));
-        //this.setEffect(dropShadow);
     }
 }

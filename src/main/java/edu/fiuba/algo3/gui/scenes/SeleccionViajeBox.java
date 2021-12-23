@@ -20,7 +20,7 @@ import java.util.List;
 
 public class SeleccionViajeBox {
 
-    public static void agregarOpcionesViaje( App app, AlgoThief algoThief,VBox caja){
+    public static void agregarOpcionesViaje( App app, AlgoThief algoThief,BorderPane caja){
 
         ArrayList<Ciudad> listaOpciones = algoThief.verOpcionesDeViaje();
         Collections.shuffle(listaOpciones);
@@ -45,8 +45,9 @@ public class SeleccionViajeBox {
 
         });
 
-        caja.getChildren().addAll(botonViajar1, botonViajar2, botonViajar3);
-
+        caja.setLeft(botonViajar1);
+        caja.setCenter(botonViajar2);
+        caja.setRight(botonViajar3);
 
     }
 }
