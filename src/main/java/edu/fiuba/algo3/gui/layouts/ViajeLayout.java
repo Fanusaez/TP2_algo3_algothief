@@ -9,16 +9,22 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
+
 
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.file.Paths;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class ViajeLayout extends VBox {
     public ViajeLayout(Stage window, App app, AlgoThief algoThief) {
+
+        AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/fiumba.mp3").toUri().toString());
+        audioClip.play();
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/fotoavion.jpg"));
         Timer timer = new Timer();
