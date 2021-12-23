@@ -149,7 +149,7 @@ Leader:      President
 Misc:        Byzantine Empire, Constantinople
 Treasure:    Sernedip Ruby
 Continent:   Europe
-Description:    unadescripcion
+Description:    Istanbul is a major city in Turkey, located in Europe and Asia along the Bosphorus Strait. The Old City reflects the cultural influences of the various empires that ruled the region. In the Sultanahmet district, the Roman-era open-air Hippodrome was for centuries a chariot racing site, and Egyptian obelisks also remain. The iconic Byzantine Basilica Hagia Sophia has a soaring 6th-century dome and rare Christian mosaics.
 ...............................................................................
 City:        Kathmandu
 Flag:        Double Triangle

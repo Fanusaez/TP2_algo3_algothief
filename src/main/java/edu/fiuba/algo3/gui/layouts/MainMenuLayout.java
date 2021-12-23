@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -22,17 +23,19 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextField;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.nio.file.Paths;
 
 public class MainMenuLayout extends VBox {
 
 
     public MainMenuLayout(Stage window, App app, AlgoThief algoThief) {
 
-        // Text
-        //Label label = new Label("TP2 Algoritmos III - Ingeniería Informática FIUBA");
-        //Text t = new Text("AlgoThief " + gameVersion);
+        AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/musicaDeFondo.mp3").toUri().toString());
+        audioClip.setVolume(0.15);
+        audioClip.play();
+        audioClip.setCycleCount(AudioClip.INDEFINITE);
 
-        // Image
+
         this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
 
         TextField nombreUsuario = new TextField();
