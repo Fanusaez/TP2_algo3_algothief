@@ -42,7 +42,9 @@ public class MainMenuLayout extends VBox {
         nombreUsuario.setMaxWidth(100);
         nombreUsuario.setPromptText("Ingrese un nombre");
         // buttons
-        Button buttonStart = new Button("JUGAR!");
+        Button buttonStart = new Button();
+        buttonStart.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));
+        buttonStart.setGraphic(new ImagenParaBoton("rsc/images/play.png", 100, 100));
         buttonStart.setOnAction(e->{
             algoThief.ingresarUsuario(nombreUsuario.getText());
             StartGameLayout startGameLayout = new StartGameLayout(window,app, algoThief);

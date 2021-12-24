@@ -16,7 +16,7 @@ public class StartGameLayout extends VBox {
     private Label labelVariable;
 
     public StartGameLayout(Stage window, App app, AlgoThief algoThief) {
-        //setBackground(new BackgroundFill(Color.GRAY));
+
         Text presentacion = new Text(algoThief.desplegarTextoInicial());
         presentacion.setFont(Font.font("Verdana", FontPosture.ITALIC, 16));
         BorderPane panePresentacion = new BorderPane();
@@ -29,8 +29,7 @@ public class StartGameLayout extends VBox {
             window.setScene(ciudadScene);
 
         });
-
-        getChildren().addAll(panePresentacion,buttonContinuar);
+        getChildren().addAll(panePresentacion, buttonContinuar);
 
     }
 }
