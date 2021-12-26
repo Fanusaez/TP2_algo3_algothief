@@ -31,9 +31,10 @@ public class MainMenuLayout extends VBox {
     public MainMenuLayout(Stage window, App app, AlgoThief algoThief) {
 
         AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/musicaDeFondo.mp3").toUri().toString());
-        audioClip.setVolume(0.15);
+        audioClip.setVolume(0.12);
+        audioClip.setCycleCount(300);
         audioClip.play();
-        audioClip.setCycleCount(AudioClip.INDEFINITE);
+
 
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
