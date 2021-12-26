@@ -12,7 +12,7 @@ public interface AlgoThiefInterfaz {
 
     public String obtenerHorario();
 
-    public String entrarAEdificio(int indice) ;
+    //public String entrarAEdificio(int indice) ;
 
     public EstadoJuegoInterfaz realizarArresto(Computadora computadora);
 

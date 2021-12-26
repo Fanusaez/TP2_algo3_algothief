@@ -51,7 +51,7 @@ public class App extends Application {
         view = new View(window);
         view.initView(window,this, algoThief);
     }
-
+    /*
     public void abrirEscenaEdificio(String ubicacionArchivo,int indice){
         EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(indice));
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
@@ -61,6 +61,39 @@ public class App extends Application {
             abrirEscenaPerdiste();
         }
     }
+    */
+
+
+    public void abrirEscenaEdificioAeropuerto(String ubicacionArchivo){
+        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAAeropuerto());
+        EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+        window.setScene(viajeScene);
+
+        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
+            abrirEscenaPerdiste();
+        }
+    }
+
+    public void abrirEscenaEdificioBanco(String ubicacionArchivo){
+        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarABanco());
+        EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+        window.setScene(viajeScene);
+
+        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
+            abrirEscenaPerdiste();
+        }
+    }
+
+    public void abrirEscenaEdificioBiblioteca(String ubicacionArchivo){
+        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarABiblioteca());
+        EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
+        window.setScene(viajeScene);
+
+        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
+            abrirEscenaPerdiste();
+        }
+    }
+
 
     public void abrirEscenaPerdiste(){
         PerdisteLayout perdisteLayout = new PerdisteLayout(window, this, algoThief);

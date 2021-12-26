@@ -13,9 +13,9 @@ import java.util.Collections;
 import java.util.HashMap;
 
 public class Ciudad{
-    public String nombre; // <--- borrar después
-    private ArrayList<Edificio> edificios;
-    public static final int CANTIDAD_DE_EDIFICIOS = 3;
+    public Aeropuerto aeropuerto;//0
+    public Banco banco; //1
+    public Biblioteca biblioteca;//2
     private HashMap <String,String> hash;
     private ArrayList<Ciudad> opcionesDeViaje;
     private EstadoCiudad estado;
@@ -23,13 +23,13 @@ public class Ciudad{
 
 
     public Ciudad() {
-        this.edificios = new ArrayList<Edificio>(CANTIDAD_DE_EDIFICIOS);
-        this.edificios.add(new Banco());
-        this.edificios.add(new Biblioteca());
-        this.edificios.add(new Aeropuerto());
+
+        this.aeropuerto = new Aeropuerto();
+        this.banco = new Banco();
+        this.biblioteca = new Biblioteca();
         this.hash = new HashMap<String,String>();
         this.opcionesDeViaje = new ArrayList<>();
-        this.estado= new Segura();
+        this.estado = new Segura();
     }
 
     public void agregarDato(String clave,String valor) {
@@ -55,14 +55,22 @@ public class Ciudad{
         return estado.modificarEstadoDeJuego(computadora);
     }
 
-    public String entrarAEdificio(int indice){
-        return this.estado.entrarAEdificio(edificios.get(indice)); //?
+    public String entrarAAeropuerto() {
+        return this.estado.entrarAEdificio(aeropuerto);
+    }
+
+    public String entrarABanco() {
+        return this.estado.entrarAEdificio(banco);
+    }
+
+    public String entrarABiblioteca() {
+        return this.estado.entrarAEdificio(biblioteca);
     }
 
     public void generarPista(Ciudad ciudadsiguiente, Delincuente delincuente) {
-        edificios.get(0).generarPistaEdificio(ciudadsiguiente,delincuente);
-        edificios.get(1).generarPistaEdificio(ciudadsiguiente,delincuente);
-        edificios.get(2).generarPistaEdificio(ciudadsiguiente,delincuente);
+        aeropuerto.generarPistaEdificio(ciudadsiguiente,delincuente);
+        banco.generarPistaEdificio(ciudadsiguiente,delincuente);
+        biblioteca.generarPistaEdificio(ciudadsiguiente,delincuente);
     }
 
     public void agregarComoOpcion(Ciudad destino) {
@@ -73,8 +81,14 @@ public class Ciudad{
         return this.opcionesDeViaje;
     }
 
-    public int getDemoraTiempoVisitar(int indice) {
-        return edificios.get(indice).visitar() + estado.atacar();
+    public int getDemoraTiempoVisitarBanco() {
+        return banco.visitar() + estado.atacar();
+    }
+    public int getDemoraTiempoVisitarAeropuerto() {
+        return banco.visitar() + estado.atacar();
+    }
+    public int getDemoraTiempoVisitarBiblioteca() {
+        return banco.visitar() + estado.atacar();
     }
 
     public void setEstado(EstadoCiudad unEstado) {

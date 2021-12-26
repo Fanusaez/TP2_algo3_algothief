@@ -18,7 +18,7 @@ public class TestEntregaUno {
     @Test
     public void TestCasoUsoDosEntrarAEdificioEnCiudadInicialDespliegaUnaNoPistaDefault(){
         AlgoThief algoThief = new AlgoThief(directorioCiudades,directorioDelincuentes);
-        assertNotSame("El delincuente no visito este edificio", algoThief.entrarAEdificio(1));
+        assertNotSame("El delincuente no visito este edificio", algoThief.entrarABanco());
     }
 
     @Test

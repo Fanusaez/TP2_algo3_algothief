@@ -101,14 +101,32 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     public String obtenerInformacionCiudad(){
         return policia.obtenerInformacionCiudad();
     }
-
+    /*
     public String entrarAEdificio(int indice) {
         reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
         String mensajeRetornado = policia.entrarAEdificio(indice);
         actualizarEstadoDeJuego();
         return mensajeRetornado;
     }
-
+    */
+    public String entrarABanco(){
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitarBanco());
+        String mensajeRetornado = policia.entrarABanco();
+        actualizarEstadoDeJuego();
+        return mensajeRetornado;
+    }
+    public String entrarAAeropuerto(){
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitarAeropuerto());
+        String mensajeRetornado = policia.entrarAAeropuerto();
+        actualizarEstadoDeJuego();
+        return mensajeRetornado;
+    }
+    public String entrarABiblioteca(){
+        reloj.aumentarHoras(policia.getDemoraTiempoVisitarBiblioteca());
+        String mensajeRetornado = policia.entrarABiblioteca();
+        actualizarEstadoDeJuego();
+        return mensajeRetornado;
+    }
 
     public EstadoJuegoInterfaz realizarArresto(Computadora computadora) {
         return policia.modificarEstadoDeJuego(computadora);

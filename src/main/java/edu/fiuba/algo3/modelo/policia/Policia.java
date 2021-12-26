@@ -22,8 +22,15 @@ public class Policia {
         this.brujula = new Brujula();
     }
 
-    public String entrarAEdificio(int indice) {
-        return this.ciudadActual.entrarAEdificio(indice);}
+    public String entrarABanco() {
+        return this.ciudadActual.entrarABanco();}
+
+    public String entrarAAeropuerto() {
+        return this.ciudadActual.entrarAAeropuerto();
+    }
+    public String entrarABiblioteca() {
+        return this.ciudadActual.entrarABiblioteca();
+    }
 
     public Ciudad getCiudadActual(){
         return ciudadActual;
@@ -35,8 +42,16 @@ public class Policia {
         return brujula.calcularDistanciaEntre(ciudadActual,destinoSeleccionado) / this.rango.getVelocidad();
     }
 
-    public int getDemoraTiempoVisitar(int indice) {
-        return ciudadActual.getDemoraTiempoVisitar(indice);
+    public int getDemoraTiempoVisitarBanco() {
+        return ciudadActual.getDemoraTiempoVisitarBanco();
+    }
+
+    public int getDemoraTiempoVisitarAeropuerto() {
+        return ciudadActual.getDemoraTiempoVisitarAeropuerto();
+    }
+
+    public int getDemoraTiempoVisitarBiblioteca() {
+        return ciudadActual.getDemoraTiempoVisitarBiblioteca();
     }
 
     public ArrayList<Ciudad> mostrarOpcionesViaje() {
