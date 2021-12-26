@@ -7,6 +7,6 @@ public class Banco extends Edificio {
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, Delincuente delincuente) {
-        pista = "Cambio la moneda a " + unaCiudad.obtenerDato("Currency")+ ". "+ delincuente.generarPista();
+        pista = "The thief changed his money to " + unaCiudad.obtenerDato("Currency")+ ". "+ delincuente.generarPista();
     }
 }

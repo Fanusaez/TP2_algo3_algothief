@@ -79,10 +79,10 @@ public class Delincuente{
         ArrayList<String> atributosLista = new ArrayList<String>();
         int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
 
-        atributosLista.add("Tiene pelo de color " + hashDeAtributos.get("Hair"));
-        atributosLista.add("El delincuente era " + hashDeAtributos.get("Sex"));
-        atributosLista.add("Y vi a ese delincuente irse con un auto " + hashDeAtributos.get("Auto"));
-        atributosLista.add("Tenia un " + hashDeAtributos.get("Feature"));
+        atributosLista.add("Thief  was " + hashDeAtributos.get("Hair") + " haired");
+        atributosLista.add("Thief's sex is " + hashDeAtributos.get("Sex"));
+        atributosLista.add("run away with a " + hashDeAtributos.get("Auto"));
+        atributosLista.add("The thief has a " + hashDeAtributos.get("Feature"));
         atributosLista.add("");
 
         return atributosLista.get(randIdx);

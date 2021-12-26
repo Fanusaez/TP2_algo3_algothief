@@ -9,7 +9,7 @@ public abstract class Edificio {
     String pista;
 
     {
-        pista = "El delincuente no visito este edificio";
+        pista = "The thief has NOT been seen in this building";
         cantidadEntradas = 0;
     }
 

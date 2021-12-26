@@ -23,7 +23,7 @@ public class Peligrosa implements EstadoCiudad {
 
     public String entrarAEdificio(Edificio edificio) {
         ContadorEntradasEdificios++;
-        return "Estas cerca de atraparlo, ten cuidado!";
+        return "You are close to catch the thief, be careful";
     }
 
     public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora){
