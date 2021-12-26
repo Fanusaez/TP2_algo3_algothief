@@ -51,18 +51,6 @@ public class App extends Application {
         view = new View(window);
         view.initView(window,this, algoThief);
     }
-    /*
-    public void abrirEscenaEdificio(String ubicacionArchivo,int indice){
-        EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAEdificio(indice));
-        EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
-        window.setScene(viajeScene);
-
-        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
-            abrirEscenaPerdiste();
-        }
-    }
-    */
-
 
     public void abrirEscenaEdificioAeropuerto(String ubicacionArchivo){
         EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAAeropuerto());

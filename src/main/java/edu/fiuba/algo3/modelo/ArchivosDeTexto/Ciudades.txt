@@ -183,7 +183,7 @@ Leader:      ???
 Misc:        ???
 Treasure:    Watusi King's Headdress
 Continent:   Africa
-Description:    Kigali es la capital de Ruanda, también su ciudad más poblada. Se encuentra situada en el centro geográfico del país, perteneciente a la provincia homónima.
+Description:    Kigali is the capital and largest city of Rwanda. It is near the nation's geographic centre in a region of rolling hills, with a series of valleys and ridges joined by steep slopes.
 ...............................................................................
 City:        Lima
 Flag:        Red and White
@@ -234,7 +234,7 @@ Leader:      ???
 Misc:        ???
 Treasure:    Crown Jewels
 Continent:   America
-Description:    Mexico City is the densely populated capital of Mexico that sits high up. It is famous for its Templo Mayor (a 13th-century Aztec temple), the Baroque-style Metropolitan Cathedral of Mexico of the Spanish conquerors, and the National Palace, which houses historic murals by Diego Rivera. All of these landmarks are located around the Plaza de la Constitución, the huge main square also known as the Zócalo.
+Description:    Mexico City is the densely populated capital of Mexico that sits high up. It is famous for its Templo Mayor, the Baroque-style Metropolitan Cathedral of Mexico of the Spanish conquerors, and the National Palace, which houses historic murals by Diego Rivera. All of these landmarks are located around the Plaza de la Constitución, the huge main square also known as the Zócalo.
 ...............................................................................
 City:        Montreal
 Flag:        Maple Leaf Flag
@@ -302,7 +302,7 @@ Leader:      Prime Minister
 Misc:        ???
 Treasure:    A painting
 Continent:   Asia
-Description:    Nueva Delhi es la capital de la República de la India y sede del poder ejecutivo, legislativo y judicial de su Gobierno. Está situada en la metrópolis de Delhi y es uno de sus nueve distritos.
+Description:    New Delhi is the capital of India and a part of the National Capital Territory of Delhi. New Delhi is the seat of all three branches of the government of India, hosting the Rashtrapati Bhavan, Parliament House, and the Supreme Court of India
 ...............................................................................
 City:        New York
 Flag:        Red, White, and Blue
@@ -319,7 +319,7 @@ Leader:      ???
 Misc:        Subways
 Treasure:    The Rockettes
 Continent:   America
-Description:    Nueva York incluye 5 distritos que se ubican donde el río Hudson desemboca en el océano Atlántico. En su centro se encuentra Manhattan, un distrito densamente poblado que se encuentra entre los principales centros comerciales, financieros y culturales del mundo. Sus sitios icónicos incluyen rascacielos, como el Empire State Building, y el amplio Central Park. El teatro Broadway se ubica en la zona del Times Square iluminada con neones.
+Description:    New York, often called New York City to distinguish it from New York State, or NYC for short, is the most populous city in the United States. With a 2020 population of 8,804,190 distributed over 300.46 square miles, New York City is also the most densely populated major city in the United States. Located at the southern tip of the State of New York, the city is the center of the New York metropolitan area, the largest metropolitan area in the world by urban area.
 ...............................................................................
 City:        Oslo
 Flag:        Red and Blue Cross
@@ -336,7 +336,7 @@ Leader:      King
 Misc:        Nordic Skiing
 Treasure:    Viking Helmet
 Continent:   Europe
-Description:    Oslo, la capital de Noruega, se ubica en la costa sur del país en la cabecera del Fiordo de Oslo. Es famosa por sus áreas verdes y museos. Muchos de estos se encuentran en la Península de Bygdøy, incluido el Museo Marítimo Noruego junto al mar y el Museo de barcos vikingos de Oslo, con embarcaciones vikingas del siglo IX. Holmenkollbakken es un cerro para el salto en esquí con vista panorámica del fiordo. También tiene un museo de esquí.
+Description:    Oslo is the economic and governmental centre of Norway. The city is also a hub of Norwegian trade, banking, industry and shipping. It is an important centre for maritime industries and maritime trade in Europe. The city is home to many companies within the maritime sector, some of which are among the world's largest shipping companies, shipbrokers and maritime insurance brokers
 ...............................................................................
 City:        Paris
 Flag:        Red, White, and Blue
@@ -353,7 +353,7 @@ Leader:      ???
 Misc:        ???
 Treasure:    A baguette
 Continent:   Europe
-Description:    París, la capital de Francia, es una importante ciudad europea y un centro mundial del arte, la moda, la gastronomía y la cultura. Su paisaje urbano del siglo XIX está entrecruzado por amplios bulevares y el río Sena. Aparte de estos hitos, como la Torre Eiffel y la catedral gótica de Notre Dame del siglo XII, la ciudad es famosa por su cultura del café y las tiendas de moda de diseñador a lo largo de la calle Rue du Faubourg Saint-Honoré.
+Description:    Paris is the capital and most populous city of France, with an estimated population of 2,175,601 residents as of 2018, in an area of more than 105 square kilometres. Since the 17th century, Paris has been one of Europe's major centres of finance, diplomacy, commerce, fashion, gastronomy, science, and arts.
 ...............................................................................
 City:        Peking
 Flag:        Red Flag
@@ -370,7 +370,7 @@ Leader:      ???
 Misc:        Shang Dynasty, Wuchang Uprising
 Treasure:    1,000 Year Old Egg
 Continent:   Asia
-Description:    Pekín, la enorme capital de China, tiene una historia que se remonta a 3 milenios. Aun así, es conocida tanto por su arquitectura moderna como por sus sitios antiguos, como el complejo de la Ciudad Prohibida, el palacio imperial durante las dinastías Ming y Qing. Cerca, en la enorme plaza peatonal de Tiananmén, se encuentra el mausoleo de Mao Zedong y el Museo Nacional de China, que exhibe una amplia colección de reliquias culturales.
+Description:    Peking is a global city and one of the world's leading centres for culture, diplomacy and politics, business and economics, education, language, and science and technology. A megacity, Beijing is the second largest Chinese city by urban population after Shanghai and is the nation's cultural, educational, and political center.
 ...............................................................................
 City:        Port Moresby
 Flag:        Yellow, Red, and Black
@@ -387,7 +387,7 @@ Leader:      Prime Minister
 Misc:        New Ireland
 Treasure:    A phone
 Continent:   Oceania
-Description:    Puerto Moresby es la capital de Papúa Nueva Guinea, y su mayor aglomeración de población contando su área metropolitana que se extiende por todo el Distrito Capital Nacional. La ciudad está situada en las costas del golfo de Papúa, en la costa sureste de la isla de Nueva Guinea
+Description:    Port Moresby, also referred to as Pom City or simply Moresby, is the capital and largest city of Papua New Guinea. It is one of the largest cities in the southwestern Pacific (along with Jayapura) outside of Australia and New Zealand. It is located on the shores of the Gulf of Papua, on the south-western coast of the Papuan Peninsula of the island of New Guinea.
 ...............................................................................
 City:        Reykjavik
 Flag:        Red and Blue
@@ -404,7 +404,7 @@ Leader:      ???
 Misc:        Island Nation
 Treasure:    A pinguin
 Continent:   Europe
-Description:    Reikiavik, en la costa de Islandia, es la capital del país y su ciudad más grande. Cuenta con el Museo Nacional y el Museo de Saga, que recorren la historia vikinga de Islandia. La impresionante iglesia de concreto Hallgrimskirkja y el domo de vidrio giratorio Perlan ofrecen vistas panorámicas del mar y las colinas circundantes. Un ejemplo de la actividad volcánica de la isla es el balneario geotermal de la laguna Azul, cerca de la villa de Grindavik.
+Description:    Reykjavík is the capital and largest city of Iceland. It is located in southwestern Iceland, on the southern shore of Faxaflói bay. Its latitude is 64°08' N, making it the world's northernmost capital of a sovereign state.[a] With a population of around 131,136, it is the centre of Iceland's cultural, economic and governmental activity, and is a popular tourist destination.
 ...............................................................................
 City:        Rio de Janeiro
 Flag:        Green, Blue, and Yellow
@@ -421,7 +421,7 @@ Leader:      President
 Misc:        ???
 Treasure:    Stuffed Parrot
 Continent:   America
-Description:    Río de Janeiro es una enorme ciudad costera de Brasil, famosa por sus playas de Copacabana e Ipanema, la estatua del Cristo Redentor de 38 m de alto sobre el cerro del Corcovado y el morro Pan de Azúcar, una cima de granito con teleféricos que ascienden a su cima. La ciudad también es conocida por sus extensas favelas. El estridente festival del Carnaval, con desfiles de carros alegóricos, extravagantes disfraces y bailarines de samba, es considerado el más grande del mundo.
+Description:    Rio de Janeiro is one of the most visited cities in the Southern Hemisphere and is known for its natural settings, Carnival, samba, bossa nova, and balneario beaches such as Barra da Tijuca, Copacabana, Ipanema, and Leblon. In addition to the beaches, some of the most famous landmarks include the giant statue of Christ the Redeemer atop Corcovado mountain, named one of the New Seven Wonders of the World; Sugarloaf Mountain with its cable car; the Sambódromo (Sambadrome), a permanent grandstand-lined parade avenue which is used during Carnival; and Maracanã Stadium, one of the world's largest football stadiums.
 ...............................................................................
 City:        Rome
 Flag:        Green, White, and Red
@@ -438,7 +438,7 @@ Leader:      President
 Misc:        ???
 Treasure:    Pope Francis
 Continent:   Europe
-Description:    Roma, la capital de Italia, es una extensa ciudad cosmopolita que tiene a la vista casi 3,000 años de arte, arquitectura y cultura de influencia mundial. Las ruinas antiguas como las del Foro y el Coliseo evocan el poder del antiguo Imperio Romano. La ciudad del Vaticano, sede central de la Iglesia católica romana, cuenta con la Basílica de San Pedro y los Museos del Vaticano, que albergan obras maestras como los frescos de la Capilla Sixtina de Miguel Ángel.
+Description:    Rome today is one of the most important tourist destinations of the world, due to the incalculable immensity of its archaeological and artistic treasures, as well as for the charm of its unique traditions, the beauty of its panoramic views, and the majesty of its magnificent "villas" (parks). Among the most significant resources are the many museums – Musei Capitolini, the Vatican Museums and the Galleria Borghese and others dedicated to modern and contemporary art – aqueducts, fountains, churches, palaces, historical buildings, the monuments and ruins of the Roman Forum, and the Catacombs
 ...............................................................................
 City:        San Marino
 Flag:        Blue and White
@@ -455,7 +455,7 @@ Leader:      ???
 Misc:        Serene Republic, Oldest State in Europe, Neighbors Italy
 Treasure:    A spoon
 Continent:   Europe
-Description:    San Marino es un microestado montañoso rodeado de la zona norte central de Italia. Se encuentra entre las repúblicas más antiguas del mundo y conserva gran parte de su arquitectura histórica. En las laderas del monte Titano, se ubica la capital, también llamada San Marino, conocida por su antigua ciudad amurallada medieval y las estrechas calles de adoquines. Las Tres Torres, ciudadelas similares a castillos que datan del siglo XI, se ubican sobre las cimas circundantes del monte Titano.
+Description:    San Marino, officially the Republic of San Marino, also known as the Most Serene Republic of San Marino, is a small country (and a European microstate) in Southern Europe enclaved by Italy. Located on the northeastern side of the Apennine Mountains, San Marino covers a land area of just over 61 km2 (24 sq mi), and has a population of 33,562.
 ...............................................................................
 City:        Singapore
 Flag:        Red and White
@@ -472,7 +472,7 @@ Leader:      ???
 Misc:        Former British Colony
 Treasure:    Merlion the Golden Lion
 Continent:   Asia
-Description:    Singapur, oficialmente República de Singapur, es un país soberano insular de Asia, formado por sesenta y tres islas, cuya forma de gobierno es la república parlamentaria. Su territorio se divide en cinco consejos de desarrollo comunitario
+Description:    Singapore, officially the Republic of Singapore, is a sovereign island city-state in maritime Southeast Asia. It lies about one degree of latitude (137 kilometres or 85 miles) north of the equator, off the southern tip of the Malay Peninsula, bordering the Straits of Malacca to the west, the Riau Islands (Indonesia) to the south, and the South China Sea to the east. The country's territory is composed of one main island, 63 satellite islands and islets, and one outlying islet, the combined area of which has increased by 25% since the country's independence as a result of extensive land reclamation projects. It has the second greatest population density in the world.
 ...............................................................................
 City:        Sydney
 Flag:        Red, White, and Blue
@@ -489,7 +489,7 @@ Leader:      ???
 Misc:        ???
 Treasure:    A car
 Continent:   Oceania
-Description:    Sídney, capital de Nueva Gales del Sur y una de las ciudades más grandes de Australia, es famosa por su Casa de la Ópera de Sídney junto al puerto, con un característico diseño con forma de velas. El enorme Puerto Darling y el puerto Circular Quay más pequeño son núcleos de la vida ribereña, con el arqueado puente de la bahía de Sídney y el reconocido Real Jardín Botánico que se encuentra cerca. La plataforma exterior de la Sydney Tower, el Skywalk, ofrece vistas en 360 grados de la ciudad y los suburbios.
+Description:    Sydney is the capital city of the state of New South Wales, and the most populous city in Australia and Oceania. Popular destinations include the Sydney Opera House, the Sydney Harbour Bridge, Watsons Bay, The Rocks, Sydney Tower, Darling Harbour, the State Library of New South Wales, the Royal Botanic Garden, the Australian Museum, the Museum of Contemporary Art, the Art Gallery of New South Wales, the Queen Victoria Building, Sea Life Sydney Aquarium, Taronga Zoo, Bondi Beach, and Sydney Olympic Park.
 ...............................................................................
 City:        Tokyo
 Flag:        Red and White
@@ -506,5 +506,5 @@ Leader:      ???
 Misc:        ???
 Treasure:    Anime
 Continent:   Asia
-Description:    Tokio, la ajetreada capital de Japón, mezcla lo ultramoderno y lo tradicional, desde los rascacielos iluminados con neones hasta los templos históricos. El opulento santuario Shinto Meiji es conocido por su puerta altísima y los bosques circundantes. El Palacio Imperial se ubica en medio de grandes jardines públicos. Los distintos museos de la ciudad ofrecen exhibiciones que van desde el arte clásico (en el Museo Nacional de Tokio) hasta un teatro kabuki reconstruido (en el Museo Edo-Tokyo).
+Description:     Tokyo, historically known in the west as Tokio and officially the Tokyo Metropolis, is the capital and most populous prefecture of Japan. Located at the head of Tokyo Bay, the prefecture forms part of the Kantō region on the central Pacific coast of Japan's main island of Honshu. As the largest population center in Japan and the site of the country's largest broadcasters and studios, Tokyo is frequently the setting for many Japanese movies, television shows, animated series (anime), web comics, light novels, video games, and comic books (manga).
 ...............................................................................
