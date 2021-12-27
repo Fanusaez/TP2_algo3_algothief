@@ -3,17 +3,13 @@ package edu.fiuba.algo3.gui.layouts;
 import edu.fiuba.algo3.App;
 import edu.fiuba.algo3.gui.BarraAcciones;
 import edu.fiuba.algo3.gui.DescripcionCiudad;
-import edu.fiuba.algo3.gui.ImagenParaBoton;
 import edu.fiuba.algo3.gui.scenes.SeleccionEdificiosBox;
 import edu.fiuba.algo3.gui.scenes.SeleccionViajeBox;
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.ciudad.Ciudad;
-import javafx.geometry.VPos;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -22,22 +18,20 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javafx.geometry.Insets;
-import javafx.scene.image.ImageView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CiudadLayout extends BorderPane {
     public CiudadLayout(Stage window, App app, AlgoThief algoThief){
+
         //Detalles
-        DropShadow dropShadow1 = new DropShadow(1, 3, 3, Color.web("#333333"));
+        DropShadow dropShadow = new DropShadow(1, 3, 3, Color.BLACK);
         BorderStroke borderStroke =
                 new BorderStroke(
                         Color.BLACK,
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(1),
-                        new BorderWidths(3)
+                        new BorderWidths(4)
                 );
         Border border = new Border(borderStroke);
 
@@ -45,30 +39,29 @@ public class CiudadLayout extends BorderPane {
         BorderPane ladoDerecho= new BorderPane();
 
         BorderPane cajaGenerica = new BorderPane();
-        cajaGenerica.setEffect(dropShadow1);
         cajaGenerica.setBorder(border);
-        cajaGenerica.setStyle("-fx-background-radius: 6;" +
-                "-fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);" +
-                "-fx-background-insets: 0, 0 1 1 0;");
+        cajaGenerica.setPadding(new Insets(3));
+        //cajaGenerica.setStyle("-fx-background-radius: 6;" +
+        //        "-fx-background-color: rgb(45, 45, 50), rgb(60, 60, 65);" +
+        //        "-fx-background-insets: 0, 0 1 1 0;");
+        cajaGenerica.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, new Insets(5))));
         cajaGenerica.setMaxSize(300,140);
-        cajaGenerica.setVisible(false);
+        cajaGenerica.setVisible(true);
         ladoDerecho.setCenter(cajaGenerica);
 
-        Text labelHorario = new Text(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
-        labelHorario.setFont(Font.font("Monospaced Bold", FontWeight.EXTRA_BOLD, 20));
+        Label horaUbicacion = new Label(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
+        horaUbicacion.setMinSize(300, 50);
+        horaUbicacion.setBorder(border);
+        horaUbicacion.setFont(Font.font("Courier New", FontWeight.EXTRA_BOLD, 24));
 
-        BorderPane boxHorario = new BorderPane();
-        boxHorario.setBorder(border);
-        boxHorario.setCenter(labelHorario);
+        Label descripcionCiudad = new Label(algoThief.obtenerInformacionCiudad());
+        descripcionCiudad.setBorder(border);
+        descripcionCiudad.setPrefWidth(320);
+        descripcionCiudad.setPrefHeight(240);
+        descripcionCiudad.setWrapText(true);
+        descripcionCiudad.setFont(Font.font("OCR A Extended", FontWeight.EXTRA_BOLD, 16));
 
-        Text textoInfoCiudad =new Text(algoThief.obtenerInformacionCiudad());
-
-        textoInfoCiudad.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-            textoInfoCiudad.setFill(Color.BLACK);
-        VBox descripcionCiudad= new DescripcionCiudad(textoInfoCiudad);
-        descripcionCiudad.setMinSize(0,250);
-
-        //Opciones de edicifico
+        //Visitar edificio
         Button botonVisitar = new Button();
         botonVisitar.setOnAction(i -> {
             cajaGenerica.getChildren().clear();
@@ -92,6 +85,11 @@ public class CiudadLayout extends BorderPane {
 
         //Ver Opciones de Viaje
         Button botonOpciones = new Button();
+        botonOpciones.setOnAction(i -> {
+            cajaGenerica.getChildren().clear();
+            SeleccionViajeBox.mostrarOpcionesViaje(app,algoThief,cajaGenerica);
+            cajaGenerica.setVisible(!cajaGenerica.isVisible());
+        });
 
 
         //Ordenar Layout
@@ -105,7 +103,7 @@ public class CiudadLayout extends BorderPane {
         imagenCiudad.setMinSize(300, 400);
         imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
 
-        ladoIzquierdo.setTop(boxHorario);
+        ladoIzquierdo.setTop(horaUbicacion);
         ladoIzquierdo.setBottom(imagenCiudad);
 
         this.setLeft(ladoIzquierdo);

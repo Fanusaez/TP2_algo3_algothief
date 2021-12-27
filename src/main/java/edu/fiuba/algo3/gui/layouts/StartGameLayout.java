@@ -40,7 +40,7 @@ public class StartGameLayout extends BorderPane {
         for (String oracion : lista){
             Text textodeoracion= new Text(oracion);
             cajaOraciones.getChildren().addAll(textodeoracion);
-            textodeoracion.setFont(Font.font("Verdana", FontPosture.ITALIC, 18));
+            textodeoracion.setFont(Font.font("OCR A Extended", FontPosture.REGULAR, 20));
             textodeoracion.setFill(Color.GREEN);
             textodeoracion.setVisible(false);
             textodeoracion.setWrappingWidth(490);
