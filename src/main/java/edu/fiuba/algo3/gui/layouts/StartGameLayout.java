@@ -30,11 +30,10 @@ public class StartGameLayout extends BorderPane {
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/computadoraFondo.png"));
 
+
         AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/maquinaEscribir.mp3").toUri().toString());
         audioClip.setVolume(0.3);
-        audioClip.play();
 
-        String[] lista = algoThief.desplegarTextoInicial().split("\n");
         VBox cajaOraciones = new VBox();
         Text textoInicial = new Text("Detective at keyboard, please identify yourself: ");
         textoInicial.setFont(Font.font("OCR A Extended", FontPosture.REGULAR, 18));
@@ -51,7 +50,9 @@ public class StartGameLayout extends BorderPane {
 
         //Esto se puede modularizar
         nombreUsuario.setOnAction(e->{
+            nombreUsuario.setEditable(false);
             algoThief.ingresarUsuario(nombreUsuario.getText());
+            String[] lista = algoThief.desplegarTextoInicial().split("\n");
             for (String oracion : lista){
                 Text textodeoracion= new Text(oracion);
                 textodeoracion.setFont(Font.font("OCR A Extended", FontPosture.REGULAR, 18));
@@ -67,9 +68,15 @@ public class StartGameLayout extends BorderPane {
             this.setBottom(clickParaContinuar);
 
 
+            audioClip.play();
+
+
+
+
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
                 int indice = 0;
+
                 @Override
                 public void run() {
 
@@ -81,15 +88,19 @@ public class StartGameLayout extends BorderPane {
                             timer.cancel();}
                     });
                 }
-            }, 0,1100);
+            }, 0,800);
         });
 
-        setOnMousePressed(e->{
-            audioClip.stop();
-            CiudadLayout ciudadLayout = new CiudadLayout(window,app, algoThief);
-            CiudadScene ciudadScene = new CiudadScene(window,ciudadLayout, algoThief);
-            window.setScene(ciudadScene);
 
+
+        setOnMousePressed(e->{
+            if (!nombreUsuario.getText().equals("")) {
+                System.out.println(nombreUsuario.getText());
+                audioClip.stop();
+                CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
+                CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
+                window.setScene(ciudadScene);
+            }
         });
 
 
