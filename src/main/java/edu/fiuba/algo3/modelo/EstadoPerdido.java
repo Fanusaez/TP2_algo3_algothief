@@ -6,8 +6,6 @@ public class EstadoPerdido implements EstadoJuegoInterfaz {
     }
 
 
-    public String devolverComoString(){
-        return "perdido";
-    }
+
 
 }

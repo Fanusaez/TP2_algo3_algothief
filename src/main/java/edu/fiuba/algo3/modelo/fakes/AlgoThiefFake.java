@@ -91,9 +91,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return reloj.obtenerHorario();
     }
 
-    public String estadoJuegoComoString(){
-        return estadoJuego.devolverComoString();
-    }
+
 
     public void realizarArresto(){
         estadoJuego =computadora.realizarArresto();

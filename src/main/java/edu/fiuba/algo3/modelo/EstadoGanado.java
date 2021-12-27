@@ -3,20 +3,12 @@ package edu.fiuba.algo3.modelo;
 public class EstadoGanado implements EstadoJuegoInterfaz {
 
     public EstadoJuegoInterfaz cambiarA(EstadoJuegoInterfaz estado){
-        if(estado.devolverComoString().equals("ganado")){
+        if(estado instanceof EstadoGanado){
             return this;
         }
-        if(estado.devolverComoString().equals("Jugando")){
+        if(estado instanceof EstadoJugando){
             return new EstadoGanado();
         }
         return new EstadoPerdido();
-
-    }
-
-
-
-
-    public String devolverComoString(){
-        return "ganado";
     }
 }

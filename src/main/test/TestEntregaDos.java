@@ -1,4 +1,6 @@
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.EstadoGanado;
+import edu.fiuba.algo3.modelo.EstadoPerdido;
 import edu.fiuba.algo3.modelo.computadora.Computadora;
 import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
 import edu.fiuba.algo3.modelo.policia.RangoDetective;
@@ -9,6 +11,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class TestEntregaDos {
@@ -74,7 +77,7 @@ public class TestEntregaDos {
         algoThief.entrarAAeropuerto();
         algoThief.entrarAAeropuerto();
         //entro una vez mas y debe intentar capturar al delincuente
-        assertEquals("perdido", algoThief.getEstadoJuego().devolverComoString());
+        assertTrue( algoThief.getEstadoJuego() instanceof EstadoPerdido);
     }
 
     @Test
@@ -90,7 +93,7 @@ public class TestEntregaDos {
 
         algoThief.entrarAAeropuerto();
 
-        assertEquals("ganado",algoThief.getEstadoJuego().devolverComoString());
+        assertTrue(algoThief.getEstadoJuego() instanceof EstadoGanado);
     }
 
 }
