@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+title : Policia sufre herida de chuchillo y duerme
+
+Actor -> "algoThief: AlgoThief" : entrarBanco()
+"algoThief: AlgoThief" -> "policia : Policia" : getDemoraTiempoVisitarBanco()
+"policia : Policia" -> "ciudadActual : Ciudad" : getDemoraTiempoVisitarBanco()
+"ciudadActual : Ciudad" -> "banco : Edificio" : visitar()
+"banco : Edificio" --> "ciudadActual : Ciudad" : horasDeDemora
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : atacar()
+"estadoPeligroso : EstadoCiudad" -> "delincuente : Delincuente" : atacar()
+"delincuente : Delincuente" -> Arma : atacar()
+Arma --> "delincuente : Delincuente" : horasDemoraPorAtaque = 2
+"delincuente : Delincuente" --> "estadoPeligroso : EstadoCiudad" : horasDemoraPorAtaque = 2
+"estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : horasDemoraPorAtaque = 2
+"ciudadActual : Ciudad" --> "policia : Policia" : demoraTotal = 3
+"policia : Policia" --> "algoThief: AlgoThief" :  demoraTotal = 3
+
+@enduml
