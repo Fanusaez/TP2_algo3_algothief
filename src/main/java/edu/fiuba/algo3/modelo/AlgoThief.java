@@ -140,7 +140,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
     public ArrayList<String> filtrarSospechosos(){
-        reloj.aumentarHoras(5);
+        reloj.aumentarHoras(1);
         actualizarEstadoDeJuego();
         return computadora.filtrar();
     }
