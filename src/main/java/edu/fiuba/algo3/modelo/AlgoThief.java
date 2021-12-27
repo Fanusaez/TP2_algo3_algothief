@@ -133,7 +133,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.modificarEstadoDeJuego(computadora);
     }
 
-
+    public String estadoJuegoComoString(){
+        return estadoJuego.devolverComoString();
+    }
 
     public ArrayList<ArrayList<String>> mostrarAtriutosDelincuenteSeleccionados(){
         return computadora.mostrarOpcionesSeleccionadas();

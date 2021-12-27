@@ -4,6 +4,5 @@ public interface EstadoJuegoInterfaz {
     EstadoJuegoInterfaz cambiarA(EstadoJuegoInterfaz estado);
 
 
-
-
+    public String devolverComoString();
 }

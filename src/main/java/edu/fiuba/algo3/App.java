@@ -11,7 +11,6 @@ import edu.fiuba.algo3.gui.scenes.EdificioScene;
 import edu.fiuba.algo3.gui.scenes.PerdisteScene;
 import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.EstadoPerdido;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -56,14 +55,7 @@ public class App extends Application {
         EdificioLayout viajeLayout = new EdificioLayout(window, this, algoThief, ubicacionArchivo, algoThief.entrarAAeropuerto());
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
-
         chequearEstadoJuegoPerdido();
-
-
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
-        }
-
     }
 
     public void abrirEscenaEdificioBanco(String ubicacionArchivo){
@@ -71,13 +63,7 @@ public class App extends Application {
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
 
-
         chequearEstadoJuegoPerdido();
-
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
-        }
-
     }
 
     public void abrirEscenaEdificioBiblioteca(String ubicacionArchivo){
@@ -85,13 +71,7 @@ public class App extends Application {
         EdificioScene viajeScene = new EdificioScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
 
-
         chequearEstadoJuegoPerdido();
-
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
-        }
-
     }
 
 
@@ -106,13 +86,7 @@ public class App extends Application {
         ViajeScene viajeScene = new ViajeScene(window, viajeLayout, algoThief);
         window.setScene(viajeScene);
         algoThief.viajar(algoThief.verOpcionesDeViaje().get(indice));
-
         chequearEstadoJuegoPerdido();
-
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
-        }
-
     }
 
 
@@ -195,7 +169,7 @@ public class App extends Application {
     }
 
     public void chequearEstadoJuegoPerdido(){
-        if(algoThief.estadoJuego instanceof EstadoPerdido){ //arreglar esto!!!!
+        if(algoThief.estadoJuego.devolverComoString().equals("perdido")){
             abrirEscenaPerdiste();
         }
     }

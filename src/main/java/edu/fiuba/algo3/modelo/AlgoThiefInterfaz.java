@@ -23,5 +23,5 @@ public interface AlgoThiefInterfaz {
 
     public void realizarArresto();
 
-
+    String estadoJuegoComoString();
 }
