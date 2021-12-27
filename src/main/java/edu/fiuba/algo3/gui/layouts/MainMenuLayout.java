@@ -41,7 +41,7 @@ public class MainMenuLayout extends VBox {
 
         TextField nombreUsuario = new TextField();
         nombreUsuario.setMaxWidth(100);
-        nombreUsuario.setPromptText("Ingrese un nombre");
+        nombreUsuario.setPromptText("Insert a name");
         // buttons
         Button buttonStart = new Button();
         buttonStart.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));

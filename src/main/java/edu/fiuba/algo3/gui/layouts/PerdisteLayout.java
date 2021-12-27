@@ -16,8 +16,8 @@ import java.awt.*;
 
 public class PerdisteLayout extends BorderPane {
     public PerdisteLayout(Stage window, App app, AlgoThief algoThief) {
-        Text texto = new Text("Perdiste");
-        Button botonReiniciar = new Button("Reiniciar Nivel");
+        Text texto = new Text("You lost!");
+        Button botonReiniciar = new Button("Restart level");
         texto.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
         BorderPane caja = new BorderPane();
         caja.setCenter(botonReiniciar);

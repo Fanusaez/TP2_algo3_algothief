@@ -45,7 +45,7 @@ public class StartGameLayout extends BorderPane {
             textodeoracion.setVisible(false);
             textodeoracion.setWrappingWidth(490);
         }
-        Text clickParaContinuar =new Text("Click para saltar la presentacion");
+        Text clickParaContinuar =new Text("Click to skip the intro");
         clickParaContinuar.setFill(Color.GRAY);
         clickParaContinuar.setTranslateX(148);
         clickParaContinuar.setTranslateY(50);
@@ -54,7 +54,7 @@ public class StartGameLayout extends BorderPane {
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
-            int indice=0;
+            int indice = 0;
             @Override
             public void run() {
 

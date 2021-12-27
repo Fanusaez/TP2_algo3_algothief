@@ -28,18 +28,18 @@ public class SeleccionViajeBox {
         String ciudad2 = listaOpciones.get(1).obtenerDato("city");
         String ciudad3 = listaOpciones.get(2).obtenerDato("city");
 
-        Button botonViajar1 = new Button("Viajar a " + ciudad1);
+        Button botonViajar1 = new Button("Travel to " + ciudad1);
         botonViajar1.snapSpaceY(20);
         botonViajar1.setOnAction(e -> {
             app.viajarACiudad(0);
 
         });
-        Button botonViajar2 = new Button("Viajar a " + ciudad2);
+        Button botonViajar2 = new Button("Travel to " + ciudad2);
         botonViajar2.setOnAction(e -> {
             app.viajarACiudad(1);
 
         });
-        Button botonViajar3 = new Button("Viajar a " + ciudad3);
+        Button botonViajar3 = new Button("Travel to " + ciudad3);
         botonViajar3.setOnAction(e -> {
             app.viajarACiudad(2);
 

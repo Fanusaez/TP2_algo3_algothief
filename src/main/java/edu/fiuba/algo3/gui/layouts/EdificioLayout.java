@@ -39,7 +39,7 @@ public class EdificioLayout extends VBox {
         cajaInferior.setBackground(ImagenPortada.crearFondo("rsc/images/computadoraFondo.png"));
 
 
-        Button botonSalir= new Button("Volver");
+        Button botonSalir = new Button("return");
         botonSalir.setMinSize(40,40);
         botonSalir.setBackground(new Background(new BackgroundFill(Color.GRAY, CornerRadii.EMPTY, Insets.EMPTY)));
         botonSalir.setOnAction(e-> {
