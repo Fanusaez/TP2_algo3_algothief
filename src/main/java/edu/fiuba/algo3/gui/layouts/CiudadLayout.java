@@ -46,7 +46,7 @@ public class CiudadLayout extends BorderPane {
         //        "-fx-background-insets: 0, 0 1 1 0;");
         cajaGenerica.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, new Insets(5))));
         cajaGenerica.setMaxSize(300,140);
-        cajaGenerica.setVisible(true);
+        cajaGenerica.setVisible(false);
         ladoDerecho.setCenter(cajaGenerica);
 
         Label horaUbicacion = new Label(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());

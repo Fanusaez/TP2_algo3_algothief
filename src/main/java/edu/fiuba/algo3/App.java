@@ -20,6 +20,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -127,58 +129,87 @@ public class App extends Application {
     public ListView CrearListadoDeLaComputadora() {
 
         ArrayList<ArrayList<String>>listaDeCaracteristicas = algoThief.mostrarAtriutosDelincuenteSeleccionados();
+        BorderStroke borderStroke =
+                new BorderStroke(
+                        Color.BLACK,
+                        BorderStrokeStyle.SOLID,
+                        new CornerRadii(1),
+                        new BorderWidths(2)
+                );
+        Border border = new Border(borderStroke);
+        Font fuente = Font.font("OCR A Extended", FontWeight.EXTRA_BOLD, 12);
+        Background fondoTransparente = new Background(new BackgroundFill(Color.WHITESMOKE, CornerRadii.EMPTY, Insets.EMPTY));
+
         //Sex
         ArrayList<String> sex = listaDeCaracteristicas.get(0);
-        Button botonSiguienteSex = new Button("Next");
+        Button botonSiguienteSex = new Button("➜");
+        botonSiguienteSex.setBorder(border);
+        botonSiguienteSex.setFont(fuente);
+        botonSiguienteSex.setBackground(fondoTransparente);
         botonSiguienteSex.setOnAction(e->{
             algoThief.siguienteSex();
             abrirLaComputadora();
         });
         Text textosex = new Text(sex.get(0)+": " + sex.get(1));
+        textosex.setFont(fuente);
         BorderPane cajaHorizontalsex= new BorderPane();
         cajaHorizontalsex.setLeft(textosex);
         cajaHorizontalsex.setRight(botonSiguienteSex);
 
         //Hobby
         ArrayList<String> hobby = listaDeCaracteristicas.get(1);
-        Button botonSiguienteHobby = new Button("Next");
+        Button botonSiguienteHobby = new Button("➜");
+        botonSiguienteHobby.setBorder(border);
+        botonSiguienteHobby.setFont(fuente);
+        botonSiguienteHobby.setBackground(fondoTransparente);
         botonSiguienteHobby.setOnAction(e->{
             algoThief.siguienteHobby();
             abrirLaComputadora();
         });
         Text textohobby = new Text(hobby.get(0)+": " + hobby.get(1));
+        textohobby.setFont(fuente);
         BorderPane cajaHorizontalHobby= new BorderPane();
         cajaHorizontalHobby.setLeft(textohobby);
         cajaHorizontalHobby.setRight(botonSiguienteHobby);
 
         //Pelo
         ArrayList<String> pelo = listaDeCaracteristicas.get(2);
-        Button botonSiguientePelo = new Button("Next");
+        Button botonSiguientePelo = new Button("➜");
+        botonSiguientePelo.setBorder(border);
+        botonSiguientePelo.setFont(fuente);
+        botonSiguientePelo.setBackground(fondoTransparente);
         botonSiguientePelo.setOnAction(e->{
             algoThief.siguientePelo();
             abrirLaComputadora();
         });
-        Text textpelo = new Text(pelo.get(0)+": " + pelo.get(1));
+        Text textopelo = new Text(pelo.get(0)+": " + pelo.get(1));
+        textopelo.setFont(fuente);
         BorderPane cajaHorizontalPelo= new BorderPane();
-        cajaHorizontalPelo.setLeft(textpelo);
+        cajaHorizontalPelo.setLeft(textopelo);
         cajaHorizontalPelo.setRight(botonSiguientePelo);
 
         //feature
         ArrayList<String> feature = listaDeCaracteristicas.get(3);
-        Button botonSiguienteFeature = new Button("Next");
+        Button botonSiguienteFeature = new Button("➜");
+        botonSiguienteFeature.setBorder(border);
+        botonSiguienteFeature.setBackground(fondoTransparente);
         botonSiguienteFeature.setOnAction(e->{
             algoThief.siguienteFeature();
             abrirLaComputadora();
         });
         Text textfeature = new Text(feature.get(0)+": " + feature.get(1));
+        textfeature.setFont(fuente);
         BorderPane cajaHorizontalFeature= new BorderPane();
         cajaHorizontalFeature.setLeft(textfeature);
         cajaHorizontalFeature.setRight(botonSiguienteFeature);
 
         //auto
         ArrayList<String> auto = listaDeCaracteristicas.get(4);
-        Button botonSiguienteAuto= new Button("Next");
+        Button botonSiguienteAuto= new Button("➜");
+        botonSiguienteAuto.setBorder(border);
+        botonSiguienteAuto.setBackground(fondoTransparente);
         Text textauto = new Text(auto.get(0)+": " + auto.get(1));
+        textauto.setFont(fuente);
         botonSiguienteAuto.setOnAction(e->{
             algoThief.siguienteCar();
             abrirLaComputadora();
@@ -189,7 +220,6 @@ public class App extends Application {
         cajaHorizontalAuto.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
 
         ListView listadoView = new ListView();
-        listadoView.setMaxSize(300,300);
         listadoView.getItems().addAll(cajaHorizontalsex,cajaHorizontalHobby,cajaHorizontalPelo,cajaHorizontalFeature,cajaHorizontalAuto);
         return listadoView;
     }

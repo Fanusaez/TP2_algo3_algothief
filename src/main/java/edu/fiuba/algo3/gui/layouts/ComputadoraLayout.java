@@ -13,6 +13,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -26,36 +27,38 @@ public class ComputadoraLayout extends VBox {
     public ComputadoraLayout(Stage window, App app, AlgoThief algoThief) {
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/computadoraFondo.png"));
-
+        BorderStroke borderStroke =
+                new BorderStroke(
+                        Color.BLACK,
+                        BorderStrokeStyle.SOLID,
+                        new CornerRadii(1),
+                        new BorderWidths(4)
+                );
+        Border border = new Border(borderStroke);
 
         ListView list = app.CrearListadoDeLaComputadora();
         list.setBackground(new Background(new BackgroundFill(Color.WHITESMOKE, CornerRadii.EMPTY, Insets.EMPTY)));
         list.setTranslateY(30);
         list.setTranslateX(70);
-        list.setMaxSize(499,160);
-        list.setMinSize(499,160);
+        list.setMaxSize(499,170);
+        list.setMinSize(499,170);
 
 
-        VBox cajaParaResultados= new VBox();
+        ListView cajaParaResultados= new ListView();
         cajaParaResultados.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
         Text textoSospechosos=new Text();
-        textoSospechosos.setFont(Font.font("Verdana", FontPosture.REGULAR, 20));
-        cajaParaResultados.getChildren().addAll(textoSospechosos);
+        textoSospechosos.setFont(Font.font("OCR A Extended", FontPosture.REGULAR, 18));
+        cajaParaResultados.getItems().addAll(textoSospechosos);
         cajaParaResultados.setTranslateX(70);
         cajaParaResultados.setTranslateY(30);
-        cajaParaResultados.setMinSize(499,143);
-        cajaParaResultados.setMaxSize(499,143);
-
-
+        cajaParaResultados.setMaxSize(499, 130);
 
         VBox cajaParaLista = new VBox();
         cajaParaLista.getChildren().addAll(list);
 
         Button botonSalir= new Button("Back");
-        botonSalir.setMinSize(20,20);
-        botonSalir.setTranslateY(0);
-        botonSalir.setTranslateX(0);
-        botonSalir.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
+        botonSalir.setFont(Font.font("OCR A Extended", FontWeight.EXTRA_BOLD, 20));
+        botonSalir.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
         botonSalir.setOnAction(e-> {
             CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
             CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
@@ -63,7 +66,8 @@ public class ComputadoraLayout extends VBox {
         });
 
         Button botonComputar= new Button("Compute");
-
+        botonComputar.setFont(Font.font("OCR A Extended", FontWeight.EXTRA_BOLD, 20));
+        botonComputar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
         botonComputar.setOnAction(e->{
             AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/busquedaComputadora.mp3").toUri().toString());
             audioClip.play();
@@ -74,7 +78,7 @@ public class ComputadoraLayout extends VBox {
             if(algoThief.filtrarSospechosos().size()==1){
                 sospechosos="An arrest warrant has been generated for:";}
 
-            sospechosos+=algoThief.filtrarSospechosos().stream().collect(Collectors.joining(", "));
+            sospechosos+=algoThief.filtrarSospechosos().stream().collect(Collectors.joining(" - "));
             sospechosos+=".";
             textoSospechosos.setText(sospechosos);
             textoSospechosos.setWrappingWidth(490);
