@@ -9,14 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.*;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -51,7 +49,7 @@ public class ComputadoraLayout extends VBox {
         VBox cajaParaLista = new VBox();
         cajaParaLista.getChildren().addAll(list);
 
-        Button botonSalir= new Button("Back");
+        Button botonSalir= new Button("Volver");
         botonSalir.setMinSize(20,20);
         botonSalir.setTranslateY(0);
         botonSalir.setTranslateX(0);
@@ -62,24 +60,16 @@ public class ComputadoraLayout extends VBox {
             window.setScene(ciudadScene);
         });
 
-        Button botonComputar= new Button("Compute");
+        Button botonComputar= new Button("Computar");
 
         botonComputar.setOnAction(e->{
-            AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/busquedaComputadora.mp3").toUri().toString());
-            audioClip.play();
-            audioClip.setVolume(0.08);
-
-
-            sospechosos="The suspects are: ";
-            if(algoThief.filtrarSospechosos().size()==1){
-                sospechosos="An arrest warrant has been generated for:";}
-
+            sospechosos="Los sospechosos son: ";
             sospechosos+=algoThief.filtrarSospechosos().stream().collect(Collectors.joining(", "));
             sospechosos+=".";
             textoSospechosos.setText(sospechosos);
             textoSospechosos.setWrappingWidth(490);
             if(algoThief.filtrarSospechosos().isEmpty()){
-                textoSospechosos.setText("There's not suspects with those characteristics.");}
+                textoSospechosos.setText("No hay sospechosos con esas caracteristicas.");}
             });
 
 
