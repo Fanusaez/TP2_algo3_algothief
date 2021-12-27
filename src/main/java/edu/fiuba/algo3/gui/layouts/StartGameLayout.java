@@ -51,6 +51,7 @@ public class StartGameLayout extends BorderPane {
         //Esto se puede modularizar
         nombreUsuario.setOnAction(e->{
             nombreUsuario.setEditable(false);
+            nombreUsuario.setDisable(true);
             algoThief.ingresarUsuario(nombreUsuario.getText());
             String[] lista = algoThief.desplegarTextoInicial().split("\n");
             for (String oracion : lista){
