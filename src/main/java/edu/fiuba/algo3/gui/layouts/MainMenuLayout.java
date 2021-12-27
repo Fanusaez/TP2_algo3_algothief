@@ -39,26 +39,21 @@ public class MainMenuLayout extends VBox {
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
 
-        TextField nombreUsuario = new TextField();
-        nombreUsuario.setMaxWidth(100);
-        nombreUsuario.setPromptText("Insert a name");
+        //TextField nombreUsuario = new TextField();
+        //nombreUsuario.setMaxWidth(100);
+        //nombreUsuario.setPromptText("Insert a name");
         // buttons
         Button buttonStart = new Button();
         buttonStart.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));
         buttonStart.setGraphic(new ImagenParaBoton("rsc/images/play.png", 100, 100));
         buttonStart.setOnAction(e->{
-            algoThief.ingresarUsuario(nombreUsuario.getText());
+            //algoThief.ingresarUsuario(nombreUsuario.getText());
             StartGameLayout startGameLayout = new StartGameLayout(window,app, algoThief);
             StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
             window.setScene(startGameScene);
         });
 
-        //Button buttonExit = new Button("Exit");
-        //buttonExit.setOnAction(e->{
-        //    if(ConfirmBox.display("Are you sure?", "Exit?") == true)  window.close();
-        //});
-
-        HBox barraInicio = new HBox(5, nombreUsuario,buttonStart);
+        HBox barraInicio = new HBox(buttonStart);
         barraInicio.setAlignment(Pos.CENTER);
         barraInicio.setTranslateY(400);
         getChildren().addAll(barraInicio);
