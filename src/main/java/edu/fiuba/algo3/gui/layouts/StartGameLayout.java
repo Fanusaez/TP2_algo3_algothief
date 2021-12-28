@@ -96,7 +96,6 @@ public class StartGameLayout extends BorderPane {
 
         setOnMousePressed(e->{
             if (!nombreUsuario.getText().equals("")) {
-                System.out.println(nombreUsuario.getText());
                 audioClip.stop();
                 CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
                 CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);

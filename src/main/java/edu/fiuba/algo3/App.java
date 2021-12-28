@@ -1,23 +1,19 @@
 package edu.fiuba.algo3;
 
-import com.sun.jdi.event.ExceptionEvent;
 import edu.fiuba.algo3.gui.View;
 import edu.fiuba.algo3.gui.layouts.ComputadoraLayout;
 import edu.fiuba.algo3.gui.layouts.EdificioLayout;
-import edu.fiuba.algo3.gui.layouts.PerdisteLayout;
+import edu.fiuba.algo3.gui.layouts.FinDeJuegoLayout;
 import edu.fiuba.algo3.gui.layouts.ViajeLayout;
 import edu.fiuba.algo3.gui.scenes.ComputadoraScene;
 import edu.fiuba.algo3.gui.scenes.EdificioScene;
-import edu.fiuba.algo3.gui.scenes.PerdisteScene;
+import edu.fiuba.algo3.gui.scenes.FinDeJuegoScene;
 import edu.fiuba.algo3.gui.scenes.ViajeScene;
 import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.EstadoPerdido;
+import edu.fiuba.algo3.modelo.EstadoJugando;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.control.ListView;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -26,11 +22,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class App extends Application {
     private Stage window;
@@ -62,8 +54,8 @@ public class App extends Application {
         chequearEstadoJuegoPerdido();
 
 
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
+        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+            abrirEscenaFinDeJuego();
         }
 
     }
@@ -76,8 +68,8 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
+        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+            abrirEscenaFinDeJuego();
         }
 
     }
@@ -90,17 +82,17 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
+        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+            abrirEscenaFinDeJuego();
         }
 
     }
 
 
-    public void abrirEscenaPerdiste(){
-        PerdisteLayout perdisteLayout = new PerdisteLayout(window, this, algoThief);
-        PerdisteScene perdisteScene = new PerdisteScene(window, perdisteLayout, algoThief);
-        window.setScene(perdisteScene);
+    public void abrirEscenaFinDeJuego(){
+        FinDeJuegoLayout finDeJuegoLayout = new FinDeJuegoLayout(window, this, algoThief);
+        FinDeJuegoScene finDeJuegoScene = new FinDeJuegoScene(window, finDeJuegoLayout, algoThief);
+        window.setScene(finDeJuegoScene);
     }
 
     public void viajarACiudad(int indice) {
@@ -111,8 +103,8 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(algoThief.estadoJuego instanceof EstadoPerdido){
-            abrirEscenaPerdiste();
+        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+            abrirEscenaFinDeJuego();
         }
 
     }
@@ -225,8 +217,8 @@ public class App extends Application {
     }
 
     public void chequearEstadoJuegoPerdido(){
-        if(algoThief.estadoJuego instanceof EstadoPerdido){ //arreglar esto!!!!
-            abrirEscenaPerdiste();
+        if(!(algoThief.estadoJuego instanceof EstadoJugando)){ //arreglar esto!!!!
+            abrirEscenaFinDeJuego();
         }
     }
 }
