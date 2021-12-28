@@ -120,16 +120,14 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return computadora.siguienteHobby();
     }
 
-    public void realizarArresto(){
-        computadora.realizarArresto();
-    }
+
 
     public void actualizarEstadoDeJuego(){
         estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
-        estadoJuego = estadoJuego.cambiarA(realizarArresto(computadora));
+        estadoJuego = estadoJuego.cambiarA(realizarArresto());
     }
 
-    public EstadoJuegoInterfaz realizarArresto(Computadora computadora) {
+    public EstadoJuegoInterfaz realizarArresto() {
         return policia.modificarEstadoDeJuego(computadora);
     }
 
