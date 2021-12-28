@@ -23,7 +23,7 @@ jobs:
       - name: Start services
         run: scripts/start_services.sh
       - name: Package
-        run: docker-compose -f docker/docker-compose.yaml exec -T app bash scripts/package.sh
+        run: docker-compose -f -x docker/docker-compose.yaml exec -T app bash scripts/package.sh
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
