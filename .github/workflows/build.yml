@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Start services
-        run: scripts/start_services.sh
+        run:  chmod +x scripts/start_services.sh
       - name: Package
         run: docker-compose -f docker/docker-compose.yaml exec -T app bash scripts/package.sh
       - name: Release
