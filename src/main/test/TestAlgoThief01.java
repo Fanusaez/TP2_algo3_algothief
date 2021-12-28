@@ -1,5 +1,6 @@
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.modelo.EstadoJugando;
 import edu.fiuba.algo3.modelo.ciudad.Ciudad;
 import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
 import org.junit.Test;
@@ -26,18 +27,18 @@ public class TestAlgoThief01 {
     public void Test02EntrarAEdificioDosVecesAumentaHorarioTresHoras() {
         AlgoThief algoThief = new AlgoThief(directorioCiudades, directorioDelincuentes);
         algoThief.entrarABanco();
-        algoThief.entrarABanco();
+        algoThief.entrarAAeropuerto();
 
 
         assertEquals("Monday 10:00", algoThief.obtenerHorario());
     }
 
     @Test
-    public void Test03EntrarAEdificioDosVecesAumentaHorarioSeisHoras() {
+    public void Test03EntrarAEdificioTresVecesAumentaHorarioSeisHoras() {
         AlgoThief algoThief = new AlgoThief(directorioCiudades, directorioDelincuentes);
         algoThief.entrarABanco();
-        algoThief.entrarABanco();
-        algoThief.entrarABanco();
+        algoThief.entrarAAeropuerto();
+        algoThief.entrarABiblioteca();
         assertEquals("Monday 13:00", algoThief.obtenerHorario());
     }
 
@@ -153,7 +154,12 @@ public class TestAlgoThief01 {
         algoThief.filtrarSospechosos();
         assertEquals("Monday 08:00",algoThief.obtenerHorario());
     }
-
+    @Test
+    public void PruebaFiltrarSospechososSinElegirOpcionesNoModificaEstadoDeJuego() {
+        AlgoThief algoThief = new AlgoThief(directorioCiudades, directorioDelincuentes);
+        algoThief.filtrarSospechosos();
+        assertTrue(algoThief.getEstadoDeJuego() instanceof  EstadoJugando);
+    }
 
 
 }
