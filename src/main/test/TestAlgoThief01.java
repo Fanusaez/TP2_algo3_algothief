@@ -147,5 +147,13 @@ public class TestAlgoThief01 {
 
         String pista = algoThief.entrarABanco();
     }
+    @Test
+    public void PruebaFiltrarSospechososAvanza1Hora() {
+        AlgoThief algoThief = new AlgoThief(directorioCiudades, directorioDelincuentes);
+        algoThief.filtrarSospechosos();
+        assertEquals("Monday 08:00",algoThief.obtenerHorario());
+    }
+
+
 
 }
