@@ -120,8 +120,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return computadora.siguienteHobby();
     }
 
-
-
     public void actualizarEstadoDeJuego(){
         estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
         estadoJuego = estadoJuego.cambiarA(realizarArresto());
