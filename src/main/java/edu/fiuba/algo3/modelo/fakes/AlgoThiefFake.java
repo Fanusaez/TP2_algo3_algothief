@@ -95,9 +95,10 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return estadoJuego.devolverComoString();
     }
 
-    public void realizarArresto(){
-        estadoJuego =computadora.realizarArresto();
+    public EstadoJuegoInterfaz realizarArresto() {
+        return policia.modificarEstadoDeJuego(computadora);
     }
+
     public String obtenerInformacionCiudad(){
         return policia.obtenerInformacionCiudad();
     }

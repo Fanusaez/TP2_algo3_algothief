@@ -22,9 +22,7 @@ public class Policia {
         this.brujula = new Brujula();
     }
 
-    public String entrarABanco() {
-        return this.ciudadActual.entrarABanco();}
-
+    public String entrarABanco() {return this.ciudadActual.entrarABanco();}
     public String entrarAAeropuerto() {
         return this.ciudadActual.entrarAAeropuerto();
     }

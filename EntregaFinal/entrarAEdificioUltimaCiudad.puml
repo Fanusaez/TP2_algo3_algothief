@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+title : Policia entra a edificio ultima ciudad delincuente
+
+Actor -> "algoThief: AlgoThief" : entrarBanco()
+"algoThief: AlgoThief" -> "policia : Policia" : getDemoraTiempoVisitarBanco()
+"policia : Policia" --> "algoThief: AlgoThief" : demoraTotal = 3
+"algoThief: AlgoThief" -> "reloj : Reloj" : aumentarHoras( 3 )
+"algoThief: AlgoThief" -> "policia : Policia" : entrarABanco()
+"policia : Policia" -> "ciudadActual : Ciudad" : entrarABanco()
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : entrarAEdificio(banco : Banco)
+"estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : "Estas cerca de atraparlo, ten cuidado"
+"ciudadActual : Ciudad" --> "policia : Policia" : Estas cerca de atraparlo, ten cuidado
+"policia : Policia" --> "algoThief: AlgoThief" : Estas cerca de atraparlo, ten cuidado
+"algoThief: AlgoThief" --> Actor :"Estas cerca de atraparlo, ten cuidado"
+@enduml

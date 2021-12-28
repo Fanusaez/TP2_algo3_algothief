@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+title : Policia intenta atrapar al ladron en la ultima ciudadad del delincuente y cambia su estado de juego
+Actor -> "algoThief: AlgoThief" : entrarBanco()
+"algoThief: AlgoThief" -> "policia : Policia" : getDemoraTiempoVisitarBanco()
+note top : Existe otro diagrama que explica este paso.
+"policia : Policia" --> "algoThief: AlgoThief" : demoraTotal = 3
+"algoThief: AlgoThief" -> "reloj : Reloj" : aumentarHoras( 3 )
+"algoThief: AlgoThief" -> "policia : Policia" : entrarABanco()
+note top : Existe otro diagrama que explica este paso.
+"policia : Policia" --> "algoThief: AlgoThief" : estas cerca de atraparlo ten cuidado
+"algoThief: AlgoThief" -> "algoThief: AlgoThief" : actualizarEstadoDeJuego()
+"algoThief: AlgoThief" -> "algoThief: AlgoThief" : realizarArresto()
+"algoThief: AlgoThief" -> "policia : Policia" : modificarEstadoDeJuego(c : Computadora)
+"policia : Policia" -> "ciudadActual : Ciudad" : modificarEstadoDeJuego(c : Computadora)
+"ciudadActual : Ciudad" -> "estadoPeligroso : EstadoCiudad" : modificarEstadoDeJuego(c : Computadora)
+"estadoPeligroso : EstadoCiudad" -> "computadora : Computadora" : realizarArresto()
+"computadora : Computadora" ->  "orden : OrdenDeArresto" : realizarArresto(nombreDelincuente : String)
+"orden : OrdenDeArresto" --> "computadora : Computadora" : estadoDeJuegoGanado
+"computadora : Computadora" --> "estadoPeligroso : EstadoCiudad" : estadoDeJuegoGanado
+"estadoPeligroso : EstadoCiudad" --> "ciudadActual : Ciudad" : estadoDeJuegoGanado
+"ciudadActual : Ciudad" --> "policia : Policia" : estadoDeJuegoGanado
+"policia : Policia" --> "algoThief: AlgoThief" : estadoDeJuegoGanado
+"algoThief: AlgoThief" --> Actor : estas cerca de atraparlo ten cuidado
+
+@enduml

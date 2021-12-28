@@ -14,14 +14,14 @@ public interface AlgoThiefInterfaz {
 
     //public String entrarAEdificio(int indice) ;
 
-    public EstadoJuegoInterfaz realizarArresto(Computadora computadora);
+    public EstadoJuegoInterfaz realizarArresto();
 
     public ArrayList<Ciudad> verOpcionesDeViaje();
 
     public void viajar(Ciudad destinoSeleccionado);
 
 
-    public void realizarArresto();
+
 
     String estadoJuegoComoString();
 }

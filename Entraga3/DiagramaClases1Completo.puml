@@ -213,6 +213,7 @@ AlgoThief --> Mapa
 AlgoThief --> Reloj
 AlgoThief --> Delincuente
 AlgoThief --> EstadoDeJuego
+AlgoThief --> DificultadJuego
 Delincuente --> Arma
 Mapa --> Ciudad
 Ciudad --> EstadoCiudad
@@ -237,6 +238,10 @@ Pistola ..|> Arma
 EstadoJugando ..|> EstadoDeJuego
 EstadoPerdido ..|> EstadoDeJuego
 EstadoCiudad ...> Computadora
+DificultadDetective ..|> DificultadJuego
+DificultadNovato ..|> DificultadJuego
+DificultadSargento ..|> DificultadJuego
+DificultadInvestigador ..|> DificultadJuego
 
 
 @enduml
