@@ -118,7 +118,7 @@ public class App extends Application {
         chequearEstadoJuegoPerdido();
     }
 
-    public ListView CrearListadoDeLaComputadora() {
+    public ListView CrearListadoDeLaComputadora() { //se podria crear una clase a parte
 
 
         BorderStroke borderStroke =

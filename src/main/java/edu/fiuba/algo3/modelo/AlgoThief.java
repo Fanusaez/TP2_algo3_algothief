@@ -104,21 +104,11 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.ciudadActual();
     }
 
-    public ArrayList<String> siguientePelo(){
-        return computadora.siguientePelo();
-    }
-    public ArrayList<String> siguienteSex(){
-        return computadora.siguienteSex();
-    }
-    public ArrayList<String> siguienteCar(){
-        return computadora.siguienteCar();
-    }
-    public ArrayList<String> siguienteFeature(){
-        return computadora.siguienteFeature();
-    }
-    public ArrayList<String> siguienteHobby(){
-        return computadora.siguienteHobby();
-    }
+    public void siguientePelo(){computadora.siguientePelo();}
+    public void siguienteSex(){computadora.siguienteSex();}
+    public void siguienteCar(){computadora.siguienteCar();}
+    public void siguienteFeature(){computadora.siguienteFeature();}
+    public void siguienteHobby(){computadora.siguienteHobby();}
 
     public void actualizarEstadoDeJuego(){
         estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
@@ -132,11 +122,6 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.modificarEstadoDeJuego(computadora);
     }
 
-
-
-    public ArrayList<String> mostrarAtriutosDelincuenteSeleccionados(){
-        return computadora.mostrarOpcionesSeleccionadas();
-    }
 
     public ArrayList<String> filtrarSospechosos(){
         reloj.aumentarHoras(1);

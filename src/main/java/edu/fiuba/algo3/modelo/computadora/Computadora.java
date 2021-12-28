@@ -29,34 +29,33 @@ public class Computadora {
         return caracteristicasGenerales.get(1).get(0);
     }
 
-    public ArrayList<String> siguientePelo(){
+    public void siguientePelo(){
         ArrayList<String> aux = caracteristicasGenerales.get(3);
         aux.add(aux.remove(0));
-        return mostrarOpcionesSeleccionadas();
     }
 
-    public ArrayList<String> siguienteSex(){
+    public void siguienteSex(){
         ArrayList<String> aux = caracteristicasGenerales.get(1);
         aux.add(aux.remove(0));
-        return mostrarOpcionesSeleccionadas();
+
     }
 
-    public ArrayList<String> siguienteCar(){
+    public void siguienteCar(){
         ArrayList<String> aux = caracteristicasGenerales.get(5);
         aux.add(aux.remove(0));
-        return mostrarOpcionesSeleccionadas();
+
     }
 
-    public ArrayList<String> siguienteFeature(){
+    public void siguienteFeature(){
         ArrayList<String> aux = caracteristicasGenerales.get(4);
         aux.add(aux.remove(0));
-        return mostrarOpcionesSeleccionadas();
+
     }
 
-    public ArrayList<String> siguienteHobby(){
+    public void siguienteHobby(){
         ArrayList<String> aux = caracteristicasGenerales.get(2);
         aux.add(aux.remove(0));
-        return mostrarOpcionesSeleccionadas();
+
     }
 
 

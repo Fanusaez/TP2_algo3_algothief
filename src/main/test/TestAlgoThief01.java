@@ -161,5 +161,20 @@ public class TestAlgoThief01 {
         assertTrue(algoThief.getEstadoDeJuego() instanceof  EstadoJugando);
     }
 
+    @Test
+    public void PruebaObtenerCiudadDevuelveElNombreDeLaCiudad() {
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        Ciudad ciudad = new Ciudad();
+        ciudad.agregarDato("City","Buenos Aires");
+        algoThief.setearCiudad(ciudad);
+        assertEquals("Buenos Aires",algoThief.ciudadActual());
+    }
+
+
+    @Test
+    public void PruebaObtenerInformacionCiudad() {
+        AlgoThief algoThief = new AlgoThief(directorioCiudades, directorioDelincuentes);
+        assertTrue(algoThief.obtenerInformacionCiudad() instanceof String);
+    }
 
 }
