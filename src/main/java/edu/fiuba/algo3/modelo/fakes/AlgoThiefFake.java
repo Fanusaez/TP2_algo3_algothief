@@ -44,7 +44,7 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
 
         String nombreCiudadDelRobo = ciudadIncial.obtenerDato("City");
         String tesoroRobado = ciudadIncial.obtenerDato("Treasure");
-        String sexoDelincuente = delincuente.obtenerDato("Sex");
+        String sexoDelincuente = delincuente.getNombre();
         String pronombre;
         String adjetivo;
         if (sexoDelincuente.equals("Male")){

@@ -8,14 +8,16 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Delincuente{
-    private HashMap<String,String> hashDeAtributos;
+    private HashMap<String,String> hashDeAtributos;  //esto se va a tener que ir
+    private ArrayList<String> atributos;
     private Arma arma;
     private int largoRecorrido;
+    //aca iria un enum con los indices de cada atributo
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
         this.arma = new Cuchillo();
-
+        this.atributos = new ArrayList<String>();
     }
 
     public static  Delincuente crearDelincuenteParaNovato(){
@@ -53,25 +55,8 @@ public class Delincuente{
         this.arma=arma;
     }
 
-    public void agregarDato(String clave,String valor) {
+    public void agregarDato(String clave,String valor) {    //este se va a tener que borrar porque ya se usa el agregardato2
         this.hashDeAtributos.put(clave,valor);
-    }
-
-    public String obtenerDato(String clave){
-        String claveCorregida;
-        if (clave.length() >= 2 ) {
-            claveCorregida = clave.substring(0, 1).toUpperCase() + clave.substring(1);
-        }
-        else{
-            claveCorregida=clave.toUpperCase();
-        }
-
-        String dato = this.hashDeAtributos.get(claveCorregida);
-
-        if (dato == null){
-            throw new ExceptionDatoNoExistente();
-        }
-        return dato;
     }
 
     public String generarPista() {
@@ -79,7 +64,7 @@ public class Delincuente{
         ArrayList<String> atributosLista = new ArrayList<String>();
         int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
 
-        atributosLista.add("Thief  was " + hashDeAtributos.get("Hair") + " haired");
+        atributosLista.add("Thief  was " + atributosLista.get(2) + " haired");   //arreglar aca
         atributosLista.add("Thief's sex is " + hashDeAtributos.get("Sex"));
         atributosLista.add("run away with a " + hashDeAtributos.get("Auto"));
         atributosLista.add("The thief has a " + hashDeAtributos.get("Feature"));
@@ -97,13 +82,11 @@ public class Delincuente{
         return this.arma.atacar();
     }
 
-    public boolean cumpleLasCaracteristicas(ArrayList<ArrayList<String>> listaCaracteristicas) {
 
-        for (ArrayList<String> claveYValorCaracteristica: listaCaracteristicas){
-            String clave = claveYValorCaracteristica.get(0);
-            String valor = claveYValorCaracteristica.get(1);
-            if(valor == "???"){continue;}
-            if(!obtenerDato(clave).equals(valor)){
+    public boolean cumpleLasCaracteristicas2(ArrayList<String> listaCaracteristicas) {
+        for (String valor: listaCaracteristicas){
+            if(valor == ""){continue;}
+            if(!atributos.contains(valor)){
                 return false;
             }
         }
@@ -111,6 +94,14 @@ public class Delincuente{
     }
 
     public String getNombre() {
-        return hashDeAtributos.get("Name");
+        return atributos.get(0);
+    }
+
+    public void agregarDato2(String dato) {
+        atributos.add(dato);
+    }
+
+    public String getSexo() {
+        return  atributos.get(1);
     }
 }

@@ -117,7 +117,7 @@ public class TestAlgoThief01 {
         Ciudad ciudad = algoThief.obtenerCiudad("Port Moresby");
         algoThief.setearCiudadInicial(ciudad);
         Delincuente delincuente = new Delincuente();
-        delincuente.agregarDato("Sex", "Female");
+        delincuente.agregarDato2("Female");
         ciudad.agregarDato("Treasure", "ancient tribal totem");
         algoThief.setearDelincuente(delincuente);
 

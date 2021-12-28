@@ -54,7 +54,7 @@ public class App extends Application {
         chequearEstadoJuegoPerdido();
 
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -68,7 +68,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -82,7 +82,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -103,7 +103,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -120,7 +120,7 @@ public class App extends Application {
 
     public ListView CrearListadoDeLaComputadora() {
 
-        ArrayList<ArrayList<String>>listaDeCaracteristicas = algoThief.mostrarAtriutosDelincuenteSeleccionados();
+
         BorderStroke borderStroke =
                 new BorderStroke(
                         Color.BLACK,
@@ -133,7 +133,6 @@ public class App extends Application {
         Background fondoTransparente = new Background(new BackgroundFill(Color.WHITESMOKE, CornerRadii.EMPTY, Insets.EMPTY));
 
         //Sex
-        ArrayList<String> sex = listaDeCaracteristicas.get(0);
         Button botonSiguienteSex = new Button("➜");
         botonSiguienteSex.setBorder(border);
         botonSiguienteSex.setFont(fuente);
@@ -142,14 +141,13 @@ public class App extends Application {
             algoThief.siguienteSex();
             abrirLaComputadora();
         });
-        Text textosex = new Text(sex.get(0)+": " + sex.get(1));
+        Text textosex = new Text("Sex" + " : " + algoThief.getSexoSeleccionado());
         textosex.setFont(fuente);
         BorderPane cajaHorizontalsex= new BorderPane();
         cajaHorizontalsex.setLeft(textosex);
         cajaHorizontalsex.setRight(botonSiguienteSex);
 
         //Hobby
-        ArrayList<String> hobby = listaDeCaracteristicas.get(1);
         Button botonSiguienteHobby = new Button("➜");
         botonSiguienteHobby.setBorder(border);
         botonSiguienteHobby.setFont(fuente);
@@ -158,14 +156,13 @@ public class App extends Application {
             algoThief.siguienteHobby();
             abrirLaComputadora();
         });
-        Text textohobby = new Text(hobby.get(0)+": " + hobby.get(1));
+        Text textohobby = new Text("Hobby"+" : " + algoThief.getHobbySeleccionado());
         textohobby.setFont(fuente);
         BorderPane cajaHorizontalHobby= new BorderPane();
         cajaHorizontalHobby.setLeft(textohobby);
         cajaHorizontalHobby.setRight(botonSiguienteHobby);
 
         //Pelo
-        ArrayList<String> pelo = listaDeCaracteristicas.get(2);
         Button botonSiguientePelo = new Button("➜");
         botonSiguientePelo.setBorder(border);
         botonSiguientePelo.setFont(fuente);
@@ -174,14 +171,13 @@ public class App extends Application {
             algoThief.siguientePelo();
             abrirLaComputadora();
         });
-        Text textopelo = new Text(pelo.get(0)+": " + pelo.get(1));
+        Text textopelo = new Text("Hair" + " : " + algoThief.getHairSeleccionado());
         textopelo.setFont(fuente);
         BorderPane cajaHorizontalPelo= new BorderPane();
         cajaHorizontalPelo.setLeft(textopelo);
         cajaHorizontalPelo.setRight(botonSiguientePelo);
 
         //feature
-        ArrayList<String> feature = listaDeCaracteristicas.get(3);
         Button botonSiguienteFeature = new Button("➜");
         botonSiguienteFeature.setBorder(border);
         botonSiguienteFeature.setBackground(fondoTransparente);
@@ -189,18 +185,17 @@ public class App extends Application {
             algoThief.siguienteFeature();
             abrirLaComputadora();
         });
-        Text textfeature = new Text(feature.get(0)+": " + feature.get(1));
+        Text textfeature = new Text("Feature" + " : " + algoThief.getFeatureSeleccionado());
         textfeature.setFont(fuente);
         BorderPane cajaHorizontalFeature= new BorderPane();
         cajaHorizontalFeature.setLeft(textfeature);
         cajaHorizontalFeature.setRight(botonSiguienteFeature);
 
         //auto
-        ArrayList<String> auto = listaDeCaracteristicas.get(4);
         Button botonSiguienteAuto= new Button("➜");
         botonSiguienteAuto.setBorder(border);
         botonSiguienteAuto.setBackground(fondoTransparente);
-        Text textauto = new Text(auto.get(0)+": " + auto.get(1));
+        Text textauto = new Text("Vehicule" + " : " + algoThief.getCarSeleccionado());
         textauto.setFont(fuente);
         botonSiguienteAuto.setOnAction(e->{
             algoThief.siguienteCar();
@@ -217,7 +212,7 @@ public class App extends Application {
     }
 
     public void chequearEstadoJuegoPerdido(){
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){ //arreglar esto!!!!
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){ //arreglar esto!!!!
             abrirEscenaFinDeJuego();
         }
     }

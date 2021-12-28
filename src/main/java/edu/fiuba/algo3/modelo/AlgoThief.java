@@ -42,7 +42,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         Ciudad ciudadDelRobo = mapa.obtenerCiudadInicial();
         String nombreCiudadDelRobo = ciudadDelRobo.obtenerDato("City");
         String tesoroRobado = ciudadDelRobo.obtenerDato("Treasure");
-        String sexoDelincuente = delincuente.obtenerDato("Sex");
+        String sexoDelincuente = delincuente.getSexo();
         String pronombre;
         String adjetivo;
         if (sexoDelincuente.equals("Male")){
@@ -104,19 +104,19 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.ciudadActual();
     }
 
-    public ArrayList<ArrayList<String>> siguientePelo(){
+    public ArrayList<String> siguientePelo(){
         return computadora.siguientePelo();
     }
-    public ArrayList<ArrayList<String>> siguienteSex(){
+    public ArrayList<String> siguienteSex(){
         return computadora.siguienteSex();
     }
-    public ArrayList<ArrayList<String>> siguienteCar(){
+    public ArrayList<String> siguienteCar(){
         return computadora.siguienteCar();
     }
-    public ArrayList<ArrayList<String>> siguienteFeature(){
+    public ArrayList<String> siguienteFeature(){
         return computadora.siguienteFeature();
     }
-    public ArrayList<ArrayList<String>> siguienteHobby(){
+    public ArrayList<String> siguienteHobby(){
         return computadora.siguienteHobby();
     }
 
@@ -125,6 +125,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public void actualizarEstadoDeJuego(){
         estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
         estadoJuego = estadoJuego.cambiarA(realizarArresto());
+    }
+    public EstadoJuegoInterfaz getEstadoDeJuego(){
+        return estadoJuego;
     }
 
     public EstadoJuegoInterfaz realizarArresto() {
@@ -135,7 +138,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return estadoJuego.devolverComoString();
     }
 
-    public ArrayList<ArrayList<String>> mostrarAtriutosDelincuenteSeleccionados(){
+    public ArrayList<String> mostrarAtriutosDelincuenteSeleccionados(){
         return computadora.mostrarOpcionesSeleccionadas();
     }
 
@@ -143,5 +146,25 @@ public class AlgoThief implements AlgoThiefInterfaz{
         reloj.aumentarHoras(5);
         actualizarEstadoDeJuego();
         return computadora.filtrar();
+    }
+
+    public String getSexoSeleccionado() {
+        return computadora.getSexoSeleccionado();
+    }
+
+    public String getHobbySeleccionado() {
+        return computadora.getHobbySeleccionado();
+    }
+
+    public String getHairSeleccionado() {
+        return computadora.getHairSeleccionado();
+    }
+
+    public String getFeatureSeleccionado() {
+        return computadora.getFeatureSeleccionado();
+    }
+
+    public String getCarSeleccionado() {
+        return computadora.getCarSeleccionado();
     }
 }

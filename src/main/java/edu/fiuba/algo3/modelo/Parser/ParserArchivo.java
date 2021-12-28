@@ -12,9 +12,9 @@ import java.util.ArrayList;
 
 public class ParserArchivo {
 
-    public static ArrayList<Delincuente> parsearDelincuentes(String rutaArchivoDelincuentes, DificultadJuego dificultad){
+    public static ArrayList<Delincuente> parsearDelincuentes(String rutaArchivo, DificultadJuego dificultad, ArrayList<ArrayList<String>> caracteristicasGenerales){
         ArrayList<Delincuente> sospechosos = new ArrayList<Delincuente>();
-        String fileName = rutaArchivoDelincuentes;
+        String fileName = rutaArchivo;
 
         // This will reference one line at a time
         String line = null;
@@ -24,19 +24,24 @@ public class ParserArchivo {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             Delincuente delincuente = dificultad.crearDelincuente();
-
+            int contador = 0;
             while ((line = bufferedReader.readLine()) != null && !line.equals("")) {
                 if (line.equals("...............................................................................")) {
                     sospechosos.add(delincuente);
                     delincuente = dificultad.crearDelincuente();
                     //sospechosos.add(delincuente);
+                    contador = 0;
                     continue;
                 }
-
                 String[] lineaSpliteada = line.split(":");
                 String clave= lineaSpliteada[0];
                 String dato = lineaSpliteada[1].trim();
+                if (!caracteristicasGenerales.get(contador).contains(dato)){
+                    caracteristicasGenerales.get(contador).add(dato);
+                }
                 delincuente.agregarDato(clave, dato);
+                delincuente.agregarDato2(dato);
+                contador += 1;
             }
             bufferedReader.close();
         }

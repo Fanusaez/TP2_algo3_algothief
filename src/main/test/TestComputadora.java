@@ -49,18 +49,18 @@ public class TestComputadora {
         Computadora computadora = new Computadora(directorioDelincuentes, new DificultadNovato());
         computadora.siguienteSex();
         computadora.siguienteSex(); //female
-        computadora.siguienteHobby();
-        computadora.siguienteHobby();
         computadora.siguienteHobby(); //mountain climbing
+        computadora.siguientePelo();
+        computadora.siguientePelo();
+        computadora.siguientePelo();
         computadora.siguientePelo(); // brown
-        computadora.siguienteFeature();
-        computadora.siguienteFeature();
         computadora.siguienteFeature();
         computadora.siguienteFeature();
         computadora.siguienteFeature(); // jewerly
         computadora.siguienteCar();
+        computadora.siguienteCar();
         computadora.siguienteCar(); //limousine
-        ArrayList<String> nombresDeSospechosos = computadora.filtrar(); // filtro nulo aparecen todos los delincuentes
+        ArrayList<String> nombresDeSospechosos = computadora.filtrar();
         Assert.assertEquals("Merey Laroc",nombresDeSospechosos.get(0)); // ver "actual"
 
     }
