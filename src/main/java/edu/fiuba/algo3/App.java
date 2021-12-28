@@ -54,7 +54,7 @@ public class App extends Application {
         chequearEstadoJuegoPerdido();
 
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -68,7 +68,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -82,7 +82,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -103,7 +103,7 @@ public class App extends Application {
 
         chequearEstadoJuegoPerdido();
 
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
 
@@ -212,7 +212,7 @@ public class App extends Application {
     }
 
     public void chequearEstadoJuegoPerdido(){
-        if(!(algoThief.estadoJuego instanceof EstadoJugando)){ //arreglar esto!!!!
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){ //arreglar esto!!!!
             abrirEscenaFinDeJuego();
         }
     }
