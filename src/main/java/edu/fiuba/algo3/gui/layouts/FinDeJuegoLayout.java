@@ -31,5 +31,14 @@ public class FinDeJuegoLayout extends BorderPane {
         if(algoThief.estadoJuego instanceof EstadoPerdido){
             this.setBackground(ImagenPortada.crearFondo("rsc/images/perdiste.png"));
         }
+
+
+
+
+    setOnMousePressed(e->{
+        app.siguienteNivel();
+    });
+
     }
+
 }

@@ -72,4 +72,17 @@ public class Policia {
     public EstadoJuegoInterfaz modificarEstadoDeJuego(Computadora computadora) {
         return ciudadActual.modificarEstadoDeJuego(computadora);
     }
+
+    public Boolean categoriaGanada() {
+        return rango.categoriaGanada(cantidadArrestos);
+    }
+
+
+    public void reiniciarArrestos() {
+        cantidadArrestos=0;
+    }
+
+    public void setearCiudadIncial(Ciudad ciudad) {
+        ciudadActual=ciudad;
+    }
 }

@@ -14,5 +14,6 @@ public abstract class Rango {
 
     public abstract Rango ascender(int cantidadArrestos);
 
+    public abstract Boolean categoriaGanada(int cantidadArrestos);
 
 }
