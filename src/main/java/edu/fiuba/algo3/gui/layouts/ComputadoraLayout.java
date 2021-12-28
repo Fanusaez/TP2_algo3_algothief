@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class ComputadoraLayout extends VBox {
-    String sospechosos="";
+    String coincidentes ="";
 
     public ComputadoraLayout(Stage window, App app, AlgoThief algoThief) {
 
@@ -69,20 +69,21 @@ public class ComputadoraLayout extends VBox {
         botonComputar.setFont(Font.font("OCR A Extended", FontWeight.EXTRA_BOLD, 20));
         botonComputar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
         botonComputar.setOnAction(e->{
+            ArrayList<String> sospechosos = algoThief.filtrarSospechosos();
             AudioClip audioClip = new AudioClip(Paths.get("rsc/sounds/busquedaComputadora.mp3").toUri().toString());
             audioClip.play();
             audioClip.setVolume(0.08);
 
 
-            sospechosos="The suspects are: ";
-            if(algoThief.filtrarSospechosos().size()==1){
-                sospechosos="An arrest warrant has been generated for:";}
+            coincidentes ="The suspects are: ";
+            if(sospechosos.size() == 1){
+                coincidentes ="An arrest warrant has been generated for:";}
 
-            sospechosos+=algoThief.filtrarSospechosos().stream().collect(Collectors.joining(" - "));
-            sospechosos+=".";
-            textoSospechosos.setText(sospechosos);
+            coincidentes += sospechosos.stream().collect(Collectors.joining(" - "));
+            coincidentes += ".";
+            textoSospechosos.setText(coincidentes);
             textoSospechosos.setWrappingWidth(490);
-            if(algoThief.filtrarSospechosos().isEmpty()){
+            if(sospechosos.isEmpty()){
                 textoSospechosos.setText("There's not suspects with those characteristics.");}
             });
 

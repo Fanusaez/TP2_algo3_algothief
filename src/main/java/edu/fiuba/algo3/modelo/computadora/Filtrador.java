@@ -6,11 +6,11 @@ import java.util.ArrayList;
 
 public class Filtrador {
 
-    public ArrayList<String> filtrar(ArrayList<ArrayList<String>> listaCaracteristicas,ArrayList<Delincuente> listaSospechosos){
+    public static ArrayList<String> filtrar(ArrayList<String> listaCaracteristicas, ArrayList<Delincuente> listaSospechosos){
         ArrayList<String> listaDeCoincidintes = new ArrayList<String>();
         for(Delincuente sospechoso: listaSospechosos){
-            if (sospechoso.cumpleLasCaracteristicas(listaCaracteristicas)){
-                listaDeCoincidintes.add(sospechoso.obtenerDato("Name"));
+            if (sospechoso.cumpleLasCaracteristicas2(listaCaracteristicas)){
+                listaDeCoincidintes.add(sospechoso.getNombre());
             }
         }
         return listaDeCoincidintes;

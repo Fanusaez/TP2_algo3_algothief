@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.gui.layouts;
 
 import edu.fiuba.algo3.App;
+import edu.fiuba.algo3.gui.scenes.ImagenPortada;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.EstadoGanado;
 import edu.fiuba.algo3.modelo.EstadoPerdido;
@@ -24,8 +25,12 @@ import java.net.MalformedURLException;
 public class FinDeJuegoLayout extends BorderPane {
     public FinDeJuegoLayout(Stage window, App app, AlgoThief algoThief)  {
 
-        if(algoThief.estadoJuego instanceof EstadoGanado){setCenter(new Text("Ganaste"));}
-        if(algoThief.estadoJuego instanceof EstadoPerdido){setCenter(new Text("Perdiste"));}
+        if(algoThief.estadoJuego instanceof EstadoGanado){
+            this.setBackground(ImagenPortada.crearFondo("rsc/images/ganaste.png"));
+        }
+        if(algoThief.estadoJuego instanceof EstadoPerdido){
+            this.setBackground(ImagenPortada.crearFondo("rsc/images/perdiste.png"));
+        }
 
 
 

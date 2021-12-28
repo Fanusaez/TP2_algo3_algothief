@@ -9,13 +9,14 @@ import java.util.Random;
 
 public class Delincuente{
     private HashMap<String,String> hashDeAtributos;
+    private ArrayList<String> atributos;
     private Arma arma;
     private int largoRecorrido;
 
     public Delincuente() {
         this.hashDeAtributos= new HashMap<String,String>();
         this.arma = new Cuchillo();
-
+        this.atributos = new ArrayList<String>();
     }
 
     public static  Delincuente crearDelincuenteParaNovato(){
@@ -57,23 +58,6 @@ public class Delincuente{
         this.hashDeAtributos.put(clave,valor);
     }
 
-    public String obtenerDato(String clave){
-        String claveCorregida;
-        if (clave.length() >= 2 ) {
-            claveCorregida = clave.substring(0, 1).toUpperCase() + clave.substring(1);
-        }
-        else{
-            claveCorregida=clave.toUpperCase();
-        }
-
-        String dato = this.hashDeAtributos.get(claveCorregida);
-
-        if (dato == null){
-            throw new ExceptionDatoNoExistente();
-        }
-        return dato;
-    }
-
     public String generarPista() {
 
         ArrayList<String> atributosLista = new ArrayList<String>();
@@ -97,13 +81,11 @@ public class Delincuente{
         return this.arma.atacar();
     }
 
-    public boolean cumpleLasCaracteristicas(ArrayList<ArrayList<String>> listaCaracteristicas) {
 
-        for (ArrayList<String> claveYValorCaracteristica: listaCaracteristicas){
-            String clave = claveYValorCaracteristica.get(0);
-            String valor = claveYValorCaracteristica.get(1);
-            if(valor == "???"){continue;}
-            if(!obtenerDato(clave).equals(valor)){
+    public boolean cumpleLasCaracteristicas2(ArrayList<String> listaCaracteristicas) {
+        for (String valor: listaCaracteristicas){
+            if(valor == ""){continue;}
+            if(!atributos.contains(valor)){
                 return false;
             }
         }
@@ -111,6 +93,14 @@ public class Delincuente{
     }
 
     public String getNombre() {
-        return hashDeAtributos.get("Name");
+        return atributos.get(0);
+    }
+
+    public void agregarDato2(String dato) {
+        atributos.add(dato);
+    }
+
+    public String getSexo() {
+        return  atributos.get(1);
     }
 }
