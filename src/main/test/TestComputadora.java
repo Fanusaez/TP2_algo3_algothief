@@ -10,7 +10,7 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class TestComputadora {
 
-    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
+    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/Model/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
     public void testDevolverListadoSinFiltrosYDevuelveTodosLosDelincuentes() {
