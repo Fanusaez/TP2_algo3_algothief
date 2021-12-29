@@ -121,25 +121,14 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return reloj.obtenerHorario();
     }
 
-    public String estadoJuegoComoString(){
-        return estadoJuego.devolverComoString();
+    public String tiempoTranscurrido(){
+        return reloj.tiempoTranscurrido();
     }
 
     public EstadoJuegoInterfaz realizarArresto() {
         return policia.modificarEstadoDeJuego(computadora);
     }
 
-    public String obtenerInformacionCiudad(){
-        return policia.obtenerInformacionCiudad();
-    }
-    /*
-    public String entrarAEdificio(int indice) {
-        reloj.aumentarHoras(policia.getDemoraTiempoVisitar(indice));
-        String mensajeRetornado = policia.entrarAEdificio(indice);
-        actualizarEstadoDeJuego();
-        return mensajeRetornado;
-    }
-    */
     public String entrarABanco(){
         reloj.aumentarHoras(policia.getDemoraTiempoVisitarBanco());
         String mensajeRetornado = policia.entrarABanco();
@@ -167,9 +156,6 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         estadoJuego = reloj.tiempoAgotado();
         estadoJuego = estadoJuego.cambiarA(realizarArresto(computadora));
     }
-
-
-
 
     public ArrayList<Ciudad> verOpcionesDeViaje() {
         return policia.mostrarOpcionesViaje();

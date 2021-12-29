@@ -175,4 +175,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public String getCarSeleccionado() {
         return computadora.getCarSeleccionado();
     }
+
+    public String tiempoTranscurrido(){
+        return reloj.tiempoTranscurrido();
+    }
+
 }

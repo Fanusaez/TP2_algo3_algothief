@@ -19,7 +19,7 @@ public interface AlgoThiefInterfaz {
 
     public void viajar(Ciudad destinoSeleccionado);
 
-
+    String tiempoTranscurrido();
 
 
     //String estadoJuegoComoString();

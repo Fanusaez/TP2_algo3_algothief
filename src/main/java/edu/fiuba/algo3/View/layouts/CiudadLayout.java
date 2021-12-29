@@ -2,6 +2,7 @@ package edu.fiuba.algo3.View.layouts;
 
 import edu.fiuba.algo3.Controller.App;
 import edu.fiuba.algo3.View.BarraAcciones;
+import edu.fiuba.algo3.View.scenes.ImagenPortada;
 import edu.fiuba.algo3.View.scenes.SeleccionEdificiosBox;
 import edu.fiuba.algo3.View.scenes.SeleccionViajeBox;
 import edu.fiuba.algo3.Model.AlgoThief;
@@ -95,8 +96,10 @@ public class CiudadLayout extends BorderPane {
 
 
         VBox imagenCiudad = new VBox();
+        imagenCiudad.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
         imagenCiudad.setMinSize(300, 400);
-        imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
+        imagenCiudad.setMaxSize(300,400);
+        //imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
 
         ladoIzquierdo.setTop(horaUbicacion);
         ladoIzquierdo.setBottom(imagenCiudad);
