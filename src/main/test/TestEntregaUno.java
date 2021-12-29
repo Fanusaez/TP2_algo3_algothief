@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 public class TestEntregaUno {
-    private final String directorioCiudades = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Ciudades.txt";
-    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/modelo/ArchivosDeTexto/Delincuentes.txt";
+    private final String directorioCiudades = "src/main/java/edu/fiuba/algo3/Model/ArchivosDeTexto/Ciudades.txt";
+    private final String directorioDelincuentes = "src/main/java/edu/fiuba/algo3/Model/ArchivosDeTexto/Delincuentes.txt";
 
     @Test
     public void TestCasoUsoUnoRobaronElTesoroNacionaldeMontreal() {
