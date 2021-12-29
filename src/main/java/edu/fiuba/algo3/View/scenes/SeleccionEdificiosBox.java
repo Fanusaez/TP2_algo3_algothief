@@ -16,21 +16,21 @@ public class SeleccionEdificiosBox {
         botonEntrarABanco.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));
 
         botonEntrarABanco.setOnAction(e -> {
-            app.abrirEscenaEdificioBanco("rsc/images/bancofoto.jpg");
+            app.abrirEscenaEdificioBanco("rsc/images/banquero.png");
 
         });
         Button botonEntrarAAeropuerto = new Button();
         botonEntrarAAeropuerto.setGraphic(new ImagenParaBoton("rsc/images/aeropuerto.png", 80, 80));
         botonEntrarAAeropuerto.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));
         botonEntrarAAeropuerto.setOnAction(e -> {
-            app.abrirEscenaEdificioAeropuerto("rsc/images/aeropuerto.jpg");
+            app.abrirEscenaEdificioAeropuerto("rsc/images/azafata.png");
 
         });
         Button botonEntrarABiblioteca = new Button();
         botonEntrarABiblioteca.setGraphic(new ImagenParaBoton("rsc/images/libros.png", 80, 80));
         botonEntrarABiblioteca.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, new Insets(5))));
         botonEntrarABiblioteca.setOnAction(e -> {
-            app.abrirEscenaEdificioBiblioteca("rsc/images/biblioteca.jpg");
+            app.abrirEscenaEdificioBiblioteca("rsc/images/bibliotecaria.png");
 
         });
 
