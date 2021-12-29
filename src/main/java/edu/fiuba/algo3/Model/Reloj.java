@@ -35,11 +35,10 @@ public class Reloj {
         Duration dur = Duration.between(localDateTimeIni, dateTime);
         long millis = dur.toMillis();
 
-
-        return String.format("%02d:%02d",
+        return String.format("You work it with %d days and %d hours, congratulations.",
                 TimeUnit.MILLISECONDS.toDays(millis),
                 TimeUnit.MILLISECONDS.toHours(millis) -
-                        TimeUnit.MILLISECONDS.toHours(TimeUnit.MILLISECONDS.toDays(millis)));
+                        TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(millis)));
     }
 
 

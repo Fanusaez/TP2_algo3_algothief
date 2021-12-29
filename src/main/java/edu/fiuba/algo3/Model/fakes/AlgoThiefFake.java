@@ -21,9 +21,13 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     private EstadoJuegoInterfaz estadoJuego;
     private String nombre;
     private Ciudad ciudadIncial;
+    final String directorioArchivoCiudades;
+    final String directorioArchivoDelincuentes;
 
     public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
+        directorioArchivoCiudades=rutaArchivoCiudades;
+        directorioArchivoDelincuentes=rutaArchivoDelincuentes;
         dificultadJuego= new DificultadNovato();
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
@@ -33,6 +37,32 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         this.policia = new PoliciaFake(mapa.obtenerCiudadInicial());
         this.reloj = new Reloj();
         estadoJuego = new EstadoJugando();
+    }
+
+    public void SetearDificultadJuego(DificultadJuego unaDificultad){
+        dificultadJuego = unaDificultad;
+    }
+
+    public void siguienteNivel(){
+        if (policia.categoriaGanada()) {
+            dificultadJuego = dificultadJuego.aumentarDificultad();
+        }
+        crearNivel(dificultadJuego);
+    }
+
+    private void crearNivel(DificultadJuego dificultad) {
+        dificultadJuego= dificultad;
+        this.mapa = new MapaFake(directorioArchivoCiudades);
+        this.computadora = new Computadora(directorioArchivoDelincuentes, dificultadJuego);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
+        this.mapa.establecerPistasEnElRecorrido(this.delincuente);
+        this.mapa.establecerOpcionesDeViaje();
+        this.policia.setearCiudadIncial(mapa.obtenerCiudadInicial());
+        if (estadoJuego instanceof EstadoPerdido){ //ver
+            this.policia.reiniciarArrestos();}
+        this.reloj = new Reloj();
+        estadoJuego = new EstadoJugando();
+
     }
 
     public void ingresarUsuario(String unNombre){
@@ -171,6 +201,10 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
         return listadoNombresSospechosos;
     }
 
+
+    public DificultadJuego getDificultadJuego(){
+        return dificultadJuego;
+    }
 
     public Ciudad getCiudadPolicia(){
         return policia.getCiudadActual();

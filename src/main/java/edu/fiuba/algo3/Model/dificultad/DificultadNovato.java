@@ -8,7 +8,7 @@ public class DificultadNovato implements DificultadJuego {
         return Delincuente.crearDelincuenteParaNovato();
     }
 
-    public  DificultadJuego aumentarDificultad(Boolean booleano){
+    public  DificultadJuego aumentarDificultad(){
         return new DificultadDetective();
     }
 }

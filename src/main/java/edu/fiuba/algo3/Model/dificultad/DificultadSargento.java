@@ -7,7 +7,7 @@ public class DificultadSargento implements DificultadJuego{
     public Delincuente crearDelincuente() {
         return Delincuente.crearDelincuenteParaSargento();
     }
-    public  DificultadJuego aumentarDificultad(Boolean booleano){
+    public  DificultadJuego aumentarDificultad(){
         return  new DificultadSargento();
     }
 }

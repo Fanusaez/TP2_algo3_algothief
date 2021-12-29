@@ -38,9 +38,10 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
 
-
     public void siguienteNivel(){
-        dificultadJuego=dificultadJuego.aumentarDificultad(policia.categoriaGanada());
+        if(policia.categoriaGanada()) {
+            dificultadJuego = dificultadJuego.aumentarDificultad();
+        }
         crearNivel(dificultadJuego);
     }
 

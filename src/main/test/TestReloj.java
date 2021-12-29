@@ -33,14 +33,14 @@ public class TestReloj {
     }
 
 
-    /*@Test
+    @Test
     public void TestDiferenciadetiempo(){
         Reloj reloj= new Reloj();
-        reloj.aumentarHoras(34);
-        System.out.println(reloj.tiempoTranscurrido());
+        reloj.aumentarHoras(75);
+        assertEquals("You work it with 3 days and 3 hours, congratulations.",reloj.tiempoTranscurrido());
 
     }
-*/
+
     @Test
     public void TestAumentarHorarioDespuesDomingo17HorasLanzaError(){
 

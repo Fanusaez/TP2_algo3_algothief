@@ -4,6 +4,6 @@ import edu.fiuba.algo3.Model.CosasDelincuente.Delincuente;
 
 public interface DificultadJuego {
     public abstract Delincuente crearDelincuente();
-    public abstract DificultadJuego aumentarDificultad(Boolean booleano);
+    public abstract DificultadJuego aumentarDificultad();
 
 }

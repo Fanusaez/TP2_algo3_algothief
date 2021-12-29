@@ -3,6 +3,9 @@ import edu.fiuba.algo3.Model.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.Model.EstadoJugando;
 import edu.fiuba.algo3.Model.Excepciones.ExceptionDatoNoExistente;
 import edu.fiuba.algo3.Model.ciudad.Ciudad;
+import edu.fiuba.algo3.Model.dificultad.DificultadDetective;
+import edu.fiuba.algo3.Model.dificultad.DificultadNovato;
+import edu.fiuba.algo3.Model.dificultad.DificultadSargento;
 import edu.fiuba.algo3.Model.fakes.AlgoThiefFake;
 import org.junit.Test;
 
@@ -182,6 +185,17 @@ public class TestAlgoThief01 {
     public void PruebaExcepcionDatoNoExistente() {
         Ciudad ciudad = new Ciudad();
         assertThrows(ExceptionDatoNoExistente.class ,() -> ciudad.obtenerDato("lalal"));
+    }
+
+
+    @Test
+    public void PruebaAumentarDificultadJuegoSinGanar() {
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        /*algoThief.SetearDificultadJuego(new DificultadSargento());
+        assertTrue(algoThief.getDificultadJuego() instanceof DificultadSargento);*/
+
+         algoThief.siguienteNivel();
+         assertTrue(algoThief.getDificultadJuego() instanceof DificultadNovato);
 
     }
 
