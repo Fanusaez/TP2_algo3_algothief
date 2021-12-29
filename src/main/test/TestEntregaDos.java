@@ -1,9 +1,8 @@
-import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
-import edu.fiuba.algo3.modelo.computadora.Computadora;
-import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
-import edu.fiuba.algo3.modelo.policia.RangoDetective;
-import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
-import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.Model.computadora.Computadora;
+import edu.fiuba.algo3.Model.dificultad.DificultadNovato;
+import edu.fiuba.algo3.Model.policia.RangoDetective;
+import edu.fiuba.algo3.Model.fakes.AlgoThiefFake;
+import edu.fiuba.algo3.Model.ciudad.Ciudad;
 import org.junit.Test;
 
 import java.util.ArrayList;

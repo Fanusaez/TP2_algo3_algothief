@@ -1,5 +1,5 @@
-import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.ciudad.Ciudad;
+import edu.fiuba.algo3.Model.AlgoThief;
+import edu.fiuba.algo3.Model.ciudad.Ciudad;
 import org.junit.Test;
 
 import java.util.ArrayList;

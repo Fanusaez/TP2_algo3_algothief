@@ -1,9 +1,9 @@
-import edu.fiuba.algo3.modelo.AlgoThief;
-import edu.fiuba.algo3.modelo.CosasDelincuente.Delincuente;
-import edu.fiuba.algo3.modelo.EstadoJugando;
-import edu.fiuba.algo3.modelo.Excepciones.ExceptionDatoNoExistente;
-import edu.fiuba.algo3.modelo.ciudad.Ciudad;
-import edu.fiuba.algo3.modelo.fakes.AlgoThiefFake;
+import edu.fiuba.algo3.Model.AlgoThief;
+import edu.fiuba.algo3.Model.CosasDelincuente.Delincuente;
+import edu.fiuba.algo3.Model.EstadoJugando;
+import edu.fiuba.algo3.Model.Excepciones.ExceptionDatoNoExistente;
+import edu.fiuba.algo3.Model.ciudad.Ciudad;
+import edu.fiuba.algo3.Model.fakes.AlgoThiefFake;
 import org.junit.Test;
 
 import java.util.ArrayList;

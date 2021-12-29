@@ -1,5 +1,5 @@
-import edu.fiuba.algo3.modelo.computadora.Computadora;
-import edu.fiuba.algo3.modelo.dificultad.DificultadNovato;
+import edu.fiuba.algo3.Model.computadora.Computadora;
+import edu.fiuba.algo3.Model.dificultad.DificultadNovato;
 import org.junit.Assert;
 import org.junit.Test;
 

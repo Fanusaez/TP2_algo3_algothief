@@ -1,4 +1,4 @@
-import edu.fiuba.algo3.modelo.Reloj;
+import edu.fiuba.algo3.Model.Reloj;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
