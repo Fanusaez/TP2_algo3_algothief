@@ -32,6 +32,15 @@ public class TestReloj {
         assertEquals("Tuesday 09:00",reloj.obtenerHorario() );
     }
 
+
+    /*@Test
+    public void TestDiferenciadetiempo(){
+        Reloj reloj= new Reloj();
+        reloj.aumentarHoras(34);
+        System.out.println(reloj.tiempoTranscurrido());
+
+    }
+*/
     @Test
     public void TestAumentarHorarioDespuesDomingo17HorasLanzaError(){
 

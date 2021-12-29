@@ -20,9 +20,12 @@ public class AlgoThief implements AlgoThiefInterfaz{
     private Computadora computadora;
     private DificultadJuego dificultadJuego;
     public EstadoJuegoInterfaz estadoJuego;
-
+    final String directorioArchivoCiudades;
+    final String directorioArchivoDelincuentes;
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
+        directorioArchivoCiudades=rutaArchivoCiudades;
+        directorioArchivoDelincuentes=rutaArchivoDelincuentes;
         dificultadJuego= new DificultadNovato();
         this.mapa = new Mapa(rutaArchivoCiudades);
         this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
@@ -33,6 +36,29 @@ public class AlgoThief implements AlgoThiefInterfaz{
         this.reloj = new Reloj();
         estadoJuego = new EstadoJugando();
     }
+
+
+
+    public void siguienteNivel(){
+        dificultadJuego=dificultadJuego.aumentarDificultad(policia.categoriaGanada());
+        crearNivel(dificultadJuego);
+    }
+
+    private void crearNivel(DificultadJuego dificultad) {
+        dificultadJuego= dificultad;
+        this.mapa = new Mapa(directorioArchivoCiudades);
+        this.computadora = new Computadora(directorioArchivoDelincuentes, dificultadJuego);
+        this.delincuente = computadora.ObtenerDelincuenteRandom();
+        this.mapa.establecerPistasEnElRecorrido(this.delincuente);
+        this.mapa.establecerOpcionesDeViaje();
+        this.policia.setearCiudadIncial(mapa.obtenerCiudadInicial());
+        if (estadoJuego instanceof EstadoPerdido){ //ver
+            this.policia.reiniciarArrestos();}
+        this.reloj = new Reloj();
+        estadoJuego = new EstadoJugando();
+
+    }
+
 
     public void ingresarUsuario(String unNombre){
         this.nombre=unNombre;
@@ -104,23 +130,11 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.ciudadActual();
     }
 
-    public ArrayList<String> siguientePelo(){
-        return computadora.siguientePelo();
-    }
-    public ArrayList<String> siguienteSex(){
-        return computadora.siguienteSex();
-    }
-    public ArrayList<String> siguienteCar(){
-        return computadora.siguienteCar();
-    }
-    public ArrayList<String> siguienteFeature(){
-        return computadora.siguienteFeature();
-    }
-    public ArrayList<String> siguienteHobby(){
-        return computadora.siguienteHobby();
-    }
-
-
+    public void siguientePelo(){computadora.siguientePelo();}
+    public void siguienteSex(){computadora.siguienteSex();}
+    public void siguienteCar(){computadora.siguienteCar();}
+    public void siguienteFeature(){computadora.siguienteFeature();}
+    public void siguienteHobby(){computadora.siguienteHobby();}
 
     public void actualizarEstadoDeJuego(){
         estadoJuego = estadoJuego.cambiarA(reloj.tiempoAgotado());
@@ -134,16 +148,9 @@ public class AlgoThief implements AlgoThiefInterfaz{
         return policia.modificarEstadoDeJuego(computadora);
     }
 
-    public String estadoJuegoComoString(){
-        return estadoJuego.devolverComoString();
-    }
-
-    public ArrayList<String> mostrarAtriutosDelincuenteSeleccionados(){
-        return computadora.mostrarOpcionesSeleccionadas();
-    }
 
     public ArrayList<String> filtrarSospechosos(){
-        reloj.aumentarHoras(5);
+        reloj.aumentarHoras(1);
         actualizarEstadoDeJuego();
         return computadora.filtrar();
     }

@@ -1,14 +1,8 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.gui.View;
-import edu.fiuba.algo3.gui.layouts.ComputadoraLayout;
-import edu.fiuba.algo3.gui.layouts.EdificioLayout;
-import edu.fiuba.algo3.gui.layouts.FinDeJuegoLayout;
-import edu.fiuba.algo3.gui.layouts.ViajeLayout;
-import edu.fiuba.algo3.gui.scenes.ComputadoraScene;
-import edu.fiuba.algo3.gui.scenes.EdificioScene;
-import edu.fiuba.algo3.gui.scenes.FinDeJuegoScene;
-import edu.fiuba.algo3.gui.scenes.ViajeScene;
+import edu.fiuba.algo3.gui.layouts.*;
+import edu.fiuba.algo3.gui.scenes.*;
 import edu.fiuba.algo3.modelo.AlgoThief;
 import edu.fiuba.algo3.modelo.EstadoJugando;
 import javafx.application.Application;
@@ -118,7 +112,7 @@ public class App extends Application {
         chequearEstadoJuegoPerdido();
     }
 
-    public ListView CrearListadoDeLaComputadora() {
+    public ListView CrearListadoDeLaComputadora() { //se podria crear una clase a parte
 
 
         BorderStroke borderStroke =
@@ -215,6 +209,13 @@ public class App extends Application {
         if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){ //arreglar esto!!!!
             abrirEscenaFinDeJuego();
         }
+    }
+
+    public void siguienteNivel() {
+        algoThief.siguienteNivel();
+        CiudadLayout ciudadLayout = new CiudadLayout(window, this, algoThief);
+        CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
+        window.setScene(ciudadScene);   //Hay que modularizar estas 3 lineas
     }
 }
 

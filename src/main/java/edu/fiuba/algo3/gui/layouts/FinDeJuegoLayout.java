@@ -34,5 +34,11 @@ public class FinDeJuegoLayout extends BorderPane {
 
 
 
+
+    setOnMousePressed(e->{
+        app.siguienteNivel();
+    });
+
     }
+
 }

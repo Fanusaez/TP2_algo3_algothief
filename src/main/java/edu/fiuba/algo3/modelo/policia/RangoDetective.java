@@ -17,5 +17,9 @@ public class RangoDetective extends Rango {
         return this;
     }
 
+    public Boolean categoriaGanada(int cantidadArrestos) {
+        return (cantidadArrestos == cantidadNecesariaAscenso) ;
+
+    }
 
 }
