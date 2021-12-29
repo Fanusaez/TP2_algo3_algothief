@@ -117,7 +117,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void Test11Presentacion() {
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes,new DificultadNovato());
         algoThief.ingresarUsuario("juan");
         Ciudad ciudad = algoThief.obtenerCiudad("Port Moresby");
         algoThief.setearCiudadInicial(ciudad);
@@ -167,7 +167,7 @@ public class TestAlgoThief01 {
 
     @Test
     public void PruebaObtenerCiudadDevuelveElNombreDeLaCiudad() {
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes, new DificultadNovato());
         Ciudad ciudad = new Ciudad();
         ciudad.agregarDato("City","Buenos Aires");
         algoThief.setearCiudad(ciudad);
@@ -190,13 +190,21 @@ public class TestAlgoThief01 {
 
     @Test
     public void PruebaAumentarDificultadJuegoSinGanar() {
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes, new DificultadNovato());
         /*algoThief.SetearDificultadJuego(new DificultadSargento());
         assertTrue(algoThief.getDificultadJuego() instanceof DificultadSargento);*/
 
          algoThief.siguienteNivel();
          assertTrue(algoThief.getDificultadJuego() instanceof DificultadNovato);
+    }
 
+    @Test
+    public void PruebaPoliciaEsAtacadoConPistola()
+    {
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes, new DificultadSargento());
+        algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
+        algoThief.entrarABanco();
+        assertEquals("Monday 12:00", algoThief.obtenerHorario());
     }
 
 }

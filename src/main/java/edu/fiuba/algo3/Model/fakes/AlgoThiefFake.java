@@ -24,11 +24,12 @@ public class AlgoThiefFake  implements AlgoThiefInterfaz {
     final String directorioArchivoCiudades;
     final String directorioArchivoDelincuentes;
 
-    public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
+    public AlgoThiefFake(String rutaArchivoCiudades, String rutaArchivoDelincuentes, DificultadJuego dificultad ) {
 
         directorioArchivoCiudades=rutaArchivoCiudades;
         directorioArchivoDelincuentes=rutaArchivoDelincuentes;
-        dificultadJuego= new DificultadNovato();
+        //dificultadJuego= new DificultadNovato();
+        dificultadJuego = dificultad;
         this.mapa = new MapaFake(rutaArchivoCiudades);
         this.computadora = new Computadora(rutaArchivoDelincuentes, dificultadJuego);
         this.delincuente = computadora.ObtenerDelincuenteRandom();

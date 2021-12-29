@@ -62,7 +62,7 @@ public class Delincuente{
         int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
 
         //atributosLista.add("Thief  was " + atributosLista.get(2) + " haired");   //arreglar aca
-        atributosLista.add("The thief has" + hashDeAtributos.get("Hair") + "hair");
+        atributosLista.add("The thief has " + hashDeAtributos.get("Hair") + " hair");
 
         atributosLista.add("Thief's sex is " + hashDeAtributos.get("Sex"));
         atributosLista.add("run away with a " + hashDeAtributos.get("Auto"));

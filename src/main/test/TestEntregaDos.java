@@ -17,7 +17,7 @@ public class TestEntregaDos {
 
     @Test
     public void policiaEntraUnEdificioEnLaUltimaCiudadadEsAtacadoYDuerme() {
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes,new DificultadNovato());
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad()); //domingo 7 am
         algoThief.aumentarHorario(15);
         algoThief.entrarABanco(); // domingo 21pm + 1 hora cuchillo + 1 hora edificio + 8 dormir
@@ -25,7 +25,7 @@ public class TestEntregaDos {
     }
     @Test
     public void policiaInvestigadorViajeDeMontrealAMexico(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes, new DificultadNovato());
         Ciudad mexico = algoThief.obtenerCiudad("Mexico City");
         mexico.obtenerDato("Currency");
         Ciudad montreal = algoThief.obtenerCiudad("Montreal");
@@ -67,7 +67,7 @@ public class TestEntregaDos {
 
     @Test
     public void intentarAtraparAlDelincuenteSinOrdenDeArresto(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades, directorioDelincuentes,new DificultadNovato());
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
         algoThief.entrarAAeropuerto();
         algoThief.entrarAAeropuerto();
@@ -78,7 +78,7 @@ public class TestEntregaDos {
 
     @Test
     public void arrestarDelincuenteConOrdenDeArrestoGanaPartida(){
-        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes);
+        AlgoThiefFake algoThief = new AlgoThiefFake(directorioCiudades,directorioDelincuentes,new DificultadNovato());
         algoThief.setearCiudad(algoThief.obtenerUltimaCiudad());
         algoThief.entrarAAeropuerto();
         algoThief.entrarAAeropuerto();

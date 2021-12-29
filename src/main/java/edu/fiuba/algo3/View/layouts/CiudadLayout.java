@@ -96,10 +96,9 @@ public class CiudadLayout extends BorderPane {
 
 
         VBox imagenCiudad = new VBox();
-        imagenCiudad.setBackground(ImagenPortada.crearFondo("rsc/images/carmenSanDiego.png"));
+        imagenCiudad.setBackground(ImagenPortada.crearFondo("rsc/images/fotosciudades/"+algoThief.ciudadActual()+".png"));
         imagenCiudad.setMinSize(300, 400);
         imagenCiudad.setMaxSize(300,400);
-        //imagenCiudad.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, new Insets(5))));
 
         ladoIzquierdo.setTop(horaUbicacion);
         ladoIzquierdo.setBottom(imagenCiudad);

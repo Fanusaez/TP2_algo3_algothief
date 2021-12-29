@@ -101,7 +101,7 @@ Continent:   America
 Description:    Buenos Aires is the great cosmopolitan capital of Argentina. Its center is the Plaza de Mayo, surrounded by imposing 19th-century buildings, including the Casa Rosada, the iconic presidential palace that has several balconies. Other top attractions include the Teatro Colón, a luxurious 1908 opera house with about 2,500 seats, and the modern MALBA museum, which showcases Latin American.
 ...............................................................................
 City:        Cairo
-Flag:        ???
+Flag:        Red white and black
 Currency:    Pounds
 Geography:   ???
 Landmarks:   Pharoahs Tomb, Sinai Desert
@@ -221,7 +221,7 @@ Description:    London, the capital of England and the United Kingdom, is a 21st
 ...............................................................................
 City:        Mexico City
 Flag:        Green, White, and Red
-Currency:    ???
+Currency:    Mexican peso
 Geography:   ???
 Landmarks:   Mount Popocatepetl, Sierra Madre
 Industries:  ???
@@ -238,7 +238,7 @@ Description:    Mexico City is the densely populated capital of Mexico that sits
 ...............................................................................
 City:        Montreal
 Flag:        Maple Leaf Flag
-Currency:    ???
+Currency:    Canadian dollar
 Geography:   ???
 Landmarks:   Gaspe Peninsula, Lake Mistassini, Montgomery Falls, Prince Edward Island, Yukon
 Industries:  ???
@@ -323,7 +323,7 @@ Description:    New York, often called New York City to distinguish it from New 
 ...............................................................................
 City:        Oslo
 Flag:        Red and Blue Cross
-Currency:    ???
+Currency:    Norwegian krone
 Geography:   ???
 Landmarks:   Barents Sea
 Industries:  Hydroelectricity
@@ -442,7 +442,7 @@ Description:    Rome today is one of the most important tourist destinations of 
 ...............................................................................
 City:        San Marino
 Flag:        Blue and White
-Currency:    ???
+Currency:    Euro
 Geography:   ???
 Landmarks:   Mount Titano
 Industries:  Ceramics, Postage Stamps
@@ -459,7 +459,7 @@ Description:    San Marino, officially the Republic of San Marino, also known as
 ...............................................................................
 City:        Singapore
 Flag:        Red and White
-Currency:    ???
+Currency:    Singapore dollar
 Geography:   ???
 Landmarks:   Raffles Hotel, South China Sea, Straits of Malacca
 Industries:  Rubber
@@ -476,7 +476,7 @@ Description:    Singapore, officially the Republic of Singapore, is a sovereign 
 ...............................................................................
 City:        Sydney
 Flag:        Red, White, and Blue
-Currency:    ???
+Currency:    Australian dollar
 Geography:   ???
 Landmarks:   Great Sandy Desert, Opera House, Outback
 Industries:  Wool
