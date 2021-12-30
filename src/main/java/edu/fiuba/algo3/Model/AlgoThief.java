@@ -22,6 +22,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     public EstadoJuegoInterfaz estadoJuego;
     final String directorioArchivoCiudades;
     final String directorioArchivoDelincuentes;
+
     public AlgoThief(String rutaArchivoCiudades, String rutaArchivoDelincuentes) {
 
         directorioArchivoCiudades=rutaArchivoCiudades;
@@ -46,7 +47,7 @@ public class AlgoThief implements AlgoThiefInterfaz{
     }
 
     private void crearNivel(DificultadJuego dificultad) {
-        dificultadJuego= dificultad;
+        dificultadJuego = dificultad;
         this.mapa = new Mapa(directorioArchivoCiudades);
         this.computadora = new Computadora(directorioArchivoDelincuentes, dificultadJuego);
         this.delincuente = computadora.ObtenerDelincuenteRandom();

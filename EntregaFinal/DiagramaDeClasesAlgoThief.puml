@@ -1,0 +1,109 @@
+@startuml
+class AlgoThief{
+
+    + ingresarUsuario(nombre : String) : void
+    + desplegarTextoInicial() : String
+    + entrarAEdificio(indice : int) : String
+    + verOpcionesDeViaje() : ArrayList<Ciudad>
+    + relizarArresto() : void
+    + actualizarEstadoDeJuego() : void
+    + siguienteNivel() : void
+    + crearNivel(dificultad : DificultadJuego) : void
+}
+
+class Policia{
+    -cantidadArrestos
+
+    + entrarAEdificio(indiceEdificio : int)
+    + viajarA(Ciudad : destino) : int
+    + realizarArresto() : void
+    + getDemoraTiempoVisitar(indiceEdificio : int) : int
+
+}
+
+
+class Computadora{
+   - listasDeAtributosSeleccionados : ArrayList<ArrayList <String>>
+
+   + cambiarAtributoDelincuente(tipo : String) : void
+   + crearOrdenDeArrestoPara(sospechoso : String) : void
+   + relizarArresto() : EstadoDeJuego
+}
+
+interface EstadoDeJuego{
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+    + devolverComoString() : string
+
+}
+
+class EstadoJugando {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+class EstadoPerdido {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+
+}
+
+class Reloj{
+    - tiempo : LocalDataTime
+
+    + aumentarHoras(horas : int) : void
+    + tiempoAgotado() : EstadoDeJuego estado
+
+}
+
+class Mapa{
+    - ciudadesRecorridasPorDelicuente
+    - ciudadesNoRecorridasPorDelincuente
+
+    +  establecerOpcionesDeViaje()
+    + crearPistasCiudades(listaDePistasDelincuente: List<List<String>> )
+}
+
+class Delincuente{
+    - largoRecorrido : int
+    + generarPista() : String
+    + atacar() : int
+}
+
+interface DificultadJuego{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadNovato{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadInvestigador{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadDetective{
+    + creadDelincuente() : Delincuente
+}
+
+class DificultadSargento{
+    + creadDelincuente() : Delincuente
+}
+
+AlgoThief --> Policia
+AlgoThief --> Computadora
+AlgoThief --> Mapa
+AlgoThief --> Reloj
+AlgoThief --> Delincuente
+AlgoThief --> EstadoDeJuego
+AlgoThief --> DificultadJuego
+EstadoJugando ..|> EstadoDeJuego
+EstadoPerdido ..|> EstadoDeJuego
+DificultadDetective ..|> DificultadJuego
+DificultadNovato ..|> DificultadJuego
+DificultadSargento ..|> DificultadJuego
+DificultadInvestigador ..|> DificultadJuego
+
+@enduml
