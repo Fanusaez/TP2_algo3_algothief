@@ -1,0 +1,84 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+
+class Mapa{
+-ciudadesRecorridasPorDelicuente
+-ciudadesNoRecorridasPorDelincuente
+
++ mostrarOpcionesViaje()
++ crearCiudades(string nombreArchivo)
++ distribuirCiudadesRecorridasNoRecorridas(cantidadCiudades: int)
++ establecerPistasEnElRecorrido(Delincuente delincuente)
+}
+
+class Ciudad{
+-poblacion:string
+-bandera:string
+-moneda:string
+-idioma:string
+-contadorVisitaEdificio: int
+
++entrarAEdificio(indiceEdificio)
++generarPista(ciudadSiguiente, pistaDelincuente)
++mostrarOpcionesViaje() : ArrayList<Ciudad>
+
+}
+
+interface EstadoCiudad{
+
++atacar()
++entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
+}
+
+class Segura{
++atacar()
++entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
+}
+
+class Peligrosa{
++atacar()
++entrarAEdificio(Edificio edificio)
++modificarEstadoDeJuego(compu:Computadora)
+}
+
+abstract class Edificio{
+-pista
+-cantidadEntradas
++visitar()
++ MostrarPista()
++visitar() : int
++ {abstract} generarPista(ciudadSiguiente,pistaDelincuente)
+}
+
+class Banco{
++ generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
+}
+
+class Puerto{
++ generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
+}
+
+class Museo{
++ generarPista(ciudadSiguiente,pistaDelincuente)
++visitar() : int
+}
+
+Mapa "1" --> "*" Ciudad
+
+Ciudad "1" --> "3" Edificio
+
+Museo ..|> Edificio
+Banco ..|> Edificio
+Puerto ..|> Edificio
+
+Ciudad --> EstadoCiudad
+Segura ..|> EstadoCiudad
+Peligrosa ..|> EstadoCiudad
+
+@enduml

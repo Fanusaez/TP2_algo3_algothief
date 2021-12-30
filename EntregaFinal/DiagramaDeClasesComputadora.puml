@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+'https://plantuml.com/class-diagram
+
+class Computadora{
++siguientePelo()
++siguienteAuto()
++siguienteHobby()
++siguienteSexo()
++siguienteSenia()
++obtenerDelincuenteRandom()
++crearOrdenDeArresto(String Nombredelincuente)
++filtrar()
+}
+
+class Delincuente{
+- largoRecorrido : int
++ generarPista() : String
++ atacar() : int
+}
+
+class Filtrador{
++filtrar()
+}
+
+interface DificultadJuego{
+}
+
+class OrdenArresto{
+-nombre
+
++realizarArresto(String nombreSospechoso)
+}
+
+Computadora "1" -> "*" Delincuente
+Computadora -> Filtrador
+Computadora ..> DificultadJuego
+DificultadJuego ..> Delincuente
+Computadora -> OrdenArresto
+
+
+@enduml

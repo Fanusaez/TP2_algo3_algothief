@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Policia{
+    -cantidadArrestos
+
+    + entrarAEdificio(indiceEdificio : int)
+    + viajarA(Ciudad : destino) : int
+    + realizarArresto() : void
+    + getDemoraTiempoVisitar(indiceEdificio : int) : int
+
+}
+
+class Computadora{
+   - listasDeAtributosSeleccionados : ArrayList<ArrayList <String>>
+
+   + cambiarAtributoDelincuente(tipo : String) : void
+   + crearOrdenDeArrestoPara(sospechoso : String) : void
+   + relizarArresto() : EstadoDeJuego
+}
+
+class Ciudad{
+    - datosCiudad : hashMap<String,String>
+
+    + entrarAEdificio(indiceEdificio) : String
+    + generarPista(ciudadSiguiente, pistaDelincuente)
+    + mostrarOpcionesDeViaje() : ArrayList<Ciudades>
+}
+
+abstract class Rango{
+    -velocidad
+    -cantidadNecesariaParaAscender
+
+    + {abstract} ascender(cantidadArrestos))
+}
+
+class RangoNovato{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoDetective{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoInvestigador{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+class RangoSargento{
+    -velocidad
+    -cantidadNecesariaParaAscender
++ascender(cantidadArrestos)
+}
+
+Policia --> Rango
+RangoNovato ..|> Rango
+RangoDetective ..|> Rango
+RangoSargento ..|> Rango
+RangoInvestigador ..|> Rango
+
+Policia ..> Computadora
+Policia --> Ciudad
+
+
+
+@enduml
