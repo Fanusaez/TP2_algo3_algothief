@@ -46,8 +46,9 @@ public class CiudadLayout extends BorderPane {
         ladoDerecho.setCenter(cajaGenerica);
 
         Label horaUbicacion = new Label(algoThief.ciudadActual() + "\n" + algoThief.obtenerHorario());
+        HBox boxHorario = new HBox(horaUbicacion);
         horaUbicacion.setMinSize(300, 50);
-        horaUbicacion.setBorder(border);
+        boxHorario.setBorder(border);
         horaUbicacion.setFont(Font.font("Courier New", FontWeight.EXTRA_BOLD, 24));
 
         Label descripcionCiudad = new Label(algoThief.obtenerInformacionCiudad());
@@ -99,8 +100,11 @@ public class CiudadLayout extends BorderPane {
         imagenCiudad.setBackground(ImagenPortada.crearFondo("rsc/images/fotosciudades/"+algoThief.ciudadActual()+".png"));
         imagenCiudad.setMinSize(300, 400);
         imagenCiudad.setMaxSize(300,400);
+        imagenCiudad.setBorder(border);
+        imagenCiudad.setEffect(dropShadow);
+        setPadding(new Insets(4));
 
-        ladoIzquierdo.setTop(horaUbicacion);
+        ladoIzquierdo.setTop(boxHorario);
         ladoIzquierdo.setBottom(imagenCiudad);
 
         this.setLeft(ladoIzquierdo);

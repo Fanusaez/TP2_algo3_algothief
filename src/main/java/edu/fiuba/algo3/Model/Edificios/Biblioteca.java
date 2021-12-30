@@ -7,6 +7,6 @@ public class Biblioteca extends Edificio {
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, Delincuente delincuente) {
-        pista = "I saw the thief taking photos of " + unaCiudad.obtenerDato("Landmarks") + ". " +   delincuente.generarPista();
+        pista = "I saw the thief taking photos of " + unaCiudad.obtenerDato("Landmarks") + "\n" +   delincuente.generarPista();
     }
 }

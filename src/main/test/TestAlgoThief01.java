@@ -3,7 +3,6 @@ import edu.fiuba.algo3.Model.CosasDelincuente.Delincuente;
 import edu.fiuba.algo3.Model.EstadoJugando;
 import edu.fiuba.algo3.Model.Excepciones.ExceptionDatoNoExistente;
 import edu.fiuba.algo3.Model.ciudad.Ciudad;
-import edu.fiuba.algo3.Model.dificultad.DificultadDetective;
 import edu.fiuba.algo3.Model.dificultad.DificultadNovato;
 import edu.fiuba.algo3.Model.dificultad.DificultadSargento;
 import edu.fiuba.algo3.Model.fakes.AlgoThiefFake;
@@ -122,7 +121,7 @@ public class TestAlgoThief01 {
         Ciudad ciudad = algoThief.obtenerCiudad("Port Moresby");
         algoThief.setearCiudadInicial(ciudad);
         Delincuente delincuente = new Delincuente();
-        delincuente.agregarDato2("Female");
+        delincuente.agregarDato("Female");
         ciudad.agregarDato("Treasure", "ancient tribal totem");
         algoThief.setearDelincuente(delincuente);
 

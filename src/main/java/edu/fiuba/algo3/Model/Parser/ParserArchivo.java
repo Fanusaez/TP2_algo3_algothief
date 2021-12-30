@@ -34,13 +34,11 @@ public class ParserArchivo {
                     continue;
                 }
                 String[] lineaSpliteada = line.split(":");
-                String clave= lineaSpliteada[0];
                 String dato = lineaSpliteada[1].trim();
                 if (!caracteristicasGenerales.get(contador).contains(dato)){
                     caracteristicasGenerales.get(contador).add(dato);
                 }
-                delincuente.agregarDato(clave, dato);
-                delincuente.agregarDato2(dato);
+                delincuente.agregarDato(dato);
                 contador += 1;
             }
             bufferedReader.close();

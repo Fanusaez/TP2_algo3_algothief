@@ -24,11 +24,12 @@ public class TestEdificio {
         Edificio aeropuerto = new Aeropuerto();
         Ciudad ciudad = new Ciudad();
         Delincuente delincuente = new Delincuente();
-        delincuente.agregarDato("Sex","male");
-        delincuente.agregarDato("Hobby","Tennis");
-        delincuente.agregarDato("Auto","male");
-        delincuente.agregarDato("Hair","Black");
-        delincuente.agregarDato("Feature","Jewelry");
+        delincuente.agregarDato("nombreDesconocido");
+        delincuente.agregarDato("male");
+        delincuente.agregarDato("Tennis");
+        delincuente.agregarDato("Black");
+        delincuente.agregarDato("Jewelry");
+        delincuente.agregarDato("Peugeot");
 
         ciudad.agregarDato("Currency", "platita");
         ciudad.agregarDato("Flag", "banderita");
@@ -48,11 +49,12 @@ public class TestEdificio {
         Ciudad ciudad1 = new Ciudad();
         Ciudad ciudad2 = new Ciudad();
         Delincuente delincuente = new Delincuente();
-        delincuente.agregarDato("Sex","male");
-        delincuente.agregarDato("Hobby","Tennis");
-        delincuente.agregarDato("Auto","male");
-        delincuente.agregarDato("Hair","Black");
-        delincuente.agregarDato("Feature","Jewelry");
+        delincuente.agregarDato("nombreDesconocido");
+        delincuente.agregarDato("male");
+        delincuente.agregarDato("Tennis");
+        delincuente.agregarDato("Black");
+        delincuente.agregarDato("Jewelry");
+        delincuente.agregarDato("Ferrari");
 
         ciudad1.agregarDato("Currency", "platita1");
         ciudad1.agregarDato("Flag", "banderita1");

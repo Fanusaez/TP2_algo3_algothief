@@ -5,14 +5,19 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Delincuente{
-    private HashMap<String,String> hashDeAtributos;  //esto se va a tener que ir
     private ArrayList<String> atributos;
     private Arma arma;
     private int largoRecorrido;
-    //aca iria un enum con los indices de cada atributo
+    enum INDICES {
+        NOMBRE,
+        SEXO,
+        HOBBY,
+        HAIR,
+        FEATURE,
+        AUTO
+    }
 
     public Delincuente() {
-        this.hashDeAtributos= new HashMap<String,String>();
         this.arma = new Cuchillo();
         this.atributos = new ArrayList<String>();
     }
@@ -52,24 +57,24 @@ public class Delincuente{
         this.arma=arma;
     }
 
-    public void agregarDato(String clave,String valor) {    //este se va a tener que borrar porque ya se usa el agregardato2
-        this.hashDeAtributos.put(clave,valor);
-    }
-
     public String generarPista() {
 
-        ArrayList<String> atributosLista = new ArrayList<String>();
-        int randIdx = new Random().nextInt(hashDeAtributos.size()-1);
+        ArrayList<String> posiblesPistas = new ArrayList<String>();
 
-        //atributosLista.add("Thief  was " + atributosLista.get(2) + " haired");   //arreglar aca
-        atributosLista.add("The thief has " + hashDeAtributos.get("Hair") + " hair");
+        posiblesPistas.add("The thief has " + atributos.get(INDICES.HAIR.ordinal()) + " hair");
+        posiblesPistas.add("The thief mention that likes " + atributos.get(INDICES.HOBBY.ordinal()));
+        posiblesPistas.add("Thief's sex is " + atributos.get(INDICES.SEXO.ordinal()));
+        posiblesPistas.add("run away with a " + atributos.get(INDICES.AUTO.ordinal()));
+        posiblesPistas.add("The thief has a " + atributos.get(INDICES.FEATURE.ordinal()));
+        posiblesPistas.add("");
+        posiblesPistas.add("");
+        posiblesPistas.add("");
+        posiblesPistas.add("");
+        posiblesPistas.add("");
 
-        atributosLista.add("Thief's sex is " + hashDeAtributos.get("Sex"));
-        atributosLista.add("run away with a " + hashDeAtributos.get("Auto"));
-        atributosLista.add("The thief has a " + hashDeAtributos.get("Feature"));
-        atributosLista.add("");
+        int randIdx = new Random().nextInt(posiblesPistas.size()-1);
+        return posiblesPistas.get(randIdx);
 
-        return atributosLista.get(randIdx);
 
     }
 
@@ -93,14 +98,14 @@ public class Delincuente{
     }
 
     public String getNombre() {
-        return atributos.get(0);
+        return atributos.get(INDICES.NOMBRE.ordinal());
     }
 
-    public void agregarDato2(String dato) {
+    public void agregarDato(String dato) {
         atributos.add(dato);
     }
 
     public String getSexo() {
-        return  atributos.get(1);
+        return  atributos.get(INDICES.SEXO.ordinal());
     }
 }

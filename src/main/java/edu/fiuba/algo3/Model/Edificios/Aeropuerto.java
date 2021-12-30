@@ -8,7 +8,7 @@ public class Aeropuerto extends Edificio {
 
     @Override
     public void generarPistaEdificio(Ciudad unaCiudad, Delincuente delincuente) {
-        pista = " I saw the thief taking off in a plane with a " + unaCiudad.obtenerDato("Flag") + " flag on it's wing. " + delincuente.generarPista();
+        pista = " I saw the thief taking off in a plane with a " + unaCiudad.obtenerDato("Flag") + " flag on it's wing.\n" + delincuente.generarPista();
 
     }
 }

@@ -49,7 +49,7 @@ public class EdificioLayout extends BorderPane {
 
         cajaEmpleado.setBackground(new Background(backgroundImage));
 
-        Text pistaLabel = new Text(pista+". Click to return");
+        Text pistaLabel = new Text(pista+"\nClick to return.");
         pistaLabel.setWrappingWidth(400);
         pistaLabel.setFont(Font.font("Verdana", FontWeight.BOLD, 20));
 

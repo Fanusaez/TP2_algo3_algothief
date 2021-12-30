@@ -22,8 +22,6 @@ import java.util.TimerTask;
 
 public class StartGameLayout extends BorderPane {
 
-    private Label labelVariable;
-
     public StartGameLayout(Stage window, App app, AlgoThief algoThief) {
 
         this.setBackground(ImagenPortada.crearFondo("rsc/images/computadoraFondo.png"));
@@ -61,17 +59,12 @@ public class StartGameLayout extends BorderPane {
                 textodeoracion.setWrappingWidth(490);
                 cajaOraciones.getChildren().addAll(textodeoracion);
             }
-            cajaOraciones.getChildren().addAll(new Text("pepito")); // aca iria: new Text(nombreUsuario.getText())
             Text clickParaContinuar =new Text("Click to skip the intro");
             clickParaContinuar.setFont(Font.font("OCR A Extended", FontPosture.REGULAR, 24));
             clickParaContinuar.setFill(Color.WHITE);
             this.setBottom(clickParaContinuar);
 
-
             audioClip.play();
-
-
-
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {
@@ -89,21 +82,14 @@ public class StartGameLayout extends BorderPane {
                     });
                 }
             }, 0,800);
-        });
 
-
-
-        setOnMousePressed(e->{
-            if (!nombreUsuario.getText().equals("")) {
+            setOnMousePressed(i->{
                 audioClip.stop();
                 CiudadLayout ciudadLayout = new CiudadLayout(window, app, algoThief);
                 CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
                 window.setScene(ciudadScene);
-            }
+            });
         });
-
-
         setCenter(cajaOraciones);
-
     }
 }
