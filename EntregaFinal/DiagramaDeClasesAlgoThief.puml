@@ -47,15 +47,21 @@ class EstadoPerdido {
     - estado : string
     + devolverComoString() : String
     + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
-
 }
+
+class EstadoGanado {
+    - estado : string
+    + devolverComoString() : String
+    + cambiarA(EstadoDeJuego estado) : EstadoDeJuego
+}
+
 
 class Reloj{
     - tiempo : LocalDataTime
 
     + aumentarHoras(horas : int) : void
     + tiempoAgotado() : EstadoDeJuego estado
-
+    + tiempoTranscurrido() : String
 }
 
 class Mapa{
@@ -101,6 +107,7 @@ AlgoThief --> EstadoDeJuego
 AlgoThief --> DificultadJuego
 EstadoJugando ..|> EstadoDeJuego
 EstadoPerdido ..|> EstadoDeJuego
+EstadoGanado ..|> EstadoDeJuego
 DificultadDetective ..|> DificultadJuego
 DificultadNovato ..|> DificultadJuego
 DificultadSargento ..|> DificultadJuego
