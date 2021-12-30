@@ -1,0 +1,225 @@
+\documentclass[titlepage,a4paper]{article}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{a4wide}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=blue,bookmarksopen=true]{hyperref}
+\usepackage{bookmark}
+\usepackage{fancyhdr}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+
+\pagestyle{fancy} % Encabezado y pie de página
+\fancyhf{}
+\fancyhead[L]{TP2}
+\fancyhead[R]{Algoritmos y Programación III - FIUBA}
+\renewcommand{\headrulewidth}{0.4pt}
+%\\ \\
+\fancyfoot[C]{\\ \\  \thepage}
+%\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+\begin{titlepage} % Carátula
+	\hfill\includegraphics[width=6cm]{logofiuba.jpg}
+    \centering
+    \vfill
+    \Huge \textbf{Trabajo Práctico 2 — Java}
+    \vskip2cm
+    \Large [7507/9502] Algoritmos y Programación III\\
+    Curso 1 \\ % Curso 1 para el de la tarde y 2 para el de la noche
+    Segundo Cuatrimestre 2021 
+    \vfill
+    \begin{tabular}{ | l | l | } % Datos del alumno
+      \hline
+      Alumno: & Retorri, Julian Rafael - 106581
+      \\ \hline 
+      Alumno: & Saez, Edgardo Francisco  - 104896 
+      \\ \hline 
+      Alumno: & Pensado, Ivan Manuel - 106804 
+      \\ \hline
+      Alumno: & Sabaj, Gaston - 106147
+      \\ \hline
+      
+  	\end{tabular}
+    \vfill
+    \vfill
+\end{titlepage}
+
+\tableofcontents % Índice general
+\newpage
+
+\section{Introducción}\label{sec:intro}
+El presente informe reune la documentación de la solución del 2do trabajo práctico de la materia Algoritmos y Programación III que consiste en desarrollar el juego "Carmen Sandiego" de manera grupal, aplicando todos los conceptos vistos en el curso, utilizando un lenguaje de tipado estático (Java) con un diseño del modelo orientado a objetos y trabajando con las técnicas de TDD e Integración Continua.
+
+\section{Supuestos}\label{sec:supuestos}
+% Deberá contener explicaciones de cada uno de los supuestos que el alumno haya tenido que adoptar a partir de situaciones que no estén contempladas en la especificación.
+Los supuestos que adopte a lo largo del Trabajo Práctico fueron:
+    
+  %  1 - Se utilizan los archivos de datos de la catedra. A Partir de estos se parsean los archivos y se inicializan las ciudades y delincuentes.
+    
+    1 - La cantidad de destinos al que se puede viajar desde una ciudad son 3.
+    
+    2 - El policia está habilitado para dormir entre las 22:00hs y las 06:00hs del día siguiente, y la demora de tiempo al dormir son de 8 horas.
+    
+    3 - Al delincuente se lo podrá intentar arrestar a la tercera entrada de un edificio cualquiera de la última ciudad del delincuente. Si al momento de intentar arrestarlo, no se tiene una orden de arresto ya computada, se va a perder la partida.
+    
+    4 - Si al momento de atrapar el delincuente no se posee una orden de arresto que coincida con el nombre del mismo , entonces se perderá la partida.
+ 
+    5 -Los ataques del delincuente se realizan en los edificios de la última ciudad recorrida por el delincuente.
+    
+    6 -El delincuente está ubicado en la última ciudad de su recorrido, a la espera de que el policia llegue.
+    
+    
+
+% \textit{-El policia está habilitado para dormir entre las 22:00hs y las 06:00hs del día siguiente, y la demora de tiempo al dormir son de 8 horas.}
+
+%\textit{-El delincuente está ubicado en la última ciudad de su recorrido, a la espera de que el policia llegue.}
+
+%\textit{-Al delincuente se lo podrá intentar arrestar a la tercera entrada de un edificio cualquiera de la última ciudad del delincuente. Si al momento de intentar arrestarlo, no se tiene una orden de arresto ya computada, se va a perder la partida.}
+
+%\textit{-Los ataques del delincuente se realizan en los edificios de la última ciudad, donde está el mismo delincuente. }
+
+
+%\begin{comment}
+\section{Modelo de dominio}\label{sec:modelo}
+% Explicación concisa del diseño general del trabajo.
+
+El trabajo práctico entregado trata de una implementación de una versión del juego \textit{Carmen Sandiego}, el cuál trata de viajar a ciudades del mundo buscando a un delincuente que cometió un robo de un objeto importante de un país, y arrestarlo. Mientras se desarrolla el juego, el usuario puede:
+  -Ver los viajes posibles desde la ciudad actual, hacia otras ciudades.
+  
+  -Puede viajar hacia esos destinos posibles\n
+  
+  -Puede entrar a cualquiera de los 3 edificios de su ciudad actual
+  
+  -Puede entrar a la computadora de Interpol para poder cargar las pistas recopiladas acerca de las características del delincuente, como su color de pelo, su hobbie principal, su sexo, etc.\n
+   
+  En el caso de que se tenga una orden de arresto para la hora de arrestar al delincuente, se gana la partida, de lo contrario, si se tiene una orden de arresto de un sospechoso incorrecto, o no se tiene 
+ninguna orden de arresto, se pierde la partida.
+
+\newpage
+\section{Diagramas de clase}\label{sec:diagramasdeclase}
+
+A continuación se muestran los diagramas de clase del modelo, el cuál muestran la relacion entre la clases que nos ayudaron a resolver el problema.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.2\textwidth]{Diagrama de clase 1 de algoThief.png}
+\caption{\label{fig:class01}Diagrama de clase 1 de AlgoThief}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Diagrama de clase 2 de algoThief.png}
+\caption{\label{fig:class01}Diagrama de clase 2 de AlgoThief}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{Diagrama de clase de computadora.png}
+\caption{\label{fig:class01}Diagrama de clase de Computadora}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.2\textwidth]{Diagrama de clase de mapa.png}
+\caption{\label{fig:class01}Diagrama de clase de Mapa}
+\end{figure}
+
+\newpage
+\section{Diagramas de secuencia}\label{sec:diagramasdesecuencia}
+% Mostrar las secuencias interesantes que hayan implementado. Pueden agregar texto para explicar si algo no queda claro.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.2\textwidth]{Policia entra a edifico en ultima ciudad.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.15\textwidth]{Policia sufre herida de cuchillo y duerme.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.2\textwidth]{Policia atrapa al ladron y gana.png}
+\end{figure}
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1.2\textwidth]{DiagramaDeSecuencia2.png}
+%\caption{\label{fig:seq01}DS}
+%\end{figure}
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1.2\textwidth]{Diagrama3.png}
+%\caption{\label{fig:seq02}DS }
+%\end{figure}
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1.2\textwidth]{DiagramaSec4.png}
+%\caption{\label{fig:seq02}DS }
+%\end{figure}
+
+
+%\begin{figure}[H]
+%\centering
+%\includegraphics[width=1.2\textwidth]{DiagramaS5.png}
+%\caption{\label{fig:seq02}DS }
+%\end{figure}
+
+
+\newpage
+\section{Diagramas de paquetes}\label{sec:Diagramas de paquetes}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.2\textwidth]{DP1.png}
+\caption{\label{fig:class01}Diagrama de Paquetes 1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.0\textwidth]{DP2.png}
+\caption{\label{fig:class01}Diagrama de Paquetes 2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{DP3.png}
+\caption{\label{fig:class01}Diagrama de Paquetes 3}
+\end{figure}
+
+\section{Detalles de implementación}\label{sec:Detalles de implementación}
+Utilizamos el patron Model–view–controller para separar los datos y  la lógica del juego  de su representación y el módulo encargado de gestionar los eventos y las comunicaciones.
+Tambien utilizamos el patron state para diferenciar los estados de algoThief, tanto en su dificultad como en su estado de nivel (ganado, perdido, jugando) con lo que un mismo metodo desencadenara diferentes acciones dependiendo de su estado ahorrandonos el uso de muchos condicionales, aplicando de esta manera el concepto de polimorfismo.
+
+La delegacion de tareas se da reiteradas veces en el modelo, por ejemplo , el delincuente le delega a su arma el daño (entendido como horas) de su ataque, o el policia le delega a su clase Brujula el tiempo del viaje.De esta manera, evitamos que las clases se sobrecarguen de responsabilidades.
+Así como utilizamos delegación, también utilizamos herencia con la clase abstracta edificio, ya que los tipos de edificios heredan métodos a implementar, y un método de código común para todos, el cual se encarga de incrementar el contador de visitas al respectivo edificio. 
+
+Respecto a principios de diseño, utilizamos el principio de inversión de dependencias, por ejemplo para que las clases que implementan las interfaz \textit{DificultadJuego}, no dependan de métodos que no implementan.
+También aplicamos el principio de abierto/cerrado, para que el código de 
+las clases pueda ser extensible sin modificar código ya creado, por ejemplo
+si el día de mañana queremos agregar nuevos edificios; nuevos estados
+del juego o nuevas dificultades del juego.
+
+  %Deben detallar/explicar qué estrategias utilizaron para resolver todos los puntos más conflictivos del trabajo práctico. Justificar el uso de herencia vs. delegación, mencionar que principio de diseño aplicaron en qué caso y mencionar qué patrones de diseño fueron utilizados y por qué motivos.
+
+%Nota: No describir el concepto de herencia, delegación, principio de diseño o patrón de diseño. Solo justificar su utilización.
+
+  
+\section{Excepciones}\label{sec:excepciones}
+Creamos las excepciones CiudadNoExistente y DatoNoExistente, esto debido al riesgo que conlleva que los archivos de texto utilizados tengan un formato erroneo o introduzcan texto equivocado.
+% Explicación de cada una de las excepciones creadas y con qué fin fueron creadas.
+
+%\begin{description}
+%\item[Exception] CiudadInexistente: ESta excpecion fue creada para el caso de que no se encuentre una ciudad en el Mapa
+%\item[Excepcion] DatoInexistente: Esta excepción fue creada para el caso de no encontrar algun tipo de dato ya sea en la clase "Delincuente" o "Ciudad"
+%\end{description}
+
+
+
+\end{document}
+
