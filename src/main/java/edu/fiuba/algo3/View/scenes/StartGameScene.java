@@ -14,12 +14,4 @@ public class StartGameScene extends Scene {
 
         this.startGameLayout = startGameLayout;
     }
-
-    public StartGameLayout getStartGameLayout() {
-        return startGameLayout;
-    }
-
-    public void setStartGameLayout(StartGameLayout startGameLayout) {
-        this.startGameLayout = startGameLayout;
-    }
 }

@@ -25,10 +25,6 @@ public class FinDeJuegoLayout extends BorderPane {
             this.setBackground(ImagenPortada.crearFondo("rsc/images/perdiste.png"));
         }
 
-
-
-
-
     setOnMousePressed(e->{
         app.siguienteNivel();
     });

@@ -103,29 +103,22 @@ public class App extends Application {
     }
 
     public void chequearEstadoJuegoPerdido(){
-        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){ //arreglar esto!!!!
+        if(!(algoThief.getEstadoDeJuego() instanceof EstadoJugando)){
             abrirEscenaFinDeJuego();
         }
     }
 
     public void siguienteNivel() {
         algoThief.siguienteNivel();
-        CiudadLayout ciudadLayout = new CiudadLayout(window, this, algoThief);
-        CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
-        window.setScene(ciudadScene);   //Hay que modularizar estas 3 lineas
+        //CiudadLayout ciudadLayout = new CiudadLayout(window, this, algoThief);
+        //CiudadScene ciudadScene = new CiudadScene(window, ciudadLayout, algoThief);
+
+        //StartGameLayout startGameLayout = new StartGameLayout(window,this, algoThief);
+        //StartGameScene startGameScene = new StartGameScene(window,startGameLayout, algoThief);
+        SiguienteNivelLayout siguienteNivelLayout = new SiguienteNivelLayout(window, this, algoThief);
+        SiguienteNivelScene siguienteNivelScene = new SiguienteNivelScene(siguienteNivelLayout);
+        window.setScene(siguienteNivelScene);
     }
 }
 
-
-
-
-    /*public void abrirEscenaJuegoFinalizado(JuegoGanado Juegoganado){
-        window.setScene(EscenaGanaste);
-    }
-    public void abrirEscenaJuegoFinalizado(JuegoPerdido Juegoperdido){
-        window.setScene(EscenaPerdiste);
-    }
-    public void abrirEscenaJuegoFinalizado(JuegoContinuando Juegoperdido){
-        return;
-    }*/
 
