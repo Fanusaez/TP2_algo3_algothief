@@ -4,6 +4,9 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
+## Consigna
+[TP2 Algo Thieft.pdf](https://github.com/Fanusaez/juego_Algothief/files/10396739/TP2.Algo.Thieft.pdf)
+
 ## Grupo 7
 
 * **Integrante 1** - [Alejo De Iuliis](https://github.com/alejodeiuliis)
